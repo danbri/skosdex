@@ -12,7 +12,7 @@
     dcterms:title "AGROVOC" ;
     dcterms:publisher <https://www.fao.org/> ;
     skosdex:conceptSchemeURI <http://aims.fao.org/aos/agrovoc> ;
-    skosdex:sourceURL <https://agrovoc.fao.org/latestAgrovoc/> ;  # LOD release landing — pick the .nt/.nq dump
+    skosdex:sourceURL <https://agrovoc.fao.org/latestAgrovoc/agrovoc_lod.nt.zip> ;  # zipped N-Triples; needs an unzip helper
     skosdex:sourceFormat "application/n-triples" ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     skosdex:licenseClass "open" ;

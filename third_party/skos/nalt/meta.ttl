@@ -3,16 +3,15 @@
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 # NAL Agricultural Thesaurus (NALT), USDA. CC0 1.0 -> public-domain, fully
-# bundleable. Left bundle:false until the exact direct N-Triples/Turtle dump
-# URL is confirmed at onboarding (the lod.nal.usda.gov / Ag Data Commons pages
-# below host RDF-SKOS in RDF/XML, N-Triples and Turtle). Prefer the N-Triples
-# or Turtle serialization — the default pipeline cannot parse RDF/XML.
+# bundleable in principle. The available dump (Skosmos REST below) returns a
+# .zip of Turtle, so onboarding needs a tools/ helper to unzip first -> hence
+# bundle:false for now.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "NAL Agricultural Thesaurus (NALT)" ;
     dcterms:publisher <https://www.nal.usda.gov/> ;
     skosdex:conceptSchemeURI <https://lod.nal.usda.gov/nalt/> ;
-    skosdex:sourceURL <https://lod.nal.usda.gov/> ;  # download landing — pick the .nt/.ttl SKOS dump
-    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:sourceURL <https://lod.nal.usda.gov/rest/v1/nalt/data?format=text/turtle> ;  # returns zipped Turtle
+    skosdex:sourceFormat "text/turtle" ;
     dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     skosdex:licenseClass "public-domain" ;
     skosdex:bundle false .

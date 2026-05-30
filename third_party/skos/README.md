@@ -40,7 +40,7 @@ worth onboarding, with verified licenses and sources.
 | slug | license | class | bundled | note |
 |------|---------|-------|---------|------|
 | `example-colors` | CC0 | public-domain | ✅ | sample scheme; exercises the pipeline |
-| `nalt` | CC0 | public-domain | ⏸ `bundle:false` | confirm direct dump URL to onboard |
+| `nalt` | CC0 | public-domain | ⏸ `bundle:false` | dump is zipped Turtle; needs an unzip helper |
 | `agrovoc` | CC BY 4.0 | open | ⏸ `bundle:false` | large; zipped dump needs an unzip helper |
 | `getty-aat` | ODC-By 1.0 | open | ⏸ `bundle:false` | large; zipped dump needs an unzip helper |
 | `iptc-media-topics` | CC BY 4.0 | open | ⏸ `bundle:false` | Turtle via content negotiation; ready to flip on |
