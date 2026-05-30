@@ -37,7 +37,16 @@ worth onboarding, with verified licenses and sources.
 
 ## Current schemes
 
-- `example-colors` — CC0 sample scheme (bundled); exercises the pipeline.
-- `lcsh` — Library of Congress Subject Headings; public domain but opted out of
-  the bundle by default due to size.
-- `unesco-thesaurus` — CC BY-SA (copyleft); metadata-only, not bundled.
+| slug | license | class | bundled | note |
+|------|---------|-------|---------|------|
+| `example-colors` | CC0 | public-domain | ✅ | sample scheme; exercises the pipeline |
+| `nalt` | CC0 | public-domain | ⏸ `bundle:false` | confirm direct dump URL to onboard |
+| `agrovoc` | CC BY 4.0 | open | ⏸ `bundle:false` | large; zipped dump needs an unzip helper |
+| `getty-aat` | ODC-By 1.0 | open | ⏸ `bundle:false` | large; zipped dump needs an unzip helper |
+| `iptc-media-topics` | CC BY 4.0 | open | ⏸ `bundle:false` | Turtle via content negotiation; ready to flip on |
+| `lcsh` | public domain | public-domain | ⏸ `bundle:false` | very large |
+| `unesco-thesaurus` | CC BY-SA | copyleft | 🚫 | metadata-only (viral license) |
+
+`bundle:false` schemes are tracked metadata only until deliberately turned on;
+flip `skosdex:bundle` to `true` in the scheme's `meta.ttl` and run
+`skosdex build <slug>`. See [`CANDIDATES.md`](CANDIDATES.md) for more to onboard.

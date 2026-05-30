@@ -17,13 +17,13 @@ Licenses change; re-verify before onboarding. Last reviewed: **2026-05**.
 
 | Scheme | Publisher | License | Class | Formats | Source |
 |--------|-----------|---------|-------|---------|--------|
-| NAL Agricultural Thesaurus (NALT) | USDA NAL | CC0 1.0 | public-domain | RDF/XML, N-Triples, Turtle | <https://lod.nal.usda.gov/> |
-| AGROVOC | FAO | CC BY 4.0 | open | N-Triples, N-Quads, RDF/XML, TriX | <https://www.fao.org/agrovoc/releases> |
-| Getty AAT (Art & Architecture Thesaurus) | Getty Research Institute | ODC-By 1.0 | open | N-Triples (monthly full dump) | <https://www.getty.edu/research/tools/vocabularies/obtain/download.html> |
+| NAL Agricultural Thesaurus (NALT) | USDA NAL | CC0 1.0 | public-domain | RDF/XML, N-Triples, Turtle | **onboarded** — `nalt/` (bundle:false) |
+| AGROVOC | FAO | CC BY 4.0 | open | N-Triples, N-Quads, RDF/XML, TriX | **onboarded** — `agrovoc/` (bundle:false) |
+| Getty AAT (Art & Architecture Thesaurus) | Getty Research Institute | ODC-By 1.0 | open | N-Triples (monthly full dump) | **onboarded** — `getty-aat/` (bundle:false) |
+| IPTC Media Topics (NewsCodes) | IPTC | CC BY 4.0 | open | SKOS RDF/XML, Turtle, JSON-LD | **onboarded** — `iptc-media-topics/` (bundle:false) |
 | Getty TGN (Thesaurus of Geographic Names) | Getty Research Institute | ODC-By 1.0 | open | N-Triples | <https://www.getty.edu/research/tools/vocabularies/obtain/download.html> |
 | Getty ULAN (Union List of Artist Names) | Getty Research Institute | ODC-By 1.0 | open | N-Triples | <https://www.getty.edu/research/tools/vocabularies/obtain/download.html> |
 | FAST (Faceted Application of Subject Terminology) | OCLC | ODC-By | open | N-Triples (per facet or full) | <https://www.oclc.org/research/areas/data-science/fast/download.html> |
-| IPTC Media Topics (NewsCodes) | IPTC | CC BY 4.0 | open | SKOS RDF/XML, Turtle, JSON-LD | <https://cv.iptc.org/newscodes/mediatopic/> |
 | GeoNames Ontology / Feature Codes | GeoNames | CC BY 4.0 | open | RDF/XML, dumps | <https://www.geonames.org/ontology/> |
 | EuroVoc | EU Publications Office | EU reuse (Dec. 2011/833/EU; CC BY 4.0) — verify | open | SKOS-Core RDF, SKOS-AP-EU | <https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/eurovoc> |
 | GEMET (environment thesaurus) | EEA / Eionet | EEA reuse — verify data terms | open | SKOS RDF | <https://www.eionet.europa.eu/gemet/en/exports/rdf/latest> |
