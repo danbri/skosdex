@@ -89,6 +89,11 @@ The bundler enforces this regardless of the per-scheme `bundle` flag. See
 
 The skosdex **code** is licensed Apache-2.0 ([`LICENSE`](LICENSE)).
 
+## Background
+
+New to SKOS? See [`docs/skos-background.md`](docs/skos-background.md) for a
+short, cited history of the standard and the people behind it.
+
 ## Status
 
 Early but working: the fetch → normalize → canonicalize → bundle → Solr pipeline
