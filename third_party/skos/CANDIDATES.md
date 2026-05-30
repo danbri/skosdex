@@ -57,12 +57,40 @@ Never bundle the data; keep a `meta.ttl` record so others can fetch it.
 - **UNBIS Thesaurus** (UN), **EuroSciVoc**, **CPV / NACE / NUTS** (EU code lists)
 - **Princeton WordNet** as RDF/SKOS (WordNet license, permissive)
 
+## 🎓 VU University Amsterdam (Vrije Universiteit) lineage
+
+VU Amsterdam's Web & Media / KR&R groups are the academic home of SKOS itself —
+**Antoine Isaac** and **Guus Schreiber** co-authored the W3C SKOS Reference
+there, and **Mark van Assem, Victor de Boer, Jacco van Ossenbruggen, Jan
+Wielemaker, Albert Meroño-Peñuela** built many of the datasets below. Most are
+cultural-heritage / digital-humanities concept schemes published as SKOS.
+
+| Scheme | VU people / project | License | Class | Source |
+|--------|---------------------|---------|-------|--------|
+| WordNet 3.0 in RDF/SKOS | van Assem, Gangemi, Schreiber (VU) | WordNet license (permissive, attribution) | open | <https://semanticweb.cs.vu.nl/lod/wn30/> |
+| Amsterdam Museum LOD (incl. AAT-Ned thesaurus + person authorities) | de Boer, Isaac, van Ossenbruggen, Wielemaker, Schreiber (VU) | check — dataset terms unconfirmed | investigate | <https://semanticweb.cs.vu.nl/lod/am/> |
+| GTAA (Common Thesaurus for AV Archives) | NISV (Sound & Vision) w/ de Boer (VU) | ODbL | copyleft | <https://data.beeldengeluid.nl/datasets/gtaa> |
+| Iconclass (iconography classification) as LOD | RKD; VU-affiliated LOD/AI work | ODbL | copyleft | <https://iconclass.org/help/lod> |
+| HISCO (occupations) RDF/SKOS via CEDAR | Meroño-Peñuela, Ashkpour et al. (VU) | check — likely open, confirm | investigate | <https://github.com/CEDAR-project> |
+| RAMEAU (BnF) SKOS prototype (STITCH) | van Assem, Isaac (VU) | BnF terms; prototype | investigate | <http://stitch.cs.vu.nl/rameau> |
+
+Notes:
+- **WordNet** is the cleanest open candidate here (permissive license) and was
+  already on the general "to investigate" list — VU is the canonical RDF/SKOS
+  publisher, so prefer their distribution.
+- **GTAA** and **Iconclass** are **ODbL (share-alike → copyleft)**: metadata-only
+  under the open-data policy, no matter the VU connection.
+- **Amsterdam Museum** and **HISCO/CEDAR** need their exact data licenses
+  confirmed at source before onboarding; treat as not-bundleable until then.
+
 ## Discovery / registries to mine
 
 - **BARTOC** — basic register of thesauri/classifications: <https://bartoc.org/>
 - **Linked Open Vocabularies (LOV)**: <https://lov.linkeddata.es/>
 - **W3C SKOS/Datasets wiki**: <https://www.w3.org/2001/sw/wiki/SKOS/Datasets>
 - **AgroPortal / BioPortal / EarthPortal** ontology repositories
+- **VU Amsterdam LOD host**: <https://semanticweb.cs.vu.nl/lod/> (WordNet,
+  Amsterdam Museum, and other VU-published linked datasets)
 
 Sources for licenses above: FAO/AIMS (AGROVOC), Getty Research Institute,
 OCLC FAST, IPTC, GeoNames/Creative Commons, EU Publications Office, EEA Eionet,
