@@ -32,6 +32,9 @@ their own terms, but their data is never committed here and never reaches
 `dist/`. The bundler (`scripts/skosdex bundle`) enforces this independently of
 the per-scheme `skosdex:bundle` flag.
 
+See [`CANDIDATES.md`](CANDIDATES.md) for the maintained backlog of vocabularies
+worth onboarding, with verified licenses and sources.
+
 ## Current schemes
 
 - `example-colors` — CC0 sample scheme (bundled); exercises the pipeline.

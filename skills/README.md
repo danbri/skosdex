@@ -10,6 +10,7 @@ instructions stay out of the way until they're relevant.
 
 | Skill | Use it when |
 |-------|-------------|
+| [`curate-vocabularies`](curate-vocabularies/SKILL.md) | Discovering, license-checking, and triaging candidate vocabularies. |
 | [`add-skos-scheme`](add-skos-scheme/SKILL.md) | Adding a new SKOS vocabulary to `third_party/skos/`. |
 | [`normalize-skos`](normalize-skos/SKILL.md) | Fetching, normalizing, or canonicalizing a scheme to N-Quads. |
 | [`build-data-bundle`](build-data-bundle/SKILL.md) | Producing the shippable `dist/` dataset and Solr docs. |

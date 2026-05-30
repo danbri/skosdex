@@ -34,6 +34,7 @@ humans and agents alike:
 
 | Skill | For |
 |-------|-----|
+| [`curate-vocabularies`](skills/curate-vocabularies/SKILL.md) | discovering + license-checking candidate vocabularies |
 | [`add-skos-scheme`](skills/add-skos-scheme/SKILL.md) | adding a vocabulary + its `meta.ttl` |
 | [`normalize-skos`](skills/normalize-skos/SKILL.md) | fetch / normalize / canonicalize |
 | [`build-data-bundle`](skills/build-data-bundle/SKILL.md) | produce the shippable `dist/` dataset |
