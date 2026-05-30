@@ -1,0 +1,19 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "TODO scheme title" ;
+    dcterms:publisher <https://example.org/> ;
+    skosdex:conceptSchemeURI <http://example.org/scheme> ;
+
+    # Choose ONE source: a committed local file, or a remote URL to fetch.
+    # skosdex:sourceFile "source/scheme.ttl" ;
+    skosdex:sourceURL <https://example.org/scheme.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;  # or application/n-triples, application/n-quads, application/trig, text/n3
+
+    dcterms:license <https://example.org/license> ;
+    # public-domain | open | copyleft | noncommercial | proprietary
+    skosdex:licenseClass "open" ;
+    # false to keep metadata-only even when openly licensed (e.g. very large)
+    skosdex:bundle true .

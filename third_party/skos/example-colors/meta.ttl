@@ -1,0 +1,13 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "skosdex example colour scheme" ;
+    dcterms:description "A tiny hand-authored SKOS scheme used to exercise the pipeline end to end. CC0, so it can be bundled and shipped freely." ;
+    skosdex:conceptSchemeURI <https://danbri.org/skosdex/examples/colors#scheme> ;
+    skosdex:sourceFile "source/colors.ttl" ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

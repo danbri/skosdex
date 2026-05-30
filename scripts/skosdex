@@ -1,0 +1,326 @@
+#!/usr/bin/env node
+// skosdex — read per-scheme meta.ttl, fetch/cache, normalize to N-Quads,
+// canonicalize blank nodes (RDFC-1.0), and bundle openly-licensed schemes
+// into a single dataset for the SPARQL + Solr container.
+//
+// Usage:
+//   skosdex list                  List schemes and their license / bundle status
+//   skosdex fetch    [slug]       Download source(s) into the scheme cache
+//   skosdex normalize [slug]      Parse source -> sorted N-Quads (normalized.nq)
+//   skosdex canonicalize [slug]   normalized.nq -> canonical.nq (RDFC-1.0)
+//   skosdex bundle                Merge open-licensed canonical.nq -> dist/bundle.nq
+//   skosdex solr-docs             Derive dist/solr-docs.json from the bundle
+//   skosdex build                 fetch + normalize + canonicalize + bundle + solr-docs
+//
+// Only schemes whose license is open / public-domain (and not opted out) are
+// bundled. Copyleft (viral / share-alike), non-commercial and proprietary data
+// is never written into the shipped dataset — only its metadata stays in repo.
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import N3 from 'n3';
+import rdfCanonize from 'rdf-canonize';
+
+const { Parser, Writer, Store, DataFactory } = N3;
+const { namedNode, blankNode, defaultGraph, quad } = DataFactory;
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const SCHEMES_DIR = path.join(ROOT, 'third_party', 'skos');
+const DIST_DIR = path.join(ROOT, 'dist');
+
+const NS = {
+  rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+  dcterms: 'http://purl.org/dc/terms/',
+  skos: 'http://www.w3.org/2004/02/skos/core#',
+  skosdex: 'https://danbri.org/ns/skosdex#',
+};
+
+const OPEN_CLASSES = new Set(['open', 'public-domain']);
+
+const EXT_BY_FORMAT = {
+  'text/turtle': 'ttl',
+  'application/n-triples': 'nt',
+  'application/n-quads': 'nq',
+  'application/trig': 'trig',
+  'text/n3': 'n3',
+};
+
+// ---------------------------------------------------------------------------
+// Metadata
+// ---------------------------------------------------------------------------
+
+function listSlugs() {
+  if (!fs.existsSync(SCHEMES_DIR)) return [];
+  return fs
+    .readdirSync(SCHEMES_DIR, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .filter((name) => fs.existsSync(path.join(SCHEMES_DIR, name, 'meta.ttl')))
+    .sort();
+}
+
+function readMeta(slug) {
+  const dir = path.join(SCHEMES_DIR, slug);
+  const text = fs.readFileSync(path.join(dir, 'meta.ttl'), 'utf8');
+  const store = new Store(new Parser().parse(text));
+
+  const subjects = store.getSubjects(namedNode(NS.rdf + 'type'), namedNode(NS.skosdex + 'Scheme'));
+  if (subjects.length === 0) throw new Error(`${slug}/meta.ttl: no skosdex:Scheme found`);
+  const s = subjects[0];
+
+  const one = (term, pfx, local) => {
+    const o = store.getObjects(term, namedNode(NS[pfx] + local))[0];
+    return o ? o.value : undefined;
+  };
+
+  const meta = {
+    slug,
+    dir,
+    title: one(s, 'dcterms', 'title') || slug,
+    conceptSchemeURI: one(s, 'skosdex', 'conceptSchemeURI'),
+    sourceURL: one(s, 'skosdex', 'sourceURL'),
+    sourceFile: one(s, 'skosdex', 'sourceFile'),
+    sourceFormat: one(s, 'skosdex', 'sourceFormat') || 'text/turtle',
+    license: one(s, 'dcterms', 'license'),
+    licenseClass: (one(s, 'skosdex', 'licenseClass') || 'unknown').toLowerCase(),
+    bundle: one(s, 'skosdex', 'bundle') !== 'false',
+  };
+  meta.eligible = OPEN_CLASSES.has(meta.licenseClass) && meta.bundle;
+  return meta;
+}
+
+function bundleReason(meta) {
+  if (!OPEN_CLASSES.has(meta.licenseClass)) return `excluded (license: ${meta.licenseClass})`;
+  if (!meta.bundle) return 'excluded (bundle: false)';
+  return 'included';
+}
+
+// ---------------------------------------------------------------------------
+// N-Quads helpers
+// ---------------------------------------------------------------------------
+
+function writeNQuads(quads) {
+  return new Promise((resolve, reject) => {
+    const writer = new Writer({ format: 'N-Quads' });
+    writer.addQuads(quads);
+    writer.end((err, result) => (err ? reject(err) : resolve(result)));
+  });
+}
+
+function sortDedupeLines(nq) {
+  const lines = [...new Set(nq.split('\n').map((l) => l.trim()).filter(Boolean))];
+  lines.sort();
+  return lines.join('\n') + '\n';
+}
+
+function parseQuads(text, format) {
+  return new Parser({ format }).parse(text);
+}
+
+// ---------------------------------------------------------------------------
+// Pipeline steps
+// ---------------------------------------------------------------------------
+
+function sourcePath(meta) {
+  if (meta.sourceFile) return path.join(meta.dir, meta.sourceFile);
+  const ext = EXT_BY_FORMAT[meta.sourceFormat] || 'ttl';
+  return path.join(meta.dir, 'cache', `source.${ext}`);
+}
+
+async function fetchScheme(meta) {
+  if (meta.sourceFile) {
+    console.log(`  fetch    ${meta.slug}: local sourceFile, nothing to download`);
+    return;
+  }
+  if (!meta.sourceURL) {
+    console.log(`  fetch    ${meta.slug}: no sourceURL/sourceFile — skipping`);
+    return;
+  }
+  const out = sourcePath(meta);
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  console.log(`  fetch    ${meta.slug}: ${meta.sourceURL}`);
+  const res = await fetch(meta.sourceURL, { headers: { Accept: meta.sourceFormat } });
+  if (!res.ok) throw new Error(`fetch ${meta.sourceURL} -> HTTP ${res.status}`);
+  fs.writeFileSync(out, await res.text());
+}
+
+async function normalizeScheme(meta) {
+  const src = sourcePath(meta);
+  if (!fs.existsSync(src)) {
+    console.log(`  normalize ${meta.slug}: no source at ${path.relative(ROOT, src)} — run fetch first`);
+    return;
+  }
+  const quads = parseQuads(fs.readFileSync(src, 'utf8'), meta.sourceFormat);
+  const nq = sortDedupeLines(await writeNQuads(quads));
+  fs.writeFileSync(path.join(meta.dir, 'normalized.nq'), nq);
+  console.log(`  normalize ${meta.slug}: ${quads.length} quads -> normalized.nq`);
+}
+
+async function canonicalizeScheme(meta) {
+  const norm = path.join(meta.dir, 'normalized.nq');
+  if (!fs.existsSync(norm)) {
+    console.log(`  canon    ${meta.slug}: no normalized.nq — run normalize first`);
+    return;
+  }
+  const canonical = await rdfCanonize.canonize(fs.readFileSync(norm, 'utf8'), {
+    algorithm: 'RDFC-1.0',
+    inputFormat: 'application/n-quads',
+    format: 'application/n-quads',
+  });
+  fs.writeFileSync(path.join(meta.dir, 'canonical.nq'), canonical);
+  console.log(`  canon    ${meta.slug}: canonical.nq written`);
+}
+
+// Re-label blank nodes per-scheme and place each scheme in its own named
+// graph so multiple schemes merge into one dataset without collisions.
+function relabelIntoGraph(quads, slug, graphTerm) {
+  const map = (t) => (t.termType === 'BlankNode' ? blankNode(`${slug}-${t.value}`) : t);
+  return quads.map((q) => quad(map(q.subject), q.predicate, map(q.object), graphTerm));
+}
+
+async function bundleAll() {
+  const metas = listSlugs().map(readMeta);
+  const all = [];
+  const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
+
+  for (const meta of metas) {
+    const reason = bundleReason(meta);
+    if (reason !== 'included') {
+      manifest.excluded.push({ slug: meta.slug, licenseClass: meta.licenseClass, reason });
+      console.log(`  bundle   ${meta.slug}: ${reason}`);
+      continue;
+    }
+    const canon = path.join(meta.dir, 'canonical.nq');
+    if (!fs.existsSync(canon)) {
+      manifest.excluded.push({ slug: meta.slug, reason: 'no canonical.nq (run build)' });
+      console.log(`  bundle   ${meta.slug}: skipped (no canonical.nq)`);
+      continue;
+    }
+    const graphTerm = meta.conceptSchemeURI ? namedNode(meta.conceptSchemeURI) : defaultGraph();
+    const quads = relabelIntoGraph(parseQuads(fs.readFileSync(canon, 'utf8'), 'N-Quads'), meta.slug, graphTerm);
+    all.push(...quads);
+    manifest.included.push({
+      slug: meta.slug,
+      title: meta.title,
+      license: meta.license,
+      licenseClass: meta.licenseClass,
+      graph: meta.conceptSchemeURI || null,
+      quads: quads.length,
+    });
+    console.log(`  bundle   ${meta.slug}: +${quads.length} quads`);
+  }
+
+  fs.mkdirSync(DIST_DIR, { recursive: true });
+  fs.writeFileSync(path.join(DIST_DIR, 'bundle.nq'), sortDedupeLines(await writeNQuads(all)));
+  fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+  console.log(`  bundle   -> dist/bundle.nq (${all.length} quads, ${manifest.included.length} schemes)`);
+}
+
+// Flatten the bundle into one Solr doc per skos:Concept.
+function solrDocs() {
+  const bundle = path.join(DIST_DIR, 'bundle.nq');
+  if (!fs.existsSync(bundle)) throw new Error('dist/bundle.nq missing — run bundle first');
+  const quads = parseQuads(fs.readFileSync(bundle, 'utf8'), 'N-Quads');
+
+  const FIELD = {
+    [NS.skos + 'prefLabel']: 'prefLabel',
+    [NS.skos + 'altLabel']: 'altLabel',
+    [NS.skos + 'definition']: 'definition',
+    [NS.skos + 'broader']: 'broader',
+    [NS.skos + 'narrower']: 'narrower',
+  };
+  const TYPE = NS.rdf + 'type';
+  const CONCEPT = NS.skos + 'Concept';
+
+  const docs = new Map();
+  const isConcept = new Set();
+  for (const q of quads) {
+    if (q.predicate.value === TYPE && q.object.value === CONCEPT) isConcept.add(q.subject.value);
+  }
+  for (const q of quads) {
+    const id = q.subject.value;
+    if (!isConcept.has(id)) continue;
+    const doc = docs.get(id) || { id, scheme: q.graph.value || null };
+    const field = FIELD[q.predicate.value];
+    if (field) (doc[field] ||= []).push(q.object.value);
+    docs.set(id, doc);
+  }
+
+  const out = [...docs.values()];
+  fs.mkdirSync(DIST_DIR, { recursive: true });
+  fs.writeFileSync(path.join(DIST_DIR, 'solr-docs.json'), JSON.stringify(out, null, 2) + '\n');
+  console.log(`  solr     -> dist/solr-docs.json (${out.length} concept docs)`);
+}
+
+// ---------------------------------------------------------------------------
+// CLI
+// ---------------------------------------------------------------------------
+
+function selectMetas(slug) {
+  const slugs = slug ? [slug] : listSlugs();
+  return slugs.map(readMeta);
+}
+
+async function main() {
+  const [cmd, arg] = process.argv.slice(2);
+  switch (cmd) {
+    case 'list': {
+      const metas = listSlugs().map(readMeta);
+      if (metas.length === 0) console.log('No schemes found under third_party/skos/');
+      for (const m of metas) {
+        console.log(`${m.slug.padEnd(24)} ${m.licenseClass.padEnd(14)} ${bundleReason(m)}`);
+      }
+      break;
+    }
+    case 'fetch':
+      for (const m of selectMetas(arg).filter((m) => m.eligible || arg)) await fetchScheme(m);
+      break;
+    case 'normalize':
+      for (const m of selectMetas(arg).filter((m) => m.eligible || arg)) await normalizeScheme(m);
+      break;
+    case 'canonicalize':
+      for (const m of selectMetas(arg).filter((m) => m.eligible || arg)) await canonicalizeScheme(m);
+      break;
+    case 'bundle':
+      await bundleAll();
+      break;
+    case 'solr-docs':
+      solrDocs();
+      break;
+    case 'build': {
+      for (const m of selectMetas(arg)) {
+        if (!m.eligible) {
+          console.log(`  skip     ${m.slug}: ${bundleReason(m)} — metadata only, no data steps`);
+          continue;
+        }
+        await fetchScheme(m);
+        await normalizeScheme(m);
+        await canonicalizeScheme(m);
+      }
+      await bundleAll();
+      solrDocs();
+      break;
+    }
+    default:
+      console.log(`skosdex — fetch, normalize, canonicalize and bundle SKOS schemes.
+
+Usage:
+  skosdex list                 List schemes and their license / bundle status
+  skosdex fetch        [slug]  Download source(s) into the scheme cache
+  skosdex normalize    [slug]  Parse source -> sorted N-Quads (normalized.nq)
+  skosdex canonicalize [slug]  normalized.nq -> canonical.nq (RDFC-1.0)
+  skosdex bundle               Merge open-licensed schemes -> dist/bundle.nq
+  skosdex solr-docs            Derive dist/solr-docs.json from the bundle
+  skosdex build        [slug]  Run the whole pipeline (default: all schemes)
+
+Omit [slug] to act on every scheme under third_party/skos/.`);
+      process.exit(cmd ? 1 : 0);
+  }
+}
+
+main().catch((err) => {
+  console.error('skosdex:', err.message);
+  process.exit(1);
+});

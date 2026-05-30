@@ -1,0 +1,44 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix ex:   <https://danbri.org/skosdex/examples/colors#> .
+
+ex:scheme a skos:ConceptScheme ;
+    dct:title "skosdex example colour scheme"@en ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skos:hasTopConcept ex:warm, ex:cool .
+
+ex:warm a skos:Concept ;
+    skos:inScheme ex:scheme ;
+    skos:topConceptOf ex:scheme ;
+    skos:prefLabel "warm colours"@en ;
+    skos:definition "Colours evoking warmth, such as reds and yellows."@en ;
+    skos:narrower ex:red, ex:yellow .
+
+ex:cool a skos:Concept ;
+    skos:inScheme ex:scheme ;
+    skos:topConceptOf ex:scheme ;
+    skos:prefLabel "cool colours"@en ;
+    skos:definition "Colours evoking coolness, such as blues and greens."@en ;
+    skos:narrower ex:blue, ex:green .
+
+ex:red a skos:Concept ;
+    skos:inScheme ex:scheme ;
+    skos:prefLabel "red"@en ;
+    skos:altLabel "crimson"@en ;
+    skos:broader ex:warm .
+
+ex:yellow a skos:Concept ;
+    skos:inScheme ex:scheme ;
+    skos:prefLabel "yellow"@en ;
+    skos:broader ex:warm .
+
+ex:blue a skos:Concept ;
+    skos:inScheme ex:scheme ;
+    skos:prefLabel "blue"@en ;
+    skos:altLabel "azure"@en ;
+    skos:broader ex:cool .
+
+ex:green a skos:Concept ;
+    skos:inScheme ex:scheme ;
+    skos:prefLabel "green"@en ;
+    skos:broader ex:cool .

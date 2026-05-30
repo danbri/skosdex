@@ -1,91 +1,96 @@
 # skosdex
 
-A toolkit and index for **SKOS** ([Simple Knowledge Organization System](https://www.w3.org/TR/skos-reference/)) concept schemes — a place to collect, normalize, query, and browse the many SKOS vocabularies published around the web.
+A skills-first toolkit and index for **SKOS** ([Simple Knowledge Organization
+System](https://www.w3.org/TR/skos-reference/)) concept schemes — collect,
+normalize, query, and browse the many SKOS vocabularies published around the web.
 
-The goal is to make it easy to:
+skosdex lets you:
 
-- track an arbitrary number of third-party SKOS schemes,
-- fetch and cache each scheme from its canonical source,
-- normalize every scheme into a consistent, comparable form (N-Quads, with canonicalized blank nodes),
-- load one or more schemes into a SPARQL endpoint and a Solr index, and
-- browse and search them through a simple web frontend.
+- track an arbitrary number of third-party SKOS schemes, one folder each;
+- fetch and cache each scheme from its canonical source;
+- normalize every scheme to consistent **N-Quads**, then **canonicalize** blank
+  nodes (W3C RDFC-1.0) for a stable, hashable form;
+- bundle the **openly-licensed** schemes into one dataset; and
+- serve that dataset over a **SPARQL** endpoint (Oxigraph) + **Solr** index with
+  a simple **web frontend**, packaged as Docker containers.
+
+## Quick start
+
+```bash
+npm install
+npm run build              # fetch + normalize + canonicalize + bundle + solr-docs
+docker compose up --build  # SPARQL + Solr + web, dataset baked in
+```
+
+- Web frontend → http://localhost:8080
+- SPARQL query → http://localhost:7878/query
+- Solr admin → http://localhost:8983/solr
+
+## Skills first
+
+The repeatable workflows live in [`skills/`](skills/) as
+[Agent Skills](https://agentskills.io) (`SKILL.md` + nearby files), usable by
+humans and agents alike:
+
+| Skill | For |
+|-------|-----|
+| [`add-skos-scheme`](skills/add-skos-scheme/SKILL.md) | adding a vocabulary + its `meta.ttl` |
+| [`normalize-skos`](skills/normalize-skos/SKILL.md) | fetch / normalize / canonicalize |
+| [`build-data-bundle`](skills/build-data-bundle/SKILL.md) | produce the shippable `dist/` dataset |
+| [`run-endpoints`](skills/run-endpoints/SKILL.md) | bring up SPARQL + Solr + web |
 
 ## Repository layout
 
 ```
-third_party/
-  skos/
-    <scheme-name>/
-      meta.ttl          # describes the scheme: source URL, format, license, etc.
-      tools/            # optional per-scheme helpers (py or js) if a scheme
-                        # needs custom fetching/cleanup beyond the defaults
-      cache/            # cached copy of the upstream scheme (gitignored or
-                        # tracked, depending on size/license)
-      normalized/
-        scheme.nq       # parsed & normalized N-Quads
-        scheme.canon.nq # N-Quads with blank nodes canonicalized (RDFC-1.0)
-
-scripts/
-  skosdex             # main JS utility: reads meta.ttl, fetches, caches,
-                      # normalizes, and prepares datasets for loading
-
-# (planned) service layer
-sparql/               # config to spin up a SPARQL endpoint over the datasets
-solr/                 # Solr core config + indexing
-web/                  # simple web frontend
+skills/                     # skills-first workflows (SKILL.md + templates)
+scripts/skosdex             # Node CLI: list / fetch / normalize / canonicalize / bundle / solr-docs
+ns/skosdex.ttl              # the skosdex metadata vocabulary used in meta.ttl
+third_party/skos/<slug>/
+  meta.ttl                  # source, format, license — single source of truth
+  source/  tools/  cache/   # committed source / per-scheme helpers / fetched data (gitignored)
+  normalized.nq             # parsed, sorted N-Quads            (generated)
+  canonical.nq              # RDFC-1.0 canonicalized N-Quads     (generated)
+docker/sparql/Dockerfile    # Oxigraph image with dist/bundle.nq baked in
+docker/solr/                # Solr core notes
+web/                        # static frontend + nginx reverse proxy
+docker-compose.yml          # sparql (Oxigraph) + solr + web
+dist/                       # bundle.nq, solr-docs.json, manifest.json (generated)
 ```
 
 ## How it works
 
-### 1. Describe each scheme — `meta.ttl`
+1. **Describe** each scheme in `third_party/skos/<slug>/meta.ttl` — source URL or
+   committed file, format, and license. This is the only file needed for the
+   common case; `scripts/skosdex` acts on it with no per-scheme code.
+2. **Fetch & cache** the upstream scheme (`skosdex fetch`). Schemes with unusual
+   sources can ship helpers in their own `tools/` (py or js).
+3. **Normalize** to sorted N-Quads (`normalized.nq`).
+4. **Canonicalize** blank nodes via W3C RDFC-1.0 (`canonical.nq`) — deterministic
+   and diffable.
+5. **Bundle** the openly-licensed schemes into `dist/bundle.nq` (one named graph
+   per scheme) plus `dist/solr-docs.json`.
+6. **Serve** via Oxigraph (or Apache Jena Fuseki — see the `run-endpoints`
+   skill), Solr, and the web frontend, all wired together with Docker Compose.
 
-Every SKOS scheme lives in its own folder under `third_party/skos/`. A
-`meta.ttl` file describes the scheme in enough detail that the common tooling
-can act on it without any per-scheme code: where to fetch it, what format it's
-in, its license, homepage, expected concept scheme URI, and so on.
+## Data licensing — open data only
 
-The intent is that `meta.ttl` is the single source of truth for a scheme, so
-that adding a new vocabulary is usually just a matter of dropping in a new
-folder with a `meta.ttl`.
+The repository carries **only openly-licensed data**. Each scheme's
+`skosdex:licenseClass` gates inclusion:
 
-### 2. Fetch & cache — `scripts/skosdex`
+- ✅ `public-domain` (CC0) and `open` (permissive, commercial-OK, no
+  share-alike) → committed / bundled.
+- ❌ `copyleft` (viral / share-alike), `noncommercial`, `proprietary` →
+  **metadata only**. Their `meta.ttl` lets others fetch them under their own
+  terms; their data is never committed here and never reaches `dist/`.
 
-`scripts/skosdex` (written in JS) reads each `meta.ttl`, parses the metadata,
-and caches a local copy of the upstream scheme under
-`third_party/skos/<scheme>/cache/`. Schemes that need special handling can ship
-their own helpers in `tools/` (Python or JS), but the common path requires
-none.
+The bundler enforces this regardless of the per-scheme `bundle` flag. See
+[`third_party/skos/README.md`](third_party/skos/README.md).
 
-### 3. Normalize to N-Quads
-
-Each cached scheme is parsed and serialized to **normalized N-Quads**
-(`scheme.nq`) — a flat, line-oriented, comparable representation of the graph.
-
-### 4. Canonicalize blank nodes
-
-A second N-Quads file (`scheme.canon.nq`) is produced with blank nodes
-normalized using [W3C RDF Dataset Canonicalization (RDFC-1.0)](https://www.w3.org/TR/rdf-canon/).
-This gives a stable, deterministic form that can be diffed and hashed across
-runs and across schemes.
-
-### 5. Serve
-
-- **SPARQL** — spin up an RDF SPARQL endpoint populated with one or more of the
-  normalized datasets, for ad-hoc querying across vocabularies.
-- **Solr** — index the schemes in Solr for fast full-text and faceted search
-  over labels, notes, and other literal properties.
-- **Web frontend** — a simple UI on top of the SPARQL endpoint and Solr for
-  browsing and searching the collected schemes.
+The skosdex **code** is licensed Apache-2.0 ([`LICENSE`](LICENSE)).
 
 ## Status
 
-Early scaffolding. The architecture above is the target shape; components are
-being built out incrementally.
-
-## Adding a new SKOS scheme
-
-1. Create `third_party/skos/<scheme-name>/`.
-2. Add a `meta.ttl` describing the scheme (source URL, format, license, …).
-3. (Optional) Add `tools/` helpers if the scheme needs custom fetching or
-   cleanup.
-4. Run `scripts/skosdex` to fetch, cache, and normalize it.
+Early but working: the fetch → normalize → canonicalize → bundle → Solr pipeline
+runs end-to-end on the bundled `example-colors` scheme, and the Docker stack is
+scaffolded. Adding real-world vocabularies is mostly a matter of dropping in new
+`meta.ttl` files.

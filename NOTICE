@@ -1,0 +1,12 @@
+skosdex
+Copyright 2026 Dan Brickley and contributors
+
+This product includes software developed as part of the skosdex project,
+licensed under the Apache License, Version 2.0.
+
+Data licensing
+--------------
+The skosdex CODE is Apache-2.0. Third-party SKOS schemes under third_party/skos/
+remain under their own licenses; only openly-licensed (public-domain / permissive,
+non-copyleft, non-NC) scheme data is committed and bundled. See
+third_party/skos/README.md for the policy and per-scheme meta.ttl for licenses.

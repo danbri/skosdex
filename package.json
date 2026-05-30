@@ -1,0 +1,22 @@
+{
+  "name": "skosdex",
+  "version": "0.1.0",
+  "description": "Toolkit and index for SKOS concept schemes: fetch, normalize, canonicalize, and serve over SPARQL + Solr.",
+  "type": "module",
+  "bin": {
+    "skosdex": "scripts/skosdex"
+  },
+  "scripts": {
+    "list": "node scripts/skosdex list",
+    "build": "node scripts/skosdex build",
+    "bundle": "node scripts/skosdex bundle"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "n3": "^1.17.4",
+    "rdf-canonize": "^4.0.1"
+  }
+}

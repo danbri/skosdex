@@ -1,0 +1,11 @@
+node_modules/
+dist/
+
+# Cached upstream scheme data. Never commit third-party data with a viral
+# (copyleft / share-alike) or anti-commercial (NC) license. See
+# third_party/skos/README.md for the policy.
+third_party/skos/*/cache/
+
+# Local Solr / SPARQL store volumes
+.volumes/
+*.log

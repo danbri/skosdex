@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>skosdex</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; margin: 0; color: #1a1a1a; }
+    header { background: #1f2933; color: #fff; padding: 1rem 1.5rem; }
+    header h1 { margin: 0; font-size: 1.3rem; }
+    header p { margin: .25rem 0 0; color: #9aa5b1; font-size: .85rem; }
+    main { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    section { margin-bottom: 2rem; }
+    h2 { font-size: 1rem; border-bottom: 1px solid #e4e7eb; padding-bottom: .3rem; }
+    input, textarea, button { font: inherit; }
+    input[type=text] { width: 60%; padding: .4rem; }
+    textarea { width: 100%; box-sizing: border-box; height: 7rem; padding: .4rem; }
+    button { padding: .4rem .9rem; cursor: pointer; background: #3e4c59; color: #fff; border: 0; border-radius: 4px; }
+    pre { background: #f5f7fa; padding: .75rem; overflow: auto; border-radius: 4px; }
+    .hit { padding: .4rem 0; border-bottom: 1px solid #f0f0f0; }
+    .hit a { color: #2563eb; text-decoration: none; }
+    .muted { color: #7b8794; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>skosdex</h1>
+    <p>Browse and query the bundled SKOS concept schemes.</p>
+  </header>
+  <main>
+    <section>
+      <h2>Search (Solr)</h2>
+      <input type="text" id="q" placeholder="e.g. colour, blue, warm" value="*:*">
+      <button onclick="search()">Search</button>
+      <div id="results"></div>
+    </section>
+
+    <section>
+      <h2>SPARQL (Oxigraph)</h2>
+      <textarea id="sparql">PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+SELECT ?concept ?label WHERE {
+  ?concept a skos:Concept ; skos:prefLabel ?label .
+} LIMIT 25</textarea>
+      <button onclick="runSparql()">Run query</button>
+      <pre id="sparql-out" class="muted">results appear here…</pre>
+    </section>
+  </main>
+
+  <script>
+    async function search() {
+      const q = document.getElementById('q').value || '*:*';
+      const url = '/solr/skos/select?wt=json&rows=25&q=' + encodeURIComponent(q);
+      const el = document.getElementById('results');
+      try {
+        const r = await fetch(url);
+        const data = await r.json();
+        const docs = data.response?.docs || [];
+        el.innerHTML = docs.length
+          ? docs.map(d => `<div class="hit"><a href="${d.id}">${(d.prefLabel||[d.id]).join(', ')}</a>
+              <div class="muted">${(d.definition||[]).join(' ')}</div></div>`).join('')
+          : '<p class="muted">No hits.</p>';
+      } catch (e) {
+        el.innerHTML = '<p class="muted">Solr not reachable: ' + e.message + '</p>';
+      }
+    }
+
+    async function runSparql() {
+      const query = document.getElementById('sparql').value;
+      const out = document.getElementById('sparql-out');
+      try {
+        const r = await fetch('/sparql/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/sparql-query', 'Accept': 'application/sparql-results+json' },
+          body: query,
+        });
+        out.textContent = JSON.stringify(await r.json(), null, 2);
+      } catch (e) {
+        out.textContent = 'SPARQL endpoint not reachable: ' + e.message;
+      }
+    }
+
+    search();
+  </script>
+</body>
+</html>

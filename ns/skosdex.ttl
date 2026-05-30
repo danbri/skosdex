@@ -1,0 +1,44 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+<https://danbri.org/ns/skosdex#> a owl:Ontology ;
+    dcterms:title "skosdex metadata vocabulary" ;
+    rdfs:comment "Terms used in third_party/skos/<scheme>/meta.ttl to describe a cached SKOS scheme: where to fetch it, what format it is in, and how it may be used." .
+
+skosdex:Scheme a rdfs:Class ;
+    rdfs:label "Scheme" ;
+    rdfs:comment "A SKOS concept scheme tracked by skosdex. One per third_party/skos/<scheme>/ folder." .
+
+skosdex:conceptSchemeURI a rdf:Property ;
+    rdfs:label "concept scheme URI" ;
+    rdfs:comment "The skos:ConceptScheme URI of the upstream scheme. Used as the named graph for the scheme when bundling." ;
+    rdfs:range rdfs:Resource .
+
+skosdex:sourceURL a rdf:Property ;
+    rdfs:label "source URL" ;
+    rdfs:comment "Where to fetch the upstream scheme from." ;
+    rdfs:range rdfs:Resource .
+
+skosdex:sourceFile a rdf:Property ;
+    rdfs:label "source file" ;
+    rdfs:comment "Path (relative to the scheme folder) to a locally-committed source file, used instead of sourceURL." ;
+    rdfs:range xsd:string .
+
+skosdex:sourceFormat a rdf:Property ;
+    rdfs:label "source format" ;
+    rdfs:comment "MIME type of the source (text/turtle, application/n-triples, application/n-quads, application/trig, text/n3). Default text/turtle." ;
+    rdfs:range xsd:string .
+
+skosdex:licenseClass a rdf:Property ;
+    rdfs:label "license class" ;
+    rdfs:comment "Coarse reuse class derived from the license: 'open' (permissive, commercial OK), 'public-domain' (CC0 / PD), 'copyleft' (viral / share-alike), 'noncommercial', or 'proprietary'. Only 'open' and 'public-domain' data is bundled into the shipped dataset." ;
+    rdfs:range xsd:string .
+
+skosdex:bundle a rdf:Property ;
+    rdfs:label "bundle" ;
+    rdfs:comment "Boolean opt-out. When false, the scheme's data is not bundled even if openly licensed (e.g. too large). Metadata is always kept. Default true." ;
+    rdfs:range xsd:boolean .

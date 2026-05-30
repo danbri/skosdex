@@ -1,0 +1,67 @@
+name: skosdex
+
+# Brings up the bundled dataset behind a SPARQL endpoint (Oxigraph), a Solr
+# index, and a small web frontend that proxies to both.
+#
+#   npm run build           # produce dist/bundle.nq + dist/solr-docs.json
+#   docker compose up --build
+#
+#   web frontend  -> http://localhost:8080
+#   SPARQL query  -> http://localhost:7878/query
+#   Solr admin    -> http://localhost:8983/solr
+
+services:
+  # SPARQL endpoint with the normalized N-Quads baked into the image.
+  sparql:
+    build:
+      context: .
+      dockerfile: docker/sparql/Dockerfile
+    image: skosdex/sparql:latest
+    ports:
+      - "7878:7878"
+    restart: unless-stopped
+
+  # Full-text / faceted index over the SKOS concepts.
+  solr:
+    image: solr:9
+    ports:
+      - "8983:8983"
+    command: solr-precreate skos
+    volumes:
+      - solr-data:/var/solr
+    restart: unless-stopped
+
+  # One-shot: waits for Solr, then posts dist/solr-docs.json into the core.
+  solr-init:
+    image: curlimages/curl:latest
+    depends_on:
+      - solr
+    volumes:
+      - ./dist:/dist:ro
+    entrypoint: ["sh", "-c"]
+    command:
+      - >
+        until curl -sf http://solr:8983/solr/skos/admin/ping >/dev/null 2>&1; do
+          echo "waiting for solr..."; sleep 2;
+        done;
+        curl -sf "http://solr:8983/solr/skos/update?commit=true"
+          -H 'Content-Type: application/json'
+          --data-binary @/dist/solr-docs.json
+        && echo "indexed $(grep -c '\"id\"' /dist/solr-docs.json) docs";
+    restart: "no"
+
+  # Static frontend + same-origin reverse proxy to sparql and solr.
+  web:
+    image: nginx:alpine
+    depends_on:
+      - sparql
+      - solr
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web/html:/usr/share/nginx/html:ro
+      - ./web/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+
+volumes:
+  solr-data:
