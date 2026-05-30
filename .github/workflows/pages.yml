@@ -1,0 +1,63 @@
+name: Deploy demo to GitHub Pages
+
+# Builds the SKOS bundle and publishes the self-contained demo browser to
+# GitHub Pages. dist/ is gitignored (generated artifact), so we regenerate it
+# here at deploy time rather than committing it.
+#
+# One-time setup: repo Settings -> Pages -> Build and deployment -> Source:
+# "GitHub Actions". Then every push to claude/main republishes the site.
+
+on:
+  push:
+    branches: [claude/main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes cancel in-progress runs.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Fetch + normalize + canonicalize + bundle + solr-docs + bake demo.html.
+      # Only open-licensed schemes with bundle:true are fetched (e.g. IPTC).
+      - run: node scripts/skosdex build
+
+      # Assemble the published site under ./_site.
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp dist/demo.html _site/index.html
+          cp dist/bundle.nq _site/bundle.nq
+          cp dist/solr-docs.json _site/solr-docs.json
+          cp dist/manifest.json _site/manifest.json
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

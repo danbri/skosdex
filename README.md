@@ -26,6 +26,18 @@ open dist/demo.html          # standalone, searchable SKOS browser — no server
 embedded: search labels/definitions and click ↑/↓ to walk the SKOS hierarchy.
 Run `node scripts/skosdex demo` on its own to rebuild just the demo.
 
+### Hosted demo (GitHub Pages)
+
+The same `demo.html` is published to GitHub Pages on every push to
+`claude/main` by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) —
+it runs the build in CI and deploys, so no generated files are committed. The
+site also serves `bundle.nq`, `solr-docs.json`, and `manifest.json` for
+download.
+
+**One-time setup:** in the repo's **Settings → Pages → Build and deployment**,
+set **Source** to **GitHub Actions**. The published URL appears in the Actions
+run summary (typically `https://<owner>.github.io/skosdex/`).
+
 ## Quick start (full stack)
 
 ```bash

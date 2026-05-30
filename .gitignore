@@ -1,5 +1,6 @@
 node_modules/
 dist/
+_site/
 
 # Cached upstream scheme data. Never commit third-party data with a viral
 # (copyleft / share-alike) or anti-commercial (NC) license. See
