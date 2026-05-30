@@ -15,4 +15,4 @@
     skosdex:sourceFormat "text/turtle" ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     skosdex:licenseClass "open" ;
-    skosdex:bundle false .
+    skosdex:bundle true .

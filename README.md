@@ -14,7 +14,19 @@ skosdex lets you:
 - serve that dataset over a **SPARQL** endpoint (Oxigraph) + **Solr** index with
   a simple **web frontend**, packaged as Docker containers.
 
-## Quick start
+## Try it in 30 seconds (no Docker)
+
+```bash
+npm install
+node scripts/skosdex build   # fetch + normalize + canonicalize + bundle + solr-docs + demo
+open dist/demo.html          # standalone, searchable SKOS browser — no server needed
+```
+
+`dist/demo.html` is a single self-contained file with the bundled concepts
+embedded: search labels/definitions and click ↑/↓ to walk the SKOS hierarchy.
+Run `node scripts/skosdex demo` on its own to rebuild just the demo.
+
+## Quick start (full stack)
 
 ```bash
 npm install
