@@ -10,7 +10,7 @@
     dcterms:title "Library of Congress Subject Headings (LCSH)" ;
     dcterms:publisher <https://id.loc.gov/> ;
     skosdex:conceptSchemeURI <http://id.loc.gov/authorities/subjects> ;
-    skosdex:sourceURL <https://id.loc.gov/download/authorities/subjects.skosrdf.nt.zip> ;
+    skosdex:sourceURL <https://id.loc.gov/download/authorities/subjects.skosrdf.nt.gz> ;  # ~101MB gzip; needs a gunzip helper
     skosdex:sourceFormat "application/n-triples" ;
     dcterms:license <https://www.loc.gov/legal/> ;
     skosdex:licenseClass "public-domain" ;
