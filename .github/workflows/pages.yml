@@ -35,9 +35,14 @@ jobs:
 
       - run: npm ci
 
-      # Fetch + normalize + canonicalize + bundle + solr-docs + bake demo.html.
-      # Only open-licensed schemes with bundle:true are fetched (e.g. IPTC).
-      - run: node scripts/skosdex build
+      # Bundle from the COMMITTED canonical.nq files — no live fetch, so the
+      # deploy can't break when an upstream source is slow or blocks CI. Only
+      # open-licensed bundle:true schemes have committed data (example-colors,
+      # iptc-media-topics). To refresh that data, run `skosdex build` locally
+      # and commit the updated canonical.nq.
+      - run: node scripts/skosdex bundle
+      - run: node scripts/skosdex solr-docs
+      - run: node scripts/skosdex demo
 
       # Assemble the published site under ./_site.
       - name: Assemble site
