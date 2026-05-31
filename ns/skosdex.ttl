@@ -42,3 +42,13 @@ skosdex:bundle a rdf:Property ;
     rdfs:label "bundle" ;
     rdfs:comment "Boolean opt-out. When false, the scheme's data is not bundled even if openly licensed (e.g. too large). Metadata is always kept. Default true." ;
     rdfs:range xsd:boolean .
+
+skosdex:compression a rdf:Property ;
+    rdfs:label "compression" ;
+    rdfs:comment "How the fetched source is compressed: 'none' (default), 'gzip', or 'zip'. The fetch step decompresses accordingly before parsing." ;
+    rdfs:range xsd:string .
+
+skosdex:sourceEntry a rdf:Property ;
+    rdfs:label "source entry" ;
+    rdfs:comment "For compression 'zip' with multiple members, the name of the archive entry to extract. Defaults to the first entry." ;
+    rdfs:range xsd:string .

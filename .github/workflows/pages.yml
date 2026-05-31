@@ -28,6 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Provision the Pages site if it isn't already enabled, so the deploy job
+      # has a target. Without this, deploy-pages fails fast on a missing site
+      # (the symptom: build green, deploy fails in ~2s, GET /pages -> 404).
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20

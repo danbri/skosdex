@@ -18,6 +18,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import N3 from 'n3';
 import rdfCanonize from 'rdf-canonize';
@@ -83,6 +85,8 @@ function readMeta(slug) {
     sourceURL: one(s, 'skosdex', 'sourceURL'),
     sourceFile: one(s, 'skosdex', 'sourceFile'),
     sourceFormat: one(s, 'skosdex', 'sourceFormat') || 'text/turtle',
+    compression: (one(s, 'skosdex', 'compression') || 'none').toLowerCase(),
+    sourceEntry: one(s, 'skosdex', 'sourceEntry'),
     license: one(s, 'dcterms', 'license'),
     licenseClass: (one(s, 'skosdex', 'licenseClass') || 'unknown').toLowerCase(),
     bundle: one(s, 'skosdex', 'bundle') !== 'false',
@@ -129,6 +133,24 @@ function sourcePath(meta) {
   return path.join(meta.dir, 'cache', `source.${ext}`);
 }
 
+// Decompress a downloaded buffer per meta.compression -> the decoded RDF text.
+// gzip uses node's zlib; zip shells out to `unzip` (present on dev machines and
+// GitHub runners). For zip, sourceEntry picks the member when there are several.
+function decompress(buf, meta) {
+  if (meta.compression === 'none') return buf.toString('utf8');
+  if (meta.compression === 'gzip') return zlib.gunzipSync(buf).toString('utf8');
+  if (meta.compression === 'zip') {
+    const tmp = path.join(meta.dir, 'cache', '_dl.zip');
+    fs.writeFileSync(tmp, buf);
+    const names = execFileSync('unzip', ['-Z1', tmp], { encoding: 'utf8' }).split('\n').filter(Boolean);
+    const entry = meta.sourceEntry || names[0];
+    const text = execFileSync('unzip', ['-p', tmp, entry], { maxBuffer: 1 << 30 }).toString('utf8');
+    fs.rmSync(tmp);
+    return text;
+  }
+  throw new Error(`unknown compression: ${meta.compression}`);
+}
+
 async function fetchScheme(meta) {
   if (meta.sourceFile) {
     console.log(`  fetch    ${meta.slug}: local sourceFile, nothing to download`);
@@ -140,10 +162,12 @@ async function fetchScheme(meta) {
   }
   const out = sourcePath(meta);
   fs.mkdirSync(path.dirname(out), { recursive: true });
-  console.log(`  fetch    ${meta.slug}: ${meta.sourceURL}`);
+  const tag = meta.compression === 'none' ? '' : ` (${meta.compression})`;
+  console.log(`  fetch    ${meta.slug}: ${meta.sourceURL}${tag}`);
   const res = await fetch(meta.sourceURL, { headers: { Accept: meta.sourceFormat } });
   if (!res.ok) throw new Error(`fetch ${meta.sourceURL} -> HTTP ${res.status}`);
-  fs.writeFileSync(out, await res.text());
+  const buf = Buffer.from(await res.arrayBuffer());
+  fs.writeFileSync(out, decompress(buf, meta));
 }
 
 async function normalizeScheme(meta) {
@@ -164,13 +188,24 @@ async function canonicalizeScheme(meta) {
     console.log(`  canon    ${meta.slug}: no normalized.nq — run normalize first`);
     return;
   }
-  const canonical = await rdfCanonize.canonize(fs.readFileSync(norm, 'utf8'), {
-    algorithm: 'RDFC-1.0',
-    inputFormat: 'application/n-quads',
-    format: 'application/n-quads',
-  });
+  const text = fs.readFileSync(norm, 'utf8');
+  // RDFC-1.0 only does work when blank nodes are present; its cost is
+  // superlinear in blank-node count and pointless when there are none. For the
+  // many SKOS schemes that are 100% IRI-based (e.g. NALT, IPTC), the already
+  // sorted normalized N-Quads IS the canonical form — skip the expensive pass.
+  let canonical;
+  if (!/(^|\s)_:/.test(text)) {
+    canonical = text;
+    console.log(`  canon    ${meta.slug}: no blank nodes — canonical = normalized`);
+  } else {
+    canonical = await rdfCanonize.canonize(text, {
+      algorithm: 'RDFC-1.0',
+      inputFormat: 'application/n-quads',
+      format: 'application/n-quads',
+    });
+    console.log(`  canon    ${meta.slug}: canonical.nq written (RDFC-1.0)`);
+  }
   fs.writeFileSync(path.join(meta.dir, 'canonical.nq'), canonical);
-  console.log(`  canon    ${meta.slug}: canonical.nq written`);
 }
 
 // Re-label blank nodes per-scheme and place each scheme in its own named
