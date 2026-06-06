@@ -1,0 +1,47 @@
+{
+  "generated": "2026-06-06T22:32:16.832Z",
+  "included": [
+    {
+      "slug": "example-colors",
+      "title": "skosdex example colour scheme",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "licenseClass": "public-domain",
+      "graph": "https://danbri.org/skosdex/examples/colors#scheme",
+      "quads": 37
+    },
+    {
+      "slug": "iptc-media-topics",
+      "title": "IPTC Media Topics",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseClass": "open",
+      "graph": "http://cv.iptc.org/newscodes/mediatopic/",
+      "quads": 16960
+    }
+  ],
+  "excluded": [
+    {
+      "slug": "agrovoc",
+      "licenseClass": "open",
+      "reason": "excluded (bundle: false)"
+    },
+    {
+      "slug": "getty-aat",
+      "licenseClass": "open",
+      "reason": "excluded (bundle: false)"
+    },
+    {
+      "slug": "lcsh",
+      "licenseClass": "public-domain",
+      "reason": "excluded (bundle: false)"
+    },
+    {
+      "slug": "nalt",
+      "reason": "no canonical.nq (run build)"
+    },
+    {
+      "slug": "unesco-thesaurus",
+      "licenseClass": "copyleft",
+      "reason": "excluded (license: copyleft)"
+    }
+  ]
+}

@@ -9,7 +9,9 @@
   "scripts": {
     "list": "node scripts/skosdex list",
     "build": "node scripts/skosdex build",
-    "bundle": "node scripts/skosdex bundle"
+    "bundle": "node scripts/skosdex bundle",
+    "demo": "node scripts/skosdex demo",
+    "site": "node scripts/skosdex site"
   },
   "license": "Apache-2.0",
   "engines": {

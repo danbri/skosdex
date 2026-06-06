@@ -28,15 +28,20 @@ Run `node scripts/skosdex demo` on its own to rebuild just the demo.
 
 ### Hosted demo (GitHub Pages)
 
-The same `demo.html` is published to GitHub Pages on every push to
-`claude/main` by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) —
-it runs the build in CI and deploys, so no generated files are committed. The
-site also serves `bundle.nq`, `solr-docs.json`, and `manifest.json` for
-download.
+The demo is published from the committed [`docs/`](docs/) folder via classic
+branch-based Pages (no Actions deploy job to fail). `docs/index.html` is the
+demo; `docs/` also serves `bundle.nq`, `solr-docs.json`, and `manifest.json`.
 
-**One-time setup:** in the repo's **Settings → Pages → Build and deployment**,
-set **Source** to **GitHub Actions**. The published URL appears in the Actions
-run summary (typically `https://<owner>.github.io/skosdex/`).
+**One-time setup:** repo **Settings → Pages → Build and deployment →
+Source: Deploy from a branch**, then pick **`claude/main`** and **`/docs`**.
+Site goes live at `https://<owner>.github.io/skosdex/`.
+
+**Regenerate** `docs/` after changing bundled data:
+
+```bash
+npm run site      # rebuild bundle + demo into docs/, then commit docs/
+```
+
 
 ## Quick start (full stack)
 

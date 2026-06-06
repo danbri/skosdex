@@ -235,7 +235,9 @@ async function bundleAll() {
     }
     const graphTerm = meta.conceptSchemeURI ? namedNode(meta.conceptSchemeURI) : defaultGraph();
     const quads = relabelIntoGraph(parseQuads(fs.readFileSync(canon, 'utf8'), 'N-Quads'), meta.slug, graphTerm);
-    all.push(...quads);
+    // NB: not all.push(...quads) — spreading a million-element array as call
+    // args overflows the stack on large schemes (e.g. NALT, 1.15M quads).
+    for (const q of quads) all.push(q);
     manifest.included.push({
       slug: meta.slug,
       title: meta.title,
@@ -312,6 +314,21 @@ function buildDemo() {
   const out = path.join(DIST_DIR, 'demo.html');
   fs.writeFileSync(out, html);
   console.log(`  demo     -> dist/demo.html (${data.length} concepts embedded; open in any browser)`);
+}
+
+// Publish the demo + data into docs/ for classic branch-based GitHub Pages
+// (Settings -> Pages -> Deploy from a branch -> claude/main -> /docs). No
+// Actions deploy job, so nothing to fail. Run after bundle + solr-docs + demo.
+function buildSite() {
+  const DOCS = path.join(ROOT, 'docs');
+  fs.mkdirSync(DOCS, { recursive: true });
+  fs.copyFileSync(path.join(DIST_DIR, 'demo.html'), path.join(DOCS, 'index.html'));
+  for (const f of ['bundle.nq', 'solr-docs.json', 'manifest.json']) {
+    const src = path.join(DIST_DIR, f);
+    if (fs.existsSync(src)) fs.copyFileSync(src, path.join(DOCS, f));
+  }
+  fs.writeFileSync(path.join(DOCS, '.nojekyll'), ''); // serve files verbatim
+  console.log('  site     -> docs/ (index.html + data; commit docs/ for GitHub Pages)');
 }
 
 const DEMO_HTML = `<!doctype html>
@@ -411,6 +428,13 @@ async function main() {
     case 'demo':
       buildDemo();
       break;
+    case 'site':
+      // Offline: bundle from committed canonical.nq, then publish into docs/.
+      await bundleAll();
+      solrDocs();
+      buildDemo();
+      buildSite();
+      break;
     case 'build': {
       for (const m of selectMetas(arg)) {
         if (!m.eligible) {
@@ -437,6 +461,7 @@ Usage:
   skosdex bundle               Merge open-licensed schemes -> dist/bundle.nq
   skosdex solr-docs            Derive dist/solr-docs.json from the bundle
   skosdex demo                 Bake dist/demo.html — a standalone browser of the bundle
+  skosdex site                 Bundle + demo, publish into docs/ for GitHub Pages
   skosdex build        [slug]  Run the whole pipeline (default: all schemes)
 
 Omit [slug] to act on every scheme under third_party/skos/.`);
