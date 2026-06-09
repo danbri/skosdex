@@ -1,6 +1,14 @@
 {
-  "generated": "2026-06-09T12:17:53.053Z",
+  "generated": "2026-06-09T13:20:45.137Z",
   "included": [
+    {
+      "slug": "agrovoc",
+      "title": "AGROVOC",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseClass": "open",
+      "graph": "http://aims.fao.org/aos/agrovoc",
+      "quads": 10089090
+    },
     {
       "slug": "example-colors",
       "title": "skosdex example colour scheme",
@@ -10,33 +18,43 @@
       "quads": 37
     },
     {
+      "slug": "getty-aat",
+      "title": "Getty Art & Architecture Thesaurus (AAT)",
+      "license": "https://opendatacommons.org/licenses/by/1-0/",
+      "licenseClass": "open",
+      "graph": "http://vocab.getty.edu/aat/",
+      "quads": 26679064
+    },
+    {
       "slug": "iptc-media-topics",
       "title": "IPTC Media Topics",
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "licenseClass": "open",
       "graph": "http://cv.iptc.org/newscodes/mediatopic/",
       "quads": 16960
+    },
+    {
+      "slug": "lcsh",
+      "title": "Library of Congress Subject Headings (LCSH)",
+      "license": "https://www.loc.gov/legal/",
+      "licenseClass": "public-domain",
+      "graph": "http://id.loc.gov/authorities/subjects",
+      "quads": 9735460
+    },
+    {
+      "slug": "nalt",
+      "title": "NAL Agricultural Thesaurus (NALT)",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "licenseClass": "public-domain",
+      "graph": "https://lod.nal.usda.gov/nalt/",
+      "quads": 1153267
     }
   ],
   "excluded": [
     {
-      "slug": "agrovoc",
+      "slug": "getty-ulan",
       "licenseClass": "open",
       "reason": "excluded (bundle: false)"
-    },
-    {
-      "slug": "getty-aat",
-      "licenseClass": "open",
-      "reason": "excluded (bundle: false)"
-    },
-    {
-      "slug": "lcsh",
-      "licenseClass": "public-domain",
-      "reason": "excluded (bundle: false)"
-    },
-    {
-      "slug": "nalt",
-      "reason": "no canonical.nq.gz (run build)"
     },
     {
       "slug": "unesco-thesaurus",

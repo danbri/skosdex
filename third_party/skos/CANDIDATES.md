@@ -17,16 +17,20 @@ Licenses change; re-verify before onboarding. Last reviewed: **2026-06**.
 
 | Scheme | License | Quads | canonical.nq.gz |
 |--------|---------|------:|----------------:|
-| Getty AAT | ODC-By 1.0 | 16,811,013 | 109 MB (LFS) |
+| Getty AAT | ODC-By 1.0 | 26,679,064 | ~170 MB (LFS) |
 | AGROVOC | CC BY 4.0 | 10,089,090 | 90 MB (LFS) |
 | LCSH | public domain | 9,735,460 | 88 MB (LFS) |
 | NALT | CC0 | 1,153,267 | 8 MB (LFS) |
 | IPTC Media Topics | CC BY 4.0 | 16,960 | small (repo) |
 | example-colors | CC0 | 37 | small (repo) |
-| **Total** | | **37,805,827** | bundle 316 MB gz |
+| **Total** | | **47,673,878** | bundle ~400 MB gz |
 
-Six SKOS schemes, ~37.8M quads, all stored gzipped (small in-repo, large via
-Git LFS). The merged `dist/bundle.nq.gz` is a build artifact (not committed).
+Six SKOS schemes, **~47.7M quads**, all stored gzipped (small in-repo, large via
+Git LFS). The merged `dist/bundle.nq.gz` is a build artifact (not committed);
+served live by the fly.io Oxigraph+Solr deploy (`deploy/fly/`).
+
+**Deferred (too big for the current build env):** Getty ULAN (~10.5GB graph) and
+Getty TGN (~larger) — metadata records present, build elsewhere with more disk.
 
 
 ## ✅ Bundleable — open / public-domain (ready to onboard)

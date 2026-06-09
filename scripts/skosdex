@@ -504,15 +504,20 @@ async function buildDemo() {
 function buildSite() {
   const DOCS = path.join(ROOT, 'docs');
   fs.mkdirSync(DOCS, { recursive: true });
+  // docs/ is committed and served by GitHub Pages, so it carries ONLY the small
+  // sampled demo + the manifest — never the full bundle/solr-docs (hundreds of
+  // MB; the live fly.io endpoints serve the complete corpus). manifest.json is
+  // tiny and useful as a provenance/license listing.
   fs.copyFileSync(path.join(DIST_DIR, 'demo.html'), path.join(DOCS, 'index.html'));
-  // docs/ is served by GitHub Pages as plain files (NOT via LFS — Pages serves
-  // LFS pointers, not content). These are the small committed-bundle artifacts.
-  for (const f of [`bundle.${NQ}`, 'solr-docs.json', 'manifest.json']) {
-    const src = path.join(DIST_DIR, f);
-    if (fs.existsSync(src)) fs.copyFileSync(src, path.join(DOCS, f));
+  const man = path.join(DIST_DIR, 'manifest.json');
+  if (fs.existsSync(man)) fs.copyFileSync(man, path.join(DOCS, 'manifest.json'));
+  // Drop any oversized data files a previous version may have copied in.
+  for (const f of [`bundle.${NQ}`, 'solr-docs.json']) {
+    const stale = path.join(DOCS, f);
+    if (fs.existsSync(stale)) fs.rmSync(stale);
   }
   fs.writeFileSync(path.join(DOCS, '.nojekyll'), ''); // serve files verbatim
-  console.log('  site     -> docs/ (index.html + data; commit docs/ for GitHub Pages)');
+  console.log('  site     -> docs/ (sampled demo + manifest for GitHub Pages)');
 }
 
 const DEMO_HTML = `<!doctype html>
