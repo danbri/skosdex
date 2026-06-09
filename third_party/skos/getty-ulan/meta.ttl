@@ -1,0 +1,21 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Getty Union List of Artist Names (ULAN). ODC-By 1.0 -> open, bundleable in
+# principle. full.zip (~638MB) holds three N-Triples members; ULANOut_Full.nt
+# is the complete graph (~10.5GB). compression "zip" + sourceEntry select it.
+# DEFERRED (bundle:false): at 10.5GB it needs more transient disk than the
+# current build env has (source + sort temp files). The record is ready —
+# flip bundle:true and `skosdex build getty-ulan` on a box with ~40GB free.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Getty Union List of Artist Names (ULAN)" ;
+    dcterms:publisher <https://www.getty.edu/research/> ;
+    skosdex:conceptSchemeURI <http://vocab.getty.edu/ulan/> ;
+    skosdex:sourceURL <http://ulandownloads.getty.edu/VocabData/full.zip> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "ULANOut_Full.nt" ;
+    dcterms:license <https://opendatacommons.org/licenses/by/1-0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle false .
