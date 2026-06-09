@@ -352,10 +352,14 @@ function relabelIntoGraph(quads, slug, graphTerm) {
 // Returns the quad (line) count.
 function appendSchemeToBundle(meta, canon, rawOut) {
   const graph = meta.conceptSchemeURI ? ` <${meta.conceptSchemeURI}> ` : ' ';
-  // awk: strip trailing " ." , prefix any _:bnode with the slug, append graph.
+  // awk: strip trailing " ." , prefix bnode labels with the slug, append graph.
+  // Bnode substitution is anchored to where bnodes can occur in canonical
+  // N-Quads: subject (line start) and object (immediately after the
+  // predicate's "> ") — so literal text containing "_:" is never rewritten.
   const prog =
     `{ sub(/[ \\t]*\\.[ \\t]*$/, "");` +
-    ` if (index($0, "_:")) gsub(/_:/, "_:${meta.slug}");` +
+    ` if (substr($0,1,2) == "_:") sub(/^_:/, "_:${meta.slug}");` +
+    ` gsub(/> _:/, "> _:${meta.slug}");` +
     ` print $0 "${graph}." }`;
   execFileSync('bash', ['-c',
     `set -o pipefail; zcat "${canon}" | awk '${prog}' | gzip >> "${rawOut}"`,
@@ -434,14 +438,31 @@ async function solrDocs() {
   const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@[\w-]+|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 
   fs.mkdirSync(DIST_DIR, { recursive: true });
+  // Two outputs: the single solr-docs.json (demo/Pages consume it) and
+  // dist/solr-parts/part-NNNN.json batches of PART_DOCS docs each — Solr's
+  // default heap can't swallow a single ~180MB POST (it shipped, it died),
+  // so the deployment posts the parts one by one.
+  const PART_DOCS = 50000;
+  const partsDir = path.join(DIST_DIR, 'solr-parts');
+  fs.rmSync(partsDir, { recursive: true, force: true });
+  fs.mkdirSync(partsDir, { recursive: true });
   const outStream = fs.createWriteStream(path.join(DIST_DIR, 'solr-docs.json'));
   outStream.write('[\n');
-  let nDocs = 0;
+  let nDocs = 0, partNo = 0, partCount = 0, partStream = null;
+  const openPart = () => {
+    partStream = fs.createWriteStream(path.join(partsDir, `part-${String(partNo).padStart(4, '0')}.json`));
+    partStream.write('[\n');
+    partCount = 0;
+  };
+  const closePart = () => new Promise((r) => { partStream.write('\n]\n'); partStream.end(r); });
+  openPart();
   let cur = null; // { id, scheme, isConcept, fields:{} }
-  const flush = () => {
+  const flushDoc = async () => {
     if (cur && cur.isConcept) {
-      const doc = { id: cur.id, scheme: cur.scheme, ...cur.fields };
-      outStream.write((nDocs++ ? ',\n' : '') + JSON.stringify(doc));
+      const json = JSON.stringify({ id: cur.id, scheme: cur.scheme, ...cur.fields });
+      outStream.write((nDocs++ ? ',\n' : '') + json);
+      if (partCount >= PART_DOCS) { await closePart(); partNo++; openPart(); }
+      partStream.write((partCount++ ? ',\n' : '') + json);
     }
   };
 
@@ -450,15 +471,15 @@ async function solrDocs() {
     const m = LINE.exec(line);
     if (!m) continue;
     const [, s, p, oIri, oLit, graph] = m;
-    if (!cur || cur.id !== s) { flush(); cur = { id: s, scheme: graph || null, isConcept: false, fields: {} }; }
+    if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, fields: {} }; }
     if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
     const field = FIELD[p];
     if (field) (cur.fields[field] ||= []).push(oIri !== undefined ? oIri : oLit);
   }
-  flush();
+  await flushDoc();
   outStream.write('\n]\n');
-  await new Promise((r) => outStream.end(r));
-  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs)`);
+  await Promise.all([new Promise((r) => outStream.end(r)), closePart()]);
+  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs; ${partNo + 1} parts of <=${PART_DOCS})`);
 }
 
 // Bake a single self-contained HTML file with the concept data embedded, so the

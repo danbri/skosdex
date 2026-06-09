@@ -6,7 +6,7 @@
 # volume-backed Oxigraph store and Solr core; subsequent boots reuse the volume.
 # Pull the Oxigraph binary from its official image (robust vs. release-asset
 # naming churn).
-ARG OXIGRAPH_TAG=0.4.11
+ARG OXIGRAPH_TAG=0.5.2
 FROM ghcr.io/oxigraph/oxigraph:${OXIGRAPH_TAG} AS oxigraph
 
 FROM solr:9 AS base
@@ -21,8 +21,10 @@ RUN apt-get update \
 COPY --from=oxigraph /usr/local/bin/oxigraph /usr/local/bin/oxigraph
 
 # Data artifacts produced by `skosdex bundle` + `skosdex solr-docs` in CI.
+# Solr docs ship as part files (<=50k docs each): one ~180MB POST kills Solr's
+# default heap, so start.sh posts the parts sequentially.
 COPY dist/bundle.nq.gz   /seed/bundle.nq.gz
-COPY dist/solr-docs.json /seed/solr-docs.json
+COPY dist/solr-parts/    /seed/solr-parts/
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start
 

@@ -3,7 +3,7 @@
 # the repo root so that dist/bundle.nq.gz is visible — see docker-compose.yml.
 #
 # Run `npm run build` first to (re)generate dist/bundle.nq.gz.
-ARG OXIGRAPH_TAG=0.4.11
+ARG OXIGRAPH_TAG=0.5.2
 
 FROM ghcr.io/oxigraph/oxigraph:${OXIGRAPH_TAG} AS loader
 COPY dist/bundle.nq.gz /tmp/bundle.nq.gz
