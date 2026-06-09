@@ -18,3 +18,9 @@ third_party/skos/*/normalized.nq.gz
 # Local Solr / SPARQL store volumes
 .volumes/
 *.log
+
+# docs/ is the GitHub Pages site — only the sampled demo + manifest belong.
+# Guard against accidentally committing the full bundle/solr-docs (hundreds of
+# MB) if a `site`/build run is interrupted mid-copy.
+docs/bundle.nq.gz
+docs/solr-docs.json
