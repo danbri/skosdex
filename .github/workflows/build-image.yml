@@ -1,0 +1,57 @@
+name: Build fly image to GHCR
+
+# Fallback / standalone image build: bakes the SKOS corpus into the
+# Oxigraph+Solr image (deploy/fly/Dockerfile) and pushes it to ghcr.io using
+# only the built-in GITHUB_TOKEN — no Fly secret or Fly builder needed.
+# Deploy the result with:
+#   flyctl deploy --image ghcr.io/danbri/skosdex-fly:latest --app skosdex
+# (make the GHCR package public once, or give Fly pull credentials).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: build-image
+  cancel-in-progress: true
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - run: git lfs pull
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      # Deploy artifacts from the committed LFS corpus — no network fetches.
+      - run: node scripts/skosdex bundle
+      - run: node scripts/skosdex solr-docs
+      - run: |
+          ls -la dist/bundle.nq.gz dist/solr-docs.json
+          echo "quads: $(zcat dist/bundle.nq.gz | wc -l)"
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        run: |
+          IMG=ghcr.io/${{ github.repository_owner }}/skosdex-fly
+          docker build -f deploy/fly/Dockerfile \
+            -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
+          docker push "$IMG:latest"
+          docker push "$IMG:${{ github.sha }}"
+          echo "pushed $IMG:latest and :${{ github.sha }}"
