@@ -26,8 +26,9 @@ named `FLY_API_TOKEN` — the CI build/bundle steps all pass; deploy fails only
 because this secret is currently empty (`Error: no access token available`).
 
 ```bash
-# create a deploy token scoped to the app (or reuse one you already minted)
-flyctl tokens create deploy -a skosdex
+# Use an ORG token, not a deploy token: the build needs to provision the
+# remote builder, which app-scoped deploy tokens can't do ("unauthorized").
+flyctl tokens create org contextris
 # set it as the repo secret (web UI: Settings → Secrets and variables → Actions)
 gh secret set FLY_API_TOKEN --repo danbri/skosdex
 ```

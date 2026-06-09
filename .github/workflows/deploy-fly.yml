@@ -71,6 +71,23 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
+      # Confirm the corpus is actually live and queryable — fail the run if not.
+      - name: Smoke test SPARQL + Solr
+        run: |
+          set -euo pipefail
+          base="https://skosdex.fly.dev"
+          echo "waiting for first-boot seed (Oxigraph load of 47.7M triples + Solr index)..."
+          for i in $(seq 1 60); do
+            ask=$(curl -s -m 10 "$base/query?query=ASK%7B%3Fs%20%3Fp%20%3Fo%7D" || true)
+            echo "$ask" | grep -qi true && { echo "SPARQL live: $ask"; break; }
+            sleep 15
+          done
+          echo "$ask" | grep -qi true || { echo "SPARQL did not come up"; exit 1; }
+          # one real query: count concepts in the AGROVOC graph
+          curl -s -m 20 --data-urlencode \
+            'query=SELECT (COUNT(*) AS ?n) WHERE { GRAPH <http://aims.fao.org/aos/agrovoc> { ?s a <http://www.w3.org/2004/02/skos/core#Concept> } }' \
+            -H 'Accept: application/sparql-results+json' "$base/query" | head -c 400; echo
+
       - name: Show endpoints
         if: success()
         run: |
