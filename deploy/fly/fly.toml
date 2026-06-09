@@ -1,10 +1,6 @@
 # fly.io app config for skosdex: Oxigraph (SPARQL) + Solr on one machine,
-# data on a persistent volume. Deploy with `flyctl deploy` (CI does this).
-#
-# First time only:
-#   flyctl apps create skosdex
-#   flyctl volumes create skosdex_data --size 10 --region <region>
-#   flyctl secrets ...        # (none required for read-only serving)
+# data on a persistent volume. Deploy via CI (`.github/workflows/deploy-fly.yml`),
+# which self-bootstraps the app + volume — no manual flyctl needed.
 
 app = "skosdex"
 primary_region = "iad"
@@ -16,7 +12,7 @@ primary_region = "iad"
   SKOSDEX_DATA = "/data"
 
 # Persistent volume holds the loaded Oxigraph store + Solr core, so reboots
-# don't re-seed the 37.8M-quad corpus.
+# don't re-seed the ~47.7M-quad corpus.
 [mounts]
   source = "skosdex_data"
   destination = "/data"
@@ -51,7 +47,8 @@ primary_region = "iad"
     port = 8983
     handlers = ["http"]
 
-# 37.8M triples in RocksDB + a Solr core need real memory.
+# ~47.7M triples in RocksDB + a Solr JVM core need real memory; the first-boot
+# seed (bundle load + Solr index post) is the peak. 8GB gives headroom.
 [[vm]]
-  size = "shared-cpu-2x"
-  memory = "4gb"
+  size = "shared-cpu-4x"
+  memory = "8gb"

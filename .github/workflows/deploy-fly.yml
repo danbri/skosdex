@@ -58,7 +58,7 @@ jobs:
         run: |
           set -euo pipefail
           flyctl status --app "$FLY_APP" >/dev/null 2>&1 \
-            || flyctl apps create "$FLY_APP" --org personal
+            || flyctl apps create "$FLY_APP" --org contextris
           # Create a volume only if none exists for this app.
           if ! flyctl volumes list --app "$FLY_APP" 2>/dev/null | grep -q skosdex_data; then
             flyctl volumes create skosdex_data --app "$FLY_APP" \
