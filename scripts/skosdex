@@ -252,15 +252,31 @@ async function canonicalizeScheme(meta) {
     console.log(`  canon    ${meta.slug}: no normalized.${NQ} — run normalize first`);
     return;
   }
-  // RDFC-1.0 only does work when blank nodes are present; its cost is
-  // superlinear in blank-node count and pointless when there are none. For the
-  // many SKOS schemes that are 100% IRI-based (e.g. NALT, AGROVOC, IPTC), the
-  // already sorted normalized N-Quads IS the canonical form — skip the
-  // expensive pass and just copy the gzip verbatim (streaming, no full read).
+  // RDFC-1.0 only does work when blank nodes are present, and rdf-canonize is
+  // in-memory (the input must fit one JS string, <512MB). So:
+  //  - no blank nodes  -> the sorted normalized N-Quads IS canonical; copy it.
+  //  - blank nodes, but small enough -> run RDFC-1.0.
+  //  - blank nodes, but too large (e.g. AGROVOC: 10M quads, 211 bnodes in its
+  //    OWL header) -> RDFC-1.0 can't ingest it. The normalized form is sorted &
+  //    deduped from a single deterministic upstream dump, so its blank-node
+  //    labels are already stable run-to-run; ship it as canonical and warn.
   const canon = schemeArtifact(meta, 'canonical');
   if (!await nqGzHasBlankNodes(norm)) {
     fs.copyFileSync(norm, canon);
     console.log(`  canon    ${meta.slug}: no blank nodes — canonical = normalized`);
+    return;
+  }
+  // Decompressed-size guard: stay well under the ~512MB JS string limit.
+  const RDFC_MAX_BYTES = 256 * 1024 * 1024;
+  let decompressedBytes = 0;
+  await new Promise((resolve, reject) => {
+    const gz = fs.createReadStream(norm).pipe(zlib.createGunzip());
+    gz.on('data', (c) => { decompressedBytes += c.length; });
+    gz.on('end', resolve); gz.on('error', reject);
+  });
+  if (decompressedBytes > RDFC_MAX_BYTES) {
+    fs.copyFileSync(norm, canon);
+    console.log(`  canon    ${meta.slug}: ${(decompressedBytes / 1e6).toFixed(0)}MB > RDFC-1.0 limit — using sorted normalized as canonical (stable bnode labels from upstream dump)`);
     return;
   }
   const canonical = await rdfCanonize.canonize(readText(norm), {
