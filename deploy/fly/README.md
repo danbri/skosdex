@@ -47,10 +47,14 @@ or manually via the Actions "Run workflow" button (`workflow_dispatch`).
 
 ## Notes / scaling
 
-- The corpus is ~37.8M quads. Loading into Oxigraph and indexing Solr happens
-  once per volume; size the VM (`[[vm]]` in `fly.toml`) and volume accordingly.
-- `dist/bundle.nq.gz` (~316MB) and `dist/solr-docs.json` are baked into the
-  image at build time — large but cached. An alternative is to fetch them from
-  a release asset at boot to keep the image lean.
+- The corpus is ~47.7M quads. The CI image bakes in `dist/bundle.nq.gz`
+  (~400MB) + `dist/solr-docs.json`; `start.sh` bulk-loads them **once** into the
+  volume-backed Oxigraph store via `oxigraph load` (fast, no per-triple HTTP).
+- **Do not load incrementally over HTTP** (`/store` POST appends, so re-runs
+  duplicate triples and inflate graph counts). The image's `oxigraph load` into
+  a fresh store is the correct path. If the volume is ever dirty, recreate it
+  (`flyctl volumes destroy` + `create`) so the next boot seeds clean.
+- Size the VM (`[[vm]]` in `fly.toml`) and volume accordingly; 47.7M triples in
+  RocksDB needs several GB. A performance VM with ≥8GB RAM loads reliably.
 - Posting the full `solr-docs.json` in one request can be memory-heavy; if Solr
   OOMs, split the post into batches in `start.sh`.
