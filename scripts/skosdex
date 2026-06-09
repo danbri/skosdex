@@ -215,7 +215,13 @@ async function normalizeScheme(meta) {
   // (external, disk-backed) and gzip the result.
   const raw = path.join(meta.dir, 'cache', '_normalized.raw');
   fs.mkdirSync(path.dirname(raw), { recursive: true });
-  const count = await streamParseToNQuads(src, meta.sourceFormat, raw);
+  // N-Triples/N-Quads are line-oriented: parse each line independently so one
+  // malformed line (e.g. in Getty's 3.6GB dump) is skipped, not fatal. Other
+  // formats (Turtle/TriG) need the whole-document streaming parser.
+  const lineBased = meta.sourceFormat === 'application/n-triples' || meta.sourceFormat === 'application/n-quads';
+  const count = lineBased
+    ? await lineNormalizeToNQuads(src, meta.sourceFormat, raw)
+    : await streamParseToNQuads(src, meta.sourceFormat, raw);
   const sorted = path.join(meta.dir, 'cache', '_normalized.sorted');
   execFileSync('sort', ['-u', '-o', sorted, raw], { stdio: 'inherit', env: { ...process.env, LC_ALL: 'C' } });
   // gzip sorted -> normalized.nq.gz
@@ -227,6 +233,34 @@ async function normalizeScheme(meta) {
   }
   fs.rmSync(raw); fs.rmSync(sorted);
   console.log(`  normalize ${meta.slug}: ${count} quads -> normalized.${NQ}`);
+}
+
+// Fault-tolerant line-based normalize for N-Triples/N-Quads. Parses each line
+// with its own n3 parser so a single malformed line is skipped (counted) rather
+// than aborting the whole multi-GB stream. Emits canonical N-Quads lines.
+async function lineNormalizeToNQuads(src, format, outFile) {
+  const rl = readline.createInterface({ input: fs.createReadStream(src), crlfDelay: Infinity });
+  const out = fs.createWriteStream(outFile);
+  const writer = new Writer({ format: 'N-Quads' });
+  let count = 0, skipped = 0;
+  for await (const line of rl) {
+    const t = line.trim();
+    if (!t || t.startsWith('#')) continue;
+    try {
+      const quads = new Parser({ format }).parse(t.endsWith('.') ? t : t + ' .');
+      for (const q of quads) {
+        if (!out.write(writer.quadToString(q.subject, q.predicate, q.object, q.graph))) {
+          await new Promise((r) => out.once('drain', r));
+        }
+        count++;
+      }
+    } catch {
+      skipped++;
+    }
+  }
+  await new Promise((r) => out.end(r));
+  if (skipped) console.log(`  normalize: skipped ${skipped} malformed line(s)`);
+  return count;
 }
 
 // Stream a source RDF file through the n3 parser, writing each quad as an
