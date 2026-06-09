@@ -1,0 +1,52 @@
+name: Deploy corpus to fly.io (Oxigraph + Solr)
+
+# Builds the SKOS bundle from the committed Git LFS canonical.nq.gz files, then
+# deploys it to the fly.io app (Oxigraph SPARQL + Solr on one machine).
+#
+# Requires repo secret FLY_API_TOKEN (flyctl auth token). The app + volume are
+# created once manually (see deploy/fly/fly.toml header).
+
+on:
+  # Manual trigger; corpus changes are deliberate, not every push.
+  workflow_dispatch:
+  push:
+    branches: [claude/main]
+    paths:
+      - 'third_party/skos/**/canonical.nq.gz'
+      - 'deploy/fly/**'
+      - '.github/workflows/deploy-fly.yml'
+
+concurrency:
+  group: fly-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true          # materialize the canonical.nq.gz LFS objects
+      - run: git lfs pull
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      # Produce dist/bundle.nq.gz + dist/solr-docs.json from committed data
+      # (offline: bundle/solr-docs read the canonical.nq.gz files, no fetch).
+      - run: node scripts/skosdex bundle
+      - run: node scripts/skosdex solr-docs
+
+      - name: Report bundle size
+        run: |
+          ls -la dist/bundle.nq.gz dist/solr-docs.json
+          echo "quads: $(zcat dist/bundle.nq.gz | wc -l)"
+
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Deploy to fly.io
+        run: flyctl deploy --config deploy/fly/fly.toml --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
