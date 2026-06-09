@@ -11,7 +11,23 @@ bundled. `copyleft` (viral / share-alike), `noncommercial`, and `proprietary`
 schemes stay **metadata-only** — their record lets others fetch them under their
 own terms.
 
-Licenses change; re-verify before onboarding. Last reviewed: **2026-05**.
+Licenses change; re-verify before onboarding. Last reviewed: **2026-06**.
+
+## 📦 Corpus built so far (committed via Git LFS)
+
+| Scheme | License | Quads | canonical.nq.gz |
+|--------|---------|------:|----------------:|
+| Getty AAT | ODC-By 1.0 | 16,811,013 | 109 MB (LFS) |
+| AGROVOC | CC BY 4.0 | 10,089,090 | 90 MB (LFS) |
+| LCSH | public domain | 9,735,460 | 88 MB (LFS) |
+| NALT | CC0 | 1,153,267 | 8 MB (LFS) |
+| IPTC Media Topics | CC BY 4.0 | 16,960 | small (repo) |
+| example-colors | CC0 | 37 | small (repo) |
+| **Total** | | **37,805,827** | bundle 316 MB gz |
+
+Six SKOS schemes, ~37.8M quads, all stored gzipped (small in-repo, large via
+Git LFS). The merged `dist/bundle.nq.gz` is a build artifact (not committed).
+
 
 ## ✅ Bundleable — open / public-domain (ready to onboard)
 
