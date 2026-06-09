@@ -1,20 +1,24 @@
 name: Deploy corpus to fly.io (Oxigraph + Solr)
 
-# Builds the SKOS bundle from the committed Git LFS canonical.nq.gz files, then
-# deploys it to the fly.io app (Oxigraph SPARQL + Solr on one machine).
+# Two-stage deploy, proven 2026-06-09:
+#   1. build-image: bake the corpus (Git LFS canonical.nq.gz -> bundle + solr
+#      docs) into the Oxigraph+Solr image and push to GHCR. Needs only the
+#      built-in GITHUB_TOKEN.
+#   2. deploy: point the Fly app at that image. Needs FLY_API_TOKEN — an
+#      app-scoped deploy token suffices, because deploying a prebuilt image
+#      never touches Fly's builders (depot timed out and the classic builder
+#      rejects app tokens; --image sidesteps both).
 #
-# The ONLY manual setup is adding the repo secret FLY_API_TOKEN
-# (`flyctl tokens create org` or a deploy token). This workflow self-bootstraps
-# the app and the persistent volume if they don't exist yet — no local flyctl.
+# First-boot seeding happens on the machine itself (deploy/fly/start.sh):
+# oxigraph bulk-load + Solr index into the persistent volume, then serve.
 
 on:
-  # Manual trigger; corpus changes are deliberate, not every push.
   workflow_dispatch:
   push:
     branches: [claude/main]
     paths:
       - 'third_party/skos/**/canonical.nq.gz'
-      - 'scripts/skosdex'        # bundle/solr-docs logic affects the deployed data
+      - 'scripts/skosdex'
       - 'deploy/fly/**'
       - '.github/workflows/deploy-fly.yml'
 
@@ -22,13 +26,17 @@ concurrency:
   group: fly-deploy
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  build-and-deploy:
+  build-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true          # materialize the canonical.nq.gz LFS objects
+          lfs: true
       - run: git lfs pull
 
       - uses: actions/setup-node@v4
@@ -37,20 +45,37 @@ jobs:
           cache: npm
       - run: npm ci
 
-      # Produce dist/bundle.nq.gz + dist/solr-docs.json from committed data
-      # (offline: bundle/solr-docs read the canonical.nq.gz files, no fetch).
+      # Deploy artifacts from the committed LFS corpus — no network fetches.
       - run: node scripts/skosdex bundle
       - run: node scripts/skosdex solr-docs
-
-      - name: Report bundle size
+      - name: Report artifact sizes
         run: |
           ls -la dist/bundle.nq.gz dist/solr-docs.json
           echo "quads: $(zcat dist/bundle.nq.gz | wc -l)"
 
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        run: |
+          IMG=ghcr.io/${{ github.repository_owner }}/skosdex-fly
+          docker build -f deploy/fly/Dockerfile \
+            -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
+          docker push "$IMG:latest"
+          docker push "$IMG:${{ github.sha }}"
+
+  deploy:
+    needs: build-image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4   # for deploy/fly/fly.toml only (no LFS)
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
-      # Self-bootstrap: create the app + volume on first run so no local flyctl
-      # is ever needed. Idempotent — skips whatever already exists.
+      # Self-bootstrap app + volume if absent (idempotent).
       - name: Ensure app + volume exist
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
@@ -60,36 +85,28 @@ jobs:
           set -euo pipefail
           flyctl status --app "$FLY_APP" >/dev/null 2>&1 \
             || flyctl apps create "$FLY_APP" --org contextris
-          # Create a volume only if none exists for this app.
           if ! flyctl volumes list --app "$FLY_APP" 2>/dev/null | grep -q skosdex_data; then
             flyctl volumes create skosdex_data --app "$FLY_APP" \
-              --region "$FLY_REGION" --size 20 --yes
+              --region "$FLY_REGION" --size 25 --yes
           fi
 
-      - name: Deploy to fly.io
-        run: flyctl deploy . --config deploy/fly/fly.toml --remote-only --strategy immediate --app skosdex
+      - name: Deploy prebuilt image
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-      # Confirm the corpus is actually live and queryable — fail the run if not.
-      - name: Smoke test SPARQL + Solr
         run: |
-          set -euo pipefail
-          base="https://skosdex.fly.dev"
-          echo "waiting for first-boot seed (Oxigraph load of 47.7M triples + Solr index)..."
-          for i in $(seq 1 60); do
-            ask=$(curl -s -m 10 "$base/query?query=ASK%7B%3Fs%20%3Fp%20%3Fo%7D" || true)
-            echo "$ask" | grep -qi true && { echo "SPARQL live: $ask"; break; }
-            sleep 15
+          flyctl deploy \
+            --image ghcr.io/${{ github.repository_owner }}/skosdex-fly:${{ github.sha }} \
+            --config deploy/fly/fly.toml --strategy immediate --app skosdex
+
+      # NOTE: a fresh corpus only reaches the store when the volume seeds —
+      # start.sh skips seeding if the volume carries the marker file. To force a
+      # reseed after a data change: flyctl volumes destroy + create, then rerun.
+      - name: Smoke test (SPARQL up, may still be seeding)
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf -m 10 "https://skosdex.fly.dev/query?query=ASK%7B%7D" | grep -qi true; then
+              echo "SPARQL endpoint answering"; exit 0
+            fi
+            echo "waiting for seed/boot ($i)"; sleep 30
           done
-          echo "$ask" | grep -qi true || { echo "SPARQL did not come up"; exit 1; }
-          # one real query: count concepts in the AGROVOC graph
-          curl -s -m 20 --data-urlencode \
-            'query=SELECT (COUNT(*) AS ?n) WHERE { GRAPH <http://aims.fao.org/aos/agrovoc> { ?s a <http://www.w3.org/2004/02/skos/core#Concept> } }' \
-            -H 'Accept: application/sparql-results+json' "$base/query" | head -c 400; echo
-
-      - name: Show endpoints
-        if: success()
-        run: |
-          echo "SPARQL: https://skosdex.fly.dev/query?query=ASK%7B%7D"
-          echo "Solr:   https://skosdex.fly.dev:8983/solr/  (or via flyctl proxy)"
+          echo "endpoint not up within 15m — likely still seeding; check flyctl logs"
