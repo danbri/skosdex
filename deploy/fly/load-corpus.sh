@@ -38,12 +38,32 @@ fi
 echo "target: $BASE  (chunk=$CHUNK triples)"
 echo "loading: ${schemes[*]}"
 
+graph_count() {
+  curl -s -m 60 --data-urlencode \
+    "query=SELECT (COUNT(*) AS ?n) WHERE { GRAPH <$1> { ?s ?p ?o } }" \
+    -H 'Accept: text/csv' "$BASE/query" 2>/dev/null | tail -1
+}
+
 for s in "${schemes[@]}"; do
   graph=$(grep -oP 'conceptSchemeURI\s+<\K[^>]+' "third_party/skos/$s/meta.ttl")
   enc=$(python3 -c "import urllib.parse,sys;print(urllib.parse.quote(sys.argv[1],safe=''))" "$graph")
   url="$BASE/store?graph=$enc"
   total=$(zcat "third_party/skos/$s/canonical.nq.gz" | wc -l)
   echo "=== $s: $total triples -> <$graph> ==="
+  # Idempotent: if the graph already holds >= the expected count, skip. Otherwise
+  # CLEAR it first so a resumed/re-run load can't inflate via appended dupes.
+  have=$(graph_count "$graph"); have=${have:-0}
+  echo "  graph currently has: $have"
+  if [ "${have//[^0-9]/}" -ge "$total" ] 2>/dev/null; then
+    echo "  already loaded — skipping"; continue
+  fi
+  if [ "${have//[^0-9]/}" -gt 0 ] 2>/dev/null; then
+    echo "  partial/dirty — clearing graph first"
+    wait_healthy
+    curl -s -m 300 -X POST -H "Content-Type: application/sparql-update" \
+      --data "CLEAR GRAPH <$graph>" "$BASE/update" >/dev/null 2>&1 || true
+    sleep 5
+  fi
   rm -f "$TMP"/part_*
   zcat "third_party/skos/$s/canonical.nq.gz" | split -l "$CHUNK" - "$TMP/part_"
   n=$(ls "$TMP"/part_* | wc -l); i=0
