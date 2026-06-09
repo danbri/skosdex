@@ -53,5 +53,5 @@ primary_region = "iad"
 # ~47.7M triples in RocksDB + a Solr JVM core need real memory; the first-boot
 # seed (bundle load + Solr index post) is the peak. 8GB gives headroom.
 [[vm]]
-  size = "shared-cpu-4x"
-  memory = "8gb"
+  size = "performance-4x"
+  memory = "16gb"
