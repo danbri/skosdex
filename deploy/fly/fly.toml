@@ -6,7 +6,10 @@ app = "skosdex"
 primary_region = "iad"
 
 [build]
-  dockerfile = "deploy/fly/Dockerfile"
+  # Resolved relative to this fly.toml's directory (deploy/fly/). The build
+  # CONTEXT is the repo root (pass `.` to `flyctl deploy`), so the Dockerfile's
+  # `COPY dist/...` paths work.
+  dockerfile = "Dockerfile"
 
 [env]
   SKOSDEX_DATA = "/data"

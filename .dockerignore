@@ -1,0 +1,10 @@
+# Keep the Fly build context lean. The image only needs dist/bundle.nq.gz +
+# dist/solr-docs.json + deploy/fly/start.sh (see deploy/fly/Dockerfile).
+.git
+node_modules
+third_party/skos/*/cache
+third_party/skos/*/canonical.nq.gz
+third_party/skos/*/normalized.nq.gz
+docs
+_site
+*.log
