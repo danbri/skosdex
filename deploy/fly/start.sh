@@ -1,61 +1,72 @@
 #!/bin/bash
 # Boot Oxigraph + Solr on one box, seeding the SKOS corpus into the persistent
-# volume on first run. Idempotent: a marker file skips reload on later boots.
+# volume on first run. Stage markers make retries cheap and partial states
+# impossible to mistake for complete ones.
 set -euo pipefail
 
 DATA="${SKOSDEX_DATA:-/data}"
 OX_STORE="$DATA/oxigraph"
 SOLR_HOME="$DATA/solr"
+OX_MARKER="$DATA/.oxigraph-loaded-v1"
 SEED_MARKER="$DATA/.seeded-v1"
 
 mkdir -p "$OX_STORE" "$SOLR_HOME"
 
 # --- Solr -----------------------------------------------------------------
-# Use the volume as Solr home so the core persists across machine restarts.
-# 2GB heap: the default 512m cannot index the corpus (the VM has 8GB+).
+# SOLR_HOME lives on the volume so the core persists — but a fresh volume is
+# EMPTY: no solr.xml, no configsets/, so core CREATE with configSet=_default
+# fails (this shipped: every part-post 404'd against a core that never
+# existed). Initialize the home from the image's skeleton, once.
+if [ ! -f "$SOLR_HOME/solr.xml" ]; then
+  echo "initializing solr home from image skeleton"
+  cp -r /opt/solr/server/solr/* "$SOLR_HOME/"
+fi
 export SOLR_HOME
 export SOLR_HEAP="${SOLR_HEAP:-2g}"
 solr start -force
-# Wait for Solr to answer.
 until curl -sf "http://localhost:8983/solr/admin/info/system" >/dev/null 2>&1; do
   echo "waiting for solr..."; sleep 2
 done
 
-if [ ! -f "$SEED_MARKER" ]; then
-  echo "seeding: first boot"
-
-  # Oxigraph: load the bundle into the RocksDB store on the volume. Decompress
-  # to a .nq first so the loader infers the format from the extension.
+# --- Stage 1: Oxigraph bulk load (skipped on retry once loaded) ------------
+if [ ! -f "$OX_MARKER" ]; then
   # --lenient: skip-and-log a malformed quad rather than abort 47.7M triples
   # over one bad line. Any reported Error still aborts BEFORE the marker is
-  # written — a truncated store must never be stamped seeded. (This exact
-  # failure shipped once: oxigraph 0.4.11 rejected valid @es-419 language tags,
-  # died at line 2.8M, and the script blithely carried on. 0.5.2 parses them;
-  # lenient + the grep below are the backstop.)
+  # written — a truncated store must never be stamped loaded. (Shipped once:
+  # oxigraph 0.4.11 rejected valid @es-419 language tags at line 2.8M and the
+  # script carried on. 0.5.2 parses them; lenient + grep are the backstop.)
   echo "loading bundle into oxigraph..."
   gzip -dc /seed/bundle.nq.gz > /tmp/bundle.nq
   if ! /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --file /tmp/bundle.nq 2>&1 | tee /tmp/oxload.out; then
-    echo "FATAL: oxigraph load exited non-zero; not marking seeded"; exit 1
+    echo "FATAL: oxigraph load exited non-zero; not marking loaded"; exit 1
   fi
   if grep -qi "error" /tmp/oxload.out; then
-    echo "FATAL: oxigraph load reported errors; not marking seeded"; exit 1
+    echo "FATAL: oxigraph load reported errors; not marking loaded"; exit 1
   fi
   rm -f /tmp/bundle.nq /tmp/oxload.out
+  touch "$OX_MARKER"
+  echo "oxigraph load complete"
+else
+  echo "oxigraph store already loaded; skipping"
+fi
 
-  # Solr: create the core (if absent) and post the concept docs in parts —
-  # each /seed/solr-parts/part-NNNN.json is a JSON array of <=50k docs
-  # (schemaless _default config infers fields). One giant POST is what failed
-  # before (curl exit 22). Commit once at the end.
-  curl -sf "http://localhost:8983/solr/admin/cores?action=CREATE&name=skos&configSet=_default" >/dev/null 2>&1 || true
+# --- Stage 2: Solr core + docs (parts of <=50k docs) ------------------------
+if [ ! -f "$SEED_MARKER" ]; then
+  echo "creating solr core..."
+  create=$(curl -s "http://localhost:8983/solr/admin/cores?action=CREATE&name=skos&configSet=_default")
+  echo "$create" | grep -q '"status":0' \
+    || echo "$create" | grep -qi "already exists" \
+    || { echo "FATAL: core create failed: $(echo "$create" | head -c 400)"; exit 1; }
+
   echo "indexing solr docs..."
   for part in /seed/solr-parts/part-*.json; do
     echo "  posting $(basename "$part")"
-    if ! curl -sf -m 600 "http://localhost:8983/solr/skos/update" \
-         -H 'Content-Type: application/json' --data-binary @"$part" >/dev/null; then
-      echo "FATAL: solr rejected $(basename "$part"); not marking seeded"; exit 1
-    fi
+    resp=$(curl -s -m 600 "http://localhost:8983/solr/skos/update" \
+           -H 'Content-Type: application/json' --data-binary @"$part")
+    echo "$resp" | grep -q '"status":0' \
+      || { echo "FATAL: solr rejected $(basename "$part"): $(echo "$resp" | head -c 400)"; exit 1; }
   done
-  curl -sf "http://localhost:8983/solr/skos/update?commit=true" \
+  curl -s "http://localhost:8983/solr/skos/update?commit=true" \
        -H 'Content-Type: application/json' --data '[]' >/dev/null
 
   touch "$SEED_MARKER"
