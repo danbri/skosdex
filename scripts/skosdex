@@ -344,33 +344,25 @@ function relabelIntoGraph(quads, slug, graphTerm) {
 }
 
 // Append a scheme's canonical N-Quads into the gzipped raw bundle, placing each
-// quad in the scheme's named graph. Streams line-by-line so multi-GB schemes
-// (AGROVOC) never load into memory: each `s p o .` line becomes
-// `s p o <graph> .`. The output is gzip appended (concatenated gzip members
-// decompress as one stream), keeping the on-disk accumulator small. Blank nodes
-// are prefixed per-scheme to avoid cross-scheme collisions. Returns count.
+// quad in the scheme's named graph. Done as a shell pipeline (awk) rather than
+// Node line-by-line — awk is ~100x faster on 10M+ line schemes (Getty/AGROVOC),
+// and the whole thing streams so multi-GB schemes never load into memory:
+//   zcat canonical.nq.gz | awk '{ inject graph, prefix blank nodes }' | gzip >> raw.gz
+// Concatenated gzip members decompress as one stream, keeping disk small.
+// Returns the quad (line) count.
 function appendSchemeToBundle(meta, canon, rawOut) {
-  return new Promise((resolve, reject) => {
-    const graph = meta.conceptSchemeURI ? `<${meta.conceptSchemeURI}>` : '';
-    const rl = readline.createInterface({ input: fs.createReadStream(canon).pipe(zlib.createGunzip()) });
-    const gz = zlib.createGzip();
-    const out = fs.createWriteStream(rawOut, { flags: 'a' });
-    gz.pipe(out);
-    let count = 0;
-    rl.on('line', (line) => {
-      if (!line) return;
-      // line ends in " ." — strip it, prefix blank nodes, append graph + " ."
-      let body = line.replace(/\s*\.\s*$/, '');
-      if (body.includes('_:')) body = body.replace(/_:([A-Za-z0-9]+)/g, `_:${meta.slug}$1`);
-      gz.write(graph ? `${body} ${graph} .\n` : `${body} .\n`);
-      count++;
-    });
-    rl.on('close', () => gz.end());
-    out.on('finish', () => resolve(count));
-    rl.on('error', reject);
-    gz.on('error', reject);
-    out.on('error', reject);
-  });
+  const graph = meta.conceptSchemeURI ? ` <${meta.conceptSchemeURI}> ` : ' ';
+  // awk: strip trailing " ." , prefix any _:bnode with the slug, append graph.
+  const prog =
+    `{ sub(/[ \\t]*\\.[ \\t]*$/, "");` +
+    ` if (index($0, "_:")) gsub(/_:/, "_:${meta.slug}");` +
+    ` print $0 "${graph}." }`;
+  execFileSync('bash', ['-c',
+    `set -o pipefail; zcat "${canon}" | awk '${prog}' | gzip >> "${rawOut}"`,
+  ], { stdio: ['ignore', 'inherit', 'inherit'], maxBuffer: Infinity });
+  // Count = number of lines in the canonical (one quad per line).
+  const out = execFileSync('bash', ['-c', `zcat "${canon}" | wc -l`], { encoding: 'utf8' });
+  return Number(out.trim());
 }
 
 async function bundleAll() {
@@ -394,7 +386,7 @@ async function bundleAll() {
       console.log(`  bundle   ${meta.slug}: skipped (no canonical.${NQ})`);
       continue;
     }
-    const count = await appendSchemeToBundle(meta, canon, raw);
+    const count = appendSchemeToBundle(meta, canon, raw);
     manifest.included.push({
       slug: meta.slug,
       title: meta.title,
