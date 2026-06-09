@@ -30,6 +30,13 @@ done
 
 # --- Stage 1: Oxigraph bulk load (skipped on retry once loaded) ------------
 if [ ! -f "$OX_MARKER" ]; then
+  # A store without the marker is unverified leftovers from an interrupted or
+  # failed load — wipe it. Loading on top of an existing full store doubles the
+  # SST footprint and blew a 25GB volume once ("No space left on device").
+  if [ -n "$(ls -A "$OX_STORE" 2>/dev/null)" ]; then
+    echo "unmarked oxigraph store found — wiping before fresh load"
+    rm -rf "$OX_STORE"; mkdir -p "$OX_STORE"
+  fi
   # --lenient: skip-and-log a malformed quad rather than abort 47.7M triples
   # over one bad line. Any reported Error still aborts BEFORE the marker is
   # written — a truncated store must never be stamped loaded. (Shipped once:
