@@ -20,6 +20,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { execFileSync } from 'node:child_process';
+import readline from 'node:readline';
+import { Readable } from 'node:stream';
+import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import N3 from 'n3';
 import rdfCanonize from 'rdf-canonize';
@@ -153,22 +156,30 @@ function sourcePath(meta) {
   return path.join(meta.dir, 'cache', `source.${ext}`);
 }
 
-// Decompress a downloaded buffer per meta.compression -> the decoded RDF text.
-// gzip uses node's zlib; zip shells out to `unzip` (present on dev machines and
-// GitHub runners). For zip, sourceEntry picks the member when there are several.
-function decompress(buf, meta) {
-  if (meta.compression === 'none') return buf.toString('utf8');
-  if (meta.compression === 'gzip') return zlib.gunzipSync(buf).toString('utf8');
-  if (meta.compression === 'zip') {
-    const tmp = path.join(meta.dir, 'cache', '_dl.zip');
-    fs.writeFileSync(tmp, buf);
-    const names = execFileSync('unzip', ['-Z1', tmp], { encoding: 'utf8' }).split('\n').filter(Boolean);
-    const entry = meta.sourceEntry || names[0];
-    const text = execFileSync('unzip', ['-p', tmp, entry], { maxBuffer: 1 << 30 }).toString('utf8');
-    fs.rmSync(tmp);
-    return text;
+// Decompress a downloaded archive file -> the cache source file, streaming via
+// the shell so large members (AGROVOC ~1.45GB) never pass through a JS string
+// or an execFileSync stdout buffer. gzip uses `gunzip`, zip uses `unzip -p`,
+// both redirected straight to `out`. For zip, sourceEntry picks the member.
+function decompressFile(dl, out, meta) {
+  if (meta.compression === 'none') {
+    fs.renameSync(dl, out);
+    return;
   }
-  throw new Error(`unknown compression: ${meta.compression}`);
+  const fd = fs.openSync(out, 'w');
+  try {
+    if (meta.compression === 'gzip') {
+      execFileSync('gunzip', ['-c', dl], { stdio: ['ignore', fd, 'inherit'], maxBuffer: Infinity });
+    } else if (meta.compression === 'zip') {
+      const entry = meta.sourceEntry
+        || execFileSync('unzip', ['-Z1', dl], { encoding: 'utf8' }).split('\n').filter(Boolean)[0];
+      execFileSync('unzip', ['-p', dl, entry], { stdio: ['ignore', fd, 'inherit'], maxBuffer: Infinity });
+    } else {
+      throw new Error(`unknown compression: ${meta.compression}`);
+    }
+  } finally {
+    fs.closeSync(fd);
+  }
+  fs.rmSync(dl);
 }
 
 async function fetchScheme(meta) {
@@ -186,8 +197,10 @@ async function fetchScheme(meta) {
   console.log(`  fetch    ${meta.slug}: ${meta.sourceURL}${tag}`);
   const res = await fetch(meta.sourceURL, { headers: { Accept: meta.sourceFormat } });
   if (!res.ok) throw new Error(`fetch ${meta.sourceURL} -> HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  fs.writeFileSync(out, decompress(buf, meta));
+  // Stream the download straight to disk (handles multi-GB without buffering).
+  const dl = out + '.download';
+  await pipeline(Readable.fromWeb(res.body), fs.createWriteStream(dl));
+  decompressFile(dl, out, meta);
 }
 
 async function normalizeScheme(meta) {
@@ -196,10 +209,41 @@ async function normalizeScheme(meta) {
     console.log(`  normalize ${meta.slug}: no source at ${path.relative(ROOT, src)} — run fetch first`);
     return;
   }
-  const quads = parseQuads(fs.readFileSync(src, 'utf8'), meta.sourceFormat);
-  const nq = sortDedupeLines(await writeNQuads(quads));
-  writeText(schemeArtifact(meta, 'normalized'), nq);
-  console.log(`  normalize ${meta.slug}: ${quads.length} quads -> normalized.${NQ}`);
+  // Stream-parse the source (bounded memory, handles multi-GB sources that
+  // would overflow a single JS string / the n3 in-memory Store), emit one
+  // N-Quad line per quad to a temp file, then sort+dedupe with the OS `sort`
+  // (external, disk-backed) and gzip the result.
+  const raw = path.join(meta.dir, 'cache', '_normalized.raw');
+  fs.mkdirSync(path.dirname(raw), { recursive: true });
+  const count = await streamParseToNQuads(src, meta.sourceFormat, raw);
+  const sorted = path.join(meta.dir, 'cache', '_normalized.sorted');
+  execFileSync('sort', ['-u', '-o', sorted, raw], { stdio: 'inherit', env: { ...process.env, LC_ALL: 'C' } });
+  // gzip sorted -> normalized.nq.gz
+  const fd = fs.openSync(schemeArtifact(meta, 'normalized'), 'w');
+  try {
+    execFileSync('gzip', ['-c', sorted], { stdio: ['ignore', fd, 'inherit'], maxBuffer: Infinity });
+  } finally {
+    fs.closeSync(fd);
+  }
+  fs.rmSync(raw); fs.rmSync(sorted);
+  console.log(`  normalize ${meta.slug}: ${count} quads -> normalized.${NQ}`);
+}
+
+// Stream a source RDF file through the n3 parser, writing each quad as an
+// N-Quads line to `outFile`. Returns the quad count. Bounded memory.
+function streamParseToNQuads(src, format, outFile) {
+  return new Promise((resolve, reject) => {
+    const parser = new N3.StreamParser({ format });
+    const writer = new N3.StreamWriter({ format: 'N-Quads' });
+    const out = fs.createWriteStream(outFile);
+    let count = 0;
+    parser.on('data', () => count++);
+    fs.createReadStream(src).pipe(parser).pipe(writer).pipe(out);
+    out.on('finish', () => resolve(count));
+    parser.on('error', reject);
+    writer.on('error', reject);
+    out.on('error', reject);
+  });
 }
 
 async function canonicalizeScheme(meta) {
@@ -208,24 +252,38 @@ async function canonicalizeScheme(meta) {
     console.log(`  canon    ${meta.slug}: no normalized.${NQ} — run normalize first`);
     return;
   }
-  const text = readText(norm);
   // RDFC-1.0 only does work when blank nodes are present; its cost is
   // superlinear in blank-node count and pointless when there are none. For the
-  // many SKOS schemes that are 100% IRI-based (e.g. NALT, IPTC), the already
-  // sorted normalized N-Quads IS the canonical form — skip the expensive pass.
-  let canonical;
-  if (!/(^|\s)_:/.test(text)) {
-    canonical = text;
+  // many SKOS schemes that are 100% IRI-based (e.g. NALT, AGROVOC, IPTC), the
+  // already sorted normalized N-Quads IS the canonical form — skip the
+  // expensive pass and just copy the gzip verbatim (streaming, no full read).
+  const canon = schemeArtifact(meta, 'canonical');
+  if (!await nqGzHasBlankNodes(norm)) {
+    fs.copyFileSync(norm, canon);
     console.log(`  canon    ${meta.slug}: no blank nodes — canonical = normalized`);
-  } else {
-    canonical = await rdfCanonize.canonize(text, {
-      algorithm: 'RDFC-1.0',
-      inputFormat: 'application/n-quads',
-      format: 'application/n-quads',
-    });
-    console.log(`  canon    ${meta.slug}: canonical.${NQ} written (RDFC-1.0)`);
+    return;
   }
-  writeText(schemeArtifact(meta, 'canonical'), canonical);
+  const canonical = await rdfCanonize.canonize(readText(norm), {
+    algorithm: 'RDFC-1.0',
+    inputFormat: 'application/n-quads',
+    format: 'application/n-quads',
+  });
+  writeText(canon, canonical);
+  console.log(`  canon    ${meta.slug}: canonical.${NQ} written (RDFC-1.0)`);
+}
+
+// Stream a gzipped N-Quads file and report whether any blank node appears,
+// without holding the whole (possibly multi-GB) text in memory.
+function nqGzHasBlankNodes(file) {
+  return new Promise((resolve, reject) => {
+    const rl = readline.createInterface({ input: fs.createReadStream(file).pipe(zlib.createGunzip()) });
+    let found = false;
+    rl.on('line', (line) => {
+      if (!found && /(^|\s)_:/.test(line)) { found = true; rl.close(); }
+    });
+    rl.on('close', () => resolve(found));
+    rl.on('error', reject);
+  });
 }
 
 // Re-label blank nodes per-scheme and place each scheme in its own named
@@ -235,10 +293,37 @@ function relabelIntoGraph(quads, slug, graphTerm) {
   return quads.map((q) => quad(map(q.subject), q.predicate, map(q.object), graphTerm));
 }
 
+// Append a scheme's canonical N-Quads into the raw bundle, placing each quad in
+// the scheme's named graph. Streams line-by-line so multi-GB schemes (AGROVOC)
+// never load into memory: each `s p o .` line becomes `s p o <graph> .`. Blank
+// nodes are prefixed per-scheme to avoid cross-scheme collisions. Returns count.
+function appendSchemeToBundle(meta, canon, rawOut) {
+  return new Promise((resolve, reject) => {
+    const graph = meta.conceptSchemeURI ? `<${meta.conceptSchemeURI}>` : '';
+    const rl = readline.createInterface({ input: fs.createReadStream(canon).pipe(zlib.createGunzip()) });
+    const out = fs.createWriteStream(rawOut, { flags: 'a' });
+    let count = 0;
+    rl.on('line', (line) => {
+      if (!line) return;
+      // line ends in " ." — strip it, prefix blank nodes, append graph + " ."
+      let body = line.replace(/\s*\.\s*$/, '');
+      if (body.includes('_:')) body = body.replace(/_:([A-Za-z0-9]+)/g, `_:${meta.slug}$1`);
+      out.write(graph ? `${body} ${graph} .\n` : `${body} .\n`);
+      count++;
+    });
+    rl.on('close', () => out.end(() => resolve(count)));
+    rl.on('error', reject);
+    out.on('error', reject);
+  });
+}
+
 async function bundleAll() {
   const metas = listSlugs().map(readMeta);
-  const all = [];
   const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
+  fs.mkdirSync(DIST_DIR, { recursive: true });
+  const raw = path.join(DIST_DIR, '_bundle.raw');
+  if (fs.existsSync(raw)) fs.rmSync(raw);
+  fs.writeFileSync(raw, '');
 
   for (const meta of metas) {
     const reason = bundleReason(meta);
@@ -253,33 +338,40 @@ async function bundleAll() {
       console.log(`  bundle   ${meta.slug}: skipped (no canonical.${NQ})`);
       continue;
     }
-    const graphTerm = meta.conceptSchemeURI ? namedNode(meta.conceptSchemeURI) : defaultGraph();
-    const quads = relabelIntoGraph(parseQuads(readText(canon), 'N-Quads'), meta.slug, graphTerm);
-    // NB: not all.push(...quads) — spreading a million-element array as call
-    // args overflows the stack on large schemes (e.g. NALT, 1.15M quads).
-    for (const q of quads) all.push(q);
+    const count = await appendSchemeToBundle(meta, canon, raw);
     manifest.included.push({
       slug: meta.slug,
       title: meta.title,
       license: meta.license,
       licenseClass: meta.licenseClass,
       graph: meta.conceptSchemeURI || null,
-      quads: quads.length,
+      quads: count,
     });
-    console.log(`  bundle   ${meta.slug}: +${quads.length} quads`);
+    console.log(`  bundle   ${meta.slug}: +${count} quads`);
   }
 
-  fs.mkdirSync(DIST_DIR, { recursive: true });
-  writeText(path.join(DIST_DIR, `bundle.${NQ}`), sortDedupeLines(await writeNQuads(all)));
+  // External sort+dedupe, then gzip -> dist/bundle.nq.gz.
+  const sorted = path.join(DIST_DIR, '_bundle.sorted');
+  execFileSync('sort', ['-u', '-o', sorted, raw], { stdio: 'inherit', env: { ...process.env, LC_ALL: 'C' } });
+  const fd = fs.openSync(path.join(DIST_DIR, `bundle.${NQ}`), 'w');
+  try {
+    execFileSync('gzip', ['-c', sorted], { stdio: ['ignore', fd, 'inherit'], maxBuffer: Infinity });
+  } finally {
+    fs.closeSync(fd);
+  }
+  fs.rmSync(raw); fs.rmSync(sorted);
   fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-  console.log(`  bundle   -> dist/bundle.${NQ} (${all.length} quads, ${manifest.included.length} schemes)`);
+  const total = manifest.included.reduce((a, x) => a + x.quads, 0);
+  console.log(`  bundle   -> dist/bundle.${NQ} (${total} quads, ${manifest.included.length} schemes)`);
 }
 
-// Flatten the bundle into one Solr doc per skos:Concept.
-function solrDocs() {
+// Flatten the bundle into one Solr doc per skos:Concept. Streams the (sorted)
+// gzipped bundle line-by-line: all lines for a subject are contiguous, so we
+// accumulate one subject at a time and flush — bounded memory even for AGROVOC.
+// Writes a JSON array incrementally so the full doc set never lives in RAM.
+async function solrDocs() {
   const bundle = path.join(DIST_DIR, `bundle.${NQ}`);
   if (!fs.existsSync(bundle)) throw new Error(`dist/bundle.${NQ} missing — run bundle first`);
-  const quads = parseQuads(readText(bundle), 'N-Quads');
 
   const FIELD = {
     [NS.skos + 'prefLabel']: 'prefLabel',
@@ -290,25 +382,35 @@ function solrDocs() {
   };
   const TYPE = NS.rdf + 'type';
   const CONCEPT = NS.skos + 'Concept';
+  // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
+  const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@[\w-]+|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 
-  const docs = new Map();
-  const isConcept = new Set();
-  for (const q of quads) {
-    if (q.predicate.value === TYPE && q.object.value === CONCEPT) isConcept.add(q.subject.value);
-  }
-  for (const q of quads) {
-    const id = q.subject.value;
-    if (!isConcept.has(id)) continue;
-    const doc = docs.get(id) || { id, scheme: q.graph.value || null };
-    const field = FIELD[q.predicate.value];
-    if (field) (doc[field] ||= []).push(q.object.value);
-    docs.set(id, doc);
-  }
-
-  const out = [...docs.values()];
   fs.mkdirSync(DIST_DIR, { recursive: true });
-  fs.writeFileSync(path.join(DIST_DIR, 'solr-docs.json'), JSON.stringify(out, null, 2) + '\n');
-  console.log(`  solr     -> dist/solr-docs.json (${out.length} concept docs)`);
+  const outStream = fs.createWriteStream(path.join(DIST_DIR, 'solr-docs.json'));
+  outStream.write('[\n');
+  let nDocs = 0;
+  let cur = null; // { id, scheme, isConcept, fields:{} }
+  const flush = () => {
+    if (cur && cur.isConcept) {
+      const doc = { id: cur.id, scheme: cur.scheme, ...cur.fields };
+      outStream.write((nDocs++ ? ',\n' : '') + JSON.stringify(doc));
+    }
+  };
+
+  const rl = readline.createInterface({ input: fs.createReadStream(bundle).pipe(zlib.createGunzip()) });
+  for await (const line of rl) {
+    const m = LINE.exec(line);
+    if (!m) continue;
+    const [, s, p, oIri, oLit, graph] = m;
+    if (!cur || cur.id !== s) { flush(); cur = { id: s, scheme: graph || null, isConcept: false, fields: {} }; }
+    if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
+    const field = FIELD[p];
+    if (field) (cur.fields[field] ||= []).push(oIri !== undefined ? oIri : oLit);
+  }
+  flush();
+  outStream.write('\n]\n');
+  await new Promise((r) => outStream.end(r));
+  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs)`);
 }
 
 // Bake a single self-contained HTML file with the concept data embedded, so the
@@ -445,7 +547,7 @@ async function main() {
       await bundleAll();
       break;
     case 'solr-docs':
-      solrDocs();
+      await solrDocs();
       break;
     case 'demo':
       buildDemo();
@@ -453,7 +555,7 @@ async function main() {
     case 'site':
       // Offline: bundle from committed canonical.nq.gz, then publish into docs/.
       await bundleAll();
-      solrDocs();
+      await solrDocs();
       buildDemo();
       buildSite();
       break;
@@ -468,7 +570,7 @@ async function main() {
         await canonicalizeScheme(m);
       }
       await bundleAll();
-      solrDocs();
+      await solrDocs();
       buildDemo();
       break;
     }
