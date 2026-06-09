@@ -16,11 +16,16 @@ them as formal OWL ontologies. It centres on `skos:Concept`, labels
 
 ## Lineage before SKOS (1997–2001)
 
-SKOS's most direct ancestor was the **RDF Thesaurus work in the EU DESIRE
-project** (second phase), later continued through the **SOSIG** (ILRT, Bristol)
-and **LIMBER** (CCLRC) projects.
+SKOS's most direct ancestor was the **RDF Thesaurus work in the EU DESIRE II
+project** ("telematics for research") — specifically **deliverable D3.6b**,
+which included an RDF thesaurus schema. That thread was continued through the
+**SOSIG** (ILRT, Bristol) and **LIMBER** (CCLRC) projects, then picked up in
+SWAD-Europe where it became SKOS.
 ([SWAD-Europe Thesaurus Activity](https://www.w3.org/2001/sw/Europe/reports/thes/Overview.html);
-[Wikipedia: SKOS](https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System))
+[SWAD-E D8.2, Review of RDF Thesaurus Work](https://www.w3.org/2001/sw/Europe/reports/thes/8.2/);
+[Wikipedia: SKOS](https://en.wikipedia.org/wiki/Simple_Knowledge_Organization_System);
+the D3.6b detail confirmed firsthand by Dan Brickley, a DESIRE II participant
+and this repository's author.)
 
 ## SWAD-Europe: where SKOS began (2002–2004)
 
