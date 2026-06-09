@@ -9,6 +9,10 @@ name: Build fly image to GHCR
 
 on:
   workflow_dispatch:
+  push:
+    branches: [claude/main]
+    paths:
+      - '.github/workflows/build-image.yml'   # pushing this file (re)triggers the build
 
 permissions:
   contents: read
