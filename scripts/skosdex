@@ -343,26 +343,32 @@ function relabelIntoGraph(quads, slug, graphTerm) {
   return quads.map((q) => quad(map(q.subject), q.predicate, map(q.object), graphTerm));
 }
 
-// Append a scheme's canonical N-Quads into the raw bundle, placing each quad in
-// the scheme's named graph. Streams line-by-line so multi-GB schemes (AGROVOC)
-// never load into memory: each `s p o .` line becomes `s p o <graph> .`. Blank
-// nodes are prefixed per-scheme to avoid cross-scheme collisions. Returns count.
+// Append a scheme's canonical N-Quads into the gzipped raw bundle, placing each
+// quad in the scheme's named graph. Streams line-by-line so multi-GB schemes
+// (AGROVOC) never load into memory: each `s p o .` line becomes
+// `s p o <graph> .`. The output is gzip appended (concatenated gzip members
+// decompress as one stream), keeping the on-disk accumulator small. Blank nodes
+// are prefixed per-scheme to avoid cross-scheme collisions. Returns count.
 function appendSchemeToBundle(meta, canon, rawOut) {
   return new Promise((resolve, reject) => {
     const graph = meta.conceptSchemeURI ? `<${meta.conceptSchemeURI}>` : '';
     const rl = readline.createInterface({ input: fs.createReadStream(canon).pipe(zlib.createGunzip()) });
+    const gz = zlib.createGzip();
     const out = fs.createWriteStream(rawOut, { flags: 'a' });
+    gz.pipe(out);
     let count = 0;
     rl.on('line', (line) => {
       if (!line) return;
       // line ends in " ." — strip it, prefix blank nodes, append graph + " ."
       let body = line.replace(/\s*\.\s*$/, '');
       if (body.includes('_:')) body = body.replace(/_:([A-Za-z0-9]+)/g, `_:${meta.slug}$1`);
-      out.write(graph ? `${body} ${graph} .\n` : `${body} .\n`);
+      gz.write(graph ? `${body} ${graph} .\n` : `${body} .\n`);
       count++;
     });
-    rl.on('close', () => out.end(() => resolve(count)));
+    rl.on('close', () => gz.end());
+    out.on('finish', () => resolve(count));
     rl.on('error', reject);
+    gz.on('error', reject);
     out.on('error', reject);
   });
 }
@@ -371,9 +377,9 @@ async function bundleAll() {
   const metas = listSlugs().map(readMeta);
   const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
   fs.mkdirSync(DIST_DIR, { recursive: true });
-  const raw = path.join(DIST_DIR, '_bundle.raw');
+  // Gzipped raw accumulator (~300MB vs ~5GB uncompressed) so CI disk holds.
+  const raw = path.join(DIST_DIR, '_bundle.raw.gz');
   if (fs.existsSync(raw)) fs.rmSync(raw);
-  fs.writeFileSync(raw, '');
 
   for (const meta of metas) {
     const reason = bundleReason(meta);
@@ -400,16 +406,16 @@ async function bundleAll() {
     console.log(`  bundle   ${meta.slug}: +${count} quads`);
   }
 
-  // External sort+dedupe, then gzip -> dist/bundle.nq.gz.
-  const sorted = path.join(DIST_DIR, '_bundle.sorted');
-  execFileSync('sort', ['-u', '-o', sorted, raw], { stdio: 'inherit', env: { ...process.env, LC_ALL: 'C' } });
-  const fd = fs.openSync(path.join(DIST_DIR, `bundle.${NQ}`), 'w');
-  try {
-    execFileSync('gzip', ['-c', sorted], { stdio: ['ignore', fd, 'inherit'], maxBuffer: Infinity });
-  } finally {
-    fs.closeSync(fd);
-  }
-  fs.rmSync(raw); fs.rmSync(sorted);
+  // External sort+dedupe streamed end to end so no multi-GB uncompressed file
+  // ever lands on disk (CI runners have ~14GB free). The raw is gzipped; we
+  // gunzip it, sort with gzip-compressed temp files (--compress-program), and
+  // gzip the result — all in one shell pipeline.
+  //   gunzip -c raw.gz | LC_ALL=C sort -u -S25% --compress-program=gzip -T dist | gzip > bundle.nq.gz
+  const bundleOut = path.join(DIST_DIR, `bundle.${NQ}`);
+  execFileSync('bash', ['-c',
+    `set -o pipefail; gunzip -c "${raw}" | LC_ALL=C sort -u -S25% --compress-program=gzip -T "${DIST_DIR}" | gzip > "${bundleOut}"`,
+  ], { stdio: 'inherit', maxBuffer: Infinity });
+  fs.rmSync(raw);
   fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   const total = manifest.included.reduce((a, x) => a + x.quads, 0);
   console.log(`  bundle   -> dist/bundle.${NQ} (${total} quads, ${manifest.included.length} schemes)`);
