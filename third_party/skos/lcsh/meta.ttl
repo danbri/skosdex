@@ -2,16 +2,16 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-# Library of Congress Subject Headings. Public domain (US Government work),
-# so it is openly licensed — but the full dump is very large, so it is opted
-# out of the default bundle (skosdex:bundle false). Flip that to true and run
-# `skosdex build lcsh` to fetch and include it locally.
+# Library of Congress Subject Headings. Public domain (US Government work).
+# The bulk dump is ~101MB gzipped N-Triples; skosdex:compression "gzip" handles
+# decompression. Big: canonical.nq.gz committed via Git LFS.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "Library of Congress Subject Headings (LCSH)" ;
     dcterms:publisher <https://id.loc.gov/> ;
     skosdex:conceptSchemeURI <http://id.loc.gov/authorities/subjects> ;
-    skosdex:sourceURL <https://id.loc.gov/download/authorities/subjects.skosrdf.nt.gz> ;  # ~101MB gzip; needs a gunzip helper
+    skosdex:sourceURL <https://id.loc.gov/download/authorities/subjects.skosrdf.nt.gz> ;
     skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "gzip" ;
     dcterms:license <https://www.loc.gov/legal/> ;
     skosdex:licenseClass "public-domain" ;
-    skosdex:bundle false .
+    skosdex:bundle true .
