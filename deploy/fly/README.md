@@ -17,20 +17,26 @@ first boot (`start.sh`), then reused on restart.
 | `start.sh` | first-boot seed (load bundle → Oxigraph, post docs → Solr), then run both |
 | `fly.toml` | app config: volume mount, two services, VM size |
 
-## One-time setup
+## Setup — one secret, that's it
+
+Everything runs through GitHub CI. The **only** manual step is adding the Fly
+token as a repo secret:
 
 ```bash
-flyctl apps create skosdex
-flyctl volumes create skosdex_data --size 10 --region iad
-flyctl secrets set ...        # none required for read-only serving
-# add FLY_API_TOKEN to the GitHub repo secrets (flyctl tokens create deploy)
+flyctl tokens create org          # or a deploy token scoped to the app
+gh secret set FLY_API_TOKEN       # paste the token
 ```
+
+The deploy workflow **self-bootstraps** the rest: on first run it creates the
+`skosdex` app and the `skosdex_data` volume if they don't exist (idempotent), so
+you never need flyctl locally.
 
 ## Deploy
 
-CI (`.github/workflows/deploy-fly.yml`) builds the bundle from the committed
-Git LFS `canonical.nq.gz` files and runs `flyctl deploy` on changes to the
-corpus or this directory. Manual: `flyctl deploy --config deploy/fly/fly.toml`.
+`.github/workflows/deploy-fly.yml` builds the bundle from the committed Git LFS
+`canonical.nq.gz` files, ensures the app + volume exist, then runs
+`flyctl deploy`. It triggers on pushes that touch the corpus or `deploy/fly/`,
+or manually via the Actions "Run workflow" button (`workflow_dispatch`).
 
 ## Notes / scaling
 

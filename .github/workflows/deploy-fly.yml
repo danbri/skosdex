@@ -3,8 +3,9 @@ name: Deploy corpus to fly.io (Oxigraph + Solr)
 # Builds the SKOS bundle from the committed Git LFS canonical.nq.gz files, then
 # deploys it to the fly.io app (Oxigraph SPARQL + Solr on one machine).
 #
-# Requires repo secret FLY_API_TOKEN (flyctl auth token). The app + volume are
-# created once manually (see deploy/fly/fly.toml header).
+# The ONLY manual setup is adding the repo secret FLY_API_TOKEN
+# (`flyctl tokens create org` or a deploy token). This workflow self-bootstraps
+# the app and the persistent volume if they don't exist yet — no local flyctl.
 
 on:
   # Manual trigger; corpus changes are deliberate, not every push.
@@ -46,7 +47,31 @@ jobs:
           echo "quads: $(zcat dist/bundle.nq.gz | wc -l)"
 
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Deploy to fly.io
-        run: flyctl deploy --config deploy/fly/fly.toml --remote-only
+
+      # Self-bootstrap: create the app + volume on first run so no local flyctl
+      # is ever needed. Idempotent — skips whatever already exists.
+      - name: Ensure app + volume exist
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_APP: skosdex
+          FLY_REGION: iad
+        run: |
+          set -euo pipefail
+          flyctl status --app "$FLY_APP" >/dev/null 2>&1 \
+            || flyctl apps create "$FLY_APP" --org personal
+          # Create a volume only if none exists for this app.
+          if ! flyctl volumes list --app "$FLY_APP" 2>/dev/null | grep -q skosdex_data; then
+            flyctl volumes create skosdex_data --app "$FLY_APP" \
+              --region "$FLY_REGION" --size 20 --yes
+          fi
+
+      - name: Deploy to fly.io
+        run: flyctl deploy --config deploy/fly/fly.toml --remote-only --app skosdex
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+      - name: Show endpoints
+        if: success()
+        run: |
+          echo "SPARQL: https://skosdex.fly.dev/query?query=ASK%7B%7D"
+          echo "Solr:   https://skosdex.fly.dev:8983/solr/  (or via flyctl proxy)"
