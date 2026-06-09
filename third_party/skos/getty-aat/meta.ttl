@@ -2,18 +2,18 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-# Getty Art & Architecture Thesaurus (AAT). ODC-By 1.0 -> open, so it MAY be
-# bundled, but the full dump is very large and ships zipped -> bundle:false.
-# CAVEAT: full.zip is a .zip of N-Triples; the default pipeline does not unzip,
-# so onboarding needs a tools/ helper (unzip -> .nt) or a pre-unzipped
-# sourceFile. The Getty SPARQL endpoint (http://vocab.getty.edu/sparql) is an
-# alternative to a local copy.
+# Getty Art & Architecture Thesaurus (AAT). ODC-By 1.0 -> open, bundleable.
+# full.zip (~252MB) holds three N-Triples members; AATOut_Full.nt is the
+# complete graph (~3.64GB). skosdex:compression "zip" + sourceEntry select it.
+# Big: canonical.nq.gz committed via Git LFS.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "Getty Art & Architecture Thesaurus (AAT)" ;
     dcterms:publisher <https://www.getty.edu/research/> ;
     skosdex:conceptSchemeURI <http://vocab.getty.edu/aat/> ;
-    skosdex:sourceURL <http://aatdownloads.getty.edu/VocabData/full.zip> ;  # N-Triples, zipped, refreshed monthly
+    skosdex:sourceURL <http://aatdownloads.getty.edu/VocabData/full.zip> ;
     skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "AATOut_Full.nt" ;
     dcterms:license <https://opendatacommons.org/licenses/by/1-0/> ;
     skosdex:licenseClass "open" ;
-    skosdex:bundle false .
+    skosdex:bundle true .
