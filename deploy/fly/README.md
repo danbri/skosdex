@@ -19,17 +19,23 @@ first boot (`start.sh`), then reused on restart.
 
 ## Setup — one secret, that's it
 
-Everything runs through GitHub CI. The **only** manual step is adding the Fly
-token as a repo secret:
+Everything runs through GitHub CI, and the Fly **app** (`skosdex`, org
+`contextris`) + **volume** (`skosdex_data`, 20 GB, iad) already exist. The
+**only** remaining manual step is adding the Fly deploy token as a repo secret
+named `FLY_API_TOKEN` — the CI build/bundle steps all pass; deploy fails only
+because this secret is currently empty (`Error: no access token available`).
 
 ```bash
-flyctl tokens create org          # or a deploy token scoped to the app
-gh secret set FLY_API_TOKEN       # paste the token
+# create a deploy token scoped to the app (or reuse one you already minted)
+flyctl tokens create deploy -a skosdex
+# set it as the repo secret (web UI: Settings → Secrets and variables → Actions)
+gh secret set FLY_API_TOKEN --repo danbri/skosdex
 ```
 
-The deploy workflow **self-bootstraps** the rest: on first run it creates the
-`skosdex` app and the `skosdex_data` volume if they don't exist (idempotent), so
-you never need flyctl locally.
+Once set, re-run the latest **Deploy corpus to fly.io** workflow (or push any
+change under the trigger paths) and it will deploy. The workflow also
+self-bootstraps the app + volume if they're ever missing (idempotent), so no
+local flyctl is needed for normal operation.
 
 ## Deploy
 
