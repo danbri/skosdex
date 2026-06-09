@@ -26,9 +26,13 @@ per-scheme code for the normal case.
 4. If the source is small and `public-domain`/`open`, you may set
    `skosdex:sourceFile` to a committed copy under the scheme folder. Otherwise
    set `skosdex:sourceURL` (the tooling fetches into the gitignored `cache/`).
+   If the download is a zip/gzip, add `skosdex:compression "zip"` (or `"gzip"`),
+   and `skosdex:sourceEntry` for a specific member of a multi-file zip.
 5. Verify: `node scripts/skosdex list` should show the scheme with the expected
    license class and inclusion status.
-6. Build it: `node scripts/skosdex build` (see the `normalize-skos` skill).
+6. Build it: `node scripts/skosdex build` (see the `normalize-skos` skill). The
+   committed output is a **gzipped, Git LFS-tracked** `canonical.nq.gz` — ensure
+   `git lfs` is installed (the SessionStart hook handles this; see `CLAUDE.md`).
 
 ## License policy (important)
 

@@ -14,10 +14,22 @@ skosdex lets you:
 - serve that dataset over a **SPARQL** endpoint (Oxigraph) + **Solr** index with
   a simple **web frontend**, packaged as Docker containers.
 
+## Setup
+
+skosdex needs **Node ≥ 20**, **Git LFS** (the canonical N-Quads are stored
+gzipped via LFS), and **unzip/gzip** (to decompress upstream dumps). In Claude
+Code on the web these are installed automatically by the SessionStart hook
+(`.claude/hooks/session-start.sh`). Locally:
+
+```bash
+git lfs install && git lfs pull   # materialize the *.nq.gz data (not just pointers)
+npm install
+npm test                          # offline smoke test
+```
+
 ## Try it in 30 seconds (no Docker)
 
 ```bash
-npm install
 node scripts/skosdex build   # fetch + normalize + canonicalize + bundle + solr-docs + demo
 open dist/demo.html          # standalone, searchable SKOS browser — no server needed
 ```

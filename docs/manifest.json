@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-06T22:32:16.832Z",
+  "generated": "2026-06-09T12:17:53.053Z",
   "included": [
     {
       "slug": "example-colors",
@@ -36,7 +36,7 @@
     },
     {
       "slug": "nalt",
-      "reason": "no canonical.nq (run build)"
+      "reason": "no canonical.nq.gz (run build)"
     },
     {
       "slug": "unesco-thesaurus",

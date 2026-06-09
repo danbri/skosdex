@@ -11,7 +11,8 @@
     "build": "node scripts/skosdex build",
     "bundle": "node scripts/skosdex bundle",
     "demo": "node scripts/skosdex demo",
-    "site": "node scripts/skosdex site"
+    "site": "node scripts/skosdex site",
+    "test": "bash scripts/test.sh"
   },
   "license": "Apache-2.0",
   "engines": {

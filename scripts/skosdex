@@ -7,8 +7,8 @@
 //   skosdex list                  List schemes and their license / bundle status
 //   skosdex fetch    [slug]       Download source(s) into the scheme cache
 //   skosdex normalize [slug]      Parse source -> sorted N-Quads (normalized.nq)
-//   skosdex canonicalize [slug]   normalized.nq -> canonical.nq (RDFC-1.0)
-//   skosdex bundle                Merge open-licensed canonical.nq -> dist/bundle.nq
+//   skosdex canonicalize [slug]   normalized.nq.gz -> canonical.nq.gz (RDFC-1.0)
+//   skosdex bundle                Merge open-licensed canonical.nq.gz -> dist/bundle.nq.gz
 //   skosdex solr-docs             Derive dist/solr-docs.json from the bundle
 //   skosdex build                 fetch + normalize + canonicalize + bundle + solr-docs
 //
@@ -123,6 +123,26 @@ function parseQuads(text, format) {
   return new Parser({ format }).parse(text);
 }
 
+// All N-Quads artifacts are stored gzipped (`.nq.gz`) and tracked via Git LFS
+// (see .gitattributes / CLAUDE.md). N-Quads gzips ~16x, which keeps large
+// schemes well under GitHub's per-file limit and cheap to ship. These helpers
+// make gzip transparent: write*/read* (de)compress when the path ends in .gz.
+function writeText(file, text) {
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, file.endsWith('.gz') ? zlib.gzipSync(text) : text);
+}
+
+function readText(file) {
+  const buf = fs.readFileSync(file);
+  return (file.endsWith('.gz') ? zlib.gunzipSync(buf) : buf).toString('utf8');
+}
+
+// Canonical/normalized/bundle artifact paths — gzipped N-Quads.
+const NQ = 'nq.gz';
+function schemeArtifact(meta, name) {
+  return path.join(meta.dir, `${name}.${NQ}`);
+}
+
 // ---------------------------------------------------------------------------
 // Pipeline steps
 // ---------------------------------------------------------------------------
@@ -178,17 +198,17 @@ async function normalizeScheme(meta) {
   }
   const quads = parseQuads(fs.readFileSync(src, 'utf8'), meta.sourceFormat);
   const nq = sortDedupeLines(await writeNQuads(quads));
-  fs.writeFileSync(path.join(meta.dir, 'normalized.nq'), nq);
-  console.log(`  normalize ${meta.slug}: ${quads.length} quads -> normalized.nq`);
+  writeText(schemeArtifact(meta, 'normalized'), nq);
+  console.log(`  normalize ${meta.slug}: ${quads.length} quads -> normalized.${NQ}`);
 }
 
 async function canonicalizeScheme(meta) {
-  const norm = path.join(meta.dir, 'normalized.nq');
+  const norm = schemeArtifact(meta, 'normalized');
   if (!fs.existsSync(norm)) {
-    console.log(`  canon    ${meta.slug}: no normalized.nq — run normalize first`);
+    console.log(`  canon    ${meta.slug}: no normalized.${NQ} — run normalize first`);
     return;
   }
-  const text = fs.readFileSync(norm, 'utf8');
+  const text = readText(norm);
   // RDFC-1.0 only does work when blank nodes are present; its cost is
   // superlinear in blank-node count and pointless when there are none. For the
   // many SKOS schemes that are 100% IRI-based (e.g. NALT, IPTC), the already
@@ -203,9 +223,9 @@ async function canonicalizeScheme(meta) {
       inputFormat: 'application/n-quads',
       format: 'application/n-quads',
     });
-    console.log(`  canon    ${meta.slug}: canonical.nq written (RDFC-1.0)`);
+    console.log(`  canon    ${meta.slug}: canonical.${NQ} written (RDFC-1.0)`);
   }
-  fs.writeFileSync(path.join(meta.dir, 'canonical.nq'), canonical);
+  writeText(schemeArtifact(meta, 'canonical'), canonical);
 }
 
 // Re-label blank nodes per-scheme and place each scheme in its own named
@@ -227,14 +247,14 @@ async function bundleAll() {
       console.log(`  bundle   ${meta.slug}: ${reason}`);
       continue;
     }
-    const canon = path.join(meta.dir, 'canonical.nq');
+    const canon = schemeArtifact(meta, 'canonical');
     if (!fs.existsSync(canon)) {
-      manifest.excluded.push({ slug: meta.slug, reason: 'no canonical.nq (run build)' });
-      console.log(`  bundle   ${meta.slug}: skipped (no canonical.nq)`);
+      manifest.excluded.push({ slug: meta.slug, reason: `no canonical.${NQ} (run build)` });
+      console.log(`  bundle   ${meta.slug}: skipped (no canonical.${NQ})`);
       continue;
     }
     const graphTerm = meta.conceptSchemeURI ? namedNode(meta.conceptSchemeURI) : defaultGraph();
-    const quads = relabelIntoGraph(parseQuads(fs.readFileSync(canon, 'utf8'), 'N-Quads'), meta.slug, graphTerm);
+    const quads = relabelIntoGraph(parseQuads(readText(canon), 'N-Quads'), meta.slug, graphTerm);
     // NB: not all.push(...quads) — spreading a million-element array as call
     // args overflows the stack on large schemes (e.g. NALT, 1.15M quads).
     for (const q of quads) all.push(q);
@@ -250,16 +270,16 @@ async function bundleAll() {
   }
 
   fs.mkdirSync(DIST_DIR, { recursive: true });
-  fs.writeFileSync(path.join(DIST_DIR, 'bundle.nq'), sortDedupeLines(await writeNQuads(all)));
+  writeText(path.join(DIST_DIR, `bundle.${NQ}`), sortDedupeLines(await writeNQuads(all)));
   fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-  console.log(`  bundle   -> dist/bundle.nq (${all.length} quads, ${manifest.included.length} schemes)`);
+  console.log(`  bundle   -> dist/bundle.${NQ} (${all.length} quads, ${manifest.included.length} schemes)`);
 }
 
 // Flatten the bundle into one Solr doc per skos:Concept.
 function solrDocs() {
-  const bundle = path.join(DIST_DIR, 'bundle.nq');
-  if (!fs.existsSync(bundle)) throw new Error('dist/bundle.nq missing — run bundle first');
-  const quads = parseQuads(fs.readFileSync(bundle, 'utf8'), 'N-Quads');
+  const bundle = path.join(DIST_DIR, `bundle.${NQ}`);
+  if (!fs.existsSync(bundle)) throw new Error(`dist/bundle.${NQ} missing — run bundle first`);
+  const quads = parseQuads(readText(bundle), 'N-Quads');
 
   const FIELD = {
     [NS.skos + 'prefLabel']: 'prefLabel',
@@ -323,7 +343,9 @@ function buildSite() {
   const DOCS = path.join(ROOT, 'docs');
   fs.mkdirSync(DOCS, { recursive: true });
   fs.copyFileSync(path.join(DIST_DIR, 'demo.html'), path.join(DOCS, 'index.html'));
-  for (const f of ['bundle.nq', 'solr-docs.json', 'manifest.json']) {
+  // docs/ is served by GitHub Pages as plain files (NOT via LFS — Pages serves
+  // LFS pointers, not content). These are the small committed-bundle artifacts.
+  for (const f of [`bundle.${NQ}`, 'solr-docs.json', 'manifest.json']) {
     const src = path.join(DIST_DIR, f);
     if (fs.existsSync(src)) fs.copyFileSync(src, path.join(DOCS, f));
   }
@@ -429,7 +451,7 @@ async function main() {
       buildDemo();
       break;
     case 'site':
-      // Offline: bundle from committed canonical.nq, then publish into docs/.
+      // Offline: bundle from committed canonical.nq.gz, then publish into docs/.
       await bundleAll();
       solrDocs();
       buildDemo();
@@ -457,7 +479,7 @@ Usage:
   skosdex list                 List schemes and their license / bundle status
   skosdex fetch        [slug]  Download source(s) into the scheme cache
   skosdex normalize    [slug]  Parse source -> sorted N-Quads (normalized.nq)
-  skosdex canonicalize [slug]  normalized.nq -> canonical.nq (RDFC-1.0)
+  skosdex canonicalize [slug]  normalized.nq.gz -> canonical.nq.gz (RDFC-1.0)
   skosdex bundle               Merge open-licensed schemes -> dist/bundle.nq
   skosdex solr-docs            Derive dist/solr-docs.json from the bundle
   skosdex demo                 Bake dist/demo.html — a standalone browser of the bundle
