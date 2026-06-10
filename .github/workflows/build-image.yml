@@ -38,11 +38,11 @@ jobs:
       - run: npm ci
 
       # Deploy artifacts from the committed LFS corpus — no network fetches.
-      - run: node scripts/skosdex bundle
+      - run: node scripts/skosdex graphed
       - run: node scripts/skosdex solr-docs
       - run: |
-          ls -la dist/bundle.nq.gz dist/solr-docs.json
-          echo "quads: $(zcat dist/bundle.nq.gz | wc -l)"
+          ls -la dist/graphed/ dist/solr-docs.json
+          echo "quads: $(zcat dist/graphed/*.nq.gz | wc -l)"
 
       - name: Log in to GHCR
         uses: docker/login-action@v3

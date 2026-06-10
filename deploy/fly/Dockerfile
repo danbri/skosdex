@@ -23,7 +23,7 @@ COPY --from=oxigraph /usr/local/bin/oxigraph /usr/local/bin/oxigraph
 # Data artifacts produced by `skosdex bundle` + `skosdex solr-docs` in CI.
 # Solr docs ship as part files (<=50k docs each): one ~180MB POST kills Solr's
 # default heap, so start.sh posts the parts sequentially.
-COPY dist/bundle.nq.gz   /seed/bundle.nq.gz
+COPY dist/graphed/       /seed/graphed/
 COPY dist/solr-parts/    /seed/solr-parts/
 # Per-scheme license manifest: makes every bundled scheme's license explicit
 # inside the container (policy: BY-SA / NC-ND data ships container-only, with

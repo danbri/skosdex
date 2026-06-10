@@ -8,7 +8,7 @@ DATA="${SKOSDEX_DATA:-/data}"
 OX_STORE="$DATA/oxigraph"
 SOLR_HOME="$DATA/solr"
 OX_MARKER="$DATA/.oxigraph-loaded-v1"
-SEED_MARKER="$DATA/.seeded-v1"
+SEED_MARKER="$DATA/.seeded-solr"
 
 mkdir -p "$OX_STORE" "$SOLR_HOME"
 
@@ -28,41 +28,57 @@ until curl -sf "http://localhost:8983/solr/admin/info/system" >/dev/null 2>&1; d
   echo "waiting for solr..."; sleep 2
 done
 
-# --- Stage 1: Oxigraph bulk load (skipped on retry once loaded) ------------
-if [ ! -f "$OX_MARKER" ]; then
-  # A store without the marker is unverified leftovers from an interrupted or
-  # failed load — wipe it. Loading on top of an existing full store doubles the
-  # SST footprint and blew a 25GB volume once ("No space left on device").
-  if [ -n "$(ls -A "$OX_STORE" 2>/dev/null)" ]; then
-    echo "unmarked oxigraph store found — wiping before fresh load"
-    rm -rf "$OX_STORE"; mkdir -p "$OX_STORE"
+# --- Stage 1: per-scheme incremental Oxigraph loads ---------------------------
+# Each /seed/graphed/<slug>.nq.gz carries one scheme in its named graph. A
+# content-hash marker per scheme on the volume means: new scheme -> load just
+# its quads into the EXISTING store (no volume swap, no full reseed); changed
+# scheme -> full rebuild (named-graph surgery isn't worth the complexity yet);
+# unchanged -> skip. Legacy monolithic-marker volumes also trigger a rebuild.
+CHANGED=0
+NEED_WIPE=0
+if [ -f "$DATA/.oxigraph-loaded-v1" ]; then
+  echo "legacy monolithic store detected — full rebuild"
+  NEED_WIPE=1
+fi
+for f in /seed/graphed/*.nq.gz; do
+  slug=$(basename "$f" .nq.gz)
+  sum=$(md5sum < "$f" | cut -d' ' -f1)
+  marker="$DATA/.loaded-$slug"
+  if [ -f "$marker" ] && [ "$(cat "$marker")" != "$sum" ]; then
+    echo "scheme $slug changed upstream — full rebuild"
+    NEED_WIPE=1
   fi
-  # --lenient: skip-and-log a malformed quad rather than abort 47.7M triples
-  # over one bad line. Any reported Error still aborts BEFORE the marker is
-  # written — a truncated store must never be stamped loaded. (Shipped once:
-  # oxigraph 0.4.11 rejected valid @es-419 language tags at line 2.8M and the
-  # script carried on. 0.5.2 parses them; lenient + grep are the backstop.)
-  echo "loading bundle into oxigraph (streamed; no temp file)..."
-  # Stream stdin -> loader: the decompressed bundle (~9GB at 66.5M quads) no
-  # longer fits the machine ROOTFS (/tmp), which killed a seed with
-  # "gzip: stdout: No space left on device". --format nq makes stdin work.
-  if ! gzip -dc /seed/bundle.nq.gz \
+done
+if [ "$NEED_WIPE" = 1 ]; then
+  rm -rf "$OX_STORE"; mkdir -p "$OX_STORE"
+  rm -f "$DATA"/.loaded-* "$DATA/.oxigraph-loaded-v1" "$DATA/.optimized-v1" "$DATA/.seeded-v1"
+fi
+for f in /seed/graphed/*.nq.gz; do
+  slug=$(basename "$f" .nq.gz)
+  sum=$(md5sum < "$f" | cut -d' ' -f1)
+  marker="$DATA/.loaded-$slug"
+  if [ -f "$marker" ]; then
+    echo "scheme $slug already loaded; skipping"
+    continue
+  fi
+  echo "loading scheme $slug (streamed)..."
+  if ! gzip -dc "$f" \
      | /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --format nq 2>&1 \
      | tee /tmp/oxload.out; then
-    echo "FATAL: oxigraph load exited non-zero; not marking loaded"; exit 1
+    echo "FATAL: oxigraph load failed for $slug"; exit 1
   fi
   if grep -qi "error" /tmp/oxload.out; then
-    echo "FATAL: oxigraph load reported errors; not marking loaded"; exit 1
+    echo "FATAL: oxigraph load reported errors for $slug"; exit 1
   fi
   rm -f /tmp/oxload.out
-  touch "$OX_MARKER"
-  echo "oxigraph load complete"
-else
-  echo "oxigraph store already loaded; skipping"
-fi
+  echo "$sum" > "$marker"
+  CHANGED=1
+  echo "scheme $slug load complete"
+done
 
 # --- Stage 2: Solr core + docs (parts of <=50k docs) ------------------------
-if [ ! -f "$SEED_MARKER" ]; then
+PARTS_SUM=$(cat /seed/solr-parts/part-*.json | md5sum | cut -d" " -f1)
+if [ "$(cat "$SEED_MARKER" 2>/dev/null)" != "$PARTS_SUM" ]; then
   echo "creating solr core..."
   create=$(curl -s "http://localhost:8983/solr/admin/cores?action=CREATE&name=skos&configSet=_default")
   echo "$create" | grep -q '"status":0' \
@@ -80,7 +96,7 @@ if [ ! -f "$SEED_MARKER" ]; then
   curl -s "http://localhost:8983/solr/skos/update?commit=true" \
        -H 'Content-Type: application/json' --data '[]' >/dev/null
 
-  touch "$SEED_MARKER"
+  echo "$PARTS_SUM" > "$SEED_MARKER"
   echo "seeding complete"
 else
   echo "already seeded; reusing volume"
@@ -89,11 +105,9 @@ fi
 # --- Stage 3: optimize the store (once) -------------------------------------
 # A bulk-loaded RocksDB store is uncompacted; queries pay heavy seek costs
 # until `oxigraph optimize` runs. One-time, marker-guarded.
-OPT_MARKER="$DATA/.optimized-v1"
-if [ ! -f "$OPT_MARKER" ]; then
-  echo "optimizing oxigraph store (one-time)..."
+if [ "$CHANGED" = 1 ]; then
+  echo "optimizing oxigraph store (data changed this boot)..."
   /usr/local/bin/oxigraph optimize --location "$OX_STORE"
-  touch "$OPT_MARKER"
   echo "optimize complete"
 fi
 

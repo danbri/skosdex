@@ -12,16 +12,15 @@ if head -c 64 "$canon" | grep -q "git-lfs"; then
   fail "$canon is an unresolved LFS pointer — run 'git lfs pull'"
 fi
 
-node scripts/skosdex bundle  >/dev/null
+node scripts/skosdex graphed >/dev/null
 node scripts/skosdex solr-docs >/dev/null
 node scripts/skosdex demo    >/dev/null
 
-[ -f dist/bundle.nq.gz ] || fail "dist/bundle.nq.gz not produced"
+ls dist/graphed/*.nq.gz >/dev/null 2>&1 || fail "dist/graphed/*.nq.gz not produced"
 [ -f dist/demo.html ]    || fail "dist/demo.html not produced"
 
 # bundle must be gzip — verify the magic bytes (1f 8b) and that it gunzips.
-[ "$(head -c2 dist/bundle.nq.gz | od -An -tx1 | tr -d ' ')" = "1f8b" ] || fail "bundle.nq.gz is not gzip"
-gzip -t dist/bundle.nq.gz || fail "bundle.nq.gz failed gzip integrity check"
+for g in dist/graphed/*.nq.gz; do gzip -t "$g" || fail "$g failed gzip integrity check"; done
 
 docs=$(node -e 'console.log(require("./dist/solr-docs.json").length)')
 [ "$docs" -gt 1000 ] || fail "expected >1000 solr docs, got $docs"

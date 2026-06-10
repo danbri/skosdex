@@ -407,6 +407,57 @@ function appendSchemeToBundle(meta, canon, rawOut) {
   return Number(out.trim());
 }
 
+// Per-scheme deploy artifacts: dist/graphed/<slug>.nq.gz — each scheme's
+// canonical quads with its named graph injected. No cross-scheme merge or
+// global sort (schemes occupy disjoint graphs and each canonical is already
+// sorted+deduped), so adding one scheme never re-processes the others: the
+// container loads these incrementally against per-scheme volume markers.
+async function graphedAll() {
+  const metas = listSlugs().map(readMeta);
+  const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
+  const outDir = path.join(DIST_DIR, 'graphed');
+  fs.rmSync(outDir, { recursive: true, force: true });
+  fs.mkdirSync(outDir, { recursive: true });
+
+  for (const meta of metas) {
+    const reason = bundleReason(meta);
+    if (!reason.startsWith('included')) {
+      manifest.excluded.push({ slug: meta.slug, licenseClass: meta.licenseClass, reason });
+      console.log(`  graphed  ${meta.slug}: ${reason}`);
+      continue;
+    }
+    const canon = schemeArtifact(meta, 'canonical');
+    if (!fs.existsSync(canon)) {
+      manifest.excluded.push({ slug: meta.slug, reason: `no canonical.${NQ} (run build)` });
+      console.log(`  graphed  ${meta.slug}: skipped (no canonical.${NQ})`);
+      continue;
+    }
+    const out = path.join(outDir, `${meta.slug}.${NQ}`);
+    const graph = meta.conceptSchemeURI ? ` <${meta.conceptSchemeURI}> ` : ' ';
+    const prog =
+      `{ sub(/[ \\t]*\\.[ \\t]*$/, "");` +
+      ` if (index($0, "_:")) gsub(/_:/, "_:${meta.slug}");` +
+      ` print $0 "${graph}." }`;
+    execFileSync('bash', ['-c',
+      `set -o pipefail; zcat "${canon}" | awk '${prog}' | gzip > "${out}"`,
+    ], { stdio: 'inherit', maxBuffer: Infinity });
+    const count = Number(execFileSync('bash', ['-c', `zcat "${canon}" | wc -l`], { encoding: 'utf8' }).trim());
+    manifest.included.push({
+      slug: meta.slug,
+      title: meta.title,
+      license: meta.license,
+      licenseClass: meta.licenseClass,
+      containerOnly: !meta.openData,
+      modifications: 'N-Quads syntax normalization only; no semantic changes',
+      graph: meta.conceptSchemeURI || null,
+      quads: count,
+    });
+    console.log(`  graphed  ${meta.slug}: ${count} quads -> dist/graphed/${meta.slug}.${NQ}`);
+  }
+  fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+  console.log(`  graphed  -> ${manifest.included.length} schemes`);
+}
+
 async function bundleAll() {
   const metas = listSlugs().map(readMeta);
   const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
@@ -462,8 +513,12 @@ async function bundleAll() {
 // accumulate one subject at a time and flush — bounded memory even for AGROVOC.
 // Writes a JSON array incrementally so the full doc set never lives in RAM.
 async function solrDocs() {
+  const graphedDir = path.join(DIST_DIR, 'graphed');
   const bundle = path.join(DIST_DIR, `bundle.${NQ}`);
-  if (!fs.existsSync(bundle)) throw new Error(`dist/bundle.${NQ} missing — run bundle first`);
+  const inputs = fs.existsSync(graphedDir)
+    ? fs.readdirSync(graphedDir).filter((f) => f.endsWith(`.${NQ}`)).sort().map((f) => path.join(graphedDir, f))
+    : (fs.existsSync(bundle) ? [bundle] : []);
+  if (!inputs.length) throw new Error('no dist/graphed/*.nq.gz or dist/bundle.nq.gz — run graphed (or bundle) first');
 
   const FIELD = {
     [NS.skos + 'prefLabel']: 'prefLabel',
@@ -510,7 +565,8 @@ async function solrDocs() {
     }
   };
 
-  const rl = readline.createInterface({ input: fs.createReadStream(bundle).pipe(zlib.createGunzip()) });
+  for (const input of inputs) {
+  const rl = readline.createInterface({ input: fs.createReadStream(input).pipe(zlib.createGunzip()) });
   for await (const line of rl) {
     const m = LINE.exec(line);
     if (!m) continue;
@@ -519,6 +575,7 @@ async function solrDocs() {
     if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
     const field = FIELD[p];
     if (field) (cur.fields[field] ||= []).push(oIri !== undefined ? oIri : oLit);
+  }
   }
   await flushDoc();
   outStream.write('\n]\n');
@@ -681,6 +738,9 @@ async function main() {
       break;
     case 'bundle':
       await bundleAll();
+      break;
+    case 'graphed':
+      await graphedAll();
       break;
     case 'solr-docs':
       await solrDocs();
