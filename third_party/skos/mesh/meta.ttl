@@ -1,0 +1,21 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# MeSH — Medical Subject Headings (US National Library of Medicine). US
+# government work: NLM provides the data freely, no charges or royalties
+# (https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html);
+# public domain in the US -> public-domain. Attribution norms: identify NLM as
+# creator and state the data year. ~135MB gzipped N-Triples (current edition).
+# Note: MeSH RDF uses its own vocabulary (meshv:) rather than pure SKOS, but is
+# the canonical medical KOS and maps naturally onto SKOS-style browsing.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "MeSH — Medical Subject Headings" ;
+    dcterms:publisher <https://www.nlm.nih.gov/> ;
+    skosdex:conceptSchemeURI <http://id.nlm.nih.gov/mesh> ;
+    skosdex:sourceURL <https://nlmpubs.nlm.nih.gov/projects/mesh/rdf/mesh.nt.gz> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

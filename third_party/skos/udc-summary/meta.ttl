@@ -1,0 +1,19 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# UDC Summary — Universal Decimal Classification, ~2,600 classes in 48
+# languages, published as SKOS by the UDC Consortium (udcdata.info) under
+# CC BY-SA 3.0. Share-alike is viral/copyleft -> METADATA-ONLY: this record
+# lets others fetch it under its own terms; the data is never committed here
+# and never reaches the bundle. (The full UDC scheme is proprietary.)
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "UDC Summary (Universal Decimal Classification)" ;
+    dcterms:publisher <https://udcc.org/> ;
+    skosdex:conceptSchemeURI <http://udcdata.info/udc-schema> ;
+    skosdex:sourceURL <http://udcdata.info/udcsummary-skos.zip> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:compression "zip" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle false .

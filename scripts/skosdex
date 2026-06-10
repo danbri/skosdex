@@ -166,6 +166,16 @@ function decompressFile(dl, out, meta) {
     fs.renameSync(dl, out);
     return;
   }
+  // Node's fetch transparently decodes Content-Encoding: gzip, so a ".gz" URL
+  // may already be plain text on disk (MeSH does this). Sniff the magic bytes.
+  const head = Buffer.alloc(2);
+  const hfd = fs.openSync(dl, 'r'); fs.readSync(hfd, head, 0, 2, 0); fs.closeSync(hfd);
+  const isGzip = head[0] === 0x1f && head[1] === 0x8b;
+  if (meta.compression === 'gzip' && !isGzip) {
+    console.log('  fetch: server pre-decoded gzip; using as-is');
+    fs.renameSync(dl, out);
+    return;
+  }
   const fd = fs.openSync(out, 'w');
   try {
     if (meta.compression === 'gzip') {
