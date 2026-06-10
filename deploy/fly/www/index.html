@@ -12,7 +12,10 @@
  .gear{background:none;border:1px solid #3e4c59;color:#cbd2d9;border-radius:8px;font-size:1.1rem;padding:.35rem .6rem;cursor:pointer;white-space:nowrap}
  .gear:hover{background:#2b3744}
  .wrap{max-width:980px;margin:0 auto;padding:1.3rem}
- #q{width:100%;padding:.65rem .8rem;font-size:1.05rem;border:1px solid #cbd2d9;border-radius:8px}
+ .qbar{display:flex;gap:.5rem}
+ #q{flex:1;min-width:0;padding:.65rem .8rem;font-size:1.05rem;border:1px solid #cbd2d9;border-radius:8px}
+ #go{padding:.65rem 1.1rem;font-size:1.05rem;border:0;border-radius:8px;background:#2563eb;color:#fff;cursor:pointer;font-weight:600}
+ #go:hover{background:#1d4ed8}
  .muted{color:#7b8794;font-size:.85rem}
  .row{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1rem}
  .col{flex:1 1 420px;min-width:0}
@@ -70,7 +73,10 @@
  <button class="gear" onclick="openSettings()" title="Search settings">⚙ Settings</button>
 </header>
 <div class="wrap">
- <input id="q" type="search" placeholder="Search concepts… (e.g. tomato, jazz, acid rain, riz, Reis)" autofocus>
+ <div class="qbar">
+   <input id="q" type="search" placeholder="Search concepts… (e.g. tomato, jazz, acid rain, riz, Reis)" autofocus>
+   <button id="go" onclick="search($('q').value)">Search</button>
+ </div>
  <div class="muted" id="stat">&nbsp;</div>
  <div class="row">
    <div class="col" id="results"></div>
@@ -175,7 +181,10 @@ function applySettings(){
 
 // ---- search (frontend builds the Solr query, so every knob is honoured) ----
 let t;
-$('q').addEventListener('input',e=>{clearTimeout(t);t=setTimeout(()=>search(e.target.value),250)});
+// Live search while typing (debounced), plus an explicit Search button / Enter
+// for deliberate runs — handy now the corpus is large and queries can be heavy.
+$('q').addEventListener('input',e=>{clearTimeout(t);t=setTimeout(()=>search(e.target.value),300)});
+$('q').addEventListener('keydown',e=>{ if(e.key==='Enter'){clearTimeout(t);search($('q').value);} });
 
 function solrUrl(q){
   const p=new URLSearchParams();
