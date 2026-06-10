@@ -1,0 +1,19 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Thesaurus for Graphic Materials (TGM) — LC Prints & Photographs Division
+# vocabulary for indexing pictures (subjects + genre/format). Public domain
+# (US Government work, same terms as LCSH/LCGFT; see
+# https://www.loc.gov/legal/). Bulk SKOS N-Triples dump is ~3.2MB gzipped;
+# note it lives under /vocabulary/ (not /authorities/) on id.loc.gov.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Thesaurus for Graphic Materials (LCTGM)" ;
+    dcterms:publisher <https://id.loc.gov/> ;
+    skosdex:conceptSchemeURI <http://id.loc.gov/vocabulary/graphicMaterials> ;
+    skosdex:sourceURL <https://id.loc.gov/download/vocabulary/graphicMaterials.skosrdf.nt.gz> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://www.loc.gov/legal/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
