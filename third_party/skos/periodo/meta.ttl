@@ -1,0 +1,23 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# PeriodO — a gazetteer of scholarly definitions of historical, archaeological
+# and art-historical periods (perio.do). Period collections are modelled as
+# skos:ConceptScheme / skos:Concept. CC0 1.0: "the contributors have dedicated
+# the PeriodO dataset to the public domain by waiving all of their rights to
+# the work worldwide under copyright law" (verified 2026-06-10 at
+# https://perio.do/license/) -> public-domain.
+#
+# Source: the canonical dump is JSON-LD (https://data.perio.do/d.jsonld),
+# which the pipeline cannot parse — but the server also publishes a Turtle
+# serialization at /d.ttl (301 -> /dataset.ttl, ~13MB), used here.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "PeriodO — period gazetteer" ;
+    dcterms:publisher <https://perio.do/> ;
+    skosdex:conceptSchemeURI <http://n2t.net/ark:/99152/p0d> ;
+    skosdex:sourceURL <https://data.perio.do/dataset.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
