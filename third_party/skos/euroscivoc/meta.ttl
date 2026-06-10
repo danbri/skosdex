@@ -1,0 +1,30 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EuroSciVoc — the European Science Vocabulary, a multilingual taxonomy of the
+# main fields of science (~1000+ categories, 6 languages: en/fr/de/it/pl/es),
+# managed by the EU Publications Office and used by CORDIS. Published in SKOS
+# (SKOS-AP-EU profile, with skos-xl labels).
+#
+# Reuse is governed by Commission Decision 2011/833/EU
+# (http://data.europa.eu/eli/dec/2011/833/oj), implemented by the EU legal
+# notice as CC BY 4.0: "content owned by the EU ... is licensed under the
+# Creative Commons Attribution 4.0 International (CC BY 4.0) licence"
+# (verified 2026-06-10 at https://commission.europa.eu/legal-notice_en) -> open.
+#
+# Source: the "SKOS-AP-EU" RDF/XML distribution published on data.europa.eu.
+# The CELLAR distribution IRI
+# (http://publications.europa.eu/resource/distribution/euroscivoc/rdf/skos_ap_eu/EuroSciVoc-skos-ap-eu.rdf)
+# 404s, but the data.europa.eu store proxy (the published download_url) serves
+# the full RDF/XML file regardless of Accept header. The pipeline converts
+# RDF/XML via rapper.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "EuroSciVoc — European Science Vocabulary" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://data.europa.eu/8mn/euroscivoc/40c0f173-baa3-48a3-9fe6-d6e8fb366a00> ;
+    skosdex:sourceURL <https://data.europa.eu/api/hub/store/data/679b92e282f7752a299f8559> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
