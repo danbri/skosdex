@@ -1,0 +1,31 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Nomisma.org — collaboratively maintained thesaurus of numismatic concepts
+# (mints, denominations, rulers, hoards...), SKOS plus nmo/CIDOC-CRM. The
+# nomisma.org site footer links CC BY 3.0 ("This work is licensed under a
+# Creative Commons Attribution 3.0 Unported License",
+# https://creativecommons.org/licenses/by/3.0/, verified 2026-06-10 at
+# https://nomisma.org/) -> open.
+#
+# Source: the full Turtle dump published at nomisma.org (~28-37MB).
+#
+# DEFERRED (bundle:false): the upstream dump is MALFORMED Turtle as of
+# 2026-06-10 — it contains 60 IRIs with unescaped parentheses in the local
+# name (e.g. `nm:italy_kingdom_(oadacer)` at line 419, `nm:a(-)oros_colophon`,
+# etc.), which is invalid per the Turtle/N-Triples grammar. Both the pipeline's
+# n3 parser ("Expected entity but got ( on line 419") and rapper
+# ("syntax error, unexpected (") reject the file. Onboarding needs either an
+# upstream fix or a per-scheme sanitiser in tools/ (out of scope here; would be
+# a semantic change to the source). License/source verified; flip bundle:true
+# once the dump parses cleanly.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Nomisma.org numismatic concepts" ;
+    dcterms:publisher <https://nomisma.org/> ;
+    skosdex:conceptSchemeURI <http://nomisma.org/> ;
+    skosdex:sourceURL <https://nomisma.org/nomisma.org.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/3.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle false .
