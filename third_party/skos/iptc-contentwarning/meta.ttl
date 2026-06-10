@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# IPTC NewsCodes "contentwarning" CV. CC BY 4.0 (as all IPTC NewsCodes; verified via
+# iptc.org/standards/newscodes). Served as SKOS Turtle by content negotiation,
+# same pattern as iptc-media-topics.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "IPTC NewsCodes: contentwarning" ;
+    dcterms:publisher <https://iptc.org/> ;
+    skosdex:conceptSchemeURI <http://cv.iptc.org/newscodes/contentwarning/> ;
+    skosdex:sourceURL <https://cv.iptc.org/newscodes/contentwarning/> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
