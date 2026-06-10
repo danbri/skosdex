@@ -20,7 +20,8 @@ primary_region = "iad"
   source = "skosdex_data"
   destination = "/data"
 
-# SPARQL endpoint (Oxigraph).
+# SPARQL endpoint (Oxigraph) — public on 443 (https) so
+# https://skosdex.fly.dev/query works. internal_port is where Oxigraph listens.
 [[services]]
   internal_port = 7878
   protocol = "tcp"
@@ -29,7 +30,11 @@ primary_region = "iad"
   min_machines_running = 1
 
   [[services.ports]]
-    port = 7878
+    port = 443
+    handlers = ["tls", "http"]
+
+  [[services.ports]]
+    port = 80
     handlers = ["http"]
 
   [[services.http_checks]]
@@ -38,7 +43,7 @@ primary_region = "iad"
     method = "get"
     path = "/query?query=ASK%7B%7D"
 
-# Solr.
+# Solr — public on 8983 (search/admin).
 [[services]]
   internal_port = 8983
   protocol = "tcp"
