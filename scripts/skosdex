@@ -338,17 +338,33 @@ async function canonicalizeScheme(meta) {
     console.log(`  canon    ${meta.slug}: no blank nodes — canonical = normalized`);
     return;
   }
-  // Decompressed-size guard: stay well under the ~512MB JS string limit.
+  // Two guards before running RDFC-1.0:
+  //  - size: the input must fit a JS string (~512MB), stay well under.
+  //  - blank-node count: rdf-canonize cost grows pathologically with many
+  //    near-identical bnodes (LC childrensSubjects: ~264k changeNote bnodes ran
+  //    44+ min CPU on a 373k-quad graph). Past a few thousand bnodes, ship the
+  //    sorted-normalized form instead — labels are stable from a single
+  //    deterministic upstream dump, same rationale as the size guard.
   const RDFC_MAX_BYTES = 256 * 1024 * 1024;
+  const RDFC_MAX_BNODES = 5000;
   let decompressedBytes = 0;
+  let bnodeIds = new Set();
   await new Promise((resolve, reject) => {
-    const gz = fs.createReadStream(norm).pipe(zlib.createGunzip());
-    gz.on('data', (c) => { decompressedBytes += c.length; });
-    gz.on('end', resolve); gz.on('error', reject);
+    const rl = readline.createInterface({ input: fs.createReadStream(norm).pipe(zlib.createGunzip()) });
+    rl.on('line', (l) => {
+      decompressedBytes += l.length + 1;
+      if (bnodeIds.size <= RDFC_MAX_BNODES) {
+        for (const m of l.matchAll(/(?:^|\s)_:([^\s]+)/g)) bnodeIds.add(m[1]);
+      }
+    });
+    rl.on('close', resolve); rl.on('error', reject);
   });
-  if (decompressedBytes > RDFC_MAX_BYTES) {
+  if (decompressedBytes > RDFC_MAX_BYTES || bnodeIds.size > RDFC_MAX_BNODES) {
     fs.copyFileSync(norm, canon);
-    console.log(`  canon    ${meta.slug}: ${(decompressedBytes / 1e6).toFixed(0)}MB > RDFC-1.0 limit — using sorted normalized as canonical (stable bnode labels from upstream dump)`);
+    const why = decompressedBytes > RDFC_MAX_BYTES
+      ? `${(decompressedBytes / 1e6).toFixed(0)}MB > size limit`
+      : `>${RDFC_MAX_BNODES} blank nodes (RDFC pathological case)`;
+    console.log(`  canon    ${meta.slug}: ${why} — using sorted normalized as canonical (stable labels from upstream dump)`);
     return;
   }
   const canonical = await rdfCanonize.canonize(readText(norm), {
