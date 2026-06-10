@@ -1,0 +1,33 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# UNBIS Thesaurus — UN Dag Hammarskjöld Library multilingual thesaurus
+# (ar/zh/en/fr/ru/es) used for subject analysis of UN documents.
+#
+# License/terms (verified 2026-06-10 at
+# https://research.un.org/en/thesaurus/downloads): "The UN Thesaurus may be
+# accessed and used free of charge for non-commercial use, provided
+# appropriate acknowledgement is given" (© United Nations, 2025,
+# http://metadata.un.org/thesaurus/; re-use questions: permissions@un.org).
+# Non-commercial -> licenseClass "noncommercial" -> CONTAINER-ONLY under
+# policy v2 (2026-06-10): bundled into the SPARQL/Solr container with
+# explicit licensing and no semantic changes (N-Quads syntax formatting
+# only); never included in static artifacts (Pages demo etc.).
+#
+# Official bulk downloads (CSV/RDF/TTL/XLSX) are published in the UN Digital
+# Library, record https://digitallibrary.un.org/record/4075456 — sourceURL
+# below is the Turtle file of the 2025-07-08 release. The dataset has no
+# single top-level skos:ConceptScheme; EuroVoc-style domains (:01..:17) are
+# the ConceptSchemes, so conceptSchemeURI uses the thesaurus namespace root.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "UNBIS Thesaurus" ;
+    dcterms:publisher <https://www.un.org/en/library/> ;
+    skosdex:conceptSchemeURI <http://metadata.un.org/thesaurus/> ;
+    skosdex:sourceURL <https://digitallibrary.un.org/api/v1/record/4075456/files/unbist-20250708_2.ttl/download/?version=1> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://research.un.org/en/thesaurus/downloads> ;
+    skosdex:licenseClass "noncommercial" ;
+    skosdex:bundle true ;
+    rdfs:comment "Attribution required: © United Nations, 2025, http://metadata.un.org/thesaurus/ — Information downloaded on 2026-06-10. Non-commercial use only; commercial re-use requires permission (permissions@un.org)." .
