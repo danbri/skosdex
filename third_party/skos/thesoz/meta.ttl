@@ -1,0 +1,34 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# TheSoz — Thesaurus for the Social Sciences (GESIS Leibniz Institute).
+# ~12,000 entries (>8,000 descriptors), de/en/fr/ru labels, SKOS + SKOS-XL.
+#
+# License: CC BY 4.0, verified 2026-06-10 at the publisher's own about page
+# (https://data.gesis.org/cvbrowser/en/about): "The TheSoz and the TheSoz
+# Classification are available for access, download, and reuse under a
+# Creative Commons Attribution 4.0 license." (Earlier releases were
+# CC BY-NC-ND 3.0; the current publisher statement supersedes that.)
+#
+# METADATA-ONLY for now: no public bulk dump exists as of 2026-06-10.
+# - The old LOD download page (http://lod.gesis.org/download-thesoz.html)
+#   redirects into the Skosmos browser at https://data.gesis.org/cvbrowser/.
+# - The Skosmos REST dump endpoint answers 404 "No download source URL known
+#   for vocabulary thesoz" (https://data.gesis.org/cvbrowser/rest/v1/thesoz/data).
+# - Server-side dump files exist but are HTTP 403 Forbidden
+#   (https://data.gesis.org/cvbrowser/data/thesoz.ttl).
+# - The legacy full dump (https://access.gesis.org/dans/thesoz-komplett.xml.gz)
+#   now requires a GESIS login (OIDC redirect).
+# Revisit when GESIS re-publishes a bulk download; the license already
+# permits bundling (licenseClass "open") once data is obtainable.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "TheSoz — Thesaurus for the Social Sciences" ;
+    dcterms:publisher <https://www.gesis.org/> ;
+    skosdex:conceptSchemeURI <https://data.gesis.org/thesoz/scheme> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle false ;
+    rdfs:comment "Metadata-only: GESIS currently offers no public bulk download (browse/API only at https://data.gesis.org/cvbrowser/). License CC BY 4.0 per publisher; add skosdex:sourceURL and set bundle true when a dump reappears." .
