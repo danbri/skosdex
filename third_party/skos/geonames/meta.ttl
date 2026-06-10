@@ -1,0 +1,22 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# GeoNames Ontology + feature-code SKOS (geonames.org). We onboard the small,
+# clean SKOS *feature codes* scheme (the GeoNames feature codes published as
+# skos:Concept / gn:Code — notation, multilingual prefLabel + definition,
+# inScheme one of the nine feature classes), NOT the ~12M-feature all-geonames
+# dump (enormous, not clean SKOS). Source is the published ontology RDF/XML
+# (v3.3, ~520KB); the pipeline converts it via rapper.
+# License: CC BY 3.0 -> open, bundleable. The ontology RDF declares
+# <cc:license rdf:resource="https://creativecommons.org/licenses/by/3.0/"/>;
+# see https://www.geonames.org/ontology/documentation.html.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "GeoNames Ontology — Feature Codes (SKOS)" ;
+    dcterms:publisher <https://www.geonames.org/> ;
+    skosdex:conceptSchemeURI <https://www.geonames.org/ontology#> ;
+    skosdex:sourceURL <https://www.geonames.org/ontology/ontology_v3.3.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/3.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
