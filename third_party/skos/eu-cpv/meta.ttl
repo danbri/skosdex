@@ -1,0 +1,25 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# CPV — Common Procurement Vocabulary (public procurement classification),
+# published as SKOS by the EU Publications Office (EU Vocabularies, dataset
+# http://publications.europa.eu/resource/dataset/cpv, release 20260520-0).
+# Reuse is governed by Commission Decision 2011/833/EU, which the EU legal
+# notice implements as CC BY 4.0 (verified 2026-06-10 at
+# https://commission.europa.eu/legal-notice_en; dataset page:
+# https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/cpv) -> open.
+#
+# Source: the SKOS_CORE distribution (cpv-skos-core.rdf, ~31MB RDF/XML) via
+# the OP euvoc-download-handler. The cellar item URI was resolved from the
+# distribution record http://publications.europa.eu/resource/distribution/cpv/20260520-0/rdf/skos_core .
+# The pipeline converts RDF/XML via rapper.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "CPV — Common Procurement Vocabulary (EU)" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://data.europa.eu/cpv/cpv> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fcellar%2F5a2097dc-5453-11f1-b3e2-01aa75ed71a1.0001.03%2FDOC_1&fileName=cpv-skos-core.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
