@@ -1,0 +1,25 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# GACS — Global Agricultural Concept Scheme / Space, the FAO (AGROVOC) +
+# CABI Thesaurus + NAL Thesaurus mapping hub. Not actively developed since
+# 2016 (per the README), but the data remains published. License CC BY 4.0:
+# LICENSE.txt in the canonical GitHub repo gacs/gacs-scheme (verified
+# 2026-06-10 at https://github.com/gacs/gacs-scheme/blob/master/LICENSE.txt)
+# -> open.
+#
+# Source: src/gacs-core-scheme.ttl (~108MB Turtle) in that repo, stored via
+# Git LFS — fetched through GitHub's LFS media endpoint
+# (media.githubusercontent.com), since raw.githubusercontent.com returns the
+# pointer file. The old Skosmos browser (browser.agrisemantics.org) is down
+# (503, checked 2026-06-10).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "GACS — Global Agricultural Concept Scheme" ;
+    dcterms:publisher <https://agrisemantics.org/> ;
+    skosdex:conceptSchemeURI <http://id.agrisemantics.org/gacs/> ;
+    skosdex:sourceURL <https://media.githubusercontent.com/media/gacs/gacs-scheme/master/src/gacs-core-scheme.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
