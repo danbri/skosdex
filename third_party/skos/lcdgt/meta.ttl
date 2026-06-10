@@ -1,0 +1,18 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Library of Congress Demographic Group Terms (LCDGT). Public domain
+# (US Government work, same terms as LCSH/LCGFT; see
+# https://www.loc.gov/legal/). Bulk SKOS N-Triples dump is ~650KB gzipped;
+# skosdex:compression "gzip" handles decompression.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Library of Congress Demographic Group Terms (LCDGT)" ;
+    dcterms:publisher <https://id.loc.gov/> ;
+    skosdex:conceptSchemeURI <http://id.loc.gov/authorities/demographicTerms> ;
+    skosdex:sourceURL <https://id.loc.gov/download/authorities/demographicTerms.skosrdf.nt.gz> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://www.loc.gov/legal/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
