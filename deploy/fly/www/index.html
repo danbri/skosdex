@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skosdex — all the SKOS in the world?</title>
+<style>
+ *{box-sizing:border-box} body{font:15px/1.55 system-ui,sans-serif;margin:0;color:#1a1a1a;background:#fafafa}
+ header{background:#1f2933;color:#fff;padding:1.1rem 1.4rem}
+ header h1{margin:0;font-size:1.35rem} header p{margin:.3rem 0 0;color:#9aa5b1;font-size:.9rem}
+ header a{color:#7cc4fa;text-decoration:none}
+ .wrap{max-width:980px;margin:0 auto;padding:1.3rem}
+ #q{width:100%;padding:.65rem .8rem;font-size:1.05rem;border:1px solid #cbd2d9;border-radius:8px}
+ .muted{color:#7b8794;font-size:.85rem}
+ .row{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1rem}
+ .col{flex:1 1 420px;min-width:0}
+ .hit{background:#fff;border:1px solid #e4e7eb;border-radius:8px;padding:.55rem .8rem;margin-bottom:.5rem;cursor:pointer}
+ .hit:hover{border-color:#2563eb}
+ .hit .lbl{font-weight:600} .hit .alt{color:#52606d;font-size:.85rem}
+ .scheme-tag{display:inline-block;background:#e4ecf7;color:#1d4e89;border-radius:4px;font-size:.72rem;padding:.05rem .4rem;margin-left:.4rem;vertical-align:middle}
+ #concept{background:#fff;border:1px solid #e4e7eb;border-radius:8px;padding:1rem;position:sticky;top:1rem}
+ #concept h2{margin:.1rem 0 .2rem;font-size:1.25rem}
+ #concept .uri{font-size:.78rem;word-break:break-all}
+ #concept .uri a{color:#2563eb;text-decoration:none}
+ .reln{margin:.6rem 0 0} .reln b{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#52606d}
+ .reln a{display:inline-block;background:#f0f4f8;border-radius:5px;padding:.1rem .5rem;margin:.15rem .2rem 0 0;color:#1d4e89;text-decoration:none;cursor:pointer;font-size:.9rem}
+ .reln a:hover{background:#dbe4ee}
+ .langs{font-size:.86rem;color:#3e4c59;margin:.4rem 0 0} .langs .lg{color:#9aa5b1;font-size:.72rem;margin-right:.15rem}
+ .def{margin:.5rem 0 0;font-size:.93rem}
+ #schemes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem;margin-top:1rem}
+ .card{background:#fff;border:1px solid #e4e7eb;border-radius:8px;padding:.6rem .75rem}
+ .card .t{font-weight:600;font-size:.92rem} .card .n{font-size:1.05rem;color:#1d4e89}
+ .card .lic{font-size:.72rem;color:#7b8794}
+ footer{color:#9aa5b1;font-size:.8rem;text-align:center;padding:1.4rem}
+ footer a{color:#2563eb;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+ <h1>skosdex</h1>
+ <p>All the SKOS in the world? <span id="total"></span> ·
+    <a href="/sparql/">SPARQL UI</a> ·
+    <a href="https://github.com/danbri/skosdex">GitHub</a></p>
+</header>
+<div class="wrap">
+ <input id="q" type="search" placeholder="Search concepts… (e.g. tomato, jazz, acid rain, cataloging)" autofocus>
+ <div class="muted" id="stat">&nbsp;</div>
+ <div class="row">
+   <div class="col" id="results"></div>
+   <div class="col"><div id="concept" hidden></div></div>
+ </div>
+ <h3 style="margin-top:2rem">Schemes</h3>
+ <div id="schemes"></div>
+</div>
+<footer>
+ SPARQL: <a href="/query">/query</a> · Search: <a href="/solr/skos/select?q=*:*&rows=1">/solr/skos/select</a> ·
+ licenses per scheme in <a href="/manifest.json">manifest.json</a>; CC BY-SA / NC-ND schemes served here under their own terms, unmodified.
+</footer>
+<script>
+const $=id=>document.getElementById(id);
+const SKOS='http://www.w3.org/2004/02/skos/core#';
+const schemeNames={};
+
+fetch('/manifest.json').then(r=>r.json()).then(m=>{
+  let tot=0;
+  $('schemes').innerHTML=m.included.map(s=>{
+    tot+=s.quads; if(s.graph) schemeNames[s.graph]=s.title;
+    return `<div class="card"><div class="t">${esc(s.title)}</div>
+      <div class="n">${s.quads.toLocaleString()} triples</div>
+      <div class="lic">${esc(s.licenseClass)}${s.containerOnly?' · container-only':''}</div></div>`;
+  }).join('');
+  $('total').textContent=tot.toLocaleString()+' triples.';
+  renderSchemeTags();
+});
+
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function schemeTag(uri){const n=schemeNames[uri];return n?`<span class="scheme-tag">${esc(n)}</span>`:''}
+function renderSchemeTags(){document.querySelectorAll('[data-scheme]').forEach(e=>{e.innerHTML=schemeTag(e.dataset.scheme)})}
+
+let t;
+$('q').addEventListener('input',e=>{clearTimeout(t);t=setTimeout(()=>search(e.target.value),250)});
+
+async function search(q){
+  q=q.trim();
+  if(!q){$('results').innerHTML='';$('stat').innerHTML='&nbsp;';return}
+  const url='/solr/skos/select?wt=json&rows=25&defType=edismax&qf=prefLabel%5E3%20altLabel%5E2%20definition&q='+encodeURIComponent(q);
+  try{
+    const d=await (await fetch(url)).json();
+    const docs=d.response?.docs||[];
+    $('stat').textContent=`${d.response.numFound.toLocaleString()} concepts match "${q}"`;
+    $('results').innerHTML=docs.map(x=>`<div class="hit" onclick="show('${esc(x.id)}')">
+      <span class="lbl">${esc((x.prefLabel||[x.id])[0])}</span><span data-scheme="${esc(x.scheme||'')}"></span>
+      ${x.altLabel?`<div class="alt">${esc(x.altLabel.slice(0,4).join(' · '))}</div>`:''}
+    </div>`).join('')||'<p class="muted">No hits.</p>';
+    renderSchemeTags();
+  }catch(e){$('stat').textContent='search error: '+e.message}
+}
+
+async function sparql(query){
+  const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:query});
+  return (await r.json()).results.bindings;
+}
+
+async function show(uri){
+  $('concept').hidden=false;
+  $('concept').innerHTML='<p class="muted">loading…</p>';
+  const rows=await sparql(`
+    PREFIX skos: <${SKOS}>
+    SELECT ?p ?o ?lbl WHERE { GRAPH ?g {
+      <${uri}> ?p ?o .
+      OPTIONAL { GRAPH ?g2 { ?o skos:prefLabel ?lbl . FILTER(LANG(?lbl)="en" || LANG(?lbl)="") } }
+    } } LIMIT 400`);
+  const pref=[],alt=[],defs=[],rel={broader:[],narrower:[],related:[]};
+  let scheme='';
+  for(const r of rows){
+    const p=r.p.value,o=r.o;
+    if(p===SKOS+'prefLabel')pref.push(o);
+    else if(p===SKOS+'altLabel')alt.push(o);
+    else if(p===SKOS+'definition'||p===SKOS+'scopeNote')defs.push(o);
+    else if(p===SKOS+'broader')rel.broader.push({u:o.value,l:r.lbl?.value});
+    else if(p===SKOS+'narrower')rel.narrower.push({u:o.value,l:r.lbl?.value});
+    else if(p===SKOS+'related')rel.related.push({u:o.value,l:r.lbl?.value});
+    else if(p===SKOS+'inScheme')scheme=o.value;
+  }
+  const en=pref.find(x=>x['xml:lang']==='en')||pref[0];
+  const others=pref.filter(x=>x!==en).slice(0,12);
+  const relHtml=k=>rel[k].length?`<div class="reln"><b>${k}</b><br>${rel[k].slice(0,30).map(x=>
+    `<a onclick="show('${esc(x.u)}')">${esc(x.l||x.u.split(/[\\/#]/).pop())}</a>`).join('')}</div>`:'';
+  $('concept').innerHTML=`
+    <h2>${esc(en?en.value:uri)}</h2>
+    <div class="uri"><a href="${esc(uri)}" target="_blank" rel="noopener">${esc(uri)}</a>${scheme?`<span data-scheme="${esc(scheme)}"></span>`:''}</div>
+    ${others.length?`<div class="langs">${others.map(x=>`<span><span class="lg">${esc(x['xml:lang']||'')}</span>${esc(x.value)}</span>`).join(' · ')}</div>`:''}
+    ${alt.length?`<div class="langs">also: ${alt.slice(0,10).map(x=>esc(x.value)).join(' · ')}</div>`:''}
+    ${defs.length?`<div class="def">${esc(defs[0].value)}</div>`:''}
+    ${relHtml('broader')}${relHtml('narrower')}${relHtml('related')}`;
+  renderSchemeTags();
+}
+</script>
+</body>
+</html>

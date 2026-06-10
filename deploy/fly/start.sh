@@ -97,7 +97,13 @@ if [ ! -f "$OPT_MARKER" ]; then
   echo "optimize complete"
 fi
 
+# --- nginx front proxy -------------------------------------------------------
+# One public port (8080 -> Fly 443): / entrance page, /query + /sparql/ ->
+# Oxigraph, /solr/skos/select (GET-only) -> Solr. Oxigraph + Solr stay local.
+echo "starting nginx front proxy on :8080"
+nginx
+
 # --- Oxigraph (foreground) -------------------------------------------------
-# Solr already runs in the background; keep the container alive on Oxigraph.
-echo "starting oxigraph SPARQL server on :7878"
-exec /usr/local/bin/oxigraph serve-read-only --location "$OX_STORE" --bind 0.0.0.0:7878
+# Solr + nginx run in the background; keep the container alive on Oxigraph.
+echo "starting oxigraph SPARQL server on 127.0.0.1:7878"
+exec /usr/local/bin/oxigraph serve-read-only --location "$OX_STORE" --bind 127.0.0.1:7878

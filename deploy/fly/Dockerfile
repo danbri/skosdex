@@ -14,7 +14,7 @@ FROM solr:9 AS base
 USER root
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends curl ca-certificates gzip \
+ && apt-get install -y --no-install-recommends curl ca-certificates gzip nginx \
  && rm -rf /var/lib/apt/lists/*
 
 # Oxigraph SPARQL server binary (RocksDB-backed).
@@ -29,11 +29,14 @@ COPY dist/solr-parts/    /seed/solr-parts/
 # inside the container (policy: BY-SA / NC-ND data ships container-only, with
 # licensing declared and no semantic changes — N-Quads formatting only).
 COPY dist/manifest.json  /seed/manifest.json
+COPY deploy/fly/nginx.conf /etc/nginx/conf.d/skosdex.conf
+COPY deploy/fly/www/ /opt/skosdex/www/
+RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start
 
 # Persistent data lives here (Fly volume mounts at /data).
 ENV SKOSDEX_DATA=/data
-EXPOSE 7878 8983
+EXPOSE 8080
 
 ENTRYPOINT ["/usr/local/bin/skosdex-start"]
