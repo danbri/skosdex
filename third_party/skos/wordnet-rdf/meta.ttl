@@ -1,0 +1,22 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Open English WordNet (OEWN), the community-maintained fork of Princeton
+# WordNet, in RDF (OntoLex-Lemon + Global WordNet schema; declares itself an
+# ontolex:ConceptSet and uses SKOS). The 2025 release Turtle dump from
+# en-word.net (~18MB gzipped). CC BY 4.0 — license is stated on
+# https://en-word.net/ and embedded in the dump itself
+# (dc:license <https://creativecommons.org/licenses/by/4.0/>).
+# Note: the older VU Amsterdam W3C WordNet 3.0 conversion
+# (semanticweb.cs.vu.nl/lod/wn30/) was HTTP 503 / offline as of 2026-06-10.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Open English WordNet (RDF, 2025 release)" ;
+    dcterms:publisher <https://en-word.net/> ;
+    skosdex:conceptSchemeURI <https://en-word.net/> ;
+    skosdex:sourceURL <https://en-word.net/static/english-wordnet-2025.ttl.gz> ;
+    skosdex:sourceFormat "text/turtle" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
