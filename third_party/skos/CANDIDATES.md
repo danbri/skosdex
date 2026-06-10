@@ -15,22 +15,26 @@ Licenses change; re-verify before onboarding. Last reviewed: **2026-06**.
 
 ## 📦 Corpus built so far (committed via Git LFS)
 
-| Scheme | License | Quads | canonical.nq.gz |
-|--------|---------|------:|----------------:|
-| Getty AAT | ODC-By 1.0 | 26,679,064 | ~170 MB (LFS) |
-| MeSH | public domain (US gov) | 18,334,034 | 135 MB (LFS) |
-| AGROVOC | CC BY 4.0 | 10,089,090 | 90 MB (LFS) |
-| LCSH | public domain | 9,735,460 | 88 MB (LFS) |
-| NALT | CC0 | 1,153,267 | 8 MB (LFS) |
-| GEMET | CC BY 4.0 | 323,635 | 8.7 MB (LFS) |
-| IPTC Media Topics | CC BY 4.0 | 16,960 | small (repo) |
-| example-colors | CC0 | 37 | small (repo) |
-| **Total** | | **66,331,547** | |
+| Scheme | License | Quads | Where |
+|--------|---------|------:|-------|
+| Getty AAT | ODC-By 1.0 | 26,679,064 | everywhere |
+| MeSH | public domain (US gov) | 18,334,034 | everywhere |
+| AGROVOC | CC BY 4.0 | 10,089,090 | everywhere |
+| LCSH | public domain | 9,735,460 | everywhere |
+| NALT | CC0 | 1,153,267 | everywhere |
+| GEMET | CC BY 4.0 | 323,635 | everywhere |
+| UNESCO Thesaurus | CC BY-SA 3.0 IGO | 99,685 | container-only |
+| Homosaurus v4 | CC BY-NC-ND 4.0 | 69,781 | container-only |
+| UDC Summary | CC BY-SA 3.0 | 28,196 | container-only |
+| IPTC Media Topics | CC BY 4.0 | 16,960 | everywhere |
+| example-colors | CC0 | 37 | everywhere |
+| **Total** | | **66,529,209** | |
 
-Eight SKOS schemes, **~66.3M quads**, all stored gzipped (small in-repo, large
-via Git LFS), served live at <https://skosdex.fly.dev/query> by the fly.io
-Oxigraph+Solr deploy (`deploy/fly/`). Metadata-only records (copyleft/NC):
-UNESCO, UDC Summary.
+Eleven SKOS schemes, **66.5M quads**, gzipped (small in-repo, large via Git
+LFS), live at <https://skosdex.fly.dev/> (Oxigraph; Solr on-box, see issue #1).
+Container-only = policy v2: explicit license in meta.ttl + manifest, N-Quads
+formatting only, never in static artifacts. Metadata-only: GTAA, Iconclass,
+STW (ODbL — not granted), DDC (proprietary).
 
 
 ## ✅ Bundleable — open / public-domain (ready to onboard)
