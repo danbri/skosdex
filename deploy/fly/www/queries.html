@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skosdex — SPARQL cookbook</title>
+<style>
+ *{box-sizing:border-box} body{font:15px/1.55 system-ui,sans-serif;margin:0;color:#1a1a1a;background:#f4f6f8}
+ header{background:#1f2933;color:#fff;padding:1.1rem 1.4rem}
+ header h1{margin:0;font-size:1.25rem} header p{margin:.3rem 0 0;color:#9aa5b1;font-size:.9rem}
+ header a{color:#7cc4fa;text-decoration:none}
+ .wrap{max-width:920px;margin:0 auto;padding:1.3rem}
+ .card{background:#fff;border:1px solid #e1e7ed;border-radius:10px;margin:0 0 1.1rem;overflow:hidden}
+ .card h2{font-size:1.02rem;margin:0;padding:.7rem .9rem .1rem}
+ .card .why{color:#52606d;font-size:.88rem;padding:0 .9rem .5rem;margin:0}
+ .card pre{background:#0f172a;color:#e2e8f0;font-size:.8rem;line-height:1.45;margin:0;padding:.8rem .9rem;overflow-x:auto;white-space:pre}
+ .bar{display:flex;gap:.5rem;padding:.55rem .9rem;background:#f8fafc;border-top:1px solid #eef2f6}
+ .bar button{padding:.35rem .8rem;border:1px solid #cbd2d9;border-radius:6px;background:#fff;cursor:pointer;font:inherit;font-size:.85rem}
+ .bar button.run{background:#2563eb;border-color:#2563eb;color:#fff}
+ .bar .note{margin-left:auto;color:#9aa5b1;font-size:.78rem;align-self:center}
+ .out{padding:.4rem .9rem .8rem;display:none}
+ .out table{border-collapse:collapse;width:100%;font-size:.8rem}
+ .out th,.out td{border:1px solid #e4e7eb;padding:.25rem .45rem;text-align:left;word-break:break-all}
+ .out th{background:#f0f4f8}
+ .out .err{color:#b91c1c}
+ .sec{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:#52606d;margin:1.6rem 0 .6rem}
+</style>
+</head>
+<body>
+<header>
+ <h1>SPARQL cookbook</h1>
+ <p>Canned queries against the live corpus — every one tested. <a href="/">← search UI</a> · <a href="/sparql/">raw SPARQL UI</a> · <a href="/query">POST /query</a></p>
+</header>
+<div class="wrap" id="list"></div>
+<script>
+const QUERIES=[
+{sec:'The shape they (mostly) share'},
+{title:'Concept census — skos:Concept per scheme',
+ why:'The core SKOS conformance check: who actually types their entries skos:Concept, and how many. (LCSH: 513k; WordNet: zero — see oddities.)',
+ slow:true,
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?g (COUNT(?c) AS ?concepts) WHERE {
+  GRAPH ?g { ?c a skos:Concept }
+} GROUP BY ?g ORDER BY DESC(?concepts)`},
+{title:'The Solr shape — what populates search',
+ why:'This is the exact pattern the indexer flattens into Solr docs: concept + prefLabel, optional altLabel/definition/broader/narrower/exactMatch/notation. Swap the graph URI to inspect any scheme.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?c ?pref ?alt ?def ?broader WHERE {
+  GRAPH <http://vocabularies.unesco.org/thesaurus> {
+    ?c a skos:Concept ; skos:prefLabel ?pref .
+    OPTIONAL { ?c skos:altLabel ?alt }
+    OPTIONAL { ?c skos:definition ?def }
+    OPTIONAL { ?c skos:broader ?broader }
+    FILTER(LANG(?pref)='en')
+  }
+} LIMIT 20`},
+{title:'Scheme inventory — triples per named graph',
+ why:'One graph per scheme; graph URI = the skos:ConceptScheme URI from each meta.ttl. Heavy (scans everything) — expect ~30s.',
+ slow:true,
+ q:`SELECT ?g (COUNT(*) AS ?triples) WHERE {
+  GRAPH ?g { ?s ?p ?o }
+} GROUP BY ?g ORDER BY DESC(?triples)`},
+{sec:'Multilinguality'},
+{title:'One concept, every language — AGROVOC "rice"',
+ why:'AGROVOC carries ~40 translations per concept. This is why search ranking needed an exact-label field: all of these live in one prefLabel bag.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?lang ?label WHERE {
+  GRAPH <http://aims.fao.org/aos/agrovoc> {
+    <http://aims.fao.org/aos/agrovoc/c_6599> skos:prefLabel ?label
+  }
+  BIND(LANG(?label) AS ?lang)
+} ORDER BY ?lang`},
+{title:'Same label, different vocabularies',
+ why:'A label-level crosswalk: which schemes each have a concept prefLabelled "rice"@en? (GEMET, EuroVoc, NALT, AGROVOC.) Change the literal to explore.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?g ?c WHERE {
+  GRAPH ?g { ?c skos:prefLabel "rice"@en }
+}`},
+{title:'Language coverage of a scheme — EuroVoc',
+ why:'Labels per language tag. EuroVoc is the EU’s 24-language flagship; try the UDC graph for 48 languages.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?lang (COUNT(?l) AS ?labels) WHERE {
+  GRAPH <http://eurovoc.europa.eu/100141> { ?s skos:prefLabel ?l }
+  BIND(LANG(?l) AS ?lang)
+} GROUP BY ?lang ORDER BY DESC(?labels)`},
+{sec:'Cross-scheme mappings'},
+{title:'skos:exactMatch links out of GEMET',
+ why:'The corpus contains real inter-vocabulary mappings: GEMET ships exactMatch links into EuroVoc (and AGROVOC). These also surface in the /autocomplete API as the exactMatch field.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?c ?target WHERE {
+  GRAPH <http://www.eionet.europa.eu/gemet/gemetThesaurus> {
+    ?c skos:exactMatch ?target
+  }
+} LIMIT 25`},
+{sec:'Oddities, documented'},
+{title:'WordNet is not SKOS — it is OntoLex',
+ why:'Open English WordNet types entries as ontolex:LexicalConcept / LexicalEntry / LexicalSense — zero skos:Concept. Queryable here, but invisible to the skos-shaped Solr index (a mapping is on the roadmap, like the one applied to GND).',
+ q:`SELECT ?type (COUNT(*) AS ?n) WHERE {
+  GRAPH <https://en-word.net/> { ?s a ?type }
+} GROUP BY ?type ORDER BY DESC(?n) LIMIT 10`},
+{title:'AGROVOC speaks SKOS-XL too',
+ why:'Beyond plain prefLabel, AGROVOC reifies labels as skosxl:Label resources — 1.25M literalForms. RAMEAU, despite its size, ships plain SKOS only.',
+ q:`PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+SELECT (COUNT(*) AS ?xlLabels) WHERE {
+  GRAPH <http://aims.fao.org/aos/agrovoc> { ?l skosxl:literalForm ?f }
+}`},
+{title:'MeSH has its own vocabulary',
+ why:'NLM models MeSH with meshv: classes (Descriptors, Qualifiers, Concepts-with-a-capital-C that are not skos:Concept). Another scheme that needs mapping to join the search index.',
+ q:`SELECT ?type (COUNT(*) AS ?n) WHERE {
+  GRAPH <http://id.nlm.nih.gov/mesh> { ?s a ?type }
+} GROUP BY ?type ORDER BY DESC(?n) LIMIT 8`},
+{sec:'Hierarchy'},
+{title:'Walk down from a top concept — IPTC',
+ why:'Two levels of skos:narrower from the "economy, business and finance" media topic. The concept browser on the main page does this interactively.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?child ?label ?grandchild WHERE {
+  GRAPH <http://cv.iptc.org/newscodes/mediatopic/> {
+    <http://cv.iptc.org/newscodes/mediatopic/04000000> skos:narrower ?child .
+    ?child skos:prefLabel ?label .
+    OPTIONAL { ?child skos:narrower ?grandchild }
+    FILTER(LANG(?label)='en')
+  }
+} LIMIT 40`},
+];
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const list=document.getElementById('list');
+let i=0;
+for(const e of QUERIES){
+  if(e.sec){ list.insertAdjacentHTML('beforeend',`<div class="sec">${esc(e.sec)}</div>`); continue; }
+  const id='q'+(i++);
+  list.insertAdjacentHTML('beforeend',`<div class="card">
+    <h2>${esc(e.title)}</h2><p class="why">${esc(e.why)}</p>
+    <pre id="${id}-src">${esc(e.q)}</pre>
+    <div class="bar">
+      <button class="run" onclick="run('${id}')">Run</button>
+      <button onclick="copyQ('${id}')">Copy</button>
+      ${e.slow?'<span class="note">slow: full-corpus scan, ~30s</span>':''}
+    </div>
+    <div class="out" id="${id}-out"></div></div>`);
+}
+async function run(id){
+  const q=document.getElementById(id+'-src').textContent;
+  const out=document.getElementById(id+'-out');
+  out.style.display='block'; out.innerHTML='<span class="why">running…</span>';
+  try{
+    const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:q});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const j=await r.json();
+    const vars=j.head.vars, rows=j.results.bindings;
+    out.innerHTML=`<table><tr>${vars.map(v=>'<th>'+esc(v)+'</th>').join('')}</tr>`+
+      rows.slice(0,50).map(b=>'<tr>'+vars.map(v=>'<td>'+esc(b[v]?.value??'')+'</td>').join('')+'</tr>').join('')+
+      `</table><div class="why">${rows.length} row(s)${rows.length>50?' (showing 50)':''}</div>`;
+  }catch(err){ out.innerHTML='<span class="err">'+esc(err.message)+'</span>'; }
+}
+function copyQ(id){ navigator.clipboard.writeText(document.getElementById(id+'-src').textContent); }
+</script>
+</body>
+</html>

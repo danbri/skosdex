@@ -19,6 +19,14 @@
  .muted{color:#7b8794;font-size:.85rem}
  .row{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1rem}
  .col{flex:1 1 420px;min-width:0}
+ /* Page sections: subtle tints + rules so the zones read clearly (esp. mobile) */
+ .section{border-radius:12px;padding:.9rem 1rem;margin-top:1.1rem}
+ .section>h3{margin:.1rem 0 .6rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:#52606d;border-bottom:1px solid rgba(0,0,0,.07);padding-bottom:.35rem}
+ #sec-search{background:#eef3f9}
+ #sec-results{background:#f3f7f3}
+ #sec-concept{background:#fbf6ee}
+ #sec-schemes{background:#f6f2f8}
+ #concept{border-left:4px solid #d97706;padding-left:.7rem}
  .hit{background:#fff;border:1px solid #e4e7eb;border-radius:8px;padding:.55rem .8rem;margin-bottom:.5rem;cursor:pointer}
  .hit:hover{border-color:#2563eb}
  .hit .lbl{font-weight:600} .hit .alt{color:#52606d;font-size:.85rem}
@@ -67,23 +75,28 @@
  <div>
   <h1>skosdex</h1>
   <p>All the SKOS in the world? <span id="total"></span> ·
-     <a href="/sparql/">SPARQL</a> · <a href="/manifest.json">manifest</a> ·
+     <a href="/queries.html">SPARQL cookbook</a> · <a href="/sparql/">SPARQL</a> · <a href="/manifest.json">manifest</a> ·
      <a href="https://github.com/danbri/skosdex">GitHub</a></p>
  </div>
  <button class="gear" onclick="openSettings()" title="Search settings">⚙ Settings</button>
 </header>
 <div class="wrap">
- <div class="qbar">
-   <input id="q" type="search" placeholder="Search concepts… (e.g. tomato, jazz, acid rain, riz, Reis)" autofocus>
-   <button id="go" onclick="search($('q').value)">Search</button>
+ <div class="section" id="sec-search">
+  <h3>Search</h3>
+  <div class="qbar">
+    <input id="q" type="search" placeholder="Search concepts… (e.g. tomato, jazz, acid rain, riz, Reis)" autofocus>
+    <button id="go" onclick="search($('q').value)">Search</button>
+  </div>
+  <div class="muted" id="stat">&nbsp;</div>
  </div>
- <div class="muted" id="stat">&nbsp;</div>
  <div class="row">
-   <div class="col" id="results"></div>
-   <div class="col"><div id="concept" hidden></div></div>
+   <div class="col section" id="sec-results"><h3>Results</h3><div id="results"></div></div>
+   <div class="col section" id="sec-concept" hidden><h3>Concept</h3><div id="concept"></div></div>
  </div>
- <h3 style="margin-top:2rem">Schemes</h3>
- <div id="schemes"></div>
+ <div class="section" id="sec-schemes">
+  <h3>Schemes in the corpus</h3>
+  <div id="schemes"></div>
+ </div>
 </div>
 <footer>
  SPARQL: <a href="/query">/query</a> · Search: <a href="/solr/skos/select?q=*:*&amp;rows=1">/solr/skos/select</a> ·
@@ -103,6 +116,8 @@
      <input type="number" id="set-limit" min="50" max="5000" step="50"></div>
    <div class="field"><span>Exact-label boost <span class="hint">whole-label match weight</span></span>
      <input type="number" id="set-exact" min="0" max="200" step="1"></div>
+   <div class="field"><span>Max 1 result per vocabulary <span class="hint">dedup by scheme</span></span>
+     <input type="checkbox" id="set-onePer"></div>
 
    <h3>Schemes — include / exclude / prioritise</h3>
    <div class="muted" style="margin-bottom:.3rem">Untick to exclude. Priority boosts (↑) or demotes (↓) a scheme in ranking.</div>
@@ -151,7 +166,7 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
 
 // ---- settings drawer ----
 function openSettings(){
-  $('set-rows').value=cfg.rows; $('set-limit').value=cfg.limit; $('set-exact').value=cfg.exactBoost;
+  $('set-rows').value=cfg.rows; $('set-limit').value=cfg.limit; $('set-exact').value=cfg.exactBoost; $('set-onePer').checked=!!cfg.onePer;
   $('set-schemes').innerHTML=SCHEMES.map(s=>{
     const c=cfg.schemes[s.graph]||{on:true,prio:0};
     return `<div class="srow">
@@ -173,7 +188,7 @@ function resetSettings(){
   saveCfg(); openSettings();
 }
 function applySettings(){
-  cfg.rows=num('set-rows',DEFAULTS.rows); cfg.limit=num('set-limit',DEFAULTS.limit); cfg.exactBoost=num('set-exact',DEFAULTS.exactBoost);
+  cfg.rows=num('set-rows',DEFAULTS.rows); cfg.limit=num('set-limit',DEFAULTS.limit); cfg.exactBoost=num('set-exact',DEFAULTS.exactBoost); cfg.onePer=$('set-onePer').checked;
   document.querySelectorAll('.s-on').forEach(c=>{ (cfg.schemes[c.dataset.g] ||= {}).on=c.checked; });
   document.querySelectorAll('.s-prio').forEach(s=>{ (cfg.schemes[s.dataset.g] ||= {}).prio=parseInt(s.value,10); });
   saveCfg(); closeSettings(); search($('q').value);
@@ -190,7 +205,7 @@ function solrUrl(q){
   const p=new URLSearchParams();
   p.set('wt','json'); p.set('q', q+' OR '+q+'*'); p.set('defType','edismax');
   p.set('qf',`exactLabel^${cfg.exactBoost} prefLabel^3 altLabel`);
-  p.set('rows',String(cfg.rows));
+  p.set('rows',String(cfg.onePer?Math.min(200,cfg.rows*10):cfg.rows));
   p.set('fl','id,prefLabel,altLabel,notation,scheme,exactMatch,closeMatch');
   // include/exclude -> filter query
   const on=SCHEMES.map(s=>s.graph).filter(g=>cfg.schemes[g]?.on!==false);
@@ -213,10 +228,15 @@ async function search(q){
   if(!q){$('results').innerHTML='';$('stat').innerHTML='&nbsp;';return}
   try{
     const d=await (await fetch(solrUrl(q))).json();
-    const docs=d.response?.docs||[];
+    let docs=d.response?.docs||[];
     const nf=d.response.numFound;
+    if(cfg.onePer){
+      const seen=new Set();
+      docs=docs.filter(x=>{const g=String(x.scheme||''); if(seen.has(g))return false; seen.add(g); return true;}).slice(0,cfg.rows);
+    } else docs=docs.slice(0,cfg.rows);
     $('stat').innerHTML=`${nf.toLocaleString()} match "${esc(q)}" — showing ${docs.length}`
-      + (nf>docs.length?` <span class="muted">(max ${cfg.rows}; raise in ⚙)</span>`:'');
+      + (cfg.onePer?' <span class="muted">(1 per vocabulary; ⚙)</span>':'')
+      + (!cfg.onePer&&nf>docs.length?` <span class="muted">(max ${cfg.rows}; raise in ⚙)</span>`:'');
     $('results').innerHTML=docs.map(x=>`<div class="hit" onclick="show('${esc(x.id)}')">
       <span class="lbl">${esc((x.prefLabel||[x.id])[0])}</span><span data-scheme="${esc(x.scheme||'')}"></span>
       ${x.altLabel?`<div class="alt">${esc(x.altLabel.slice(0,4).join(' · '))}</div>`:''}
@@ -231,8 +251,10 @@ async function sparql(query){
 }
 
 async function show(uri){
-  $('concept').hidden=false;
+  $('sec-concept').hidden=false;
   $('concept').innerHTML='<p class="muted">loading…</p>';
+  // On narrow screens the concept section sits below the results — bring it up.
+  if(window.innerWidth<900) $('sec-concept').scrollIntoView({behavior:'smooth',block:'start'});
   const rows=await sparql(`
     PREFIX skos: <${SKOS}>
     SELECT ?p ?o ?lbl WHERE { GRAPH ?g {
