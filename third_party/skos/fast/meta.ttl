@@ -1,0 +1,35 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# FAST — Faceted Application of Subject Terminology (OCLC). Derived from LCSH,
+# published as Linked Data N-Triples. OCLC offers a combined dump
+# (FASTAll.nt.zip, ~266MB zipped) plus per-facet zips (FASTTopical.nt.zip,
+# FASTGeographic.nt.zip, ... at researchworks.oclc.org/researchdata/fast/).
+# sourceURL below points at the combined dump; sourceFormat n-triples +
+# compression zip + sourceEntry select its single .nt member.
+#
+# License: Open Data Commons Attribution License (ODC-By) -> open, bundleable.
+# Verified at https://www.oclc.org/research/areas/data-science/fast/download.html
+# ("...made available by OCLC under the Open Data Commons Attribution License
+# (ODC-By)"); license text at https://www.oclc.org/research/activities/fast/odcby.html
+#
+# bundle false (metadata-only) for now: the OCLC download host
+# (researchworks.oclc.org) sits behind a Cloudflare interactive challenge
+# (HTTP 403, `cf-mitigated: challenge`, CAPTCHA requiring JS+cookies), so the
+# dump cannot be fetched from this automated/headless environment. The other
+# OCLC FAST endpoints (id.worldcat.org/fast/, fast.oclc.org) are likewise
+# blocked/unavailable. Flip to `bundle true` and run `skosdex build fast` from
+# an environment that can clear the Cloudflare challenge (e.g. an interactive
+# browser-assisted fetch) to materialize the canonical N-Quads.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "FAST — Faceted Application of Subject Terminology" ;
+    dcterms:publisher <https://www.oclc.org/research/> ;
+    skosdex:conceptSchemeURI <http://id.worldcat.org/fast/> ;
+    skosdex:sourceURL <https://researchworks.oclc.org/researchdata/fast/FASTAll.nt.zip> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "FASTAll.nt" ;
+    dcterms:license <https://www.oclc.org/research/activities/fast/odcby.html> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle false .
