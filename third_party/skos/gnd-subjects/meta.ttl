@@ -1,0 +1,39 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# GND-Sachbegriffe — the subject-term (Sachbegriff) subset of the Gemeinsame
+# Normdatei (Integrated Authority File), maintained by the Deutsche
+# Nationalbibliothek (DNB) and partner libraries. ~208k subject concepts with
+# German (@de) labels — the subject authority used across German-speaking
+# library cataloguing. Published by DNB as the "Sachbegriff" entity subset of
+# the GND opendata (separated cleanly from person/corporate/place/work entities).
+#
+# License: CC0 1.0 (public domain). DNB states all opendata metadata is "provided
+# under Creative Commons Zero (CC0 1.0) terms, unless otherwise stated"
+# (verified 2026-06-10 at https://data.dnb.de/opendata/; each GND record also
+# carries dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/>).
+# Only the separate GND *mapping* files are CC BY 4.0; the Sachbegriff authority
+# file is not "otherwise stated" -> CC0 -> licenseClass "public-domain".
+#
+# Source / shape: authorities-gnd-sachbegriff_lds.ttl.gz (~24 MB gzipped, Turtle,
+# refreshed 2026-03-02) from https://data.dnb.de/opendata/. The dump is typed
+# with the GND ontology (gndo:SubjectHeadingSensoStricto,
+# gndo:preferredNameForTheSubjectHeading, gndo:broaderTermGeneral, ...), NOT
+# skos:Concept / skos:prefLabel — so the skosdex Solr/demo layer would surface
+# zero concepts from it as-is. tools/to-skos.mjs performs a thin,
+# semantics-preserving relabelling of the GND subject vocabulary onto SKOS
+# (prefLabel/altLabel/definition/broader/related/notation, German @de tags,
+# cross-vocabulary skos:exactMatch kept), and tools/fetch.sh downloads + runs it
+# into cache/source.nt. After fetch.sh:
+# `node scripts/skosdex normalize gnd-subjects && node scripts/skosdex canonicalize gnd-subjects`.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "GND-Sachbegriffe — GND subject headings (Deutsche Nationalbibliothek)" ;
+    dcterms:publisher <https://www.dnb.de/> ;
+    skosdex:conceptSchemeURI <https://d-nb.info/standards/elementset/gnd#subjects> ;
+    skosdex:sourceURL <https://data.dnb.de/opendata/authorities-gnd-sachbegriff_lds.ttl.gz> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "none" ;
+    dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
