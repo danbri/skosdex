@@ -24,3 +24,6 @@ third_party/skos/*/normalized.nq.gz
 # MB) if a `site`/build run is interrupted mid-copy.
 docs/bundle.nq.gz
 docs/solr-docs.json
+
+# Subagent worktrees (ephemeral)
+.claude/worktrees/
