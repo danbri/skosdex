@@ -42,15 +42,19 @@ if [ ! -f "$OX_MARKER" ]; then
   # written — a truncated store must never be stamped loaded. (Shipped once:
   # oxigraph 0.4.11 rejected valid @es-419 language tags at line 2.8M and the
   # script carried on. 0.5.2 parses them; lenient + grep are the backstop.)
-  echo "loading bundle into oxigraph..."
-  gzip -dc /seed/bundle.nq.gz > /tmp/bundle.nq
-  if ! /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --file /tmp/bundle.nq 2>&1 | tee /tmp/oxload.out; then
+  echo "loading bundle into oxigraph (streamed; no temp file)..."
+  # Stream stdin -> loader: the decompressed bundle (~9GB at 66.5M quads) no
+  # longer fits the machine ROOTFS (/tmp), which killed a seed with
+  # "gzip: stdout: No space left on device". --format nq makes stdin work.
+  if ! gzip -dc /seed/bundle.nq.gz \
+     | /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --format nq 2>&1 \
+     | tee /tmp/oxload.out; then
     echo "FATAL: oxigraph load exited non-zero; not marking loaded"; exit 1
   fi
   if grep -qi "error" /tmp/oxload.out; then
     echo "FATAL: oxigraph load reported errors; not marking loaded"; exit 1
   fi
-  rm -f /tmp/bundle.nq /tmp/oxload.out
+  rm -f /tmp/oxload.out
   touch "$OX_MARKER"
   echo "oxigraph load complete"
 else
