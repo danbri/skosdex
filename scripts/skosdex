@@ -471,6 +471,10 @@ async function solrDocs() {
     [NS.skos + 'definition']: 'definition',
     [NS.skos + 'broader']: 'broader',
     [NS.skos + 'narrower']: 'narrower',
+    // RDF extras for the REST/autocomplete API: cross-scheme mappings + codes.
+    [NS.skos + 'exactMatch']: 'exactMatch',
+    [NS.skos + 'closeMatch']: 'closeMatch',
+    [NS.skos + 'notation']: 'notation',
   };
   const TYPE = NS.rdf + 'type';
   const CONCEPT = NS.skos + 'Concept';

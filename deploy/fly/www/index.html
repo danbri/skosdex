@@ -83,7 +83,7 @@ $('q').addEventListener('input',e=>{clearTimeout(t);t=setTimeout(()=>search(e.ta
 async function search(q){
   q=q.trim();
   if(!q){$('results').innerHTML='';$('stat').innerHTML='&nbsp;';return}
-  const url='/solr/skos/select?wt=json&rows=25&defType=edismax&qf=prefLabel%5E3%20altLabel%5E2%20definition&q='+encodeURIComponent(q);
+  const url='/autocomplete?q='+encodeURIComponent(q);
   try{
     const d=await (await fetch(url)).json();
     const docs=d.response?.docs||[];
