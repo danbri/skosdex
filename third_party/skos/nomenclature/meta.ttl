@@ -1,0 +1,24 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Nomenclature for Museum Cataloging — bilingual (en/fr) object-name
+# vocabulary for historical/ethnological collections, published as linked
+# open data by CHIN (Canadian Heritage Information Network) and AASLH.
+# License CC BY 4.0: the dataset's VoID record
+# (https://www.nomenclature.info/.well-known/void.ttl, verified 2026-06-10)
+# states "Copyright (c) 2020 Rowman & Littlefield and Government of Canada,
+# Canadian Heritage Information Network. Made available under the Creative
+# Commons Attribution License" with cc:License CC BY 4.0 -> open.
+#
+# Source: the full Turtle data dump (~67MB) listed as void:dataDump in the
+# VoID record.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Nomenclature for Museum Cataloging" ;
+    dcterms:publisher <https://www.nomenclature.info/> ;
+    skosdex:conceptSchemeURI <https://nomenclature.info/nom/scheme> ;
+    skosdex:sourceURL <https://nomenclature.info/dataset/datadump.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
