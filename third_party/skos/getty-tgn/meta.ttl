@@ -8,8 +8,9 @@
 # DEFERRED (bundle:false): TGNOut_Full.nt is ~38.8GB uncompressed (verified via
 # unzip -l on the 2025-01-19 dump). The pipeline decompresses the full member
 # to cache/source.nt before the external sort, so it needs ~80GB transient disk
-# (source + sort temp). Far exceeds the current build env (~25GB free, shared
-# with sibling agents). The record is ready — flip bundle:true and
+# (source + sort temp). Far exceeds the current build env (re-checked
+# 2026-06-10 during the completion sweep: ~21GB free, shared with sibling
+# agents — still insufficient). The record is ready — flip bundle:true and
 # `skosdex build getty-tgn` on a box with ~100GB free.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "Getty Thesaurus of Geographic Names (TGN)" ;
