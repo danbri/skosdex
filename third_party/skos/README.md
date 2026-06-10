@@ -13,27 +13,24 @@ One folder per SKOS concept scheme. Each folder has a `meta.ttl` (described by
   canonical.nq      # RDFC-1.0 canonicalized N-Quads   (generated)
 ```
 
-## Data license policy
+## Data license policy (v2, 2026-06-10)
 
-**The repository carries only openly-licensed data.** A scheme's
-`skosdex:licenseClass` decides what may be committed and bundled:
+**Explicit licensing gates everything.** A scheme's `skosdex:licenseClass`
+decides where its data may go:
 
-| licenseClass | examples | data in repo / bundle? |
-|--------------|----------|------------------------|
-| `public-domain` | CC0, US Gov works | ✅ yes |
-| `open` | CC BY, OGL, Apache, MIT | ✅ yes |
-| `copyleft` | CC BY-SA, ODbL, GPL | ❌ metadata only |
-| `noncommercial` | CC BY-NC, CC BY-NC-SA | ❌ metadata only |
-| `proprietary` / `unknown` | all rights reserved | ❌ metadata only |
+| licenseClass | examples | container (SPARQL/Solr) | static (Pages demo) |
+|--------------|----------|------------------------|---------------------|
+| `public-domain` | CC0, US Gov works | ✅ | ✅ |
+| `open` | CC BY, ODC-By, OGL | ✅ | ✅ |
+| `copyleft` | CC BY-SA | ✅ container-only | ❌ |
+| `noncommercial` | CC BY-NC-ND | ✅ container-only | ❌ |
+| `proprietary` / `unknown` | all rights reserved; ODbL (not granted) | ❌ | ❌ |
 
-Viral (share-alike/copyleft) and anti-commercial (NC) schemes stay
-**metadata-only**: the `meta.ttl` record lets others find and fetch them under
-their own terms, but their data is never committed here and never reaches
-`dist/`. The bundler (`scripts/skosdex bundle`) enforces this independently of
-the per-scheme `skosdex:bundle` flag.
-
-See [`CANDIDATES.md`](CANDIDATES.md) for the maintained backlog of vocabularies
-worth onboarding, with verified licenses and sources.
+Container-only conditions (owner decision, 2026-06-10): the license must be
+explicit in the scheme's `meta.ttl` and in the image-baked `manifest.json`,
+and content must be semantically unchanged — the pipeline performs N-Quads
+syntax normalization only. The demo/site builders filter container-only
+schemes out of all static artifacts automatically.
 
 ## Current schemes
 

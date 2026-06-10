@@ -1,0 +1,18 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Homosaurus — international LGBTQ+ linked-data vocabulary (v4).
+# CC BY-NC-ND 4.0 -> noncommercial -> CONTAINER-ONLY under policy v2
+# (2026-06-10): bundled into the SPARQL/Solr container with explicit licensing
+# and no semantic changes (N-Quads syntax formatting only); never included in
+# static artifacts (Pages demo etc.).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Homosaurus (v4)" ;
+    dcterms:publisher <https://homosaurus.org/> ;
+    skosdex:conceptSchemeURI <https://homosaurus.org/v4> ;
+    skosdex:sourceURL <https://homosaurus.org/v4.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by-nc-nd/4.0/> ;
+    skosdex:licenseClass "noncommercial" ;
+    skosdex:bundle true .

@@ -42,7 +42,16 @@ const NS = {
   skosdex: 'https://danbri.org/ns/skosdex#',
 };
 
+// License gates (policy v2, 2026-06-10, repo owner's call):
+// - OPEN_CLASSES may appear anywhere: container, Pages demo, static artifacts.
+// - CONTAINER_CLASSES additionally admits copyleft (CC BY-SA) and
+//   noncommercial (CC BY-NC-ND) data into the CONTAINER bundle only — license
+//   explicit per scheme in third_party/ meta.ttl + manifest.json, content
+//   semantically unchanged (N-Quads syntax normalization only). These never
+//   reach the Pages demo / docs/ site or other static redistributions.
+// - proprietary/unknown are excluded everywhere. (ODbL not yet granted.)
 const OPEN_CLASSES = new Set(['open', 'public-domain']);
+const CONTAINER_CLASSES = new Set([...OPEN_CLASSES, 'copyleft', 'noncommercial']);
 
 const EXT_BY_FORMAT = {
   'text/turtle': 'ttl',
@@ -95,14 +104,15 @@ function readMeta(slug) {
     licenseClass: (one(s, 'skosdex', 'licenseClass') || 'unknown').toLowerCase(),
     bundle: one(s, 'skosdex', 'bundle') !== 'false',
   };
-  meta.eligible = OPEN_CLASSES.has(meta.licenseClass) && meta.bundle;
+  meta.openData = OPEN_CLASSES.has(meta.licenseClass);
+  meta.eligible = CONTAINER_CLASSES.has(meta.licenseClass) && meta.bundle;
   return meta;
 }
 
 function bundleReason(meta) {
-  if (!OPEN_CLASSES.has(meta.licenseClass)) return `excluded (license: ${meta.licenseClass})`;
+  if (!CONTAINER_CLASSES.has(meta.licenseClass)) return `excluded (license: ${meta.licenseClass})`;
   if (!meta.bundle) return 'excluded (bundle: false)';
-  return 'included';
+  return meta.openData ? 'included' : `included (container-only: ${meta.licenseClass})`;
 }
 
 // ---------------------------------------------------------------------------
@@ -407,7 +417,7 @@ async function bundleAll() {
 
   for (const meta of metas) {
     const reason = bundleReason(meta);
-    if (reason !== 'included') {
+    if (!reason.startsWith('included')) {
       manifest.excluded.push({ slug: meta.slug, licenseClass: meta.licenseClass, reason });
       console.log(`  bundle   ${meta.slug}: ${reason}`);
       continue;
@@ -424,6 +434,8 @@ async function bundleAll() {
       title: meta.title,
       license: meta.license,
       licenseClass: meta.licenseClass,
+      containerOnly: !meta.openData,   // BY-SA / NC-ND: container only, never static artifacts
+      modifications: 'N-Quads syntax normalization only; no semantic changes',
       graph: meta.conceptSchemeURI || null,
       quads: count,
     });
@@ -522,6 +534,13 @@ const DEMO_MAX_PER_SCHEME = 2000;
 async function buildDemo() {
   const src = path.join(DIST_DIR, 'solr-docs.json');
   if (!fs.existsSync(src)) throw new Error('dist/solr-docs.json missing — run build first');
+  // POLICY: the demo is a static redistribution (GitHub Pages), so only
+  // open/public-domain schemes may appear. Container-only data (BY-SA, NC-ND)
+  // ships solely in the deployed image — never in static artifacts.
+  const openGraphs = new Set(
+    listSlugs().map(readMeta).filter((m) => m.openData && m.conceptSchemeURI)
+      .map((m) => m.conceptSchemeURI),
+  );
   // Stream the (possibly huge) JSON array line-by-line — each doc is written on
   // its own line by solrDocs — sampling up to N docs per scheme so the demo
   // stays small regardless of corpus size.
@@ -533,6 +552,7 @@ async function buildDemo() {
     if (line === '[' || line === ']' || !line) continue;
     let d;
     try { d = JSON.parse(line); } catch { continue; }
+    if (!openGraphs.has(d.scheme)) continue;   // container-only data stays out
     const n = perScheme.get(d.scheme) || 0;
     if (n >= DEMO_MAX_PER_SCHEME) continue;
     perScheme.set(d.scheme, n + 1);

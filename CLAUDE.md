@@ -43,13 +43,19 @@ smoke test (`npm test`) will fail with an "unresolved LFS pointer" error.
   not content — so the LFS pattern is scoped to `third_party/` only, and
   `docs/bundle.nq.gz` is a normal (small) committed file.
 
-### 2. Open data only — license gates bundling
-Only `public-domain` and `open` (permissive, non-share-alike, commercial-OK)
-scheme data is committed/bundled. `copyleft` (viral / share-alike, e.g.
-CC BY-SA, ODbL), `noncommercial`, and `proprietary` schemes stay
-**metadata-only**: their `meta.ttl` is kept so others can fetch them, but their
-data is never committed and never reaches the bundle. The bundler enforces this
-regardless of the per-scheme `bundle` flag. See `third_party/skos/README.md`.
+### 2. License policy (v2, 2026-06-10) — explicit licensing gates everything
+Bundleable into the **container** (SPARQL/Solr endpoint): `public-domain`,
+`open`, **and** — per explicit owner decision — `copyleft` (CC BY-SA) and
+`noncommercial` (CC BY-NC-ND), provided (a) the license is explicit in the
+scheme's `third_party/skos/<slug>/meta.ttl` and in `dist/manifest.json`
+(baked into the image), and (b) content is semantically unchanged — the
+pipeline performs N-Quads syntax normalization only.
+
+**Static artifacts** (the Pages demo / `docs/` site, anything redistributed
+outside the container) carry **open/public-domain data only** — the demo
+builder filters container-only schemes out automatically.
+
+`proprietary`/`unknown` are excluded everywhere; ODbL has not been granted.
 
 ## Commands
 

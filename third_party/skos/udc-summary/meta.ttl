@@ -4,16 +4,16 @@
 
 # UDC Summary — Universal Decimal Classification, ~2,600 classes in 48
 # languages, published as SKOS by the UDC Consortium (udcdata.info) under
-# CC BY-SA 3.0. Share-alike is viral/copyleft -> METADATA-ONLY: this record
-# lets others fetch it under its own terms; the data is never committed here
-# and never reaches the bundle. (The full UDC scheme is proprietary.)
+# CC BY-SA 3.0 -> copyleft -> CONTAINER-ONLY under policy v2 (2026-06-10):
+# bundled into the SPARQL/Solr container with explicit licensing and no
+# semantic changes (N-Quads formatting only); never in static artifacts.
+# (The full UDC scheme is proprietary and stays out entirely.)
 <#scheme> a skosdex:Scheme ;
     dcterms:title "UDC Summary (Universal Decimal Classification)" ;
     dcterms:publisher <https://udcc.org/> ;
     skosdex:conceptSchemeURI <http://udcdata.info/udc-schema> ;
-    skosdex:sourceURL <http://udcdata.info/udcsummary-skos.zip> ;
-    skosdex:sourceFormat "application/rdf+xml" ;
-    skosdex:compression "zip" ;
+    skosdex:sourceURL <https://api.finto.fi/rest/v1/udcs/data?format=text%2Fturtle> ;  # udcdata.info zip is gone; Finto (NLF Skosmos) republishes
+    skosdex:sourceFormat "text/turtle" ;
     dcterms:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
     skosdex:licenseClass "copyleft" ;
-    skosdex:bundle false .
+    skosdex:bundle true .

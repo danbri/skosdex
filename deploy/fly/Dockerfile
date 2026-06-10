@@ -25,6 +25,10 @@ COPY --from=oxigraph /usr/local/bin/oxigraph /usr/local/bin/oxigraph
 # default heap, so start.sh posts the parts sequentially.
 COPY dist/bundle.nq.gz   /seed/bundle.nq.gz
 COPY dist/solr-parts/    /seed/solr-parts/
+# Per-scheme license manifest: makes every bundled scheme's license explicit
+# inside the container (policy: BY-SA / NC-ND data ships container-only, with
+# licensing declared and no semantic changes — N-Quads formatting only).
+COPY dist/manifest.json  /seed/manifest.json
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start
 

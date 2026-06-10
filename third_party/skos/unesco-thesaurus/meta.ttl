@@ -2,10 +2,9 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-# UNESCO Thesaurus. Licensed CC BY-SA 3.0 IGO — share-alike is a viral /
-# copyleft term, so its DATA is never bundled into the shipped dataset.
-# Only this metadata record lives in the repo, so others can find and fetch
-# the scheme themselves under its own terms.
+# UNESCO Thesaurus, CC BY-SA 3.0 IGO -> copyleft -> CONTAINER-ONLY under
+# policy v2 (2026-06-10): bundled with explicit licensing, no semantic changes
+# (N-Quads formatting only); excluded from all static artifacts.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "UNESCO Thesaurus" ;
     dcterms:publisher <https://www.unesco.org/> ;
@@ -14,4 +13,4 @@
     skosdex:sourceFormat "text/turtle" ;
     dcterms:license <https://creativecommons.org/licenses/by-sa/3.0/igo/> ;
     skosdex:licenseClass "copyleft" ;
-    skosdex:bundle false .
+    skosdex:bundle true .

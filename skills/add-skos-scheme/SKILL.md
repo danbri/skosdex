@@ -19,9 +19,10 @@ per-scheme code for the normal case.
    - `public-domain` — CC0 / public domain → bundle OK.
    - `open` — permissive, commercial use allowed, no share-alike (e.g. CC BY,
      Apache, MIT, OGL) → bundle OK.
-   - `copyleft` — viral / share-alike (e.g. CC BY-SA, ODbL, GPL) → **data is
-     never committed or bundled**; keep metadata only.
-   - `noncommercial` — any NC term → **metadata only**.
+   - `copyleft` — share-alike (e.g. CC BY-SA) → **container-only**: bundled
+     into the SPARQL/Solr image with explicit licensing, no semantic changes;
+     never in static artifacts. (ODbL is NOT granted — metadata only.)
+   - `noncommercial` — CC BY-NC / BY-NC-ND → **container-only**, as above.
    - `proprietary` / `unknown` → **metadata only**.
 4. If the source is small and `public-domain`/`open`, you may set
    `skosdex:sourceFile` to a committed copy under the scheme folder. Otherwise
