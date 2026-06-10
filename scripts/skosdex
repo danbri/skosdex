@@ -50,6 +50,7 @@ const EXT_BY_FORMAT = {
   'application/n-quads': 'nq',
   'application/trig': 'trig',
   'text/n3': 'n3',
+  'application/rdf+xml': 'rdf',
 };
 
 // ---------------------------------------------------------------------------
@@ -204,7 +205,7 @@ async function fetchScheme(meta) {
 }
 
 async function normalizeScheme(meta) {
-  const src = sourcePath(meta);
+  let src = sourcePath(meta);
   if (!fs.existsSync(src)) {
     console.log(`  normalize ${meta.slug}: no source at ${path.relative(ROOT, src)} — run fetch first`);
     return;
@@ -215,13 +216,30 @@ async function normalizeScheme(meta) {
   // (external, disk-backed) and gzip the result.
   const raw = path.join(meta.dir, 'cache', '_normalized.raw');
   fs.mkdirSync(path.dirname(raw), { recursive: true });
+  // RDF/XML: n3 can't parse it — convert with `rapper` (raptor2-utils) to
+  // N-Triples first, then fall through to the line-based path. This unlocks
+  // the many vocabularies published only as RDF/XML (GEMET, GeoNames, ...).
+  let format = meta.sourceFormat;
+  if (format === 'application/rdf+xml') {
+    const converted = path.join(meta.dir, 'cache', '_converted.nt');
+    const fd = fs.openSync(converted, 'w');
+    try {
+      execFileSync('rapper', ['-i', 'rdfxml', '-o', 'ntriples', src],
+        { stdio: ['ignore', fd, 'pipe'], maxBuffer: Infinity });
+    } finally {
+      fs.closeSync(fd);
+    }
+    src = converted;
+    format = 'application/n-triples';
+    console.log(`  normalize ${meta.slug}: rapper rdfxml -> ntriples`);
+  }
   // N-Triples/N-Quads are line-oriented: parse each line independently so one
   // malformed line (e.g. in Getty's 3.6GB dump) is skipped, not fatal. Other
   // formats (Turtle/TriG) need the whole-document streaming parser.
-  const lineBased = meta.sourceFormat === 'application/n-triples' || meta.sourceFormat === 'application/n-quads';
+  const lineBased = format === 'application/n-triples' || format === 'application/n-quads';
   const count = lineBased
-    ? await lineNormalizeToNQuads(src, meta.sourceFormat, raw)
-    : await streamParseToNQuads(src, meta.sourceFormat, raw);
+    ? await lineNormalizeToNQuads(src, format, raw)
+    : await streamParseToNQuads(src, format, raw);
   const sorted = path.join(meta.dir, 'cache', '_normalized.sorted');
   execFileSync('sort', ['-u', '-o', sorted, raw], { stdio: 'inherit', env: { ...process.env, LC_ALL: 'C' } });
   // gzip sorted -> normalized.nq.gz

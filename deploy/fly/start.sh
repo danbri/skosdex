@@ -82,6 +82,17 @@ else
   echo "already seeded; reusing volume"
 fi
 
+# --- Stage 3: optimize the store (once) -------------------------------------
+# A bulk-loaded RocksDB store is uncompacted; queries pay heavy seek costs
+# until `oxigraph optimize` runs. One-time, marker-guarded.
+OPT_MARKER="$DATA/.optimized-v1"
+if [ ! -f "$OPT_MARKER" ]; then
+  echo "optimizing oxigraph store (one-time)..."
+  /usr/local/bin/oxigraph optimize --location "$OX_STORE"
+  touch "$OPT_MARKER"
+  echo "optimize complete"
+fi
+
 # --- Oxigraph (foreground) -------------------------------------------------
 # Solr already runs in the background; keep the container alive on Oxigraph.
 echo "starting oxigraph SPARQL server on :7878"

@@ -1,0 +1,19 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# GEMET — GEneral Multilingual Environmental Thesaurus (EEA/Eionet). EEA
+# materials are published under CC BY 4.0 (verified at
+# https://www.eea.europa.eu/en/legal-notice: "EEA materials are published under
+# the CC-BY license", commercial use allowed, no share-alike) -> open.
+# The dump is gzipped RDF/XML; the pipeline converts via rapper.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "GEMET — GEneral Multilingual Environmental Thesaurus" ;
+    dcterms:publisher <https://www.eea.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://www.eionet.europa.eu/gemet/gemetThesaurus> ;
+    skosdex:sourceURL <https://www.eionet.europa.eu/gemet/latest/gemet.rdf.gz> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
