@@ -1,0 +1,27 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# LC Children's Subject Headings — subject headings for children's materials,
+# maintained by the Library of Congress. Public domain (US Government work,
+# same terms as LCSH; see https://www.loc.gov/legal/). Bulk SKOS N-Triples
+# dump from id.loc.gov/download/ (verified 2026-06-10; redirects to LDS S3).
+#
+# fetch+normalize succeed (~373k quads). CANONICAL PENDING: the normalized
+# graph carries ~264k blank nodes (skos:changeNote / SKOS-XL label structures,
+# structurally near-identical across concepts) — RDFC-1.0 via rdf-canonize
+# hits its worst case and runs many tens of minutes+ on the shared build box.
+# It is under the 256MB threshold so the CLI does not take its sorted-normalized
+# fast path (cf. lcsh, which is large enough to skip RDFC). bundle:true is
+# correct (public-domain, bundleable); `skosdex build lc-childrens` to finish
+# the canonical on a faster / less-contended box, then commit canonical.nq.gz.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "LC Children's Subject Headings" ;
+    dcterms:publisher <https://id.loc.gov/> ;
+    skosdex:conceptSchemeURI <http://id.loc.gov/authorities/childrensSubjects> ;
+    skosdex:sourceURL <https://id.loc.gov/download/authorities/childrensSubjects.skosrdf.nt.gz> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://www.loc.gov/legal/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
