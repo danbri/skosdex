@@ -269,7 +269,7 @@ async function normalizeScheme(meta) {
   } finally {
     fs.closeSync(fd);
   }
-  fs.rmSync(raw); fs.rmSync(sorted);
+  fs.rmSync(raw, { force: true }); fs.rmSync(sorted, { force: true });
   console.log(`  normalize ${meta.slug}: ${count} quads -> normalized.${NQ}`);
 }
 
@@ -451,7 +451,7 @@ async function bundleAll() {
   execFileSync('bash', ['-c',
     `set -o pipefail; gunzip -c "${raw}" | LC_ALL=C sort -u -S25% --compress-program=gzip -T "${DIST_DIR}" | gzip > "${bundleOut}"`,
   ], { stdio: 'inherit', maxBuffer: Infinity });
-  fs.rmSync(raw);
+  fs.rmSync(raw, { force: true });
   fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   const total = manifest.included.reduce((a, x) => a + x.quads, 0);
   console.log(`  bundle   -> dist/bundle.${NQ} (${total} quads, ${manifest.included.length} schemes)`);
