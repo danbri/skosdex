@@ -534,7 +534,7 @@ async function solrDocs() {
   const TYPE = NS.rdf + 'type';
   const CONCEPT = NS.skos + 'Concept';
   // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
-  const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@[\w-]+|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
+  const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 
   fs.mkdirSync(DIST_DIR, { recursive: true });
   // Two outputs: the single solr-docs.json (demo/Pages consume it) and
@@ -558,7 +558,7 @@ async function solrDocs() {
   let cur = null; // { id, scheme, isConcept, fields:{} }
   const flushDoc = async () => {
     if (cur && cur.isConcept) {
-      const json = JSON.stringify({ id: cur.id, scheme: cur.scheme, ...cur.fields });
+      const json = JSON.stringify({ id: cur.id, scheme: cur.scheme, ...(cur.exactLabel ? { exactLabel: cur.exactLabel } : {}), ...cur.fields });
       outStream.write((nDocs++ ? ',\n' : '') + json);
       if (partCount >= PART_DOCS) { await closePart(); partNo++; openPart(); }
       partStream.write((partCount++ ? ',\n' : '') + json);
@@ -570,11 +570,17 @@ async function solrDocs() {
   for await (const line of rl) {
     const m = LINE.exec(line);
     if (!m) continue;
-    const [, s, p, oIri, oLit, graph] = m;
-    if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, fields: {} }; }
+    const [, s, p, oIri, oLit, lang, graph] = m;
+    if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, exactLabel: null, fields: {} }; }
     if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
     const field = FIELD[p];
     if (field) (cur.fields[field] ||= []).push(oIri !== undefined ? oIri : oLit);
+    // Single English prefLabel -> exactLabel: a low-cardinality field so an
+    // entry whose whole label IS the query ranks above ones that merely list
+    // it among 40 languages (AGROVOC 'rice' was losing to monolingual LCSH).
+    if (p === NS.skos + 'prefLabel' && oLit !== undefined && (lang === 'en' || !lang) && !cur.exactLabel) {
+      cur.exactLabel = oLit;
+    }
   }
   }
   await flushDoc();
