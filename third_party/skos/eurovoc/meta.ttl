@@ -1,0 +1,29 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EuroVoc — the EU Publications Office's multilingual thesaurus (~7k concepts,
+# 20+ languages). Reuse is governed by Commission Decision 2011/833/EU
+# (http://data.europa.eu/eli/dec/2011/833/oj), which the EU legal notice
+# implements as CC BY 4.0: "content owned by the EU ... is licensed under the
+# Creative Commons Attribution 4.0 International (CC BY 4.0) licence"
+# (verified 2026-06-10 at https://commission.europa.eu/legal-notice_en; the
+# official data.europa.eu record for the EuroVoc dataset cites Decision
+# 2011/833/EU as its licence) -> open.
+#
+# Source: the "SKOS Core concepts" distribution of release 20260128-0, via the
+# OP download handler (the download_url published on data.europa.eu; the bare
+# CELLAR distribution IRI content-negotiates and returns 406 for our
+# Accept: application/rdf+xml, the handler serves the zip regardless).
+# The zip contains a single RDF/XML file; the pipeline converts via rapper.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "EuroVoc — multilingual thesaurus of the European Union" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://eurovoc.europa.eu/100141> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http://publications.europa.eu/resource/distribution/eurovoc/20260128-0/zip/skos_core/eurovoc_in_skos_core_concepts.zip&fileName=eurovoc_in_skos_core_concepts.zip> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "eurovoc_in_skos_core_concepts.rdf" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
