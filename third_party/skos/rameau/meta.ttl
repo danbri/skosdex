@@ -1,0 +1,37 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# RAMEAU — Répertoire d'autorité-matière encyclopédique unifié — the French
+# national subject-heading language maintained by the Bibliothèque nationale de
+# France (BnF) and the Centre national RAMEAU. ~204k skos:Concept (French
+# labels), the indexation vocabulary used by the BnF, French university and
+# public libraries. data.bnf.fr publishes it as RDF/SKOS.
+#
+# License: Licence Ouverte / Open Licence (Etalab) — verified 2026-06-10 at
+# https://data.bnf.fr/opendata ("The reuse and reproduction of RDF data are free
+# and free of charge for any use, including commercial. Attribution is
+# required."). The Licence Ouverte permits commercial reuse, requires only
+# attribution ("Bibliothèque nationale de France"), and imposes NO share-alike
+# obligation -> licenseClass "open" (like OGL/CC BY).
+#
+# Source: the per-dataset RAMEAU N-Triples dump "databnf_rameau_nt.tar.gz"
+# (~126 MB gzipped, ~2.4 GB raw, refreshed 2026-05-28) from the official
+# data.bnf.fr dump distribution at
+# https://pef.bnf.fr/link/539d6d59-c2e3-4e17-b24c-d8a83ca11944 (linked from
+# https://data.bnf.fr/opendata). That distribution is a PrimeFaces/GoDrive
+# JSF app served only via a stateful form POST — not a plain GET URL — so it
+# cannot be expressed as a fetchable skosdex:sourceURL. tools/fetch.sh
+# reproduces the download + tar extraction into cache/source.nt (the 205
+# databnf_rameau__skos_*.nt members concatenated). Run it, then
+# `node scripts/skosdex normalize rameau && node scripts/skosdex canonicalize rameau`.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "RAMEAU — Répertoire d'autorité-matière encyclopédique unifié" ;
+    dcterms:publisher <https://www.bnf.fr/> ;
+    skosdex:conceptSchemeURI <https://data.bnf.fr/vocabulary/rameau> ;
+    skosdex:sourceURL <https://pef.bnf.fr/link/539d6d59-c2e3-4e17-b24c-d8a83ca11944> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "none" ;
+    dcterms:license <https://www.etalab.gouv.fr/licence-ouverte-open-licence/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
