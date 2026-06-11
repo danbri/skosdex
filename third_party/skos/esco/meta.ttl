@@ -11,12 +11,15 @@
 # behind a click-through; the file is committed here for reproducibility (CC BY
 # permits redistribution). All ESCO sub-schemes are housed in the one named
 # graph <http://data.europa.eu/esco>; skos:inScheme preserves the sub-schemes.
+# The upstream is a 1.35 GB RDF/XML file (esco-v1.2.0.rdf, ~8.76M triples);
+# converted to N-Triples with Apache Jena `riot` (rapper was pathologically slow
+# on it), hence sourceFormat n-triples here. ~19k skos:Concept; 8.76M quads.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "ESCO — European Skills, Competences, Qualifications & Occupations (v1.2.0)" ;
     dcterms:publisher <https://esco.ec.europa.eu/> ;
     skosdex:conceptSchemeURI <http://data.europa.eu/esco> ;
     skosdex:sourceURL <https://esco.ec.europa.eu/en/use-esco/download> ;
-    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:sourceFormat "application/n-triples" ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     skosdex:licenseClass "open" ;
     skosdex:bundle true .
