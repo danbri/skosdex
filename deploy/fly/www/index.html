@@ -261,7 +261,12 @@ async function show(uri){
       <${uri}> ?p ?o .
       OPTIONAL { GRAPH ?g2 { ?o skos:prefLabel ?lbl . FILTER(LANG(?lbl)="en" || LANG(?lbl)="") } }
     } } LIMIT ${cfg.limit||400}`);
+  const OWL='http://www.w3.org/2002/07/owl#', FOAF='http://xmlns.com/foaf/0.1/';
   const pref=[],alt=[],defs=[],rel={broader:[],narrower:[],related:[]};
+  // Cross-scheme links: hierarchy navigation stays internal (show()); mapping
+  // links point to OTHER datasets so they open in a new tab. foaf:focus is the
+  // authority idiom (concept -> the real-world entity it is about).
+  const map={exactMatch:[],closeMatch:[],broadMatch:[],narrowMatch:[],relatedMatch:[],sameAs:[],focus:[]};
   let scheme='';
   for(const r of rows){
     const p=r.p.value,o=r.o;
@@ -271,19 +276,31 @@ async function show(uri){
     else if(p===SKOS+'broader')rel.broader.push({u:o.value,l:r.lbl?.value});
     else if(p===SKOS+'narrower')rel.narrower.push({u:o.value,l:r.lbl?.value});
     else if(p===SKOS+'related')rel.related.push({u:o.value,l:r.lbl?.value});
+    else if(p===SKOS+'exactMatch')map.exactMatch.push(o.value);
+    else if(p===SKOS+'closeMatch')map.closeMatch.push(o.value);
+    else if(p===SKOS+'broadMatch')map.broadMatch.push(o.value);
+    else if(p===SKOS+'narrowMatch')map.narrowMatch.push(o.value);
+    else if(p===SKOS+'relatedMatch')map.relatedMatch.push(o.value);
+    else if(p===OWL+'sameAs')map.sameAs.push(o.value);
+    else if(p===FOAF+'focus')map.focus.push(o.value);
     else if(p===SKOS+'inScheme')scheme=o.value;
   }
   const en=pref.find(x=>x['xml:lang']==='en')||pref[0];
   const others=pref.filter(x=>x!==en).slice(0,12);
   const relHtml=k=>rel[k].length?`<div class="reln"><b>${k}</b><br>${rel[k].slice(0,30).map(x=>
     `<a onclick="show('${esc(x.u)}')">${esc(x.l||x.u.split(/[\\/#]/).pop())}</a>`).join('')}</div>`:'';
+  // shorten an external URI to host + last segment for a compact chip label
+  const shortUri=u=>{try{const url=new URL(u);return url.hostname.replace(/^www\./,'')+' · '+(u.split(/[\\/#]/).filter(Boolean).pop()||'');}catch{return u}};
+  const mapHtml=k=>map[k].length?`<div class="reln"><b>${k==='focus'?'focus (real-world entity)':k}</b><br>${map[k].slice(0,30).map(u=>
+    `<a href="${esc(u)}" target="_blank" rel="noopener" title="${esc(u)}">${esc(shortUri(u))} ↗</a>`).join('')}</div>`:'';
   $('concept').innerHTML=`
     <h2>${esc(en?en.value:uri)}</h2>
     <div class="uri"><a href="${esc(uri)}" target="_blank" rel="noopener">${esc(uri)}</a>${scheme?`<span data-scheme="${esc(scheme)}"></span>`:''}</div>
     ${others.length?`<div class="langs">${others.map(x=>`<span><span class="lg">${esc(x['xml:lang']||'')}</span>${esc(x.value)}</span>`).join(' · ')}</div>`:''}
     ${alt.length?`<div class="langs">also: ${alt.slice(0,10).map(x=>esc(x.value)).join(' · ')}</div>`:''}
     ${defs.length?`<div class="def">${esc(defs[0].value)}</div>`:''}
-    ${relHtml('broader')}${relHtml('narrower')}${relHtml('related')}`;
+    ${relHtml('broader')}${relHtml('narrower')}${relHtml('related')}
+    ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
   renderSchemeTags();
 }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape')closeSettings(); });

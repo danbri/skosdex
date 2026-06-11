@@ -40,6 +40,8 @@ const NS = {
   dcterms: 'http://purl.org/dc/terms/',
   skos: 'http://www.w3.org/2004/02/skos/core#',
   skosdex: 'https://danbri.org/ns/skosdex#',
+  owl: 'http://www.w3.org/2002/07/owl#',
+  foaf: 'http://xmlns.com/foaf/0.1/',
 };
 
 // License gates (policy v2, 2026-06-10, repo owner's call):
@@ -545,8 +547,18 @@ async function solrDocs() {
     // RDF extras for the REST/autocomplete API: cross-scheme mappings + codes.
     [NS.skos + 'exactMatch']: 'exactMatch',
     [NS.skos + 'closeMatch']: 'closeMatch',
+    [NS.skos + 'broadMatch']: 'broadMatch',
+    [NS.skos + 'narrowMatch']: 'narrowMatch',
+    [NS.skos + 'relatedMatch']: 'relatedMatch',
+    [NS.skos + 'related']: 'related',
+    [NS.owl + 'sameAs']: 'sameAs',
+    [NS.foaf + 'focus']: 'focus',       // authority idiom: concept -> real-world entity (RAMEAU/BnF)
     [NS.skos + 'notation']: 'notation',
   };
+  // Predicates whose objects are ALSO copied into a single multivalued
+  // 'mapping' field — one place to recall every outbound link of a concept
+  // (exact/close/broad/narrow/related/sameAs/focus), regardless of idiom.
+  const MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','focus']);
   const TYPE = NS.rdf + 'type';
   const CONCEPT = NS.skos + 'Concept';
   // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
@@ -590,7 +602,11 @@ async function solrDocs() {
     if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, exactLabel: null, fields: {} }; }
     if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
     const field = FIELD[p];
-    if (field) (cur.fields[field] ||= []).push(oIri !== undefined ? oIri : oLit);
+    if (field) {
+      const val = oIri !== undefined ? oIri : oLit;
+      (cur.fields[field] ||= []).push(val);
+      if (MAPPING_FIELDS.has(field)) (cur.fields.mapping ||= []).push(val);
+    }
     // Single English prefLabel -> exactLabel: a low-cardinality field so an
     // entry whose whole label IS the query ranks above ones that merely list
     // it among 40 languages (AGROVOC 'rice' was losing to monolingual LCSH).

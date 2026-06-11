@@ -109,6 +109,48 @@ SELECT (COUNT(*) AS ?xlLabels) WHERE {
  q:`SELECT ?type (COUNT(*) AS ?n) WHERE {
   GRAPH <http://id.nlm.nih.gov/mesh> { ?s a ?type }
 } GROUP BY ?type ORDER BY DESC(?n) LIMIT 8`},
+{sec:'Mappings, sameAs & focus'},
+{title:'Mapping-predicate census',
+ why:'How the corpus links concepts: ~580k closeMatch, ~430k exactMatch, ~205k owl:sameAs, plus broad/narrow/relatedMatch and 4,578 foaf:focus. Every one is now folded into the Solr "mapping" field.',
+ slow:true,
+ q:`SELECT ?p (COUNT(*) AS ?n) WHERE {
+  GRAPH ?g { ?s ?p ?o }
+  VALUES ?p {
+    <http://www.w3.org/2004/02/skos/core#exactMatch>
+    <http://www.w3.org/2004/02/skos/core#closeMatch>
+    <http://www.w3.org/2004/02/skos/core#broadMatch>
+    <http://www.w3.org/2004/02/skos/core#narrowMatch>
+    <http://www.w3.org/2004/02/skos/core#relatedMatch>
+    <http://www.w3.org/2002/07/owl#sameAs>
+    <http://xmlns.com/foaf/0.1/focus>
+  }
+} GROUP BY ?p ORDER BY DESC(?n)`},
+{title:'Where do the links point? — target namespaces',
+ why:'The linked-data neighbourhood our concepts reach into: Wikidata, VIAF, DBpedia, BnF/idref, GACS, CABI, Dewey, BNCF, datos.bne.es… Also a discovery tool for vocabularies worth ingesting next.',
+ slow:true,
+ q:`SELECT ?ns (COUNT(*) AS ?n) WHERE {
+  GRAPH ?g { ?s ?p ?o }
+  VALUES ?p {
+    <http://www.w3.org/2004/02/skos/core#exactMatch>
+    <http://www.w3.org/2004/02/skos/core#closeMatch>
+    <http://www.w3.org/2002/07/owl#sameAs> }
+  BIND( REPLACE(STR(?o), "(#|/)[^#/]*$", "$1") AS ?ns )
+} GROUP BY ?ns ORDER BY DESC(?n) LIMIT 25`},
+{title:'foaf:focus — the authority idiom',
+ why:'RAMEAU (BnF) uses foaf:focus to point a subject concept at the real-world entity it is about (person, place, event) — how authority files bridge "the heading" and "the thing".',
+ q:`PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT ?concept ?entity WHERE {
+  GRAPH <https://data.bnf.fr/vocabulary/rameau> {
+    ?concept foaf:focus ?entity
+  }
+} LIMIT 20`},
+{title:'Resolve a concept across vocabularies via Wikidata',
+ why:'owl:sameAs to Wikidata is a hub: two schemes pointing at the same Q-id are de-facto mapped even without a direct skos:exactMatch — the seed of a cross-walk graph.',
+ q:`PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?g ?concept ?wd WHERE {
+  GRAPH ?g { ?concept owl:sameAs ?wd .
+    FILTER(STRSTARTS(STR(?wd),"http://www.wikidata.org/entity/")) }
+} LIMIT 20`},
 {sec:'Hierarchy'},
 {title:'Walk down from a top concept — IPTC',
  why:'Two levels of skos:narrower from the "economy, business and finance" media topic. The concept browser on the main page does this interactively.',
