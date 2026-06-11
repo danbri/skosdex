@@ -1,0 +1,44 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# CABT — CAB Thesaurus (CABI), the agriculture / applied-life-sciences subject
+# thesaurus used to index CAB Abstracts. ~136,900 terms (98,500 preferred,
+# 38,400 non-preferred) under the http://id.cabi.org/cabt namespace; a relevant
+# mapping target for our corpus (sits alongside AGROVOC / NALT / GEMET).
+#
+# *** METADATA-ONLY (bundle false): NO free bulk SKOS dump is available. ***
+# Verified 2026-06-11; what was found:
+#   - CABI's own bulk download at id.cabi.org is auth-walled (HTTP 401/403); no
+#     anonymous full-dump endpoint.
+#   - CABI's product page (https://www.cabidigitallibrary.org/cabi-thesaurus)
+#     and the FAO/AIMS release note
+#     (https://aims.fao.org/news/new-edition-cab-thesaurus-published) both state
+#     the SKOS/RDF "full thesaurus files are available in several formats ON
+#     REQUEST" (contact the CABI Thesaurus Manager) — i.e. not an open download.
+#   - AgroPortal hosts it (http://agroportal.lirmm.fr/ontologies/CABT, now
+#     https://agroportal.eu/ontologies/CABT) but the submission is access-
+#     restricted: the REST API and /download endpoint return HTTP 401/403 even
+#     with AgroPortal's public test API key, and the metadata/download pages
+#     require login. So AgroPortal is NOT a free bulk source for CABT either.
+#   No fabricated sourceURL is recorded; there is no fetchable open dump.
+#
+# License: CC BY-NC-ND 3.0 — http://creativecommons.org/licenses/by-nc-nd/3.0/
+# (per BARTOC's record of the publisher's terms, https://bartoc.org/en/node/211,
+# "freely available", license CC BY-NC-ND 3.0). NonCommercial + NoDerivatives ->
+# licenseClass "noncommercial". Under skosdex policy v2 this would be
+# container-only AND only if the data could be obtained under its own terms —
+# but since no free bulk dump exists, this scheme stays metadata-only regardless.
+# (NoDerivatives also sits awkwardly with bundling even syntax-normalized data;
+# obtain and bundle only after a direct licensing arrangement with CABI.)
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "CAB Thesaurus (CABI)" ;
+    dcterms:publisher <https://www.cabi.org/> ;
+    skosdex:conceptSchemeURI <http://id.cabi.org/cabt> ;
+    # No open sourceURL: CABI bulk download is auth-walled and AgroPortal's
+    # CABT submission is access-restricted (see header). Data is available only
+    # on request / under a CABI licensing arrangement.
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <http://creativecommons.org/licenses/by-nc-nd/3.0/> ;
+    skosdex:licenseClass "noncommercial" ;
+    skosdex:bundle false .
