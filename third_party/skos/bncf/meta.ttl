@@ -1,0 +1,40 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# BNCF — Nuovo Soggettario, Thesaurus multidisciplinare del Nuovo soggettario,
+# the Italian subject-indexing thesaurus maintained by the Biblioteca nazionale
+# centrale di Firenze (BNCF). ~75k concepts (Italian prefLabels) under the
+# http://purl.org/bncf/tid/ namespace; a major mapping target (closeMatch to
+# DBpedia, Wikidata, LCSH, RAMEAU, etc.) in our corpus.
+#
+# License: CC BY 4.0 — verified AT SOURCE 2026-06-11 two ways:
+#   1. The download page https://thes.bncf.firenze.sbn.it/thes-dati.htm states
+#      "CC BY 4.0 DEED Attribuzione 4.0 Internazionale ... libero uso a
+#      condizione che ne venga esplicitamente riconosciuta la paternità",
+#      linking https://creativecommons.org/licenses/by/4.0/deed.it
+#   2. The dump itself (NS-Thes.xml header, the skos:ConceptScheme / void:Dataset
+#      <http://thes.bncf.firenze.sbn.it>) carries
+#      dcterms:license https://creativecommons.org/licenses/by/4.0/deed.it
+#   CC BY permits commercial reuse, requires attribution only, no share-alike ->
+#   licenseClass "open".
+#
+# Source: https://thes.bncf.firenze.sbn.it/dati/NS-SKOS.zip (linked from
+# https://thes.bncf.firenze.sbn.it/thes-dati.htm — "l'intero thesaurus in
+# formato SKOS/RDF"). The zip holds 14 RDF/XML members (NS-Thes.xml header + 13
+# partition files). skosdex's zip handling extracts only one member and n3 can't
+# parse RDF/XML, so tools/fetch.sh downloads the zip, runs `rapper` (raptor2-
+# utils) over every member, and concatenates the N-Triples into cache/source.nt.
+# Run it, then `node scripts/skosdex normalize bncf && node scripts/skosdex
+# canonicalize bncf` (or `node scripts/skosdex build bncf`, which invokes the
+# helper for the fetch step when cache/source.nt is absent).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Nuovo Soggettario — Thesaurus multidisciplinare (BNCF)" ;
+    dcterms:publisher <https://bncf.cultura.gov.it/> ;
+    skosdex:conceptSchemeURI <http://thes.bncf.firenze.sbn.it> ;
+    skosdex:sourceURL <https://thes.bncf.firenze.sbn.it/dati/NS-SKOS.zip> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "none" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
