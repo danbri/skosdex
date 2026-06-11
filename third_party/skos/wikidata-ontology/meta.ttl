@@ -1,0 +1,30 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Wikidata ontology layer — the SKOS-shaped crosswalk between Wikidata's
+# properties + class items and external vocabularies (schema.org, RDFS/OWL,
+# Dublin Core, foaf, DBpedia ontology, OBO, SPAR, RDA, LOC ontologies, ...).
+#
+# Built by tools/build.mjs from a one-time federated extract of Wikidata's
+# equivalence predicates: P1628 (equivalent property) + P1709 (equivalent
+# class), pulled via the QLever Wikidata endpoint (qlever.dev/api/wikidata).
+# Each Wikidata property/class becomes a skos:Concept (prefLabel = its English
+# label, notation = its P-/Q-id) with skos:exactMatch to every external
+# equivalent. 1,866 concepts, 2,675 exactMatch links.
+#
+# Unlike the entity HUBS (VIAF/DBpedia resources — federated, not cloned), this
+# bounded ontology layer is small and CC0, so it is materialized and bundled:
+# it lets a skosdex concept that owl:sameAs a Wikidata item resolve onward to
+# schema.org / RDFS / DC terms. The N-Triples extract is committed as
+# the sourceFile (no live fetch needed to rebuild).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Wikidata ontology layer (property + class equivalences)" ;
+    dcterms:publisher <https://www.wikidata.org/> ;
+    dcterms:source <https://qlever.dev/api/wikidata> ;
+    skosdex:conceptSchemeURI <https://danbri.org/skosdex/wikidata-ontology> ;
+    skosdex:sourceFile "source.nt" ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
