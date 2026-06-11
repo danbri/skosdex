@@ -42,6 +42,8 @@
  .def{margin:.5rem 0 0;font-size:.93rem}
  #schemes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem;margin-top:1rem}
  .card{background:#fff;border:1px solid #e4e7eb;border-radius:8px;padding:.6rem .75rem}
+ .card.peek{cursor:pointer;transition:border-color .12s,box-shadow .12s}
+ .card.peek:hover{border-color:#1d4e89;box-shadow:0 1px 6px rgba(29,78,137,.12)}
  .card .t{font-weight:600;font-size:.92rem} .card .n{font-size:1.05rem;color:#1d4e89}
  .card .lic{font-size:.72rem;color:#7b8794}
  footer{color:#9aa5b1;font-size:.8rem;text-align:center;padding:1.4rem}
@@ -184,11 +186,11 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
   const {groups, singles}=groupSchemes(SCHEMES);
   const groupCards=groups.map(g=>{
     const q=g.members.reduce((a,s)=>a+s.quads,0);
-    return `<div class="card"><div class="t">${esc(famName(g.family))}</div>
+    return `<div class="card peek" data-fam="${esc(g.family)}"><div class="t">${esc(famName(g.family))}</div>
       <div class="n">${g.members.length} schemes · ${q.toLocaleString()} triples</div>
-      <div class="lic">family</div></div>`;
+      <div class="lic">family · click to browse</div></div>`;
   });
-  const singleCards=singles.map(s=>`<div class="card"><div class="t">${esc(s.title)}</div>
+  const singleCards=singles.map(s=>`<div class="card peek" data-graph="${esc(s.graph)}"><div class="t">${esc(s.title)}</div>
     <div class="n">${s.quads.toLocaleString()} triples</div>
     <div class="lic">${esc(s.licenseClass)}${s.containerOnly?' · container-only':''}</div></div>`);
   $('schemes').innerHTML=groupCards.concat(singleCards).join('');
@@ -347,6 +349,76 @@ async function show(uri){
     ${defs.length?`<div class="def">${esc(defs[0].value)}</div>`:''}
     ${relHtml('broader')}${relHtml('narrower')}${relHtml('related')}
     ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
+  renderSchemeTags();
+}
+// ---- browse into a vocabulary (click a scheme card) ----
+// Scheme cards open a "peek": a link out to the scheme's own page + a Wikipedia
+// lookup, plus a few top-level and deeper concepts (via Solr) to convey what the
+// vocabulary is about. Clicking any sample concept opens it in the concept panel.
+$('schemes').addEventListener('click',e=>{
+  const c=e.target.closest('.card.peek'); if(!c)return;
+  if(c.dataset.graph) peekScheme(c.dataset.graph);
+  else if(c.dataset.fam) peekGroup(c.dataset.fam);
+});
+function schemeByGraph(g){ return SCHEMES.find(s=>s.graph===g); }
+async function solrDocs(params){
+  try{ const d=await (await fetch('/solr/skos/select?'+new URLSearchParams(params))).json();
+    return {docs:d.response.docs||[], n:d.response.numFound||0}; }
+  catch{ return {docs:[], n:0}; }
+}
+function conceptChip(x){
+  const lbl=(x.prefLabel||[x.id])[0], note=x.notation?` <span class="lg">${esc(x.notation[0])}</span>`:'';
+  return `<a onclick="show('${esc(x.id)}')">${esc(lbl)}${note}</a>`;
+}
+async function peekScheme(graph){
+  const s=schemeByGraph(graph), title=(s&&s.title)||graph;
+  $('sec-concept').hidden=false;
+  $('concept').innerHTML='<p class="muted">loading…</p>';
+  if(window.innerWidth<900) $('sec-concept').scrollIntoView({behavior:'smooth',block:'start'});
+  const fq='scheme:"'+graph+'"';
+  // top concepts = in-scheme with no broader; deeper = in-scheme that DO have a broader
+  const [top,deep,all]=await Promise.all([
+    solrDocs({wt:'json',q:'*:*',fq:fq+' AND -broader:*',rows:'10',fl:'id,prefLabel,notation'}),
+    solrDocs({wt:'json',q:'*:*',fq:fq+' AND broader:*',rows:'10',fl:'id,prefLabel,notation'}),
+    solrDocs({wt:'json',q:'*:*',fq:fq,rows:'0',fl:'id'}),
+  ]);
+  const wiki='https://en.wikipedia.org/w/index.php?search='+encodeURIComponent(title);
+  $('concept').innerHTML=`
+    <h2>${esc(title)}</h2>
+    <div class="uri"><a href="${esc(graph)}" target="_blank" rel="noopener">${esc(graph)} ↗</a>${s?`<span class="scheme-tag">${esc(s.licenseClass)}</span>`:''}</div>
+    <div class="langs">${all.n.toLocaleString()} concepts ·
+      <a href="${wiki}" target="_blank" rel="noopener">Wikipedia ↗</a> ·
+      <a onclick="browseScheme('${esc(graph)}')">browse all in search</a></div>
+    ${top.docs.length?`<div class="reln"><b>top concepts</b><br>${top.docs.map(conceptChip).join('')}</div>`:''}
+    ${deep.docs.length?`<div class="reln"><b>deeper concepts</b><br>${deep.docs.map(conceptChip).join('')}</div>`:''}
+    ${!top.docs.length&&!deep.docs.length?'<p class="muted">No indexed concepts to preview (this scheme may model its terms outside skos:Concept — try the SPARQL cookbook).</p>':''}`;
+  renderSchemeTags();
+}
+function peekGroup(fam){
+  const members=SCHEMES.filter(s=>familyOf(s)===fam).sort((a,b)=>b.quads-a.quads);
+  $('sec-concept').hidden=false;
+  if(window.innerWidth<900) $('sec-concept').scrollIntoView({behavior:'smooth',block:'start'});
+  const cap=60, shown=members.slice(0,cap);
+  $('concept').innerHTML=`
+    <h2>${esc(famName(fam))}</h2>
+    <div class="langs">${members.length} schemes in this family — pick one to browse:</div>
+    <div class="reln">${shown.map(s=>`<a onclick="peekScheme('${esc(s.graph)}')">${esc(s.title)} <span class="lg">${s.quads.toLocaleString()}</span></a>`).join('')}
+      ${members.length>cap?`<div class="muted" style="margin-top:.4rem">…and ${members.length-cap} more (use search)</div>`:''}</div>`;
+}
+// browse every concept of one scheme in the results pane (Solr q=*:* filtered)
+async function browseScheme(graph){
+  const s=schemeByGraph(graph), title=(s&&s.title)||graph;
+  $('q').value='';
+  $('stat').innerHTML='browsing <b>'+esc(title)+'</b>…';
+  const {docs,n}=await solrDocs({wt:'json',q:'*:*',fq:'scheme:"'+graph+'"',rows:String(cfg.rows),
+    fl:'id,prefLabel,altLabel,notation,scheme'});
+  $('stat').innerHTML=`${n.toLocaleString()} concepts in <b>${esc(title)}</b> — showing ${docs.length} `
+    + `<span class="muted">(raise max in ⚙)</span>`;
+  $('results').innerHTML=docs.map(x=>`<div class="hit" onclick="show('${esc(x.id)}')">
+      <span class="lbl">${esc((x.prefLabel||[x.id])[0])}</span><span data-scheme="${esc(x.scheme||'')}"></span>
+      ${x.altLabel?`<div class="alt">${esc(x.altLabel.slice(0,4).join(' · '))}</div>`:''}
+    </div>`).join('')||'<p class="muted">No indexed concepts.</p>';
+  if(window.innerWidth<900) $('results').scrollIntoView({behavior:'smooth',block:'start'});
   renderSchemeTags();
 }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape')closeSettings(); });
