@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/runs-scored"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/at-bats"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/hits"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/rbi"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/total-bases"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/slugging-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-rate"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-intentional"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/strikeouts-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/strikeouts-looking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/outs-ground"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/outs-fly"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/left-on-base"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/left-in-scoring-position"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/singles"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/doubles"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/triples"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/home-runs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/home-runs-season"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/grand-slams"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/streak-hits"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/hits-event-winning"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/at-bats-per-rbi"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/plate-appearances-per-rbi"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/at-bats-per-home-run"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/plate-appearances-per-home-run"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/sac-flies"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/sac-bunts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/sacrifices"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/grounded-into-double-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/hit-into-double-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/moved-up"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/on-base-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/stolen-bases"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-caught"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/hit-by-pitch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/reached-base-defensive-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/reached-base-error"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/reached-base-fielder-choice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/on-base-plus-slugging"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/plate-appearances"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/hits-extra-base"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/strikeout-rate"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/double-plays-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/triple-plays-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/pick-offs-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/games-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/runs-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/home-runs-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/sacrifice-bunts-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/sacrifice-hits-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/interferences"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/innings-pitched"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/innings-pitched-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/hits-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/earned-runs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/unearned-runs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-intentional-pitcher"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/strikeouts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/strikeout-to-bb-ratio"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/number-of-pitches"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/number-of-strikes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/era"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/whip"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/inherited-runners-scored"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/pick-offs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/errors-hit-with-pitch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/errors-wild-pitch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/balks"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/losses"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/saves"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/holds"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/saves-blown"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/saves-tough"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/saves-opportunities"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/relief-points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/shutouts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/games-complete"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/games-finished"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/games-pitched"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/winning-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/event-credit"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/save-credit"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-average-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-at-bats-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-total-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-total-bases-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-slugging-percentage-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-on-base-percentage-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-doubles-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-triples-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/batters-home-runs-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/inherited-runners-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/sacrifice-flies-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/shutouts-combined"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/double-plays"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/triple-plays"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/putouts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/assists"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/errors"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/fielding-chances"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/fielding-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/defensive-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/errors-passed-ball"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/errors-catchers-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-caught-defense"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-average-defense"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/innings-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblstat/games-played-position"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of hits per at-bats</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/runs-scored">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">runs-scored</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">runs-scored</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runs scored</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/at-bats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">at-bats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">at-bats</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of at-bats (Does not include walks or Sacrifice Hits)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/hits">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hits</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hits</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/rbi">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rbi</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rbi</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runs batted in</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/total-bases">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-bases</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-bases</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated by hits + doubles + (triples times 2) + (home-runs times
+                3).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/slugging-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">slugging-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">slugging-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total bases divided by at-bats.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bases-on-balls</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bases-on-balls</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times batter was walked</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-rate">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bases-on-balls-rate</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bases-on-balls-rate</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-intentional">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bases-on-balls-intentional</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bases-on-balls-intentional</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/strikeouts-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeouts-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeouts-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times batter struck out</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/strikeouts-looking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeouts-looking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeouts-looking</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/outs-ground">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">outs-ground</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">outs-ground</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/outs-fly">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">outs-fly</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">outs-fly</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/left-on-base">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">left-on-base</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">left-on-base</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runners left on base</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/left-in-scoring-position">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">left-in-scoring-position</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">left-in-scoring-position</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runners left on second and/or third base</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/singles">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">singles</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">singles</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits off of which batter advances to first base</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/doubles">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">doubles</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">doubles</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits off of which batter advances to second base</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/triples">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">triples</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">triples</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits off of which batter advances to third base</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/home-runs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">home-runs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">home-runs</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits off of which batter advances to home plate</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/home-runs-season">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">home-runs-season</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">home-runs-season</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/grand-slams">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">grand-slams</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">grand-slams</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of home runs with bases loaded</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/streak-hits">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">streak-hits</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">streak-hits</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/hits-event-winning">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hits-event-winning</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hits-event-winning</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/at-bats-per-rbi">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">at-bats-per-rbi</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">at-bats-per-rbi</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">RBI per at-bat ratio</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/plate-appearances-per-rbi">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">plate-appearances-per-rbi</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">plate-appearances-per-rbi</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Plate appearances per at-bat ratio</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/at-bats-per-home-run">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">at-bats-per-home-run</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">at-bats-per-home-run</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Home runs per at-bat ratio</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/plate-appearances-per-home-run">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">plate-appearances-per-home-run</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">plate-appearances-per-home-run</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Plate appearances per home run ratio</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/sac-flies">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sac-flies</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sac-flies</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits resulting in batter out which advance base
+                runner(s)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/sac-bunts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sac-bunts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sac-bunts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of bunts resulting in batter out which advance base
+                runner(s)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/sacrifices">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sacrifices</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sacrifices</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/grounded-into-double-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">grounded-into-double-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">grounded-into-double-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of ground balls which result in batter and base runner
+                outs</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/hit-into-double-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hit-into-double-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hit-into-double-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/moved-up">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">moved-up</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">moved-up</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times runner advances to another base</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/on-base-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">on-base-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">on-base-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated as follows: (hits + bases-on-balls + hit-by-pitch) / (at-bats +
+                bases-on-balls + hit-by-pitch + sac-flies)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/stolen-bases">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-bases</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-bases</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of successfully stolen bases.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-caught">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-bases-caught</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-bases-caught</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times the runner was caught while trying to steal
+                bases.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-bases-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-bases-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Success rate for stealing bases.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/hit-by-pitch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hit-by-pitch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hit-by-pitch</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times batter hit by pitch</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/reached-base-defensive-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">reached-base-defensive-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">reached-base-defensive-interference</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of times the player reached a base due to interference by the
+                defense.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/reached-base-error">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">reached-base-error</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">reached-base-error</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/reached-base-fielder-choice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">reached-base-fielder-choice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">reached-base-fielder-choice</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/on-base-plus-slugging">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">on-base-plus-slugging</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">on-base-plus-slugging</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated by adding on-base-percentage to slugging-percentage.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/plate-appearances">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">plate-appearances</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">plate-appearances</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated by adding at-bats, bases-on-balls, hit-by-pitch, sac-flies,
+                sac-bunts, and defensive-interfance-reaches.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/hits-extra-base">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hits-extra-base</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hits-extra-base</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated by adding doubles, triples, and home-runs.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/strikeout-rate">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeout-rate</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeout-rate</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/double-plays-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-plays-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-plays-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/triple-plays-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">triple-plays-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">triple-plays-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/pick-offs-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pick-offs-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pick-offs-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/games-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/runs-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">runs-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">runs-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runs against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/home-runs-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">home-runs-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">home-runs-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of home runs against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/sacrifice-bunts-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sacrifice-bunts-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sacrifice-bunts-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of sacrifice bunts against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/sacrifice-hits-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sacrifice-hits-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sacrifice-hits-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of sacrifice hits against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/interferences">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interferences</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interferences</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of interference or obstruction calls</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/innings-pitched">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">innings-pitched</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">innings-pitched</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of innings pitched</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/innings-pitched-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">innings-pitched-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">innings-pitched-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/hits-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hits-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hits-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of hits against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/earned-runs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">earned-runs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">earned-runs</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of earned runs against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/unearned-runs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unearned-runs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unearned-runs</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of unearned runs against</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bases-on-balls-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bases-on-balls-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of earned walks allowed</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/bases-on-balls-intentional-pitcher">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bases-on-balls-intentional-pitcher</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bases-on-balls-intentional-pitcher</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of batters intentionally walked</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/strikeouts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeouts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeouts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of earned strikeouts</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/strikeout-to-bb-ratio">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeout-to-bb-ratio</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeout-to-bb-ratio</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Strikeout to walks ratio</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/number-of-pitches">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">number-of-pitches</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">number-of-pitches</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of pitches thrown</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/number-of-strikes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">number-of-strikes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">number-of-strikes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/era">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">era</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">era</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Earned run average: Number of earned runs divided by number of innings
+                pitched multiplied by nine</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/whip">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">whip</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">whip</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/inherited-runners-scored">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">inherited-runners-scored</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">inherited-runners-scored</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runners which a previous pitcher allowed on base which
+                scored</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/pick-offs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pick-offs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pick-offs</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of times the pitcher caught a player trying to steal, before
+                making the pitch.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/errors-hit-with-pitch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">errors-hit-with-pitch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">errors-hit-with-pitch</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times pitcher hits batter with pitch</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/errors-wild-pitch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">errors-wild-pitch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">errors-wild-pitch</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of wild pitches thrown</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/balks">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">balks</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">balks</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of balks</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games pitcher has won</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/losses">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">losses</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">losses</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games pitcher has lost</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/saves">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games pitcher has saved</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/holds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">holds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">holds</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games relief pitcher has held the lead</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/saves-blown">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves-blown</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves-blown</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/saves-tough">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves-tough</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves-tough</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/saves-opportunities">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves-opportunities</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves-opportunities</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/relief-points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">relief-points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">relief-points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Formula for rating relief performances. 4 points for a tough save; 3 points
+                for a save; 2 for a relief win; minus 2 for a relief loss and blown
+                save.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/shutouts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shutouts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shutouts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games pitched in which opposing team did not score</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/games-complete">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-complete</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-complete</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of complete games pitched</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/games-finished">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-finished</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-finished</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games pitched to the end</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/games-pitched">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-pitched</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-pitched</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/winning-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">winning-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">winning-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated by wins divided by (wins + losses).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/event-credit">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-credit</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-credit</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Whether a pitcher has received credit for winning or losing the game. TBD.
+                Controlled Vocabulary.
+                (win|loss|save|blown-save|win-blown-save|loss-blown-save|hold-win|hold-loss)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/save-credit">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">save-credit</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">save-credit</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Whether a pitcher has received credit for winning or losing the game. TBD.
+                Controlled Vocabulary.
+                (win|loss|save|blown-save|win-blown-save|loss-blown-save|hold-win|hold-loss)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-average-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-average-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-average-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-at-bats-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-at-bats-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-at-bats-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of batters faced who were credited with at-bats.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-total-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-total-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-total-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of batters faced.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-total-bases-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-total-bases-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-total-bases-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-slugging-percentage-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-slugging-percentage-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-slugging-percentage-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-on-base-percentage-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-on-base-percentage-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-on-base-percentage-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-doubles-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-doubles-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-doubles-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-triples-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-triples-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-triples-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/batters-home-runs-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batters-home-runs-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batters-home-runs-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/inherited-runners-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">inherited-runners-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">inherited-runners-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/sacrifice-flies-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sacrifice-flies-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sacrifice-flies-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/shutouts-combined">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shutouts-combined</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shutouts-combined</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/double-plays">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-plays</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-plays</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times two runners thrown out at the base.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/triple-plays">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">triple-plays</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">triple-plays</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times three runners thrown out at the base.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/putouts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">putouts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">putouts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times a fielder caught a fly ball for an out.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/assists">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of plays in which a fielder throws a ball to another fielder for the
+                out.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/errors">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">errors</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">errors</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of plays in which a fielder committed an error, such as dropping a
+                ball.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/fielding-chances">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fielding-chances</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fielding-chances</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">TBD.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/fielding-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fielding-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fielding-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A measure of fielding success. Calculated as follows: (putouts + assists) /
+                (putouts + assists + errors).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/defensive-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defensive-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defensive-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Rate a fielder turns a bill hit to their area into an out.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/errors-passed-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">errors-passed-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">errors-passed-ball</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times a catcher is faulted with letting a pitched ball go
+                past.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/errors-catchers-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">errors-catchers-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">errors-catchers-interference</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times a catcher has improperly interfered with play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-bases-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-bases-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of bases successfully stolen while this player was on the
+                field.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-caught-defense">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-bases-caught-defense</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-bases-caught-defense</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times a runner was caught while trying to steal bases while this
+                player was on the field.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/stolen-bases-average-defense">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-bases-average-defense</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-bases-average-defense</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Success rate for stealing bases while this player was on the
+                field.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/innings-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">innings-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">innings-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of innings played at the named position.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblstat/games-played-position">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-played-position</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-played-position</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games played at the named position.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

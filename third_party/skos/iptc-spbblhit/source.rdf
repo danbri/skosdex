@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblhit/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblhit/single"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblhit/double"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblhit/triple"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblhit/home-run"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblhit/single">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">single</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">single</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblhit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblhit/double">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblhit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblhit/triple">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">triple</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">triple</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblhit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblhit/home-run">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">home-run</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">home-run</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblhit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

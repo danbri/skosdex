@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/batter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/pitcher"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/runner-1"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/runner-2"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/runner-3"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/next-batter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/fielder"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/official"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblrole/auxilliary"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/batter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">Batter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">Batter</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/pitcher">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">Pitcher</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">Pitcher</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/runner-1">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">Runner on 1st</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">Runner on 1st</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/runner-2">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">Runner on 2nd</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">Runner on 2nd</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/runner-3">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">Runner on 3rd</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">Runner on 3rd</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/next-batter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">The next batter up</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">The next batter up</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/fielder">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fielder</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fielder</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/official">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">official</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">official</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblrole/auxilliary">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">auxilliary</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">auxilliary</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

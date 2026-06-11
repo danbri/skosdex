@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/fumble-return"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/interception-return"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/blocked-field-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/missed-field-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/blocked-punt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/punt-return"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/kickoff-return"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/pass"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/rush"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/fumble-return">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fumble-return</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fumble-return</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/interception-return">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interception-return</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interception-return</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/blocked-field-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked-field-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked-field-goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Scored when the opposing team recovers the live ball off a blocked field
+                goal and returns to its end zone.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/missed-field-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">missed-field-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">missed-field-goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Scored when the opposing team opts to return a missed field goal and runs
+                ball to its end zone.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/blocked-punt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked-punt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked-punt</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Scored when the opposing team recovers the live ball off a blocked punt and
+                returns to its end zone.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/punt-return">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punt-return</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punt-return</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/kickoff-return">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kickoff-return</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kickoff-return</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/pass">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamftouchdown/rush">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rush</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rush</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamftouchdown/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

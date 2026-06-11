@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/guard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/point-guard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/shooting-guard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/power-forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/small-forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/center"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/referee"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/umpire"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/scorekeeper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/timekeeper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/shot-clock-operator"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/coach"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/assistant-coach"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/guard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">guard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">guard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/point-guard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">point-guard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">point-guard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/shooting-guard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shooting-guard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shooting-guard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">forward</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/power-forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">power-forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">power-forward</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Forward who mostly plays defense.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/small-forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">small-forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">small-forward</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Forward who mostly tries to score.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/center">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">center</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">center</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/referee">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">referee</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">referee</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/umpire">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/scorekeeper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scorekeeper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scorekeeper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/timekeeper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">timekeeper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">timekeeper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/shot-clock-operator">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shot-clock-operator</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shot-clock-operator</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbposition/assistant-coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assistant-coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assistant-coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

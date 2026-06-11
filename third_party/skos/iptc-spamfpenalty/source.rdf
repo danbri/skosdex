@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/batting-ball"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/blitzing-infraction"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/clipping"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/delay-of-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/encroachment"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/excessive-time-outs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/excessive-crowd-noise"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/fair-catch-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/facemask-incidental"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/facemask-flagrant"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/false-start"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/holding"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/offside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/tripping"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/helping-runner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-block"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-contact"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-formation"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-forward-pass"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-motion"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-procedure"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-return"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-shift"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/illegal-substitution"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/ineligible-player-downfield"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/ineligible-downfield-kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/invalid-fair-catch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/intentional-grounding"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/kick-out-of-bounds"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/motion-more-than-one"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/neutral-zone-infraction"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/offensive-pass-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/pass-beyond-scrimmage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/pass-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/personal-infraction"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/piling-on"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/pyramiding"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/roughing-passer"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/roughing-kicker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/snap-infraction"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/tandem-block"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/too-many-players"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/under-seven-line"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/under-five-line"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/unnecessary-roughness"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/unsportsmanlike-conduct"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/batting-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">batting-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">batting-ball</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/blitzing-infraction">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blitzing-infraction</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blitzing-infraction</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/clipping">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">clipping</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">clipping</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/delay-of-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">delay-of-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">delay-of-game</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/encroachment">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">encroachment</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">encroachment</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/excessive-time-outs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">excessive-time-outs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">excessive-time-outs</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/excessive-crowd-noise">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">excessive-crowd-noise</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">excessive-crowd-noise</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/fair-catch-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fair-catch-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fair-catch-interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/facemask-incidental">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">facemask-incidental</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">facemask-incidental</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/facemask-flagrant">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">facemask-flagrant</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">facemask-flagrant</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/false-start">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">false-start</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">false-start</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/holding">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">holding</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">holding</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/offside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">offside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">offside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/tripping">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tripping</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tripping</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/helping-runner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">helping-runner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">helping-runner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-block">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-block</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-block</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-contact">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-contact</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-contact</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-formation">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-formation</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-formation</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-forward-pass">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-forward-pass</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-forward-pass</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-motion">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-motion</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-motion</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-procedure">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-procedure</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-procedure</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-return">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-return</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-return</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-shift">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-shift</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-shift</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/illegal-substitution">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-substitution</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-substitution</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/ineligible-player-downfield">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ineligible-player-downfield</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ineligible-player-downfield</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/ineligible-downfield-kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ineligible-downfield-kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ineligible-downfield-kick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/invalid-fair-catch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">invalid-fair-catch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">invalid-fair-catch</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/intentional-grounding">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">intentional-grounding</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">intentional-grounding</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/kick-out-of-bounds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kick-out-of-bounds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kick-out-of-bounds</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/motion-more-than-one">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">motion-more-than-one</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">motion-more-than-one</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/neutral-zone-infraction">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">neutral-zone-infraction</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">neutral-zone-infraction</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/offensive-pass-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">offensive-pass-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">offensive-pass-interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/pass-beyond-scrimmage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass-beyond-scrimmage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass-beyond-scrimmage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/pass-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass-interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/personal-infraction">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">personal-infraction</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">personal-infraction</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/piling-on">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">piling-on</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">piling-on</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/pyramiding">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pyramiding</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pyramiding</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/roughing-passer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">roughing-passer</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">roughing-passer</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/roughing-kicker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">roughing-kicker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">roughing-kicker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/snap-infraction">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">snap-infraction</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">snap-infraction</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/tandem-block">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tandem-block</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tandem-block</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/too-many-players">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">too-many-players</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">too-many-players</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/under-seven-line">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">under-seven-line</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">under-seven-line</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/under-five-line">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">under-five-line</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">under-five-line</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/unnecessary-roughness">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unnecessary-roughness</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unnecessary-roughness</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfpenalty/unsportsmanlike-conduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unsportsmanlike-conduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unsportsmanlike-conduct</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

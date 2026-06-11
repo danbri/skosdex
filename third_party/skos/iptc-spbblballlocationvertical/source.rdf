@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblballlocationvertical/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/high-ball"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/high-strike"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/middle"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/low-strike"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/low-ball"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblballlocationvertical/high-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">high-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">high-ball</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblballlocationvertical/high-strike">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">high-strike</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">high-strike</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblballlocationvertical/middle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">middle</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">middle</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblballlocationvertical/low-strike">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">low-strike</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">low-strike</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblballlocationvertical/low-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">low-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">low-ball</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblballlocationvertical/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

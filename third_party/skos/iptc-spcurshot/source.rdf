@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/draw"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/come-around"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/front"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/guard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/raise"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/freeze"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/split"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/tick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/takeout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/hit-and-roll"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/clearing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/double"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/raise-takeout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/not-considered"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/team-fault"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurshot/blank"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/draw">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">draw</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">draw</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot trying to place the stone inside the house.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/come-around">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">come-around</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">come-around</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot trying to move the stone around another stone placing the new stone
+                inside the house.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/front">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">front</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">front</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot with the intention of placing the stone in front of the
+                house.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/guard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">guard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">guard</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that is placed in front of another stone to protect it from being
+                knocked out by the other team, or placed with the intent to later curl another rock
+                around it and thus be protected; typically placed between the hog line and the very
+                front of the house.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/raise">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">raise</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">raise</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Using one stone to hit another stone with the intention of moving it
+                forward.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/freeze">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">freeze</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">freeze</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A precise draw weight shot where a delivered stone comes to rest against a
+                stationary stone, making it nearly impossible to knock out.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/split">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">split</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">split</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A draw shot in which the played stone hits on the side of a stationary stone
+                and both move sideways and stay in play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/tick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that bumps a guard out of the way without removing it from
+                play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/takeout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">takeout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">takeout</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that tries to hit and remove another stone from the
+                game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/hit-and-roll">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hit-and-roll</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hit-and-roll</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that tries to hit and remove another stone from the game and then
+                moving the shot stone sideways.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/clearing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">clearing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">clearing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that tries to hit and remove (an)other stone(s) including the shot
+                stone.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/double">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that tries to hit and remove two other stones.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/raise-takeout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">raise-takeout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">raise-takeout</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that tries to hit another stone that in turn should hit a third stone
+                removing that stone from play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/not-considered">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">not-considered</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">not-considered</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that is not to be considered in the statistics for the
+                game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/team-fault">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-fault</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-fault</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A shot that the team made something wrong with like touching the stone after
+                release etc.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurshot/blank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A stone that is not played at all, for example all remaining stones in the
+                game when one team has given up the game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

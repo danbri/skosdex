@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/on-court"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/scorer"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/assist"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/shooter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/blocker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/penalty-committed-by"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/penalty-committed-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/jump-ball-winner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/jump-ball-loser"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/giveaway"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/takeaway"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/rebounder-offense"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/rebounder-defense"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/on-court">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">on-court</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">on-court</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/scorer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scorer</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scorer</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/assist">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assist</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assist</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/shooter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shooter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shooter</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/blocker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/penalty-committed-by">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-committed-by</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-committed-by</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/penalty-committed-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-committed-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-committed-against</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/jump-ball-winner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">jump-ball-winner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">jump-ball-winner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/jump-ball-loser">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">jump-ball-loser</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">jump-ball-loser</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/giveaway">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">giveaway</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">giveaway</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/takeaway">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">takeaway</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">takeaway</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/rebounder-offense">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounder-offense</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounder-offense</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbrole/rebounder-defense">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounder-defense</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounder-defense</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

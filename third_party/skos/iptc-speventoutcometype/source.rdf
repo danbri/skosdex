@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/regular"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/overtime"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/shootout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/extra-time"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/random"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/authority-decision"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/regular">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">regular</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">regular</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/overtime">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">overtime</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">overtime</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/shootout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shootout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shootout</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/extra-time">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">extra-time</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">extra-time</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/random">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">random</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">random</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventoutcometype/authority-decision">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">authority-decision</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">authority-decision</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventoutcometype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

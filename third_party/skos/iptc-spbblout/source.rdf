@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/strikeout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/strikeout-thrown-to-first"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/fielders-choice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/throw-out"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/fly-ball"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/fly-ball-line-drive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/fly-ball-popup"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/pickoff"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblout/caught-stealing"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/strikeout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeout</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/strikeout-thrown-to-first">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeout-thrown-to-first</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeout-thrown-to-first</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/fielders-choice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fielders-choice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fielders-choice</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/throw-out">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">throw-out</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">throw-out</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/fly-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fly-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fly-ball</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/fly-ball-line-drive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fly-ball-line-drive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fly-ball-line-drive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/fly-ball-popup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fly-ball-popup</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fly-ball-popup</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/pickoff">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pickoff</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pickoff</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblout/caught-stealing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caught-stealing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caught-stealing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblout/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

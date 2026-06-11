@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/events-all"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/division"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/division-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/conference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/conference-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/team-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/player-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/tournament"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/league"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/top-25"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/events-all">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">events-all</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">events-all</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Every event played, including those played against teams in the same
+                division or conference. The default option.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/division">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">division</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">division</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Events played within a league's division.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/division-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">division-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">division-opposing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/conference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conference</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Events played within a league's conference.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/conference-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conference-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conference-opposing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/team-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Events against a specific team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/player-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">player-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">player-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Events against a specific player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/tournament">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tournament</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tournament</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Events from a specific tournament.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/league">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcompetitionscope/top-25">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">top-25</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">top-25</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcompetitionscope/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

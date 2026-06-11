@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbscoreattempt/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbscoreattempt/free-throw"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbscoreattempt/fg"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbscoreattempt/fg3"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbscoreattempt/free-throw">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-throw</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-throw</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A foul shot, worth one point.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbscoreattempt/fg">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fg</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fg</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A two-point field goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbscoreattempt/fg3">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fg3</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fg3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A three-pointer.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

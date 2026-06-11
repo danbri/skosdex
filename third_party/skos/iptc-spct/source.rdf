@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:ikos="http://cv.iptc.org/newscodes/ikos/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <ikos:prefSchemeAlias>spct</ikos:prefSchemeAlias>
+      <ikos:authority>http://www.iptc.org</ikos:authority>
+      <dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+      <ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+      <ikos:dateReleased>2016-06-29T01:00:00+00:00</ikos:dateReleased>
+      <skos:prefLabel xml:lang="en-US">Sports Concept</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Sports Concept</skos:prefLabel>
+      <skos:definition xml:lang="en-US">General sports-related concepts such as team, player,             etc.</skos:definition>
+      <skos:definition xml:lang="en-GB">General sports-related concepts such as team, player,             etc.</skos:definition>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/sport"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/league"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/season"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/season-type"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/season-regular"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/post-season"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/season-exhibition"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/competition"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/recurring-competition"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/tournament"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/conference"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/division"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/governing-body"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/news"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/standings"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/schedules"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/statistics"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/event-summary"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/event-action"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/dynamic-resource-file"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/team"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/stat"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/core"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/offense"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/defense"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/special-teams"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/fumbles"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/penalty"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/faceoffs"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/time-on-ice"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/pitching"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/rebounding"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/scoring"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/article-ref"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/photo-ref"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/audio-ref"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/video-ref"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/xref-key"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/slug"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/publisher"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/distributor"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spct/priority"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/sport">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Sport</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Sport</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/league">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">League</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">League</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/season">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Season</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Season</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/season-type">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">season-type</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">season-type</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Which segment of the season: pre-season, post-season, regular,                 etc.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/season-regular">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Regular Season</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Regular Season</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">The phase of a season during which competitors vie for                 placement in a playoff phase.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/post-season">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Post Season</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Post Season</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">The phase of a season after the regular season during which                 competitors vie for the league championship.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/season-exhibition">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Pre Season</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Pre Season</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">The phase of a season during                 which exhibition matches are played.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/competition">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Competition</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Competition</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/recurring-competition">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Recurring Competition</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Recurring Competition</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2024-09-26T12:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/tournament">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Tournament</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Tournament</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/conference">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Conference</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Conference</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/division">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Division</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Division</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/governing-body">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Governing Body</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Governing Body</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2024-09-26T12:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/news">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">News</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">News</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents: non-event-specific news                 reports for player, team, league, etc.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/standings">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Standings</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Standings</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents: often also called                 *tables*</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/schedules">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Schedules</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Schedules</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/statistics">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Statistics</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Statistics</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents: for non-event-specific                 statistical reports</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/event-summary">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Event Summary</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Event Summary</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents: for event-specific reports                 whether prose (i.e. previews and reviews) or statistical (i.e.                 boxscores))</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/event-action">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Event Action</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Event Action</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents: for play actions within a                 single event</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/dynamic-resource-file">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Dynamic Resource File</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Dynamic Resource File</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A category of sports documents: for team rosters (squad                 lists), athlete lists, league groupings and teams, etc.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/team">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Team</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Team</skos:prefLabel>
+      <skos:definition xml:lang="en-US"/>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/stat">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Statistic</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Statistic</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A statistical indicator of on-field performance in                 sport.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/core">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Core</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Core</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of position, role or statistic in                 sport.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-06-29T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/offense">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Offense</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Offense</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of position, role or statistic in                 sport.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/defense">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Defense</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Defense</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of position, role or statistic in                 sport.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/special-teams">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Special Teams</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Special Teams</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of role or statistic in                 (usually) American Football.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/fumbles">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Fumbles</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Fumbles</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of role or statistic in                 American Football.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/penalty">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Penalties</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Penalties</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of role or statistic in                 American Football.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/faceoffs">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Face-offs</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Face-offs</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of statistic in                 Ice Hockey.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/time-on-ice">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Time On Ice</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Time On Ice</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of statistic in                 Ice Hockey.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/pitching">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Pitching</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Pitching</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of statistic in                 Baseball.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/rebounding">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Rebounding</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Rebounding</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of statistic in                 Basketball.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/scoring">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">Scoring</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Scoring</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A class of statistic in                 sport.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2013-01-02T01:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/article-ref">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">article-ref</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">article-ref</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/photo-ref">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">photo-ref</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">photo-ref</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/audio-ref">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">audio-ref</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">audio-ref</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/video-ref">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">video-ref</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">video-ref</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/xref-key">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">xref-key</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">xref-key</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/slug">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">slug</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">slug</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/publisher">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">publisher</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">publisher</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">The source of the data/content.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/distributor">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">distributor</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">distributor</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">The immediate provider of the data/content.</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spct/priority">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">priority</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">priority</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spct/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+</rdf:RDF>

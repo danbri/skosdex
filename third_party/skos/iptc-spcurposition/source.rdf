@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurposition/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurposition/A"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurposition/1"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurposition/2"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurposition/3"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spcurposition/4"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurposition/A">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">A</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">A</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player is a reserve for the team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurposition/1">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">1</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player plays the first stones for the team. In a four player team the
+                player plays stones 1 and 2. If the team only has three players the first player
+                plays stones 1-3.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurposition/2">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">2</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player plays second for the team, stones 3 and 4 when the team has four
+                players, stones 4-6 if a three player team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurposition/3">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">3</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player plays third for the team, stones 5 and 6 if the team has four
+                players, the last two stones if a three player team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spcurposition/4">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">4</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player plays the last two stones if the team has four
+                players.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spcurposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

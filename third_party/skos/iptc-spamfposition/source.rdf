@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/center"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/guard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/tackle-offensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/tight-end"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/wide-receiver"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/fullback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/running-back"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/tail-back"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/h-back"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/halfback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/wingback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/slotback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/quarterback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/defensive-end"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/tackle-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/guard-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/nose-tackle"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/linebacker-outside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/linebacker-middle"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/linebacker-inside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/cornerback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/nickelback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/dimeback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/defensive-quarterback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/defensive-halfback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/safety-free"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/safety-strong"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/kicker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/punter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/kickoff-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/punt-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/long-snapper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/holder"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/lineman-offensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/lineman-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/defensive-back"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/safety"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/linebacker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/kick-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/referee"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/linesman"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/line-judge"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/back-judge"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/side-judge"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/field-judge"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/coach"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfposition/assistant-coach"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/center">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">center</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">center</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/guard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">guard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">guard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/tackle-offensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackle-offensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackle-offensive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/tight-end">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tight-end</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tight-end</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/wide-receiver">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">wide-receiver</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">wide-receiver</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/fullback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fullback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fullback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/running-back">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">running-back</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">running-back</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/tail-back">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tail-back</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tail-back</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/h-back">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">h-back</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">h-back</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/halfback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">halfback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">halfback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/wingback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">wingback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">wingback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/slotback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">slotback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">slotback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/quarterback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">quarterback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">quarterback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/defensive-end">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defensive-end</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defensive-end</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/tackle-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackle-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackle-defensive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/guard-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">guard-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">guard-defensive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/nose-tackle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">nose-tackle</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">nose-tackle</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/linebacker-outside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">linebacker-outside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">linebacker-outside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/linebacker-middle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">linebacker-middle</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">linebacker-middle</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/linebacker-inside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">linebacker-inside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">linebacker-inside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/cornerback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cornerback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cornerback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/nickelback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">nickelback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">nickelback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/dimeback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">dimeback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">dimeback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/defensive-quarterback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defensive-quarterback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defensive-quarterback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/defensive-halfback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defensive-halfback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defensive-halfback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/safety-free">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">safety-free</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">safety-free</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/safety-strong">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">safety-strong</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">safety-strong</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/kicker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kicker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kicker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/punter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punter</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/kickoff-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kickoff-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kickoff-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/punt-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punt-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punt-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/long-snapper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">long-snapper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">long-snapper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/holder">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">holder</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">holder</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/lineman-offensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lineman-offensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lineman-offensive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/lineman-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lineman-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lineman-defensive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/defensive-back">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defensive-back</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defensive-back</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/safety">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">safety</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">safety</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/linebacker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">linebacker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">linebacker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/kick-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kick-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kick-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/referee">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">referee</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">referee</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/linesman">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">linesman</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">linesman</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/line-judge">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">line-judge</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">line-judge</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/back-judge">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">back-judge</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">back-judge</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/side-judge">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">side-judge</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">side-judge</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/field-judge">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-judge</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-judge</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfposition/assistant-coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assistant-coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assistant-coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

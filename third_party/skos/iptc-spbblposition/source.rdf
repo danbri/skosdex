@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/1"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/2"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/3"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/4"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/5"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/6"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/7"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/8"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/9"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/10"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/dh"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/ph"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/pr"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/manager"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/coach"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/coach-first-base"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/coach-third-base"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire-2"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire-3"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire-4"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire-5"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire-7"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/umpire-9"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/official-scorekeeper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblposition/technical-commissioner"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/1">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">1</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">pitcher</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/2">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">2</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">catcher</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/3">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">3</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">first baseman</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/4">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">4</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">second baseman</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/5">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">5</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">third baseman</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/6">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">6</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">6</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">shortstop</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/7">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">7</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">7</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">left fielder</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/8">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">8</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">8</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">center fielder</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/9">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">9</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">9</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">right fielder</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/10">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">10</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">10</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">tenth man (for softball), playing in the outfield</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/dh">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">dh</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">dh</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">designated hitter</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/ph">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ph</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ph</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">pinch hitter</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/pr">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pr</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pr</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">pinch runner</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/manager">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">manager</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">manager</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/coach-first-base">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coach-first-base</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coach-first-base</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/coach-third-base">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coach-third-base</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coach-third-base</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire-2">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire-2</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire-2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">home plate umpire</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire-3">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire-3</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire-3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">first base umpire</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire-4">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire-4</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire-4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">second base umpire</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire-5">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire-5</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire-5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">third base umpire</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire-7">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire-7</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire-7</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">left field umpire</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/umpire-9">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">umpire-9</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">umpire-9</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">right field umpire</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/official-scorekeeper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">official-scorekeeper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">official-scorekeeper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblposition/technical-commissioner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">technical-commissioner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">technical-commissioner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

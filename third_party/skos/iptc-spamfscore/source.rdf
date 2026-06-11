@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/touchdown"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/safety"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/conversion"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/conversion-1pt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/conversion-2pt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/field-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/extra-point"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfscore/single-point"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/touchdown">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">touchdown</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">touchdown</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/safety">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">safety</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">safety</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/conversion">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversion</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversion</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/conversion-1pt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversion-1pt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversion-1pt</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/conversion-2pt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversion-2pt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversion-2pt</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/field-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goal</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/extra-point">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">extra-point</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">extra-point</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfscore/single-point">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">single-point</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">single-point</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">In Canadian football, a single point is awarded when a kick landing in the
+                end zone cannot be returned.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfscore/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

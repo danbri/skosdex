@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/minutes-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/games-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/games-started"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/average-minutes-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/personal-fouls-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/double-doubles"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/triple-doubles"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/timeouts-left"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/largest-lead"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/fouls-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/turnover-margin"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-made"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-attempted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-attempted-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-percentage-adjusted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-made"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-attempted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-attempted-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/free-throws-made"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/free-throws-attempted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/free-throws-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/free-throws-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/free-throws-attempted-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-per-game-highest"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-per-shot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/assists-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/assists-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/turnovers-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/turnovers-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-turnovers-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-turnovers-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-off-turnovers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-in-paint"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-on-second-chance"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-on-fast-break"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-total-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-opponent-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-defensive-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-offensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-offensive-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-opponent-offensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-total-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-defensive-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-offensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-offensive-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-opponent-defensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-opponent-offensive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-offensive-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-defensive-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-differential"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/rebounds-opponent-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-opponent-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/steals-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/steals-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/steals-opponent"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/steals-differential"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/blocks-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/blocks-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/blocks-opponent"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/blocks-differential"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-against-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/points-scored-against-per-game-highest"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-against-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/field-goals-against-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/charges-taken"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/minutes-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">minutes-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">minutes-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of minutes this player has spent playing during a particular
+                game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/games-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/games-started">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">games-started</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">games-started</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games that started with this player on the court,.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/average-minutes-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">average-minutes-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">average-minutes-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of minutes per game played by this player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/personal-fouls-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">personal-fouls-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">personal-fouls-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of fouls made by the player per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/double-doubles">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-doubles</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-doubles</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A double digit number in any two of these categories: points, rebounds,
+                assists, steals, and blocked shots.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/triple-doubles">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">triple-doubles</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">triple-doubles</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A double digit number in any three of these categories: points, rebounds,
+                assists, steals, and blocked shots.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/timeouts-left">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">timeouts-left</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">timeouts-left</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of timeouts a team has left during the current event.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/largest-lead">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">largest-lead</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">largest-lead</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Largest number of points this team has led the opposition. Could be a
+                negative number.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/fouls-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fouls-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fouls-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of fouls comitted by the team during this event.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/turnover-margin">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">turnover-margin</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">turnover-margin</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Turnover margain is the number of turnovers made by this team minus the
+                number of turnovers made by the opposing team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-made">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-made</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-made</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Shots made that were worth two points each.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-attempted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-attempted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-attempted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Two-point shots that were attempted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Field goals made versus attempted. This could also be calculated from the
+                above.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of field goals made per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-attempted-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-attempted-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-attempted-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of field goals attempted per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-percentage-adjusted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-percentage-adjusted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-percentage-adjusted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A formula measuring shooting efficiency: [(points-scored-total -
+                free-throws-made)/field-goals-attempted]/2.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-made">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">three-pointers-made</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">three-pointers-made</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Shots made that were worth three points each.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-attempted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">three-pointers-attempted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">three-pointers-attempted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Three-point shots that were attempted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">three-pointers-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">three-pointers-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Three-pointers made versus attempted. This could be calculated.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">three-pointers-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">three-pointers-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of three-pointers made per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/three-pointers-attempted-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">three-pointers-attempted-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">three-pointers-attempted-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of three-pointers attempted per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/free-throws-made">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-throws-made</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-throws-made</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Shots made that were worth one point each.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/free-throws-attempted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-throws-attempted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-throws-attempted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">One-point shots that were attempted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/free-throws-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-throws-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-throws-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Free throws made versus attempted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/free-throws-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-throws-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-throws-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of free throws made per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/free-throws-attempted-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-throws-attempted-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-throws-attempted-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of free throws attempted per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points scored, over.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of points scored in games played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-per-game-highest">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-per-game-highest</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-per-game-highest</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Highest number of points scored in one game played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-per-shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-per-shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-per-shot</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Calculated by dividing points-scored-total by
+                field-goals-attempted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/assists-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of assists.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/assists-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of assists per games played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/turnovers-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">turnovers-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">turnovers-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of turnovers.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/turnovers-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">turnovers-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">turnovers-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of turnovers per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-turnovers-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-turnovers-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-turnovers-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of team turnovers.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-turnovers-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-turnovers-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-turnovers-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of team turnovers per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-off-turnovers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-off-turnovers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-off-turnovers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points scored off turnovers.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-in-paint">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-in-paint</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-in-paint</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points scored from within the painted area surrounding the
+                basket.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-on-second-chance">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-on-second-chance</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-on-second-chance</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points scored after fielding an offensive
+                rebound.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-on-fast-break">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-on-fast-break</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-on-fast-break</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points scored off a fast break.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The sum of all rebounds that were credited to particular
+                players.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-total-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-total-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-total-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of rebounds total compared to total number of
+                attempts.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-defensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The sum of all defensive rebounds credited to particular players. A
+                defensive rebound occurs when the team is in defence but gains possession through a
+                rebound.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-opponent-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-opponent-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-opponent-defensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The total defensive rebounds by the opposing team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-defensive-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-defensive-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-defensive-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of defensive rebounds.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-offensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-offensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-offensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The sum of all offensive rebounds credited to particular player. An
+                offensive rebound is when the team keep possession of the ball through a
+                rebound.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-offensive-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-offensive-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-offensive-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of offensive rebounds.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-opponent-offensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-opponent-offensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-opponent-offensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The total offensive rebounds by the opposing team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of rebounds that did not credited to individual players, but were
+                instead credited to the team as a whole.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-total-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-total-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-total-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of team rebounds.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-defensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The sum of all defensive rebounds credited to the team as a
+                whole.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-defensive-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-defensive-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-defensive-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of defensive rebounds credited to the team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-offensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-offensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-offensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The sum of all offensive rebounds credited to the team as a
+                whol.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-offensive-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-offensive-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-offensive-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of offensive rebounds credited to the team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-opponent-defensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-opponent-defensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-opponent-defensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The total defensive team rebounds by the opposing team or
+                player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-opponent-offensive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-opponent-offensive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-opponent-offensive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The total offensive team rebounds by the opposing team or
+                player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average number of personal rebounds per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average number of team rebounds per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-offensive-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-offensive-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-offensive-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average number of offensive personal rebounds per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-defensive-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-defensive-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-defensive-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average numer of defensive personal rebounds per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-differential">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-differential</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-differential</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The differential between the total number of rebounds from this team
+                compared to the opposing team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/rebounds-opponent-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rebounds-opponent-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rebounds-opponent-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The total number of rebounds (ofensive and defensive) by the opposing team
+                or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/team-rebounds-opponent-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rebounds-opponent-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rebounds-opponent-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The total number of rebounds (ofensive and defensive) by the opponent which
+                are credited to the team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/steals-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">steals-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">steals-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of steals.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/steals-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">steals-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">steals-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of steals per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/steals-opponent">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">steals-opponent</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">steals-opponent</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of steals-against by opponent.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/steals-differential">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">steals-differential</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">steals-differential</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of steals made by this team compared to steals made by the other
+                team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/blocks-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of blocks.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/blocks-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of blocks per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/blocks-opponent">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-opponent</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-opponent</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of blocks-against by opponent.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/blocks-differential">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-differential</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-differential</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of blocks made by this team compared to blocks made by the
+                other team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-against-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-against-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-against-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average of points scored against per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/points-scored-against-per-game-highest">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-scored-against-per-game-highest</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-scored-against-per-game-highest</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Highest number of points scored against in one game played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-against-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-against-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-against-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average number of field goals scored agains per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/field-goals-against-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goals-against-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goals-against-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of field goals scored against.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbkbstat/charges-taken">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">charges-taken</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">charges-taken</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of charges taken. A charge is when the referee toss the ball
+                and one player of each team try to give their team possession of the
+                ball.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbkbstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

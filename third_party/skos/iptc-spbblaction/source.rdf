@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/walk"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/hit"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/hit-by-pitch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/stolen-base"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/out"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/strikeout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/caught-stealing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/pickoff"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/single"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/double"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/triple"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/home-run"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/defensive-indifference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/pickoff-error"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/pitch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/wild-pitch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/passed-ball"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/balk"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/other-advance"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/foul-error"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/error"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/fielders-choice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spbblaction/missing-play"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/walk">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">walk</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">walk</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/hit">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hit</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hit</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/hit-by-pitch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hit-by-pitch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hit-by-pitch</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/stolen-base">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stolen-base</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stolen-base</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/out">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">out</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">out</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/strikeout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">strikeout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">strikeout</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/caught-stealing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caught-stealing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caught-stealing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/pickoff">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pickoff</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pickoff</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/single">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">single</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">single</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/double">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/triple">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">triple</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">triple</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/home-run">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">home-run</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">home-run</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/defensive-indifference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defensive-indifference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defensive-indifference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/pickoff-error">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pickoff-error</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pickoff-error</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/pitch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pitch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pitch</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/wild-pitch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">wild-pitch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">wild-pitch</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/passed-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">passed-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">passed-ball</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/balk">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">balk</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">balk</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/other-advance">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">other-advance</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">other-advance</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/foul-error">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">foul-error</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">foul-error</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/error">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">error</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">error</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/fielders-choice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fielders-choice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fielders-choice</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spbblaction/missing-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">missing-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">missing-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spbblaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

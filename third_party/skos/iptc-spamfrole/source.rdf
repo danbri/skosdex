@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/snapper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/snap-receiver"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/handoff-receiver"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/lateral-receiver"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/interceptor"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/rusher"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/tackler"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/kick-blocker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/passer"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/receiver"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/kicker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/fumble-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/kick-blocker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/missed-field-goal-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/blocked-field-goal-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/kick-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/tackle-assistant"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/punter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/punt-blocker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/punt-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/blocked-punt-returner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/sacker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/sack-assistant"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/fumbler"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfrole/penalty-recipient"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/snapper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">snapper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">snapper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/snap-receiver">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">snap-receiver</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">snap-receiver</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/handoff-receiver">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">handoff-receiver</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">handoff-receiver</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/lateral-receiver">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lateral-receiver</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lateral-receiver</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/interceptor">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interceptor</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interceptor</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/rusher">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rusher</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rusher</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/tackler">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackler</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackler</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/kick-blocker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kick-blocker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kick-blocker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/passer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">passer</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">passer</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/receiver">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receiver</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receiver</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/kicker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kicker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kicker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/fumble-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fumble-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fumble-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/kick-blocker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kick-blocker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kick-blocker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/missed-field-goal-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">missed-field-goal-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">missed-field-goal-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/blocked-field-goal-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked-field-goal-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked-field-goal-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/kick-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kick-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kick-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/tackle-assistant">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackle-assistant</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackle-assistant</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/punter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punter</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/punt-blocker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punt-blocker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punt-blocker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/punt-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punt-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punt-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/blocked-punt-returner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked-punt-returner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked-punt-returner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/sacker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sacker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sacker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/sack-assistant">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sack-assistant</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sack-assistant</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/fumbler">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fumbler</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fumbler</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfrole/penalty-recipient">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-recipient</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-recipient</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

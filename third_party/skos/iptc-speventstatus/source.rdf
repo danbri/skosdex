@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/pre-event"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/mid-event"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/post-event"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/postponed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/suspended"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/halted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/forfeited"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/rescheduled"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/delayed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/canceled"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/intermission"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/if-necessary"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/speventstatus/discarded"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/pre-event">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pre-event</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pre-event</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Any time before an event begins.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/mid-event">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mid-event</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mid-event</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Any time while an event is in-play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/post-event">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">post-event</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">post-event</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Any time after an event is finished.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/postponed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">postponed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">postponed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The putting off of an event until a later date, before the event has begun,
+				for whatever reason.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/suspended">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">suspended</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">suspended</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An event is stopped with the intention of resumption at a later
+				date.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/halted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">halted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">halted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An event is stopped and not resumed or ended.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/forfeited">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">forfeited</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">forfeited</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A team declines or is unable to play and loses by default. The opponent is
+				awarded the win.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/rescheduled">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rescheduled</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rescheduled</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An event is given a new time and date.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/delayed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">delayed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">delayed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An event is held up, for example by inclement weather. Can happen before or
+				during an event.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/canceled">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">canceled</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">canceled</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An event is never played and not re-scheduled.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/intermission">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">intermission</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">intermission</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A planned or scheduled break in play after which play resumes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/if-necessary">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">if-necessary</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">if-necessary</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An event whose commencement is dependant upon the outcome of prior
+				events.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/speventstatus/discarded">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">discarded</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">discarded</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A cancelled event because the event was unnecessary.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/speventstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

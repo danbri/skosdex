@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/score-attempt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/punt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/fumble"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/interception"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/marker-not-reached"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/score-attempt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-attempt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-attempt</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/punt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punt</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/fumble">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fumble</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fumble</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/interception">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interception</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interception</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfdriveresult/marker-not-reached">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">marker-not-reached</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">marker-not-reached</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">On the final down, the team in possession did not reach the first-down
+                marker.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfdriveresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

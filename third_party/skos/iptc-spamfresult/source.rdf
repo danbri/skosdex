@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/tackle"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/sack"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/forward-pass"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/lateral-pass"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/incomplete-pass"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/handoff"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/fumble"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/ball-grounded"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/ball-out-of-bounds"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfresult/miss"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/tackle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackle</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackle</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/sack">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sack</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sack</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/forward-pass">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">forward-pass</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">forward-pass</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/lateral-pass">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lateral-pass</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lateral-pass</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/incomplete-pass">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">incomplete-pass</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">incomplete-pass</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/handoff">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">handoff</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">handoff</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/fumble">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fumble</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fumble</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/ball-grounded">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ball-grounded</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ball-grounded</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/ball-out-of-bounds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ball-out-of-bounds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ball-out-of-bounds</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfresult/miss">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">miss</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">miss</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
