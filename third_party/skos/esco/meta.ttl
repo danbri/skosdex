@@ -1,0 +1,22 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# ESCO — European Skills, Competences, Qualifications and Occupations (European
+# Commission, DG EMPL). v1.2.0; ~19k skos:Concept across occupations, skills,
+# ISCO-08, DigComp, green, ISCED sub-schemes; ~6.5M triples. License: CC BY 4.0
+# (esco.ec.europa.eu; "ESCO ontology is released under CC BY 4.0") -> open.
+# Source: the official RDF/XML classification bundle from the ESCO download
+# portal (esco.ec.europa.eu/en/use-esco/download). The portal gates the bundle
+# behind a click-through; the file is committed here for reproducibility (CC BY
+# permits redistribution). All ESCO sub-schemes are housed in the one named
+# graph <http://data.europa.eu/esco>; skos:inScheme preserves the sub-schemes.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "ESCO — European Skills, Competences, Qualifications & Occupations (v1.2.0)" ;
+    dcterms:publisher <https://esco.ec.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://data.europa.eu/esco> ;
+    skosdex:sourceURL <https://esco.ec.europa.eu/en/use-esco/download> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
