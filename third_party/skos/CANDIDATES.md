@@ -86,7 +86,7 @@ non-RDF or license-blocked.
 |--------|-----------|--------|--------|---------|--------|
 | **EU List of Wastes 2015 (LoW)** ⭐ | EU Publications Office / Eurostat | European Waste Catalogue, 842 waste types, 6-digit EWC codes, hazardous flags (Dec. 2014/955/EU) | SKOS RDF/XML | open (2011/833/EU) | **onboarded** — `eu-low2015/` (173k quads) |
 | **EWC-Stat Rev.4 + waste categories** | Eurostat | substance-oriented statistical waste nomenclature (51 cats) | SKOS/XKOS RDF | open (2011/833/EU) | **onboarded** — `eu-ewc4/` (28k quads) |
-| **EU eForms / eProcurement codelists** ⭐ | OP-TED | ~75 procurement code lists (buyer type, procedure, award criterion, exclusion ground…) — complements CPV | SKOS-core / SKOS-AP-ACT | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables> |
+| **EU authority tables — complete set (135 NALs)** ⭐ | EU Publications Office | the FULL Named Authority List collection: all eForms/eProcurement codelists (procedure type, exclusion ground, award/selection criterion, legal basis, notice type…) PLUS general tables (place, corporate-body, atu, file-type, frequency, licence, resource-type, role, script, continent, human-sex, grammatical-*, …) | SKOS-core RDF/XML | open (2011/833/EU) | **onboarded** — 135 `eu-*` schemes (URLs via data.europa.eu API; one graph per table, UI-grouped) |
 | **EU Authority tables (NALs)** | EU Publications Office | currency (ISO 4217), measurement-unit (UN/ECE Rec 20), place, corporate-body, file-type, frequency… | SKOS-AP-EU RDF/XML | open (2011/833/EU) | **onboarded** `eu-currency/` (19k), `eu-measurement-unit/` (4k); already held country, language, CPV |
 | **EuroSciVoc** | OP / CORDIS | fields-of-science taxonomy (Frascati-based, 1000+ cats, 6 langs) | SKOS Turtle + RDF/XML | open (2011/833/EU) | **onboarded** — `euroscivoc/` |
 | **UN/LOCODE** ⭐ | UNECE / UN/CEFACT (RDF by ga-group) | trade & transport location codes (ports, airports…) | SKOS Turtle | CC BY 4.0 (ga-group) / ODC-PDDL (datahub) | <https://github.com/ga-group/un-locode> |
@@ -140,6 +140,25 @@ even though the policy line still singles out ODbL).
 4. **UN/LOCODE** — CC BY 4.0 Turtle, the canonical trade/transport location codes.
 5. **EuroSciVoc** — clean Turtle, one-shot add.
 6. **NACE** (+ CN) — high trade value; medium effort (XKOS normalization).
+
+## 🎓 Skills, education & labour-market (researched 2026-06)
+
+| Scheme | Publisher | Covers | SKOS? format | License | Status |
+|--------|-----------|--------|--------------|---------|--------|
+| **LRMI** (5 concept schemes) | DCMI Learning Resource Metadata Initiative | educational-resource metadata values: alignment-type, educational-audience-role, educational-use, interactivity-type, learning-resource-type | SKOS Turtle | CC BY 4.0 (open) | **onboarded** — `lrmi-*` |
+| **GACS** | FAO / CABI / USDA NAL | Global Agricultural Concept Scheme, ~15.4k concepts merging AGROVOC+CAB+NALT | SKOS + SKOS-XL + skos-thes (Turtle, ~108 MB) | CC BY 4.0 (open) | **onboarded** — `gacs/` (2.7M quads, AgroPortal direct download) |
+| **ESCO** | EU Commission DG EMPL | European Skills, Competences, Qualifications & Occupations + ISCO-08; ~6.5M triples | SKOS RDF/Turtle | **CC BY 4.0** (open) | **blocked on access** — see note |
+| **UN/CEFACT code lists** (Rec 20/21/24) | UNECE / UN/CEFACT | units of measure, package types, transport status | RDF (vocabulary.uncefact.org) | **no explicit licence on the pages** → unconfirmed | **deferred** — needs licence confirmation before bundling (policy requires explicit licence) |
+
+**ESCO access note:** ESCO is genuinely open (CC BY 4.0, so redistribution is
+permitted), but there is **no directly-fetchable authoritative bulk-RDF URL**: the
+data.europa.eu record only carries HTML landing pages, the `ec.europa.eu/esco/api`
+download endpoint is per-resource (no bulk), and the official portal
+(`esco.ec.europa.eu/en/use-esco/download`) gates the TTL/RDF dataset behind an
+email step. So it can't drop into the reproducible `skosdex fetch` pipeline as-is.
+Path to onboard: a one-time manual download of the v1.2.1 full-TTL bundle (CC BY
+4.0 lets us host it), then ingest like any committed source. The tabiya GitHub
+mirror exists but is CSV-transformed (not faithful SKOS), so not preferred.
 
 ## 🚫 Metadata-only — copyleft / non-commercial / proprietary
 
