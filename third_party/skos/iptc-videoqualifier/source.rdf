@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>ivqu</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:20:13+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Video Qualifier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Qualifier of a video metadata property.</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/assetId"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/channel"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/circaDateCreated"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/copyrightOwner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/creatorDirector"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/creatorGeneric"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/creatorPhotography"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/creatorSoundrecording"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/creditline"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/dataOnScreen"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/dateCreated"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/dateModified"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/dateReleased"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/displayAspectRatio"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/dopesheet"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/editorialDuration"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/editorialDurationEnd"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/editorialDurationStart"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/episode"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/episodeNo"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/extRights"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/featuredOrganisation"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/feedId"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/generic"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/headline"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/keyword"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/langVersion"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/licensor"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/locationShot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/locationShown"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/mediaId"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/modelRelease"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/objectShown"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/personHeard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/personShown"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/productShown"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/propertyRelease"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/registryEntry"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/registryEntryRole"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/registryId"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/season"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/seasonNo"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/series"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/shownEvent"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/signalAspectRatio"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/signalFormat"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/storylineId"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/streamReady"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/stylePeriod"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/supplier"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/supplyChainSource"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/timeFormat"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/transcript"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/videoTitle"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/visualColour"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/assetId">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Registry asset Id</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of an asset issued by a registry</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Registry Entry / Asset Id</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/channel">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Channel count</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Count of channels/streams</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Video Stream Count</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/circaDateCreated">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Circa date created</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Approximate date or range of dates associated with the creation and production of a video.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Circa Date Created</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/copyrightOwner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Copyright owner</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Individual or organisation owning the rights for this media resource</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Copyright Owner</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/creatorDirector">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Motion picture director</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Director of a motion picture, film, video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Creator (motion picture director)</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/creatorGeneric">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Generic creator</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Creator of the video in a generic sense</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Creator (generic)</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/creatorPhotography">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Director of Photography</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Director of photography of a film, video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Creator (photography)</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/creatorSoundrecording">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Sound recordist</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Sound recordist of a film, video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Creator (sound recording)</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/creditline">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Creditline</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Credit to person(s) and/or organisation(s) required by the supplier of the video (clip) to be used when published.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Credit Line</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/dataOnScreen">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Data on screen</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Text or other data shown in some region of the image.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Data on Screen</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/dateCreated">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Date created</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Date/Time when the media has been created</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Date Created</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/dateModified">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Date modified</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Date/Time when the media has been modified</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Date Modified</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/dateReleased">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Date release</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Date/time of the public release of the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Date Released</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/displayAspectRatio">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Display</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The ratio of width and height of the displayed image.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Display</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/dopesheet">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Dopesheet</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Shotlist with descriptions</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Dopesheet</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/editorialDuration">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Editorial duration</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Duration of the video content proposed for editorial use</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Editorial Duration</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/editorialDurationEnd">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Editorial duration end</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The point in time and frames the content proposed for editorial use ends</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Editorial Duration End</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/editorialDurationStart">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Editorial duration start</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The point in time and frames the content proposed for editorial use starts</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Editorial Duration Start</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/episode">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Episode</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Single episode of a specific season of a TV or video series this video is a member of.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Episode</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/episodeNo">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Episode number</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of the episode of a season of a series</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Episode Number</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/extRights">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">External Rights</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Rights located outside this metadata document</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Rights and Licensing Terms</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/featuredOrganisation">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Featured Organisation</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Organisation associated with the content of the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Featured Organisation</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/feedId">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Feed identifier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of the feed by which the media resource is distributed</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Feed Identifier</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/generic">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Generic description</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Generic description of the video content</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Description (generic)</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/headline">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Headline</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Short description of the content of the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Headline</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/keyword">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Description by keyword</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Description of the video content by a keyword</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Keyword</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/langVersion">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Language version</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The main language of this version of a video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Language version</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/licensor">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Licensor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Contact for rights licensing</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Licensor</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/locationShot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Location shot</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Place where the media resource was created, in particular where the camera was located</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Location Shot</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/locationShown">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Location shown</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Place shown by the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Location Shown</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/mediaId">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Media identifier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of the media resource</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Media Identifier</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/modelRelease">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Model Release information</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Information about a Model Release associated with the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Model Release information</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/objectShown">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Object shown</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Object shown by the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Object Shown</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/personHeard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Person heard</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Person who can be heard only in the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Person Heard</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/personShown">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Person shown</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Person shown by the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Person Shown</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/productShown">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Product shown</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Product shown by the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Product Shown</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/propertyRelease">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Property Release information</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Information about a Propery Release associated with the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Property Release information</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/registryEntry">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Registry Entry</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of the media resource and more data issued by a registry.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Registry Entry</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/registryEntryRole">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Registry entry role</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of the reason and/or purpose for this registry entry.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Registry Entry / Role</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/registryId">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Registry Id</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of a registry as a whole</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Registry Entry / Registry Id</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/season">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Season</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Season of a TV or video series this video is a member of.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Season</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/seasonNo">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Season number</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of the season of a series</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Season Number</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/series">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Series</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Season of a TV or video series this video is a member of.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Series</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/shownEvent">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Shown event</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Event shown/featured by the video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Shown Event</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/signalAspectRatio">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Signal aspect ratio</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The ratio of width and height in pixels of a frame</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Signal Aspect Ratio</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/signalFormat">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Signal format</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Combined term including the size of the frame, interlaced/progressive, framerate </skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Signal Format</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/storylineId">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Storyline identifier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of a story evolving over time and this media resource is assocated with</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Storyline Identifier</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/streamReady">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Stream ready</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates if this video can be used for streaming by the rule of having the key technical data of the video at the start rather than end of the file and that the wrapper and essense format are suitable for streaming</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Stream Ready</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/stylePeriod">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Style period</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The style, historical or artistic period, movement, group, or school whose characteristics are represented by the movie</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Style Period</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/supplier">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Supplier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Supplier of this copy of the media resource</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Supplier</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/supplyChainSource">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Source in the Supply Chain</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A person or party who has a role in the content supply chain</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Source</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/timeFormat">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Time format</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Identifier of the time format. For time code formats following SMPTE specifications.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Time Format</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/transcript">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Transcript</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The write-down of the spoken language of a video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Transcript</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/videoTitle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Video Title</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The shorthand reference of this video</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Title</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoqualifier/visualColour">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Visual colour</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The visual colouring of the video.</skos:definition>
+		<skos:note xml:lang="en-GB">Use with Video Metadata Hub property: Visual Colour</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoqualifier/"/>
+		<ikos:created>2016-10-14T14:00:00+00:00</ikos:created>
+		<ikos:modified>2018-01-19T13:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

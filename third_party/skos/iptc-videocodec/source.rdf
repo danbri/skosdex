@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>vcdc</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:19:56+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Videocodec</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates a name of a video-encoder/decoder. </skos:definition>
+		<skos:note xml:lang="en-GB">Many of these encoders/decoders are controlled by international standards. </skos:note>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c001"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c002"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c003"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c004"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c005"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c006"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c007"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c008"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c009"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c010"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c011"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c012"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c013"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c014"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c015"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c016"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c017"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c018"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c019"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c020"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c021"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c022"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c023"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c024"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c025"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c026"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c027"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c028"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c029"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c030"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c031"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c032"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c033"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c034"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c035"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c036"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c037"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c038"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c039"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c040"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c041"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c042"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c043"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c044"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c045"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c046"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c047"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c048"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c049"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c050"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c051"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c052"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c053"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c054"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c055"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c056"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c057"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c058"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c059"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c060"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c061"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c062"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c063"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c064"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c065"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c066"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c067"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c068"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c069"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c070"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c071"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c072"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c073"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c074"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c075"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c076"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c077"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c078"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c079"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c080"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c081"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c082"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c083"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c084"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c085"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c086"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c087"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c088"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c089"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c090"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c091"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c092"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c093"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c094"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c095"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c096"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c097"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c098"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c099"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c100"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c101"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c102"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c103"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c104"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c105"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c106"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c107"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c108"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c109"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c110"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c111"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c112"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c113"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c114"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c115"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c116"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c117"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c118"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c119"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c120"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c121"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c122"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c123"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c124"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c125"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c126"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c127"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c128"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c129"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c130"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c131"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c132"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c133"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c134"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c135"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c136"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c137"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c138"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c139"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c140"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c141"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c142"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c143"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c144"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c145"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c146"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c147"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c148"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c149"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c150"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c151"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c152"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c153"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c154"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c155"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c156"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c157"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c158"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c159"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c160"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c161"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c162"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c163"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c164"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c165"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c166"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c167"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c168"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c169"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c170"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c171"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c172"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c173"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c174"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c175"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c176"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c177"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c178"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c179"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c180"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c181"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c182"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c183"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c184"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c185"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c186"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c187"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c188"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c189"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c190"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c191"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c192"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c193"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c194"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c195"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c196"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c197"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c198"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c199"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c200"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c201"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c202"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c203"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c204"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c205"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c206"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c207"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c208"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c209"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c210"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c211"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c212"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c213"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c214"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c215"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c216"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c217"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c218"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c219"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c220"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c221"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c222"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c223"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c224"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c225"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c226"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c227"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c228"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c229"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c230"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c231"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c232"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c233"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c234"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c235"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c236"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c237"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c238"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c239"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c240"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c241"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c242"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c243"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c244"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c245"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c246"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c247"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c248"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c249"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c250"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c251"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c252"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c253"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c254"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c255"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c256"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c257"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c258"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videocodec/c259"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c001">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Analogue Black and White</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Analogue video, black and white </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c002">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">PAL</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: PAL </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c003">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">NTSC</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: NTSC </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c004">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">SECAM</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SECAM </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c005">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Analogue RGB</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Analogue video, RGB colour scheme </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c006">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Analogue Y, (R-Y), (B-Y)</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Analogue video, specific colour scheme </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c007">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Y. Cr, Cb</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-R BT 601 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c008">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">DV</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: IEC 61834 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c009">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Film</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Not video but film </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c010">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">RealVideo</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: RealNetworks </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c011">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">RealMedia</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: RealNetworks </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c012">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Quicktime</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: Apple </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c013">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-1 Video</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 11172-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c014">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c015">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Simple Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c016">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Simple Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c017">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Main Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c018">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Main Profile @ Low Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c019">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Main Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c020">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Main Profile @ High 1440 Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c021">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Main Profile @ High Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c022">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video SNR Scalable Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c023">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 SNR Scalable Profile @ Low Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c024">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video SNR Scalable Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c025">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Spatial Scalable Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c026">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Spatial Scalable Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c027">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Spatial Scalable Profile @ High 1440 Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c028">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Spatial Scalable Profile @ High Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c029">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video High Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c030">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video High Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c031">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video High Profile @ High 1440 Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c032">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video High Profile @ High Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c033">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Multiview Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c034">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video Multiview Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c035">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video 4:2:2 Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c036">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-2 Video 4:2:2 Profile @ Main Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 13818-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c037">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c038">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c039">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Profile @ Level 0</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c040">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c041">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c042">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c043">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Scalable Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c044">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Scalable Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c045">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Scalable Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c046">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c047">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile @ Level 0</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c048">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c049">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c050">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c051">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c052">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Simple Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c053">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c054">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Profile@ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c055">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Profile@ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c056">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core-Scalable Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c057">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core-Scalable Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c058">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core-Scalable Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c059">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core-Scalable Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c060">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Core Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c061">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Core Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c062">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Core Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c063">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Main Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c064">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Main Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c065">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Main Profile @Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c066">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Main Profile @Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c067">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual N-bit Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c068">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual N-bit Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c069">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Real Time Simple Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c070">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Real Time Simple Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c071">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Real Time Simple Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c072">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Real Time Simple Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c073">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Real Time Simple Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c074">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Coding Efficiency Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c075">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Coding Efficiency Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c076">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Coding Efficiency Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c077">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Coding Efficiency Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c078">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Coding Efficiency Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c079">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Studio Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c080">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Studio Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c081">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Studio Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c082">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Studio Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c083">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Studio Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c084">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Studio Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c085">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Studio Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c086">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Studio Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c087">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Studio Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c088">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Core Studio Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c089">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c090">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile @ Level 0</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c091">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c092">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c093">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c094">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c095">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Fine Granularity Scalable Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c096">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Face Animation Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c097">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Face Animation Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c098">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple Face Animation Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c099">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple FBA Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c100">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple FBA Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c101">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Simple FBA Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c102">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Basic Animated Texture Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c103">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Basic Animated Texture Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c104">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Basic Animated Texture Profile @Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c105">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Scalable Texture Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c106">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Scalable Texture Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c107">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Scalable Texture Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c108">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Scalable Texture Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c109">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Scalable Texture Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c110">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Advanced Scalable Texture Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c111">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Hybrid Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c112">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Hybrid Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c113">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MPEG-4 Visual Hybrid Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 14496-2 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c114">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">JPEG</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 10918-1, ITU-T T81 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c115">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MJPEG</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c116">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">JPEG2000</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 15444-1 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c117">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">JPEG2000 jp2p Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c118">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">JPEG2000 jp2p Profile - Level 0</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c119">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">JPEG2000 jp2p Profile - Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c120">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">JPEG2000 jp2p Profile - Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c121">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MJPEG2000 mjp2 (unrestricted) Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ISO 15444-3 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c122">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">MJPEG2000 mj2s (simple) Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c123">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H261</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c124">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H263</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c125">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 / MPEG-4 AVC</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c126">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c127">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c128">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c129">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c130">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c131">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c132">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c133">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c134">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c135">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c136">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c137">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c138">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c139">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c140">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c141">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c142">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 BaseLine Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c143">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c144">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c145">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c146">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c147">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c148">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c149">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c150">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c151">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c152">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c153">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c154">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c155">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c156">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c157">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c158">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c159">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Main Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c160">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c161">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c162">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c163">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c164">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c165">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c166">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c167">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c168">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c169">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c170">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c171">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c172">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c173">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c174">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c175">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c176">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 Extended Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c177">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c178">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c179">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c180">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c181">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c182">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c183">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c184">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c185">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c186">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c187">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c188">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c189">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 4.0</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c190">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c191">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c192">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c193">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c194">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c195">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c196">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c197">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c198">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c199">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c200">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c201">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c202">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c203">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c204">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c205">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c206">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c207">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c208">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c209">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c210">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 10 Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c211">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c212">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c213">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c214">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c215">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c216">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c217">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c218">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c219">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c220">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c221">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c222">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c223">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c224">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c225">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c226">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c227">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:2:2 Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c228">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 HIght 4:4:4 Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c229">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c230">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 1b</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c231">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 1.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c232">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 1.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c233">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 1.3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c234">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c235">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 2.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c236">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 2.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c237">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c238">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 3.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c239">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 3.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c240">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c241">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 4.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c242">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 4.2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c243">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c244">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">H264 High 4:4:4 Profile @ Level 5.1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: ITU-T and ISO/IEC 14496-10 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c245">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c246">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Simple Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c247">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Simple Profile @ Level LL</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c248">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Simple Profile @ Level ML</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c249">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Main Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c250">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Main Profile @ Level LL</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c251">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Main Profile @ Level ML</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c252">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Main Profile @ Level HL</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c253">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Advanced Profile</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c254">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Advanced Profile @ Level L0</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c255">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Advanced Profile @ Level L1</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c256">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Advanced Profile @ Level L2</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c257">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Advanced Profile @ Level L3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c258">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">VC1 Advanced Profile @ Level L4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: SMPTE 421M and IETF RFC xxx </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videocodec/c259">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Windows Media Video WMV</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Standard: Microsoft </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videocodec/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:16:29+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

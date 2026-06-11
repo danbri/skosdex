@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>sov</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:20:20+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Video Scaling</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates how video content is scaled.</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoscaling/letterboxed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoscaling/mixed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoscaling/pillarboxed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoscaling/unscaled"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoscaling/windowboxed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/videoscaling/zoomed"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/letterboxed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">letterboxed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Bars to the top and bottom.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoscaling/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/mixed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">mixed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Two or more different aspect ratios are used in the video over the timeline.
+</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoscaling/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/pillarboxed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">pillarboxed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Bars to the left and right.
+</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoscaling/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/unscaled">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">unscaled</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">No scaling applies.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoscaling/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/windowboxed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">windowboxed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Pillar boxed plus letter boxed.
+</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoscaling/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/videoscaling/zoomed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">zoomed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Scaling to avoid any borders</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/videoscaling/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
