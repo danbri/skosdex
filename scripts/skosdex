@@ -552,15 +552,24 @@ async function solrDocs() {
     [NS.skos + 'relatedMatch']: 'relatedMatch',
     [NS.skos + 'related']: 'related',
     [NS.owl + 'sameAs']: 'sameAs',
+    [NS.owl + 'equivalentClass']: 'equivalentClass',
+    [NS.owl + 'equivalentProperty']: 'equivalentProperty',
     [NS.foaf + 'focus']: 'focus',       // authority idiom: concept -> real-world entity (RAMEAU/BnF)
     [NS.skos + 'notation']: 'notation',
   };
   // Predicates whose objects are ALSO copied into a single multivalued
   // 'mapping' field — one place to recall every outbound link of a concept
   // (exact/close/broad/narrow/related/sameAs/focus), regardless of idiom.
-  const MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','focus']);
+  const MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','equivalentClass','equivalentProperty','focus']);
   const TYPE = NS.rdf + 'type';
   const CONCEPT = NS.skos + 'Concept';
+  // Indexable subject types. Beyond skos:Concept, we index owl:Class /
+  // owl:ObjectProperty so non-SKOS ontology graphs (e.g. the wikidata-ontology
+  // named graph — genuine RDFS/OWL, not a thesaurus) are searchable. rdfs:label
+  // is treated as a prefLabel for these. The data model is kept faithful in the
+  // triplestore; the Solr layer just needs *a* label + type to make a doc.
+  const INDEXABLE_TYPES = new Set([CONCEPT, NS.owl + 'Class', NS.owl + 'ObjectProperty', NS.owl + 'DatatypeProperty', NS.rdf + 'Property']);
+  const RDFS_LABEL = 'http://www.w3.org/2000/01/rdf-schema#label';
   // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
   const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 
@@ -600,7 +609,9 @@ async function solrDocs() {
     if (!m) continue;
     const [, s, p, oIri, oLit, lang, graph] = m;
     if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, exactLabel: null, fields: {} }; }
-    if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
+    if (p === TYPE && INDEXABLE_TYPES.has(oIri)) cur.isConcept = true;
+    // rdfs:label -> prefLabel (for owl:Class/Property in non-SKOS graphs).
+    if (p === RDFS_LABEL && oLit !== undefined) (cur.fields.prefLabel ||= []).push(oLit);
     const field = FIELD[p];
     if (field) {
       const val = oIri !== undefined ? oIri : oLit;
