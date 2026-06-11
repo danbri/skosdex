@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/play-on"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/penalty-kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/penalty-try"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/caution"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/ejection"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/play-on">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">play-on</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">play-on</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Fouled team has advantage of the ball and is allowed to play
+                on.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">freekick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Fouled team is awarded a freekick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/penalty-kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-kick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The fouled team is awarded a penalty kick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/penalty-try">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-try</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-try</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The fouled team is awarded a penalty kick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/caution">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caution</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caution</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player is beeing cautioned. Indicated by a yellow card. Suffered team
+                get a freekick or penalty-shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxpenaltyresult/ejection">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ejection</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ejection</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player is beeing ejected from the game. Shown by a red card. Suffered
+                team get a freekick or penalty shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

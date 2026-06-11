@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/loose-forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/prop-loosehead"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/prop-tighthead"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/prop"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/hooker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/second-row"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/lock"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/flanker-blindside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/flanker-openside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/number-eight"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/scrum-half"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/fly-half"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/stand-off"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/inside-center"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/outside-center"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/center"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/left-wing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/right-wing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/fullback"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/back-row"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/flanker"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/loose-forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">loose-forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">loose-forward</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/prop-loosehead">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">prop-loosehead</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">prop-loosehead</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/prop-tighthead">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">prop-tighthead</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">prop-tighthead</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/prop">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">prop</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">prop</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/hooker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hooker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hooker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/second-row">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-row</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-row</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/lock">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lock</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lock</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/flanker-blindside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">flanker-blindside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">flanker-blindside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/flanker-openside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">flanker-openside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">flanker-openside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/number-eight">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">number-eight</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">number-eight</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/scrum-half">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scrum-half</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scrum-half</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/fly-half">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fly-half</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fly-half</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/stand-off">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stand-off</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stand-off</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/inside-center">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">inside-center</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">inside-center</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/outside-center">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">outside-center</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">outside-center</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/center">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">center</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">center</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/left-wing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">left-wing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">left-wing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/right-wing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">right-wing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">right-wing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/fullback">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fullback</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fullback</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/back-row">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">back-row</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">back-row</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxposition/flanker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">flanker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">flanker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

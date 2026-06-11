@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattempt/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/try"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/penalty"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/drop"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/conversion"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattempt/try">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">Try</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">Try</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Score by grounding the ball in the in-goal area (between the goal line and the dead-ball line); worth 5 points.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattempt/penalty">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a penalty kick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattempt/drop">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drop</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drop</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a drop kick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattempt/conversion">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversion</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversion</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a try conversion.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

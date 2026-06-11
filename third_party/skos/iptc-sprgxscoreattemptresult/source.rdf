@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/blocked"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/out-of-bounds"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The kick fell below or outside the uprights.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/blocked">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The kick was blocked.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/out-of-bounds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">out-of-bounds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">out-of-bounds</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The kick went out of bounds.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

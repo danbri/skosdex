@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/shot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/offside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/foul"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/corner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/throw-in"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/pass"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/penalty"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/timeout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/cross"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/throw-in"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/free-kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/goalkeeper-throw"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/goaltender-kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/take-on"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/tackle"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/turnover"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/claim"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/clearance"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/substitution"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/sub-on"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/sub-off"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/player-retired"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/player-returned"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/condition-change"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/official-change"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/aerial-dual"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/challenge"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/giveaway"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocaction/takeaway"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shot</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/offside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">offside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">offside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/foul">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">foul</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">foul</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/corner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">corner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">corner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/throw-in">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">throw-in</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">throw-in</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/pass">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/penalty">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/timeout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">timeout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">timeout</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/cross">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cross</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cross</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/throw-in">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">throw-in</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">throw-in</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/free-kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-kick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/goalkeeper-throw">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goalkeeper-throw</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goalkeeper-throw</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/goaltender-kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender-kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender-kick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/take-on">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">take-on</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">take-on</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/tackle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackle</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackle</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/turnover">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">turnover</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">turnover</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/claim">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">claim</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">claim</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/clearance">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">clearance</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">clearance</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/substitution">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">substitution</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">substitution</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/sub-on">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sub-on</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sub-on</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/sub-off">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sub-off</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sub-off</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/player-retired">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">player-retired</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">player-retired</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/player-returned">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">player-returned</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">player-returned</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/condition-change">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">condition-change</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">condition-change</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/official-change">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">official-change</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">official-change</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/aerial-dual">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">aerial-dual</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">aerial-dual</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/challenge">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">challenge</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">challenge</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/giveaway">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">giveaway</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">giveaway</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocaction/takeaway">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">takeaway</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">takeaway</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

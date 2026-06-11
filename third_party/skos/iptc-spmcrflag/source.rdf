@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/green"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/yellow"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/white"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/checkered"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/red"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/black"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/black-with-x"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/blue-with-orange-stripe"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/green">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">green</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">green</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/yellow">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">yellow</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">yellow</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/white">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">white</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">white</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/checkered">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">checkered</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">checkered</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/red">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">red</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">red</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/black">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">black</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">black</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/black-with-x">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">black-with-x</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">black-with-x</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrflag/blue-with-orange-stripe">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blue-with-orange-stripe</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blue-with-orange-stripe</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrflag/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

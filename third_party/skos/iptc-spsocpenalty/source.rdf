@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/serious-infraction-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/violent-conduct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/spitting"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/offensive-language"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/offensive-gestures"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/professional-infraction"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/unsporting-behaviour"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/delaying-restart"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/illegal-reentry"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/illegal-entry"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/required-distance-foul"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/illegal-exit"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/hand-ball"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/tackle"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/serious-infraction-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">serious-infraction-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">serious-infraction-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has committed a serious foul play. | This leads to a player being
+                sent of the field (red card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/violent-conduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">violent-conduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">violent-conduct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has committed a violent conduct. | This leads to a player being
+                sent off the field (red card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/spitting">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">spitting</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">spitting</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has spitted at an opponent or any other person. | This leads to a
+                player being sent off the field (red card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/offensive-language">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">offensive-language</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">offensive-language</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has used offensive, insulting or abusive language. | This leads
+                to a player being sent off the field (red card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/offensive-gestures">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">offensive-gestures</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">offensive-gestures</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has used offensive, insulting or abusive gestures. | This leads
+                to a player being sent off the field (red card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/professional-infraction">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">professional-infraction</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">professional-infraction</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">When a player denies another player an obvious goalscoring opportunity by
+                foul. | This action leads to the player being sent off the field.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/unsporting-behaviour">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unsporting-behaviour</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unsporting-behaviour</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has been doing unsporting behaviour. | This leads to a player
+                being given a caution (yellow card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/delaying-restart">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">delaying-restart</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">delaying-restart</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has delayed the restart of play. | This leads to a player being
+                given a caution (yellow card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/illegal-reentry">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-reentry</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-reentry</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player re-entered the ﬁeld of play without the referee’s permission. |
+                This leads to a player being given a caution (yellow card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/illegal-entry">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-entry</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-entry</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player entered the ﬁeld of play without the referee’s permission. | This
+                leads to a player being given a caution (yellow card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/required-distance-foul">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">required-distance-foul</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">required-distance-foul</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The played has failed to respect the required distance when play is
+                restarted with a corner kick, free kick or throw-in. | This leads to a player being
+                given a caution (yellow card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/illegal-exit">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-exit</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-exit</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The player has deliberately left the field of play without the referee’s
+                permission. | This leads to a player being given a caution (yellow
+                card).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/hand-ball">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hand-ball</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hand-ball</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenalty/tackle">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackle</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackle</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

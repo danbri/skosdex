@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/active"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/injured"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/disabled-list"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/try-out"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/inactive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/physically-unable"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/active">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">active</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">active</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Currently active and able to play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/injured">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">injured</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">injured</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Unable to play due to injury.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/disabled-list">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">disabled-list</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">disabled-list</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Unable to play due to injury. Deemed long-term.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/try-out">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">try-out</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">try-out</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Not on time, attempting to make the lineup.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/inactive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">inactive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">inactive</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Inactive, not playing.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spphasestatus/physically-unable">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">physically-unable</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">physically-unable</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Unable to play for physical reason, not necessarily injury.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spphasestatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

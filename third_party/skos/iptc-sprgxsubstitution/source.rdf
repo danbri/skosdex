@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxsubstitution/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxsubstitution/blood"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxsubstitution/regular"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxsubstitution/blood">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blood</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blood</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A temporary replacement in which the player must return to the field within
+                15 minutes</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxsubstitution/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxsubstitution/regular">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">regular</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">regular</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">One of seven allowed permanent player substitutions.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxsubstitution/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

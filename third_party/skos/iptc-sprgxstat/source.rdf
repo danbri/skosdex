@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/tries-scored"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/tries-scored-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalty-tries-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalty-tries-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/drop-goal-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/drop-goals-scored"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/drop-goals-scored-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalty-goal-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalty-goals-scored"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalty-goals-scored-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/conversion-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/conversions-scored"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/conversions-scored-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/free-kicks-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/free-kicks-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/kicks-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/kicks-into-touch"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/runs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/metres-gained"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/scrums-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/scrums-won-for"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/line-outs-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/line-outs-won-for"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/rucks-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/rucks-won-for"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/mauls-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/mauls-won-for"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/handling-errors"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/handling-errors-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/tackles"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/tackles-missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/scrums-won-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/line-outs-won-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/rucks-won-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/mauls-won-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalties-conceded"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/penalties-conceded-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/cautions-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/cautions-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/cautions-pending"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/caution-points-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/caution-points-pending"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/ejections-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/ejections-per-game"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/tries-scored">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tries-scored</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tries-scored</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Tries scored.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/tries-scored-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tries-scored-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tries-scored-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of tries scored per match.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalty-tries-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-tries-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-tries-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Penalty tries awarded.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalty-tries-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-tries-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-tries-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of penalty tries awarded per match.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/drop-goal-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drop-goal-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drop-goal-attempts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Drop goal attempts</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/drop-goals-scored">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drop-goals-scored</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drop-goals-scored</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Drop goals scored</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/drop-goals-scored-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drop-goals-scored-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drop-goals-scored-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average drop goals scored per match</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalty-goal-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-goal-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-goal-attempts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Penalty goal attempts</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalty-goals-scored">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-goals-scored</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-goals-scored</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Penalty goals scored</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalty-goals-scored-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-goals-scored-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-goals-scored-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average penalty goals scored per match</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/conversion-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversion-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversion-attempts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Conversion attempts</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/conversions-scored">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversions-scored</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversions-scored</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Conversions scored</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/conversions-scored-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">conversions-scored-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">conversions-scored-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average conversions scored per match</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/free-kicks-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-kicks-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-kicks-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of free kicks</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/free-kicks-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">free-kicks-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">free-kicks-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average free kicks per match</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/kicks-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kicks-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kicks-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of kicks</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/kicks-into-touch">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kicks-into-touch</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kicks-into-touch</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of kicks into touch</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/runs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">runs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">runs</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of runs</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/metres-gained">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">metres-gained</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">metres-gained</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of metres advanced in the match</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/scrums-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scrums-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scrums-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of scrums by team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/scrums-won-for">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scrums-won-for</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scrums-won-for</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of own scrums won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/line-outs-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">line-outs-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">line-outs-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of line-outs by team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/line-outs-won-for">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">line-outs-won-for</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">line-outs-won-for</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of lineouts won on own put in</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/rucks-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rucks-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rucks-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of rucks by team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/rucks-won-for">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rucks-won-for</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rucks-won-for</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of rucks won where team brought the ball in</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/mauls-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mauls-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mauls-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of mauls by team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/mauls-won-for">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mauls-won-for</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mauls-won-for</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of own mauls won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/handling-errors">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">handling-errors</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">handling-errors</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of handling errors</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/handling-errors-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">handling-errors-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">handling-errors-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average handling errors per match</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/tackles">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackles</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackles</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of tackles</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/tackles-missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tackles-missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tackles-missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of tackles missed</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/scrums-won-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scrums-won-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scrums-won-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of scrums won on opponent's put in</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/line-outs-won-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">line-outs-won-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">line-outs-won-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of lineouts won on opponent's put in</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/rucks-won-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rucks-won-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rucks-won-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of rucks won where opponent brought the ball in</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/mauls-won-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mauls-won-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mauls-won-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of opposing teams's mauls won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalties-conceded">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalties-conceded</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalties-conceded</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of penalties conceded to opposing team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/penalties-conceded-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalties-conceded-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalties-conceded-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of penalties conceded to opposing team</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/cautions-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cautions-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cautions-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of cautions recieved.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/cautions-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cautions-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cautions-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of cautions recieved per match.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/cautions-pending">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cautions-pending</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cautions-pending</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of cautions that could result in a game suspension.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/caution-points-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caution-points-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caution-points-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total amount of caution points. Can occur over various games in a
+                season.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/caution-points-pending">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caution-points-pending</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caution-points-pending</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of caution points that could result in a game
+                suspension.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/ejections-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ejections-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ejections-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of ejections.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sprgxstat/ejections-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ejections-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ejections-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of ejections recieved per match.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sprgxstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

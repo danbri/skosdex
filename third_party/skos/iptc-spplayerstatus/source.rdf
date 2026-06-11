@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/starter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/bench"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/scratched"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/injured"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/suspended"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/sidelined"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/starter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">starter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">starter</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A member of the lineup that enters the field at the commencement of
+				play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/bench">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bench</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bench</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Does not enter field at commencement of play, is substituted in or remains
+				on bench.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/scratched">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scratched</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scratched</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Does not dress for event, usually for having not earned a slot in the
+				lineup.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/injured">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">injured</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">injured</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Unable to play due to injury.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/suspended">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">suspended</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">suspended</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Unable to play due to suspension due to transgression.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spplayerstatus/sidelined">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sidelined</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sidelined</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Does not play for other reason.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spplayerstatus/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

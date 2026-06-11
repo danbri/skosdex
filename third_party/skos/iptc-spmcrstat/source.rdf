@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/speed-average-race"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/lead-changes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/lead-changes-drivers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/margin-of-victory"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/caution-flags"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/caution-flags-laps"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/laps-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/distance-lap"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/distance-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/grid"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/pole-position"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/pole-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/qualifying-speed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/qualifying-time"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/qualifying-position"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/time-behind-leader"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/laps-behind-leader"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/time-ahead-follower"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/laps-ahead-follower"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/time"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/points-rookie"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/bonus"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/laps-completed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/laps-leading-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/distance-leading"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/distance-completed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/speed-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/status"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/finishes-top-5"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/finishes-top-10"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/starts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/finishes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/non-finishes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/races-leading"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/money"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/leads-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/comment"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/speed-range"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/lap-number"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/start-time-elapsed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/speed-average-lap"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/duration"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/split-location"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/speed-average-race">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">speed-average-race</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">speed-average-race</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average speed of the race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/lead-changes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lead-changes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lead-changes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of times the lead changed in this race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/lead-changes-drivers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lead-changes-drivers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lead-changes-drivers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of drivers that comprised the lead changes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/margin-of-victory">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">margin-of-victory</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">margin-of-victory</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Time behind leader for 2nd place driver.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/caution-flags">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caution-flags</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caution-flags</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of flags for race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/caution-flags-laps">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">caution-flags-laps</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">caution-flags-laps</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of laps there were caution flags.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/laps-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">laps-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">laps-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of laps for race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/distance-lap">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">distance-lap</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">distance-lap</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Length of one lap.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/distance-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">distance-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">distance-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total distance of race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/grid">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">grid</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">grid</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The arrangement or order of cars in the starting lineup.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/pole-position">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pole-position</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pole-position</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Position relative to the inside wall, at the start of the race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/pole-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pole-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pole-wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times this driver or team had a pole position of 1.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/qualifying-speed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">qualifying-speed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">qualifying-speed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Speed of lap which qualified the driver.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/qualifying-time">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">qualifying-time</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">qualifying-time</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Time received for qualifying lap.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/qualifying-position">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">qualifying-position</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">qualifying-position</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Where the car had ranked within the preliminary round.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/time-behind-leader">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-behind-leader</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-behind-leader</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time this driver was behind the car that is currently in first
+                place.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/laps-behind-leader">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">laps-behind-leader</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">laps-behind-leader</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of laps this driver was behind the car that is currently in first
+                place.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/time-ahead-follower">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-ahead-follower</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-ahead-follower</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time this driver was ahead of the car immediately behind
+                it.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/laps-ahead-follower">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">laps-ahead-follower</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">laps-ahead-follower</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of laps this driver was ahead of the car immediately behind
+                it.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/time">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total amount of time this driver has been competing in the
+                race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total accumulation of points in the league-authorized standings for the
+                season.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/points-rookie">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-rookie</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-rookie</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total accumulation of points in the league-authorized standings for the
+                season, amongst other drivers who are competing in their first year.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/bonus">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bonus</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bonus</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of bonus points driver has earned in this race. For example, NASCAR
+                drivers may receive five bonus points for leading a lap, and an additional five
+                points for leading the most laps.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/laps-completed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">laps-completed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">laps-completed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of laps this driver has completed during this race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/laps-leading-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">laps-leading-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">laps-leading-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of laps in which this driver has led the field.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/distance-leading">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">distance-leading</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">distance-leading</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Distance (in, say, miles or kilometers) that driver has led the
+                race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/distance-completed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">distance-completed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">distance-completed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Distance (in, say, miles or kilometers) that driver has completed in this
+                race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/speed-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">speed-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">speed-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average speed during the race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/status">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">status</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">status</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Whether the driver is running, or is out of the race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/finishes-top-5">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finishes-top-5</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finishes-top-5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of top-5 finishes this driver has had.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/finishes-top-10">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finishes-top-10</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finishes-top-10</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of top-10 finishes this driver has had.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/starts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">starts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">starts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of races this driver had started.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/finishes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finishes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finishes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of races this driver had finished.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/non-finishes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">non-finishes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">non-finishes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of races this driver had started but had not finished.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of races this driver had won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/races-leading">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">races-leading</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">races-leading</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of races in which this driver has held a lead.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/money">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">money</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">money</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of money this driver had won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/leads-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leads-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leads-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of total leads this driver has had, presumably during this
+                race.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/comment">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">comment</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">comment</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A comment or highlight on this driver.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/speed-range">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">speed-range</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">speed-range</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Either fastest or slowest.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/lap-number">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lap-number</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lap-number</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The lap number in question.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/start-time-elapsed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">start-time-elapsed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">start-time-elapsed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The time since the start of the race at which this lap was
+                begun.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/speed-average-lap">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">speed-average-lap</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">speed-average-lap</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average speed of this lap.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/duration">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">duration</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">duration</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The length of time this lap (or partial lap) was completed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spmcrstat/split-location">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">split-location</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">split-location</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Used when partial laps are being timed. If omitted, it is assumed that the
+                stats herein are for the entire lap. Sample values include: start | stretch | finish
+                | marker-1 | marker-2</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spmcrstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

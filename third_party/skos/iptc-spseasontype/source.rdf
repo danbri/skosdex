@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spseasontype/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spseasontype/pre-season"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spseasontype/season-regular"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spseasontype/post-season"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spseasontype/all-star-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spseasontype/exhibition"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spseasontype/pre-season">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pre-season</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pre-season</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Events played in an exhibition before the regular phase when standings
+				points are awarded.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spseasontype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spseasontype/season-regular">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">season-regular</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">season-regular</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The phase of a league competition when standings points are awarded toward a
+				points-based championship or position in a post-season phase.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spseasontype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spseasontype/post-season">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">post-season</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">post-season</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A championship phase of a league competition, usually comprosed of
+				elimination rounds until one team has prevailed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spseasontype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spseasontype/all-star-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">all-star-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">all-star-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Some leagues have an all-star break and game comprised of the best
+				players.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spseasontype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spseasontype/exhibition">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">exhibition</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">exhibition</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A game or phase with no standings points awarded.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spseasontype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
