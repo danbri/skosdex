@@ -60,6 +60,13 @@
  .field input[type=number]{width:6rem;padding:.3rem;border:1px solid #cbd2d9;border-radius:5px}
  .field .hint{color:#9aa5b1;font-size:.76rem}
  .srow{display:flex;align-items:center;gap:.5rem;padding:.32rem 0;border-bottom:1px solid #f0f0f0;font-size:.88rem}
+ .sgroup{border-bottom:1px solid #e4e7eb;margin:.1rem 0}
+ .sgroup>summary{cursor:pointer;padding:.4rem 0;font-size:.9rem;list-style:none;display:flex;align-items:center;gap:.5rem}
+ .sgroup>summary::-webkit-details-marker{display:none}
+ .sgroup>summary::before{content:'▸';color:#9aa5b1;font-size:.8rem}
+ .sgroup[open]>summary::before{content:'▾'}
+ .sgroup .ct{margin-left:auto}
+ .sgroup-body{padding-left:1.1rem;border-left:2px solid #eef2f6;margin-left:.3rem}
  .srow .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
  .srow .ct{color:#9aa5b1;font-size:.74rem}
  .srow select{border:1px solid #cbd2d9;border-radius:5px;padding:.15rem .25rem;font-size:.82rem}
@@ -150,6 +157,22 @@ function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt
 function schemeTag(uri){const n=schemeNames[uri];return n?`<span class="scheme-tag">${esc(n)}</span>`:''}
 function renderSchemeTags(){document.querySelectorAll('[data-scheme]').forEach(e=>{e.innerHTML=schemeTag(e.dataset.scheme)})}
 
+// Group large scheme families (218 IPTC NewsCodes etc.) so the UI stays
+// readable — the DATA stays one-graph-per-scheme; only the presentation folds.
+// A scheme's family = its slug prefix before the first '-', when >1 share it.
+function familyOf(s){ const m=(s.slug||'').match(/^([a-z]+)-/); return m?m[1]:null; }
+function groupSchemes(list){
+  const fam={}; for(const s of list){ const f=familyOf(s); if(f)(fam[f]||=[]).push(s); }
+  const groups=[], singles=[], used=new Set();
+  for(const [f,members] of Object.entries(fam)){
+    if(members.length>=4){ groups.push({family:f,members}); members.forEach(m=>used.add(m)); }
+  }
+  for(const s of list) if(!used.has(s)) singles.push(s);
+  return {groups, singles};
+}
+const FAMILY_LABEL={iptc:'IPTC NewsCodes', eu:'EU authority tables', lc:'Library of Congress', getty:'Getty vocabularies'};
+const famName=f=>FAMILY_LABEL[f]||f;
+
 fetch('/manifest.json').then(r=>r.json()).then(m=>{
   let tot=0;
   SCHEMES=m.included.filter(s=>s.graph).map(s=>{ schemeNames[s.graph]=s.title; tot+=s.quads; return s; });
@@ -157,17 +180,26 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
   cfg.schemes ??= {};
   for(const s of SCHEMES) cfg.schemes[s.graph] ??= {on:true,prio:0};
   saveCfg();
-  $('schemes').innerHTML=m.included.map(s=>`<div class="card"><div class="t">${esc(s.title)}</div>
+  // scheme cards: one card per family (with count) + one per standalone scheme
+  const {groups, singles}=groupSchemes(SCHEMES);
+  const groupCards=groups.map(g=>{
+    const q=g.members.reduce((a,s)=>a+s.quads,0);
+    return `<div class="card"><div class="t">${esc(famName(g.family))}</div>
+      <div class="n">${g.members.length} schemes · ${q.toLocaleString()} triples</div>
+      <div class="lic">family</div></div>`;
+  });
+  const singleCards=singles.map(s=>`<div class="card"><div class="t">${esc(s.title)}</div>
     <div class="n">${s.quads.toLocaleString()} triples</div>
-    <div class="lic">${esc(s.licenseClass)}${s.containerOnly?' · container-only':''}</div></div>`).join('');
-  $('total').textContent=tot.toLocaleString()+' triples, '+SCHEMES.length+' schemes.';
+    <div class="lic">${esc(s.licenseClass)}${s.containerOnly?' · container-only':''}</div></div>`);
+  $('schemes').innerHTML=groupCards.concat(singleCards).join('');
+  $('total').textContent=tot.toLocaleString()+' triples, '+SCHEMES.length+' schemes ('+(groups.length+singles.length)+' groups).';
   renderSchemeTags();
 });
 
 // ---- settings drawer ----
 function openSettings(){
   $('set-rows').value=cfg.rows; $('set-limit').value=cfg.limit; $('set-exact').value=cfg.exactBoost; $('set-onePer').checked=!!cfg.onePer;
-  $('set-schemes').innerHTML=SCHEMES.map(s=>{
+  const srow=s=>{
     const c=cfg.schemes[s.graph]||{on:true,prio:0};
     return `<div class="srow">
       <input type="checkbox" ${c.on?'checked':''} data-g="${esc(s.graph)}" class="s-on">
@@ -177,7 +209,21 @@ function openSettings(){
         <option value="0" ${c.prio==0?'selected':''}>— normal</option>
         <option value="-1" ${c.prio<0?'selected':''}>↓ demote</option>
       </select></div>`;
-  }).join('');
+  };
+  const {groups, singles}=groupSchemes(SCHEMES);
+  const groupBlocks=groups.map(g=>{
+    const allOn=g.members.every(s=>cfg.schemes[s.graph]?.on!==false);
+    return `<details class="sgroup">
+      <summary><input type="checkbox" class="s-grp" data-fam="${esc(g.family)}" ${allOn?'checked':''}
+        onclick="event.stopPropagation()"> <b>${esc(famName(g.family))}</b>
+        <span class="ct">${g.members.length} schemes</span></summary>
+      <div class="sgroup-body">${g.members.map(srow).join('')}</div></details>`;
+  });
+  $('set-schemes').innerHTML=groupBlocks.join('')+singles.map(srow).join('');
+  // family checkbox toggles all its members' checkboxes
+  document.querySelectorAll('.s-grp').forEach(g=>g.addEventListener('change',e=>{
+    e.target.closest('details').querySelectorAll('.s-on').forEach(c=>c.checked=e.target.checked);
+  }));
   $('scrim').classList.add('open'); $('drawer').classList.add('open');
 }
 function closeSettings(){ $('scrim').classList.remove('open'); $('drawer').classList.remove('open'); }
