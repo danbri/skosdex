@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# LRMI (Learning Resource Metadata Initiative) concept scheme "alignmentType", curated by
+# the DCMI LRMI Task Group. SKOS values for educational-resource metadata.
+# License: CC BY 4.0 (DCMI) -> open. Source: RDF/Turtle from dublincore.org.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "LRMI alignmentType (DCMI Learning Resource Metadata Initiative)" ;
+    dcterms:publisher <https://www.dublincore.org/> ;
+    skosdex:conceptSchemeURI <http://purl.org/dcx/lrmi-vocabs/alignmentType/> ;
+    skosdex:sourceURL <https://www.dublincore.org/vocabs/alignmentType.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
