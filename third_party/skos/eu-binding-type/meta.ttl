@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EU Publications Office authority table "binding-type" (EU Vocabularies). Reuse under
+# Commission Decision 2011/833/EU, implemented as CC BY 4.0 -> open. Source:
+# SKOS-core RDF/XML via the OP euvoc-download-handler; converted via rapper.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "binding-type — EU authority table (Publications Office)" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://publications.europa.eu/resource/authority/binding-type> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http://publications.europa.eu/resource/distribution/binding-type/20240313-0/rdf/skos_core/binding-type-skos.rdf&fileName=binding-type-skos.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

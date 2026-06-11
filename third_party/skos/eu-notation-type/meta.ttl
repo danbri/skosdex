@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EU Publications Office authority table "notation-type" (EU Vocabularies). Reuse under
+# Commission Decision 2011/833/EU, implemented as CC BY 4.0 -> open.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "notation-type — EU authority table (Publications Office)" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://publications.europa.eu/resource/authority/notation-type> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fcellar%2F077d1832-2b56-11e7-9412-01aa75ed71a1.0001.05%2FDOC_1&fileName=notation-type-skos.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

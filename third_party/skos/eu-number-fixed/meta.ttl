@@ -1,0 +1,17 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EU eProcurement / eForms codelist "number-fixed" — EU Publications Office (EU
+# Vocabularies). Reuse under Commission Decision 2011/833/EU, implemented as
+# CC BY 4.0 -> open. Source: SKOS-core RDF/XML via the OP euvoc-download-handler;
+# converted via rapper. Part of the complete eProcurement authority-table set.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "number-fixed — EU eProcurement codelist (Publications Office)" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://publications.europa.eu/resource/authority/number-fixed> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fcellar%2F2641c082-d899-11e9-9c4e-01aa75ed71a1.0001.03%2FDOC_1&fileName=number-fixed-skos.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
