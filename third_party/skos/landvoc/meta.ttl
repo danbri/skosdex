@@ -1,0 +1,18 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# LandVoc — the Linked Land Governance Thesaurus. ~326 skos:Concept on land
+# administration, governance, tenure, use & cover; multilingual (EN/FR/ES/PT/
+# Khmer/Vietnamese/Burmese/Thai/Swahili/Arabic…). Curated by the Land Portal
+# Foundation, hosted as an AGROVOC sub-vocabulary by FAO. Native SKOS (RDF/XML).
+# License: CC BY 4.0 (AGROVOC family) -> open. Source: AgroPortal download.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "LandVoc — Linked Land Governance Thesaurus (Land Portal / FAO)" ;
+    dcterms:publisher <https://landportal.org/> ;
+    skosdex:conceptSchemeURI <http://landvoc.org/landvoc> ;
+    skosdex:sourceURL <https://agroportal.eu/ontologies/LANDVOC/download> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

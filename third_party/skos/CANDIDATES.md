@@ -167,7 +167,7 @@ mirror exists but is CSV-transformed (not faithful SKOS), so not preferred.
 | **NDLSH** | Japan | National Diet Library Subject Headings, ~20.8k concepts, Japanese (SKOS-XL) | native SKOS RDF/XML | NDL terms — permissive, attribution, commercial-OK (not CC) → open | **onboarded** — `ndlsh/` (517k quads) |
 | **中國圖書分類法 (Chinese Library Classification)** | Taiwan | NCL CLC 2007, ~28.3k concepts, Chinese prefLabels + notation | native SKOS Turtle | Taiwan OGDL v1 (commercial-OK, attribution) → open | **onboarded** — `ncl-clc/` (221k quads) |
 | **UN SDG taxonomy** | UN (UNSD) | SDG goals→targets→indicators→series | native SKOS (Skosmos) | **no explicit licence** on vocab pages | **backlog** — no single bulk file (whole-vocab export disabled); needs harvest + licence confirmation |
-| **FAO LandVoc** | UN (FAO) | land-governance thesaurus, ships in AGROVOC releases | SKOS-XL | CC BY (AGROVOC family) | **backlog** — easiest UN follow-up (AGROVOC-adjacent) |
+| **FAO LandVoc** | UN (FAO) | land-governance thesaurus, 326 concepts, multilingual (incl. Swahili/Arabic) | native SKOS RDF/XML | CC BY 4.0 (AGROVOC family) | **onboarded** — `landvoc/` (54k quads, AgroPortal download) |
 | **FAO ASFA** | UN (FAO) | aquatic sciences & fisheries | SKOS (advertised) | unconfirmed | **backlog** — no resolving download URL found yet |
 | 中文主題詞表 (Chinese Subject Headings) | Taiwan | NCL subject thesaurus, ~17.9k records | MADS/RDF (not SKOS) | Taiwan OGDL v1 | needs MADS→SKOS conversion (labels mis-tagged `@en` but Chinese) |
 | DBpedia Swahili `skos_categories` | African | Swahili Wikipedia category graph | native SKOS | CC BY-SA (copyleft) | container-only; category graph, not a curated thesaurus |
