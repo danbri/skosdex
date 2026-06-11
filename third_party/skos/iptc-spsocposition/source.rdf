@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:ikos="http://cv.iptc.org/newscodes/ikos/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <ikos:prefSchemeAlias>spsocposition</ikos:prefSchemeAlias>
+      <ikos:authority>http://www.iptc.org</ikos:authority>
+      <dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+      <ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+      <ikos:dateReleased>2024-02-13T12:00:00+00:00</ikos:dateReleased>
+      <skos:prefLabel xml:lang="en-US">Soccer Positions</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Soccer Positions</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Player and official positions in soccer</skos:definition>
+      <skos:definition xml:lang="en-US">Player and official positions in soccer</skos:definition>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/right-fullback"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/left-fullback"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/sweeper"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/defender"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/central-defender"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/right-midfielder"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/left-midfielder"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/center-midfielder"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/manager"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/midfielder"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/attacking-midfielder"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/defensive-midfielder"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/half-backs"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/right-wing"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/left-wing"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/center-forward"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/forward"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/striker"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/goalkeeper"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/coach"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/assistant-coach"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/referee"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocposition/assistant-referee"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/right-fullback">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">right-fullback</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">right-fullback</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">høyreback</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/left-fullback">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">left-fullback</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">left-fullback</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">venstreback</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/sweeper">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">sweeper</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">sweeper</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">sweeper</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/defender">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">defender</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">defender</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">forsvar</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/central-defender">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">central-defender</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">central-defender</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">midtstopper</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/right-midfielder">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">right-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">right-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">høyre-midtbane</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/left-midfielder">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">left-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">left-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">venstre-midtbane</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/center-midfielder">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">center-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">center-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">sentral-midtbane</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/manager">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">manager</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">manager</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">fotballsjef</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2024-02-13T12:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/midfielder">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">midtbane</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/attacking-midfielder">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">attacking-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">attacking-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">offensiv-midtbane</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/defensive-midfielder">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">defensive-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">defensive-midfielder</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">defensiv-midtbane</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/half-backs">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">half-backs</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">half-backs</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">midtforsvar</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/right-wing">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">right-wing</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">right-wing</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">høyreving</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/left-wing">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">left-wing</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">left-wing</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">venstreving</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/center-forward">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">center-forward</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">center-forward</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">spiss</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/forward">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">forward</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">forward</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">angrep</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/striker">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">striker</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">striker</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">spiss</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/goalkeeper">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">goalkeeper</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">goalkeeper</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">målvakt</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/coach">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">coach</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">coach</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">trener</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/assistant-coach">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">assistant-coach</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">assistant-coach</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">assistenttrener</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/referee">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">referee</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">referee</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">dommer</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocposition/assistant-referee">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">assistant-referee</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">assistant-referee</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb-NO">assistentdommer</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocposition/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/events-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-played-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-played-event"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-played-event-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/events-started"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/period-extra-time-added"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/period-extra-time-elapsed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-opposing-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-behind"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-attempts-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-attempts-on-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-attempts-on-goal-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/score-percentage-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/result-effect"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/event-outcome"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/event-standing-points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/event-standing-points-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/events-remaining"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-of-possession"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-of-possession-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-of-possession-percentage-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-of-possession-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/time-of-possession-average-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/series-score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/series-score-opposing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/adjusted-score-for"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstat/adjusted-score-against"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Points accumulated by this associate. For example, points earned by a NASCAR
+                owner.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/events-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">events-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">events-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of sports-events in which this team or player has already
+                participated.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-played-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-played-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-played-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Value for the amount of time played by the team or player over the course of
+                a particular time-span, such as a season.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-played-event">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-played-event</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-played-event</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Value for the amount of time played by this player in a particular
+                sports-event.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-played-event-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-played-event-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-played-event-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Value for the average amount of time played per-event by the player over the
+                course of a particular time-span, such as a season.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/events-started">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">events-started</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">events-started</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of sports-events the player has played in since the start of the
+                event.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/period-extra-time-added">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">period-extra-time-added</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">period-extra-time-added</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many minutes the referee has decided to add to the period.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/period-extra-time-elapsed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">period-extra-time-elapsed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">period-extra-time-elapsed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How much time exactly MMSS that was actually elapsed in the
+                period.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Final or current score of the team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Final or current score of the opposing team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average per-game score for the team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-opposing-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-opposing-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-opposing-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average per-game score for the opposing team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-behind">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-behind</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-behind</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The points or time behind the leading score.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-attempts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Final or current number of attempts to score by a team or player. Example:
+                in ice hockey, would represent total shots on goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-attempts-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-attempts-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-attempts-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Final or current number of attempts to score by an opposing team or
+                player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-attempts-on-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-attempts-on-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-attempts-on-goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A subset of score-attempts. Only counts those attempts that were
+                on-goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-attempts-on-goal-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-attempts-on-goal-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-attempts-on-goal-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Final or current number of attempts to score by an opposing team or player
+                that were on-goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of attempted scores that reached their mark.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/score-percentage-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-percentage-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-percentage-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of attempted scores by opposing team or player that reached their
+                mark.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/result-effect">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">result-effect</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">result-effect</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Describes the effect that the result of the event or rank changing has had
+                on the team. Example: Whether or not a team has qualified for the playoffs, or has
+                been promoted or demoted to a different division.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/event-outcome">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-outcome</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-outcome</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Whether the competitor won, lost, or tied.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/event-standing-points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-standing-points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-standing-points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points were earned as a result of the outcome of this particular
+                event.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/event-standing-points-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-standing-points-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-standing-points-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points were deducted as a result of the outcome of this particular
+                event. This occurs, for example, in the German Handball leagues.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/events-remaining">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">events-remaining</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">events-remaining</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of sports-events the player has yet to participate in.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-of-possession">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-of-possession</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-of-possession</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time the team or player has possession of ball (or similar object
+                like puck).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-of-possession-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-of-possession-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-of-possession-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time the team or player has possession of ball (or similar object
+                like puck) expressed as a percentage of the full time of the match.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-of-possession-percentage-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-of-possession-percentage-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-of-possession-percentage-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time the opposing team or player has possession of ball (or
+                similar object like puck) expressed as a percentage of the full time of the
+                match.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-of-possession-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-of-possession-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-of-possession-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time the team or player has possession of ball (or similar object
+                like puck) per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/time-of-possession-average-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-of-possession-average-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-of-possession-average-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time the opposing team or player has possession of ball (or
+                similar object like puck) per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/series-score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">series-score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">series-score</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of events in a series won by team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/series-score-opposing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">series-score-opposing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">series-score-opposing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of events in a series won by opposing team or player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/adjusted-score-for">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">adjusted-score-for</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">adjusted-score-for</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The final score as adjusted by some authority. Usually as a result of some
+                dispute or transgression that must be settled post-event and rendered in the score.
+                Will differ from the regular score reflecting the number of actual goals scored in
+                play. Should be tested for before displaying actual score.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstat/adjusted-score-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">adjusted-score-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">adjusted-score-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The final score against as adjusted by some authority. Usually as a result
+                of some dispute or transgression that must be settled post-event and rendered in the
+                score. Will differ from the regular score reflecting the number of actual goals
+                scored in play. Should be tested for before displaying actual score.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/regular"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/penalty"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/shootout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/corner-kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/open-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/own-goal"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/regular">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">regular</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">regular</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made during regular play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/penalty">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a penalty shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/shootout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a shootout during tiebreaker.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">freekick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a free kick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/corner-kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">corner-kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">corner-kick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made as a kick from the corner.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/open-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">open-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">open-goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made when there is no goal-keeper in place, but still
+                on the field.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattempt/own-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">own-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">own-goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The score attempt is made towards the own goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

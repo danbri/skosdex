@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenaltyresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/play-on"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/indirect-freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/direct-freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/penalty-shot"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenaltyresult/play-on">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">play-on</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">play-on</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Fouled team has advantage of the ball and is allowed to play
+                on.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenaltyresult/freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">freekick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Fouled team is awarded a freekick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenaltyresult/indirect-freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">indirect-freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">indirect-freekick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Fouled team is awarded a freekick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenaltyresult/direct-freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">direct-freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">direct-freekick</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Fouled team is awarded a freekick.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocpenaltyresult/penalty-shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-shot</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The foul occured in the penalty-shot area so the fouled team is awarded a
+                penalty-shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocpenaltyresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/blocked"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/saved"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/off-post"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/off-bar"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/off-frame"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The shot was successful.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The ball missed the goal completely.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/blocked">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A non-goalkeeper diverted the shot from reaching the goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/saved">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saved</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saved</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The goalie has stopped the shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/off-post">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">off-post</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">off-post</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The side framework of the goal blocked the shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/off-bar">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">off-bar</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">off-bar</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The top framework of the goal blocked the shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptresult/off-frame">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">off-frame</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">off-frame</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The framework of the goal blocked the shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

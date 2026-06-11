@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/play-on"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/corner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/offside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/indirect-freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/direct-freekick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/penalty-shot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/disallowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/fair-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/out-of-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocresult/stoppage"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/play-on">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">play-on</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">play-on</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">freekick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/corner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">corner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">corner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/offside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">offside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">offside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/indirect-freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">indirect-freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">indirect-freekick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/direct-freekick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">direct-freekick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">direct-freekick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/penalty-shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-shot</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/disallowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">disallowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">disallowed</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/fair-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fair-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fair-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/out-of-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">out-of-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">out-of-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocresult/stoppage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">stoppage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">stoppage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

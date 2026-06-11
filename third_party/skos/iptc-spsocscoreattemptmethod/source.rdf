@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/head"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/bicycle-kick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/lob"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/chip"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/foot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/chest"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/knee"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/thigh"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/back"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/head">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">head</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">head</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/bicycle-kick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bicycle-kick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bicycle-kick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/lob">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lob</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lob</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/chip">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">chip</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">chip</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/foot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">foot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">foot</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/chest">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">chest</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">chest</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/knee">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">knee</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">knee</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/thigh">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">thigh</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">thigh</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/back">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">back</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">back</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spsocscoreattemptmethod/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
