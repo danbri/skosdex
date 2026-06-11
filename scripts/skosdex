@@ -563,13 +563,11 @@ async function solrDocs() {
   const MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','equivalentClass','equivalentProperty','focus']);
   const TYPE = NS.rdf + 'type';
   const CONCEPT = NS.skos + 'Concept';
-  // Indexable subject types. Beyond skos:Concept, we index owl:Class /
-  // owl:ObjectProperty so non-SKOS ontology graphs (e.g. the wikidata-ontology
-  // named graph — genuine RDFS/OWL, not a thesaurus) are searchable. rdfs:label
-  // is treated as a prefLabel for these. The data model is kept faithful in the
-  // triplestore; the Solr layer just needs *a* label + type to make a doc.
-  const INDEXABLE_TYPES = new Set([CONCEPT, NS.owl + 'Class', NS.owl + 'ObjectProperty', NS.owl + 'DatatypeProperty', NS.rdf + 'Property']);
-  const RDFS_LABEL = 'http://www.w3.org/2000/01/rdf-schema#label';
+  // Solr indexes skos:Concept only. Non-SKOS ontology graphs (e.g.
+  // wikidata-ontology — genuine RDFS/OWL) live in the triplestore for SPARQL
+  // but are deliberately NOT force-indexed here; ontology search is a separate
+  // planned path. (An earlier change indexed owl:Class/ObjectProperty + treated
+  // rdfs:label as a label; reverted per owner — keep the index SKOS-only.)
   // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
   const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 
@@ -609,9 +607,7 @@ async function solrDocs() {
     if (!m) continue;
     const [, s, p, oIri, oLit, lang, graph] = m;
     if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, exactLabel: null, fields: {} }; }
-    if (p === TYPE && INDEXABLE_TYPES.has(oIri)) cur.isConcept = true;
-    // rdfs:label -> prefLabel (for owl:Class/Property in non-SKOS graphs).
-    if (p === RDFS_LABEL && oLit !== undefined) (cur.fields.prefLabel ||= []).push(oLit);
+    if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
     const field = FIELD[p];
     if (field) {
       const val = oIri !== undefined ? oIri : oLit;
