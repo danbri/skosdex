@@ -58,3 +58,4 @@ or manually via the Actions "Run workflow" button (`workflow_dispatch`).
   RocksDB needs several GB. A performance VM with ≥8GB RAM loads reliably.
 - Posting the full `solr-docs.json` in one request can be memory-heavy; if Solr
   OOMs, split the post into batches in `start.sh`.
+# redeploy 20260611T171103: LFS quota restored, full 251-scheme corpus
