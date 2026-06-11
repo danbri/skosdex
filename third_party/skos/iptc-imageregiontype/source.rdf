@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:ikos="http://cv.iptc.org/newscodes/ikos/"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#">
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <ikos:prefSchemeAlias>imgregtype</ikos:prefSchemeAlias>
+      <ikos:authority>http://www.iptc.org</ikos:authority>
+      <dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+      <ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+      <ikos:dateReleased>2019-12-06T12:00:00+00:00</ikos:dateReleased>
+      <skos:prefLabel xml:lang="en-GB">Image Region Type</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Type of thing(s) depicted by a region in an image</skos:definition>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/animal"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/artwork"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/dividingLine"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/plant"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/geoArea"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/graphic"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/machineCode"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/human"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/product"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/text"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/building"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/vehicle"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/food"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/clothing"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/rockFormation"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/bodyOfWater"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/animal">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">animal</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A living organism different from humans or flora</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q729"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/artwork">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">artwork</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Artistic work</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:broadMatch rdf:resource="http://www.wikidata.org/entity/Q17537576"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/dividingLine">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">dividing line</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A line expressing a visual division of the image, such as a horizon</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/plant">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">plant</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A living organism different from humans and animals</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q756"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/geoArea">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">geographic area</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A named area on the surface of the planet earth</skos:definition>
+      <skos:note xml:lang="en-GB">Specific details of the area can be expressed by other metadata</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:closeMatch rdf:resource="http://www.wikidata.org/entity/Q1496967"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/graphic">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">graphic</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A graphic representation of information</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:closeMatch rdf:resource="http://www.wikidata.org/entity/Q1027879"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/machineCode">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">machine-readable code</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Optical label such as barcode or QR code</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:closeMatch rdf:resource="http://www.wikidata.org/entity/Q1048236"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/human">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">human</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A human being</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q5"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/product">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">product</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A thing that was produced and can be handed over</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q2424752"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/text">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">text</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Human readable script of any language</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q234460"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/building">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">building</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A structure with walls and roof in most cases</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q41176"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/vehicle">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">vehicle</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">An object used for transporting something, like car, train, ship, plane or bike</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q42889"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/food">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">food</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Substances providing nutrition for a living body</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q2095"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/clothing">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">clothing</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Something worn to cover the body</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q11460"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/rockFormation">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">rock formation</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A special formation of stone mass</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q631305"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregiontype/bodyOfWater">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">body of water</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">A significant accumulation of water</skos:definition>
+      <skos:note xml:lang="en-GB">Including a waterfall, a geyser and other phenomena of water</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregiontype/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+      <skos:exactMatch rdf:resource="http://www.wikidata.org/entity/Q15324"/>
+   </rdf:Description>
+</rdf:RDF>

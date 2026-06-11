@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:ikos="http://cv.iptc.org/newscodes/ikos/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <ikos:prefSchemeAlias>imgregrole</ikos:prefSchemeAlias>
+      <ikos:authority>http://www.iptc.org</ikos:authority>
+      <dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+      <ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+      <ikos:dateReleased>2025-03-31T12:00:00+00:00</ikos:dateReleased>
+      <skos:prefLabel xml:lang="en-GB">Image Region Role</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Role of an image region among other image regions of the same image or other images</skos:definition>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/cropping"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/recomCropping"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/landscapeCropping"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/portraitCropping"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/squareCropping"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/compositeImageItem"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/copyrightRegion"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/subjectArea"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/mainSubjectArea"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/areaOfInterest"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/anonymised"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/recommendedAnonymisation"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/businessUse"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/cropping">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">cropping</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region can be used for any cropping</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/recomCropping">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">recommended cropping</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region is recommended for cropping</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/landscapeCropping">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">landscape format cropping</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region suggested for cropping in landscape format</skos:definition>
+      <skos:note xml:lang="en-GB">Use for images of non-landscape format</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/portraitCropping">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">portrait format cropping</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region suggested for cropping in portrait format</skos:definition>
+      <skos:note xml:lang="en-GB">Use for images of non-portrait format</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/squareCropping">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">square format cropping</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region suggested for cropping in square format</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/compositeImageItem">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">composite image item</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region of an item in a composite image</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/copyrightRegion">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">copyright region</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region with a copyright different from the copyright of the whole picture</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/subjectArea">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">subject area</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region contains a subject in the overall scene.</skos:definition>
+      <skos:note xml:lang="en-GB">Multiple regions of an image may be set as subject area.</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/mainSubjectArea">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">main subject area</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region contains the main subject in the overall scene. Same as the Exif SubjectArea.</skos:definition>
+      <skos:note xml:lang="en-GB">Only a single region of an image may be set as main subject area.</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/areaOfInterest">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">area of interest</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region contains a thing of special interest to the viewer</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/anonymised">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">anonymised</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region obfuscates a person or object which should not be identifiable by this image</skos:definition>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2025-03-31T12:00:00+00:00</ikos:created>
+      <ikos:modified>2025-03-31T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/recommendedAnonymisation">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">recommended anonymisation</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image Region should obfuscate a person or object which should not be identifiable by this image in an upcoming workflow step</skos:definition>
+      <skos:note xml:lang="en-GB">Obfuscation may be required for protecting privacy, security, or for legal reasons before making an image public.</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2025-03-31T12:00:00+00:00</ikos:created>
+      <ikos:modified>2025-03-31T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/imageregionrole/businessUse">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-GB">business use</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Image region is dedicated to a specific business use</skos:definition>
+      <skos:note xml:lang="en-GB">In addition a more granular role could be expressed by a term of a role CV of this business.</skos:note>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/imageregionrole/"/>
+      <ikos:created>2019-12-06T12:00:00+00:00</ikos:created>
+      <ikos:modified>2019-12-06T12:00:00+00:00</ikos:modified>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+</rdf:RDF>

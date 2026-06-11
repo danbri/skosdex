@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>eprol</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:05:56+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Event Participant Role</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the role a participant takes in the event.</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/artist"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/artistGroup"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/director"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/moderator"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/panelist"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/presenter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/student"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/team"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/trainer"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/actor">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Actor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An actor </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artist">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/actorGroup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Group of actors</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A group of actors, includes a theatre company </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artistGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artist">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Artist</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An artistic participant </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/actor">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower>
+		<skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/dancer">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower>
+		<skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/musician">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower>
+		<skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/singer">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artistGroup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Group of artists</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A group of artists </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/actorGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower>
+		<skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/danceGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower>
+		<skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/musicGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower>
+		<skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/singerGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/awayteam">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Away Team</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Sport team playing away.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2013-01-10T12:00:00+00:00</ikos:created>
+		<ikos:modified>2013-01-10T12:00:00+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/team">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/danceGroup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Group of dancers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A group of dancers </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artistGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/dancer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Dancer</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A dancer </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artist">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/director">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Director</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The director of the event </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/hometeam">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Home Team</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Sport team playing at home</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2013-01-10T12:00:00+00:00</ikos:created>
+		<ikos:modified>2013-01-10T12:00:00+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/ALIAS-IS-UNKNOWN/">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/moderator">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Moderator</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The moderator of the event </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/musicGroup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Group of musicians</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A group of musicians, includes a band or orchestra </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artistGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/musician">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Musician</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A musician </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artist">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/panelist">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Panelist</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A member of the panel of a discussion, excluding the moderator </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/presenter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Presenter</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A person giving any kind of presentation, including a talk </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/singer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Singer</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A singer </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artist">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/singerGroup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Group of singers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A group of singers, includes a choir </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><skos:broader>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/artistGroup">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:broader><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/student">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Student</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A person being taught at the event </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Team</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A group of persons associated together.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2013-01-10T12:00:00+00:00</ikos:created>
+		<ikos:modified>2013-01-10T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><skos:narrower>
+			<rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/awayteam">
+				<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+			</rdf:Description>
+		</skos:narrower><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/eventparticipantrole/trainer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Trainer</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A person training others at the event </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/eventparticipantrole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:09:26+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

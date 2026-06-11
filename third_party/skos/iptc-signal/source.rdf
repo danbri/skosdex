@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>sig</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:09:11+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Signal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The signals are instructions to the processor of an item that the content may require special handling.</skos:definition>
+		<skos:note xml:lang="en-GB">This vocabulary applies only to NewsML-G2 items.</skos:note>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/signal/correction"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/signal/cwarn"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/signal/heartbeat"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/signal/repeat"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/signal/test"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/signal/update"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/correction">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Correction</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">This version of an item fixes an error in a previous version. Correction must be used only at the item level.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/signal/"/>
+		<ikos:created>2012-01-20T12:00:00+00:00</ikos:created>
+		<ikos:modified>2012-01-20T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/cwarn">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Content Warning</skos:prefLabel>
+		<skos:definition xml:lang="en-GB"> The content of the item should be reviewed as it may be perceived as being offensive.
+</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/signal/"/>
+		<ikos:created>2010-12-16T12:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-16T16:14:39+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/heartbeat">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Heartbeat</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The item is a planned periodic heartbeat without any editorial content. Heartbeat can be used at the item or the News Message level.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/signal/"/>
+		<ikos:created>2012-01-20T12:00:00+00:00</ikos:created>
+		<ikos:modified>2012-01-20T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/repeat">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Repeat</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The current item revision has been sent before. Repeat must be used only at the News Message level.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/signal/"/>
+		<ikos:created>2012-01-20T12:00:00+00:00</ikos:created>
+		<ikos:modified>2012-01-20T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/test">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Test</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">This item is identical in every way to a production item, except that it is for testing only. Test must be used only at the item level.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/signal/"/>
+		<ikos:created>2012-01-20T12:00:00+00:00</ikos:created>
+		<ikos:modified>2012-01-20T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/signal/update">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Update</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">This version of an item updates some part of the previous item. Update must be used only at the item level.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/signal/"/>
+		<ikos:created>2012-01-20T12:00:00+00:00</ikos:created>
+		<ikos:modified>2012-01-20T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

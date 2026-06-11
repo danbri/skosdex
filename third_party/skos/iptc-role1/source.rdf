@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>role1</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:08:36+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Role in Package</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the role of a NewsML 1 news item within a package of several news items.</skos:definition>
+		<skos:note xml:lang="en-GB">This vocabulary applies only to NewsML 1.x items.</skos:note>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Abstract"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Advertisement"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Caption"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Content_list"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Description"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Main"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Preview"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Reference_List"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Sponsor´s_Message"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Supplementary"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Supporting"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Table"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/role1/Thumbnail"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Abstract">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Abstract</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A summary or synopsis featuring the most important points of a news-component. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Advertisement">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Advertisement</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Piece of material whose presence is paid for. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Caption">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Caption</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Text providing information about the related content. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Content_list">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Content list</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A list of material that comprises a news object. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Description">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Description</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A description of the NewsItem. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Main">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Main</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Principal component. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Preview">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Preview</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A partial (possibly random) rendition of a news-component, such as a segment of video or audio. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Reference_List">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Reference List</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A list of material that does not form part of the news object. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Sponsor´s_Message">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Sponsor´s Message</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Information about or by a person or </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Supplementary">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Supplementary</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Information on a related theme. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Supporting">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Supporting</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Additional information that amplifies the original theme. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Table">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Table</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Information that needs to be presented in a structured way. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/role1/Thumbnail">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Thumbnail</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A news-component substitute, smaller than the original, used for convenience. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/role1/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:13:55+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

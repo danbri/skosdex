@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>colsp</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:05:50+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Colorspace</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the colorspace of a digital image.</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/AdobeRGB"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/Bi-Level"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/CMY"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/CMY(K)"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/Greyscale"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/JCC"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/JCN"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/JCU"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/JMPA"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/L*a*b*_(K)_CIE"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/Palette"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/RGB"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/RGB_SMPTE"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/sRGB"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/X,Y,Z_CIE"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/Y,U,V_(K)"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/colorspace/YCbCr"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/AdobeRGB">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">AdobeRGB</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Adobe defined RGB </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/Bi-Level">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Bi-Level</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Monochrome Color space used e.g. in Facsimile Transmission. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/CMY">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">CMY</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">CMY device dependant Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/CMY(K)">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">CMY(K)</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">CMY(K) device dependant Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/Greyscale">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Greyscale</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Greyscale Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/JCC">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Japan Colour Coated</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Sheet-fed offset press, ink total 350% </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/JCN">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Japan Colour for Newspapers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">JCN 2002/Ver.1 ISO/TC130 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/JCU">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Japan Colour UnCoated</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Sheet-fed offset press, ink total 310% </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/JMPA">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Japan Web Coated(Ad)</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Web offset press 310% </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/L*a*b*_(K)_CIE">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">L*a*b* (K) CIE</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">CIE L*a*b* (K) Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/Palette">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Palette</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Palette Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/RGB">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">RGB</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">RGB device dependant Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/RGB_SMPTE">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">RGB SMPTE</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">SMPTE RGB Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/sRGB">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">sRGB</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">IEC 61966-2-1 </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/X,Y,Z_CIE">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">X,Y,Z CIE</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">X,Y,Z CIE Color space (default illuminant D50). </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/Y,U,V_(K)">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Y,U,V (K)</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Y,U,V (K) (default illuminant D65) Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/colorspace/YCbCr">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">YCbCr</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">YCbCr Color space. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/colorspace/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T21:47:43+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

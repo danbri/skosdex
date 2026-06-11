@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/drive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/overturned"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/timeout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/penalty"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/fumble-return"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/pass-intercepted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/field-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/pass-complete"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/kickoff"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/rush"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/kickoff-onside"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/extra-point"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/pass-incomplete"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/punt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spamfaction/sack"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/drive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/overturned">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">overturned</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">overturned</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/timeout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">timeout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">timeout</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/penalty">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/fumble-return">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fumble-return</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fumble-return</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/pass-intercepted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass-intercepted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass-intercepted</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/field-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">field-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">field-goal</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/pass-complete">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass-complete</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass-complete</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/kickoff">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kickoff</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kickoff</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/rush">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rush</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rush</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/kickoff-onside">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kickoff-onside</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kickoff-onside</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/extra-point">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">extra-point</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">extra-point</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/pass-incomplete">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pass-incomplete</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pass-incomplete</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/punt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">punt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">punt</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spamfaction/sack">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sack</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sack</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spamfaction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

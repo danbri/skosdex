@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/hashscope/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>hashscope</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:05:59+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Hash Scope</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the scope of a hash value.</skos:definition>
+		<skos:note xml:lang="en-GB">This vocabulary applies only to NewsML-G2 items.</skos:note>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/hashscope/content"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/hashscope/provmix"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/hashscope/content">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">content</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The hash value is generated from the content only.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/hashscope/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/hashscope/provmix">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">provider mix</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The hash value is generated from  a provider specific mix of content and metadata.
+</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/hashscope/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

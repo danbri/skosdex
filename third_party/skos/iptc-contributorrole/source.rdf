@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/contributorrole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>ctrol</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-04-04T17:04:43+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Contributor Role</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the role of a contributor</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/contributorrole/descrWriter"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/contributorrole/descrWriter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Description Writer</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The person or party editing the description of content</skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/contributorrole/"/>
+		<ikos:created>2017-12-13T12:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2017-12-13T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/descrWriter"/>
+	</rdf:Description>
+</rdf:RDF>

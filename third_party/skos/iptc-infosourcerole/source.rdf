@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>isrol</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-04-04T17:05:00+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Information Source Role</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the role of an information source.</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/contentSource"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/imgSupplier"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/interviewee"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/mediaOffice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/origcont"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/originfo"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/spokesperson"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/contentSource">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Content Source</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party which contributed to the content as a source</skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2017-12-05T12:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2017-12-05T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/contentSource"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/imgSupplier">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Image Supplier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party which supplied an image as content of this item.</skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2018-01-25T12:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2018-01-25T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/imgSupplier"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/interviewee">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Interviewee</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A person who granted an interview </skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2010-12-15T22:09:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/interviewee"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/mediaOffice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Media Office</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The media relationships office of a person, organisation or company </skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2010-12-15T22:09:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/mediaOffice"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/origcont">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">content originator</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party which originated the content of this item.</skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/origcont"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/originfo">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">information originator</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party which provided some information used to create or enhance the content of this item.</skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/originfo"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/infosourcerole/spokesperson">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">Spokesperson</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The spokesperson of a person, organisation or company </skos:definition>
+		<skos:changeNote xml:lang="en-GB">Retired. Use the corresponding concept of the Content Production Party Role News Codes</skos:changeNote>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/infosourcerole/"/>
+		<ikos:created>2008-01-29T01:00:00+00:00</ikos:created>
+		<ikos:retired>2018-04-04T12:00:00+00:00</ikos:retired>
+		<ikos:modified>2010-12-15T22:09:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--><skos:exactMatch rdf:resource="http://cv.iptc.org/newscodes/contentprodpartyrole/spokesperson"/>
+	</rdf:Description>
+</rdf:RDF>

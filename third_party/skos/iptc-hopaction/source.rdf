@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/hopaction/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>hopaction</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:06:00+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Hop Action</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the action taken at a hop of the hop history.</skos:definition>
+		<skos:note xml:lang="en-GB">This vocabulary applies only to NewsML-G2 items.</skos:note>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/hopaction/created"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/hopaction/enhanced"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/hopaction/forwarded"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/hopaction/transformed"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/hopaction/created">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">created</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party has created the target of the action.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/hopaction/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/hopaction/enhanced">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">enhanced</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party has enhanced the target of the action.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/hopaction/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/hopaction/forwarded">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">forwarded</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party has forwarded the object without making any change to it.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/hopaction/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/hopaction/transformed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">transformed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A party has transformed the target of the action. Transforming means that an existing target was changed in data format.
+</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/hopaction/"/>
+		<ikos:created>2011-11-04T12:00:00+00:00</ikos:created>
+		<ikos:modified>2011-11-04T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

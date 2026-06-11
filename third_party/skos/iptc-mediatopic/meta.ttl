@@ -1,0 +1,14 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+# IPTC NewsCodes "mediatopic". IPTC's served Turtle references its own scheme prefix
+# (mediatopic:) without declaring it (lenient-parser-only); the committed source.ttl
+# prepends the missing @prefix so n3 parses it. CC BY 4.0.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "IPTC NewsCodes: mediatopic" ;
+    dcterms:publisher <https://iptc.org/> ;
+    skosdex:conceptSchemeURI <http://cv.iptc.org/newscodes/mediatopic/> ;
+    skosdex:sourceFile "source.ttl" ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

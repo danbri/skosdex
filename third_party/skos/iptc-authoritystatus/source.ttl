@@ -1,0 +1,179 @@
+@prefix authoritystatus: <http://cv.iptc.org/newscodes/authoritystatus/> .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix altidrole:  <http://cv.iptc.org/newscodes/altidrole/> .
+@prefix aoprop:  <http://cv.iptc.org/newscodes/aoproperty/> .
+@prefix app:  <http://cv.iptc.org/newscodes/application/> .
+@prefix aspfacet:  <http://cv.iptc.org/newscodes/asportfacet/> .
+@prefix aspfacetvalue:  <http://cv.iptc.org/newscodes/asportfacetvalue/> .
+@prefix acdc:  <http://cv.iptc.org/newscodes/audiocodec/> .
+@prefix catinat:  <http://cv.iptc.org/newscodes/catinature/> .
+@prefix chprop:  <http://cv.iptc.org/newscodes/characteristicsproperty/> .
+@prefix cinat:  <http://cv.iptc.org/newscodes/cinature/> .
+@prefix colsp:  <http://cv.iptc.org/newscodes/colorspace/> .
+@prefix colin:  <http://cv.iptc.org/newscodes/colourindicator/> .
+@prefix ctech:  <http://cv.iptc.org/newscodes/commtech/> .
+@prefix cptdefrole:  <http://cv.iptc.org/newscodes/conceptdefinitionrole/> .
+@prefix cptnoterole:  <http://cv.iptc.org/newscodes/conceptnoterole/> .
+@prefix cpprole: <http://cv.iptc.org/newscodes/contentprodpartyrole/> .
+@prefix crel:  <http://cv.iptc.org/newscodes/conceptrelation/> .
+@prefix conf:  <http://cv.iptc.org/newscodes/confidence/> .
+@prefix ciprol:  <http://cv.iptc.org/newscodes/contactinfopartrole/> .
+@prefix cwarn:  <http://cv.iptc.org/newscodes/contentwarning/> .
+@prefix ctrol:  <http://cv.iptc.org/newscodes/contributorrole/> .
+@prefix cpnat:  <http://cv.iptc.org/newscodes/cpnature/> .
+@prefix drol:  <http://cv.iptc.org/newscodes/descriptionrole/> .
+@prefix digsrctype:  <http://cv.iptc.org/newscodes/digitalsourcetype/> .
+@prefix dimensionunit:  <http://cv.iptc.org/newscodes/dimensionunit/> .
+@prefix ednoterole:  <http://cv.iptc.org/newscodes/ednoterole/> .
+@prefix dummy:  <http://cv.iptc.org/newscodes/dummy/> .
+@prefix erol:  <http://cv.iptc.org/newscodes/edrole/> .
+@prefix encd:  <http://cv.iptc.org/newscodes/encoding/> .
+@prefix entityprop:  <http://cv.iptc.org/newscodes/entityproperty/> .
+@prefix ecirol:  <http://cv.iptc.org/newscodes/eventcontactinforole/> .
+@prefix edconf:  <http://cv.iptc.org/newscodes/eventdateconfirm/> .
+@prefix eocstat:  <http://cv.iptc.org/newscodes/eventoccurstatus/> .
+@prefix eorol:  <http://cv.iptc.org/newscodes/eventorganiserrole/> .
+@prefix eprol:  <http://cv.iptc.org/newscodes/eventparticipantrole/> .
+@prefix eregrol:  <http://cv.iptc.org/newscodes/eventregrole/> .
+@prefix fisymtype:  <http://cv.iptc.org/newscodes/financialinstrumentsymboltype/> .
+@prefix frmt:  <http://cv.iptc.org/newscodes/format/> .
+@prefix gen:  <http://cv.iptc.org/newscodes/generic/> .
+@prefix genre:  <http://cv.iptc.org/newscodes/genre/> .
+@prefix hashscope:  <http://cv.iptc.org/newscodes/hashscope/> .
+@prefix hashtype:  <http://cv.iptc.org/newscodes/hashtype/> .
+@prefix hopaction:  <http://cv.iptc.org/newscodes/hopaction/> .
+@prefix hatarget:  <http://cv.iptc.org/newscodes/hopactiontarget/> .
+@prefix howextr:  <http://cv.iptc.org/newscodes/howextracted/> .
+@prefix howpr:  <http://cv.iptc.org/newscodes/howpresent/> .
+@prefix ikos:  <http://cv.iptc.org/newscodes/ikos/> .
+@prefix impt:  <http://cv.iptc.org/newscodes/importance/> .
+@prefix isrol:  <http://cv.iptc.org/newscodes/infosourcerole/> .
+@prefix irel:  <http://cv.iptc.org/newscodes/itemrelation/> .
+@prefix irep:  <http://cv.iptc.org/newscodes/itemrepresentation/> .
+@prefix lbtyp:  <http://cv.iptc.org/newscodes/labeltype/> .
+@prefix lrol:  <http://cv.iptc.org/newscodes/languagerole/> .
+@prefix loutorient:  <http://cv.iptc.org/newscodes/layoutorientation/> .
+@prefix loctyp:  <http://cv.iptc.org/newscodes/location/> .
+@prefix medtop:  <http://cv.iptc.org/newscodes/mediatopic/> .
+@prefix mtyp:  <http://cv.iptc.org/newscodes/mediatype/> .
+@prefix medtype:  <http://cv.iptc.org/newscodes/mediatype1/> .
+@prefix nprt:  <http://cv.iptc.org/newscodes/namepart/> .
+@prefix nrol:  <http://cv.iptc.org/newscodes/namerole/> .
+@prefix ncostat:  <http://cv.iptc.org/newscodes/newscoveragestatus/> .
+@prefix nityp:  <http://cv.iptc.org/newscodes/newsitemtype/> .
+@prefix nmsig:  <http://cv.iptc.org/newscodes/newsmsgsignal/> .
+@prefix nprod:  <http://cv.iptc.org/newscodes/newsproduct/> .
+@prefix nprov:  <http://cv.iptc.org/newscodes/newsprovider/> .
+@prefix ninat:  <http://cv.iptc.org/newscodes/ninature/> .
+@prefix not:  <http://cv.iptc.org/newscodes/notation/> .
+@prefix oito:  <http://cv.iptc.org/newscodes/ofinterestto/> .
+@prefix pgrmod:  <http://cv.iptc.org/newscodes/pkggroupmode/> .
+@prefix plinat:  <http://cv.iptc.org/newscodes/plinature/> .
+@prefix prio:  <http://cv.iptc.org/newscodes/priority/> .
+@prefix prodgenre:  <http://cv.iptc.org/newscodes/productgenre/> .
+@prefix prop:  <http://cv.iptc.org/newscodes/property/> .
+@prefix prov:  <http://cv.iptc.org/newscodes/provider/> .
+@prefix stat:  <http://cv.iptc.org/newscodes/pubstatusg2/> .
+@prefix rtype:  <http://cv.iptc.org/newscodes/ratertype/> .
+@prefix rcalctype:  <http://cv.iptc.org/newscodes/rcalctype/> .
+@prefix rel:  <http://cv.iptc.org/newscodes/relevance/> .
+@prefix rnd:  <http://cv.iptc.org/newscodes/rendition/> .
+@prefix riaspect:  <http://cv.iptc.org/newscodes/riaspect/> .
+@prefix rightsprop:  <http://cv.iptc.org/newscodes/rightsproperty/> .
+@prefix riscope:  <http://cv.iptc.org/newscodes/riscope/> .
+@prefix role1:  <http://cv.iptc.org/newscodes/role1/> .
+@prefix rscaleunit:  <http://cv.iptc.org/newscodes/rscaleunit/> .
+@prefix scn:  <http://cv.iptc.org/newscodes/scene/> .
+@prefix sev:  <http://cv.iptc.org/newscodes/severity/> .
+@prefix sig:  <http://cv.iptc.org/newscodes/signal/> .
+@prefix pst1:  <http://cv.iptc.org/newscodes/status1/> .
+@prefix subj:  <http://cv.iptc.org/newscodes/subjectcode/> .
+@prefix squ:  <http://cv.iptc.org/newscodes/subjectqualifier/> .
+@prefix timeunit:  <http://cv.iptc.org/newscodes/timeunit/> .
+@prefix tpctyp:  <http://cv.iptc.org/newscodes/topictype/> .
+@prefix trustindicator:  <http://cv.iptc.org/newscodes/trustindicator/> .
+@prefix urgy:  <http://cv.iptc.org/newscodes/urgency/> .
+@prefix useracttype:  <http://cv.iptc.org/newscodes/useractiontype/> .
+@prefix valfmt:  <http://cv.iptc.org/newscodes/valueformat/> .
+@prefix vcdc:  <http://cv.iptc.org/newscodes/videocodec/> .
+@prefix videodef:  <http://cv.iptc.org/newscodes/videodefinition/> .
+@prefix ivqu:  <http://cv.iptc.org/newscodes/videoqualifier/> .
+@prefix sov:  <http://cv.iptc.org/newscodes/videoscaling/> .
+@prefix why:  <http://cv.iptc.org/newscodes/whypresent/> .
+@prefix wldreg:  <http://cv.iptc.org/newscodes/worldregion/> .
+@prefix a1312cat:  <http://cvx.iptc.org/anpa1312-category/> .
+@prefix a1312prio:  <http://cvx.iptc.org/anpa1312-priority/> .
+@prefix a1312svc:  <http://cvx.iptc.org/anpa1312-servicelevel/> .
+@prefix a1312vers:  <http://cvx.iptc.org/anpa1312-version/> .
+@prefix bcp47:  <http://cvx.iptc.org/bcp47/> .
+@prefix cusip:  <http://cvx.iptc.org/cusip/> .
+@prefix gics:  <http://cvx.iptc.org/gics/> .
+@prefix isin:  <http://cvx.iptc.org/isin/> .
+@prefix mic:  <http://cvx.iptc.org/iso10383-mic/> .
+@prefix iso3166-1a2:  <http://cvx.iptc.org/iso3166-1a2/> .
+@prefix iso3166-1a3:  <http://cvx.iptc.org/iso3166-1a3/> .
+@prefix iso4217a:  <http://cvx.iptc.org/iso4217a/> .
+@prefix iso4217n:  <http://cvx.iptc.org/iso4217n/> .
+@prefix secst:  <http://cvx.iptc.org/secst/> .
+@prefix sedol:  <http://cvx.iptc.org/sedol/> .
+@prefix tidm:  <http://cvx.iptc.org/tidm/> .
+@prefix dbpedia:  <http://dbpedia.org/resource/> .
+@prefix mb-artist:  <http://musicbrainz.org/artist/> .
+@prefix mb-label:  <http://musicbrainz.org/label/> .
+@prefix mb-recording:  <http://musicbrainz.org/recording/> .
+@prefix mb-release:  <http://musicbrainz.org/release/> .
+@prefix mb-releasegroup:  <http://musicbrainz.org/release-group/> .
+@prefix mb-work:  <http://musicbrainz.org/work/> .
+@prefix geonames:  <http://sws.geonames.org/> .
+@prefix freebase:  <http://www.freebase.com> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix wikidata:  <http://www.wikidata.org/entity/> .
+
+
+<http://cv.iptc.org/newscodes/authoritystatus/> 
+	rdf:type skos:ConceptScheme ; 
+  ikos:prefSchemeAlias "authoritystatus" ;
+  ikos:authority "http://www.iptc.org" ;
+  dct:rightsHolder "IPTC, International Press Telecommunications Council - https://iptc.org" ;
+  ikos:licenceLink "http://creativecommons.org/licenses/by/4.0/" ;
+  ikos:dateReleased "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+  dct:dateSubmitted "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+  skos:prefLabel "Authority Status"@en-GB ;
+  skos:definition "Describes the status of the authority managing a resource such as a scheme or a catalog."@en-GB ;
+	skos:HasTopConcept		authoritystatus:nocurrentauthority ;
+	skos:HasTopConcept		authoritystatus:nosingleauthority ;
+	skos:HasTopConcept		authoritystatus:countryspecificauthority .
+
+authoritystatus:nocurrentauthority
+	rdf:type skos:Concept ;
+	skos:prefLabel	"No current authority"@en-GB ;
+	skos:definition	"The values in this resource have no current authority. For example, they were managed by an entity that no longer exists."@en-GB ;
+	skos:inScheme <http://cv.iptc.org/newscodes/authoritystatus/>  ;
+	ikos:created "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	dct:created "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	ikos:modified "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	dct:modified "2023-05-17T12:00:00+00:00"^^xsd:dateTime  .
+
+authoritystatus:nosingleauthority
+	rdf:type skos:Concept ;
+	skos:prefLabel	"No single authority"@en-GB ;
+	skos:definition	"No single authority manages the values in this resource. "@en-GB ;
+	skos:inScheme <http://cv.iptc.org/newscodes/authoritystatus/>  ;
+	ikos:created "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	dct:created "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	ikos:modified "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	dct:modified "2023-05-17T12:00:00+00:00"^^xsd:dateTime  .
+
+authoritystatus:countryspecificauthority
+	rdf:type skos:Concept ;
+	skos:prefLabel	"Country-specific authority"@en-GB ;
+	skos:definition	"The values in this resource are managed on a per-country basis."@en-GB ;
+	skos:inScheme <http://cv.iptc.org/newscodes/authoritystatus/>  ;
+	ikos:created "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	dct:created "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	ikos:modified "2023-05-17T12:00:00+00:00"^^xsd:dateTime ;
+	dct:modified "2023-05-17T12:00:00+00:00"^^xsd:dateTime  .

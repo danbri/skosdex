@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/rscaleunit/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>rscaleunit</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:08:53+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Rating Scale Unit NewsCodes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates the units of a numeric rating value</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/rscaleunit/number"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/rscaleunit/star"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/rscaleunit/number">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">number</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Numeric rating</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/rscaleunit/"/>
+		<ikos:created>2013-02-14T12:00:00+00:00</ikos:created>
+		<ikos:modified>2013-02-14T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/rscaleunit/star">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">star</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Star rating</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/rscaleunit/"/>
+		<ikos:created>2013-02-14T12:00:00+00:00</ikos:created>
+		<ikos:modified>2013-02-14T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

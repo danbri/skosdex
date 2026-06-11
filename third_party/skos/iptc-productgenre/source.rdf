@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>prodgenre</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:06:56+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Product Genre</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Product genres for media objects</skos:definition>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/comedy"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/drama"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/entertainment"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/factual"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/news"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/sport"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/travel"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/productgenre/weather"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/comedy">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">comedy</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to a comedy program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program classed as comedy, such as "Friends" or "The Office."</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/drama">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">drama</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to a fictional drama program and/or event.</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program discussing or showing a fictional drama such as BBC’s "Poldark" or the program itself.</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/entertainment">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">entertainment</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to an entertainment program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program covering general entertainment, such as a film premier.</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/factual">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">factual</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to a factual program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program covering a documentary, such as David Attenborough’s "Life on Earth."</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/news">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">news</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to general news program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program covering general news such as the 6pm News program (whole program) and individual items within that program.</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/sport">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">sport</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to a sport program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program covering a sports event or related news, such as an interview with a sports personality or Olympics results.</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/travel">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">travel</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to a travel program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program covering a travel item or event, such as delays due to a strike action or a program reviewing holiday destinations.</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/productgenre/weather">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">weather</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The object contains material relating to a weather program and/or event</skos:definition>
+		<skos:note xml:lang="en-GB">Example: A news item or program covering the weather, such as an exceptionally hot or wet summer or a program about a storm.</skos:note>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/productgenre/"/>
+		<ikos:created>2016-09-01T12:00:00+00:00</ikos:created>
+		<ikos:modified>2016-09-01T12:00:00+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
