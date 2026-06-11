@@ -1,0 +1,11 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "IPTC NewsCodes: rcalctype" ;
+    dcterms:publisher <https://iptc.org/> ;
+    skosdex:conceptSchemeURI <http://cv.iptc.org/newscodes/rcalctype/> ;
+    skosdex:sourceURL <https://cv.iptc.org/newscodes/rcalctype/> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
