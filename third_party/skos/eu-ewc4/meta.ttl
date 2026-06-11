@@ -1,0 +1,21 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EWC-Stat Rev. 4 — European Waste Classification for statistics (Eurostat / EU
+# Publications Office). Substance-oriented statistical waste nomenclature (~51
+# categories; ~140 concepts in the distribution). Published as SKOS-AP-EU.
+# Reuse under Commission Decision 2011/833/EU, implemented as CC BY 4.0
+# (verified 2026-06-11) -> open.
+#
+# Source: ESTAT-EWC4-skos-ap-eu.rdf (RDF/XML) via the OP euvoc-download-handler.
+# Converted via rapper.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "EWC-Stat Rev. 4 — European Waste Classification for statistics (Eurostat)" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://data.europa.eu/6p8/ewc4-stat/scheme> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fcellar%2Ff67502ff-71a5-11ee-9220-01aa75ed71a1.0001.01%2FDOC_1&fileName=ESTAT-EWC4-skos-ap-eu.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

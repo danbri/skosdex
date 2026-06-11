@@ -1,0 +1,20 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Measurement-unit Named Authority List from the EU Publications Office (EU
+# Vocabularies) — units of measure used in international trade, aligned to
+# UN/ECE Recommendation 20. Reuse under Commission Decision 2011/833/EU,
+# implemented as CC BY 4.0 (verified 2026-06-11) -> open.
+#
+# Source: the SKOS_CORE distribution (measurement-unit-skos.rdf, RDF/XML) via
+# the OP euvoc-download-handler. Converted via rapper. ~53 concepts.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Measurement-unit Named Authority List (EU Publications Office, UN/ECE Rec 20)" ;
+    dcterms:publisher <https://op.europa.eu/> ;
+    skosdex:conceptSchemeURI <http://publications.europa.eu/resource/authority/measurement-unit> ;
+    skosdex:sourceURL <https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=http%3A%2F%2Fpublications.europa.eu%2Fresource%2Fcellar%2F0de39c25-3510-11e9-8d04-01aa75ed71a1.0001.02%2FDOC_1&fileName=measurement-unit-skos.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

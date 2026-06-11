@@ -84,11 +84,11 @@ non-RDF or license-blocked.
 
 | Scheme | Publisher | Covers | Format | License | Source |
 |--------|-----------|--------|--------|---------|--------|
-| **EU List of Wastes 2015 (LoW)** ⭐ | EU Publications Office / Eurostat | European Waste Catalogue, 842 waste types, 6-digit EWC codes, hazardous flags (Dec. 2014/955/EU) | SKOS RDF/XML | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/low2015> |
-| **EWC-Stat Rev.4 + waste categories** | Eurostat | substance-oriented statistical waste nomenclature (51 cats) | SKOS/XKOS RDF | open (2011/833/EU) | EU Vocabularies → `dataset/ewc4` |
+| **EU List of Wastes 2015 (LoW)** ⭐ | EU Publications Office / Eurostat | European Waste Catalogue, 842 waste types, 6-digit EWC codes, hazardous flags (Dec. 2014/955/EU) | SKOS RDF/XML | open (2011/833/EU) | **onboarded** — `eu-low2015/` (173k quads) |
+| **EWC-Stat Rev.4 + waste categories** | Eurostat | substance-oriented statistical waste nomenclature (51 cats) | SKOS/XKOS RDF | open (2011/833/EU) | **onboarded** — `eu-ewc4/` (28k quads) |
 | **EU eForms / eProcurement codelists** ⭐ | OP-TED | ~75 procurement code lists (buyer type, procedure, award criterion, exclusion ground…) — complements CPV | SKOS-core / SKOS-AP-ACT | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables> |
-| **EU Authority tables (NALs)** | EU Publications Office | currency (ISO 4217), measurement-unit (UN/ECE Rec 20), place, corporate-body, file-type, frequency… | SKOS-AP-EU RDF/XML | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/authority-tables> (we already hold country, language, CPV) |
-| **EuroSciVoc** | OP / CORDIS | fields-of-science taxonomy (Frascati-based, 1000+ cats, 6 langs) | SKOS Turtle + RDF/XML | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/euroscivoc> |
+| **EU Authority tables (NALs)** | EU Publications Office | currency (ISO 4217), measurement-unit (UN/ECE Rec 20), place, corporate-body, file-type, frequency… | SKOS-AP-EU RDF/XML | open (2011/833/EU) | **onboarded** `eu-currency/` (19k), `eu-measurement-unit/` (4k); already held country, language, CPV |
+| **EuroSciVoc** | OP / CORDIS | fields-of-science taxonomy (Frascati-based, 1000+ cats, 6 langs) | SKOS Turtle + RDF/XML | open (2011/833/EU) | **onboarded** — `euroscivoc/` |
 | **UN/LOCODE** ⭐ | UNECE / UN/CEFACT (RDF by ga-group) | trade & transport location codes (ports, airports…) | SKOS Turtle | CC BY 4.0 (ga-group) / ODC-PDDL (datahub) | <https://github.com/ga-group/un-locode> |
 | **NACE Rev. 2.1 / CN / CPA / PRODCOM** | Eurostat (via ShowVoc) | economic activities; Combined Nomenclature (customs); products-by-activity; industrial production | SKOS + **XKOS** RDF | open (2011/833/EU) | <https://showvoc.op.europa.eu> ; SPARQL `https://publications.europa.eu/webapi/rdf/sparql` |
 
