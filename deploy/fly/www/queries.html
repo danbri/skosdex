@@ -163,6 +163,15 @@ SELECT ?child ?label ?grandchild WHERE {
     FILTER(LANG(?label)='en')
   }
 } LIMIT 40`},
+{title:'Wikidata property/class -> schema.org & friends',
+ why:'The ingested "Wikidata ontology layer": each Wikidata property or class that declares an equivalent term, as SKOS exactMatch. Filter to schema.org to see the schema.org crosswalk (638 links); drop the filter for RDFS/OWL/DC/foaf/DBpedia/OBO too.',
+ q:`PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?wdProp ?label ?schemaOrg WHERE {
+  GRAPH <https://danbri.org/skosdex/wikidata-ontology> {
+    ?wdProp skos:prefLabel ?label ; skos:exactMatch ?schemaOrg .
+    FILTER(STRSTARTS(STR(?schemaOrg),"https://schema.org/"))
+  }
+} LIMIT 25`},
 {sec:'Federation (SERVICE) — no local clone of the hubs'},
 {title:'Enrich our concepts with live Wikidata labels',
  why:'Oxigraph runs federated SERVICE queries, so we do not mirror Wikidata/VIAF/DBpedia — we follow our owl:sameAs links to them at query time. Here: RAMEAU concepts → their Wikidata item → the English label fetched live from QLever.',
