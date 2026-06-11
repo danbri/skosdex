@@ -12,6 +12,8 @@
     "bundle": "node scripts/skosdex bundle",
     "demo": "node scripts/skosdex demo",
     "site": "node scripts/skosdex site",
+    "check": "node scripts/check.mjs",
+    "check:data": "node scripts/check.mjs --data",
     "test": "bash scripts/test.sh"
   },
   "license": "Apache-2.0",
