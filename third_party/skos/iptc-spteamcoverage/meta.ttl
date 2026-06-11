@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+# IPTC NewsCodes "spteamcoverage". IPTC's per-CV Turtle is malformed (undeclared scheme
+# prefix, unescaped inner quotes) and rejected by strict parsers; its RDF/XML
+# serialization (?format=rdfxml) is clean. source.rdf committed for reproducible
+# rebuild via rapper. CC BY 4.0.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "IPTC NewsCodes: spteamcoverage" ;
+    dcterms:publisher <https://iptc.org/> ;
+    skosdex:conceptSchemeURI <http://cv.iptc.org/newscodes/spteamcoverage/> ;
+    skosdex:sourceFile "source.rdf" ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

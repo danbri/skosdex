@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenshot/crosscourt"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenshot/drop"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenshot/lob"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenshot/slice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenshot/smash"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenshot/volley"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/crosscourt">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">crosscourt</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">crosscourt</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/drop">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drop</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drop</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/lob">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lob</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lob</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/slice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">slice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">slice</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/smash">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">smash</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">smash</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenshot/volley">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">volley</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">volley</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenshot/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

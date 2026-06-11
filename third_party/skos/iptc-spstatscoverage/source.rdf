@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstatscoverage/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstatscoverage/compact"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstatscoverage/standard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstatscoverage/expanded"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstatscoverage/compact">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">compact</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">compact</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstatscoverage/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstatscoverage/standard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstatscoverage/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstatscoverage/expanded">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">expanded</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">expanded</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstatscoverage/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

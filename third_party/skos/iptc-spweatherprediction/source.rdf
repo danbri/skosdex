@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/rain"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/sunny"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/clear"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/cloudy"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/windy"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-fair"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/snow"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/showers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy,rain"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny,rain"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy,rain"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy,snow"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny,snow"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy,snow"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy,showers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny,showers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy,showers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-sunny"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/mostly-clear"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/indoor-play"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/rain">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rain</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rain</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/sunny">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sunny</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sunny</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/clear">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">clear</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">clear</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/cloudy">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cloudy</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cloudy</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/windy">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">windy</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">windy</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-fair">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-fair</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-fair</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/snow">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">snow</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">snow</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/showers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">showers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">showers</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy,rain">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-cloudy,rain</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-cloudy,rain</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny,rain">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-sunny,rain</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-sunny,rain</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy,rain">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-cloudy,rain</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-cloudy,rain</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy,snow">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-cloudy,snow</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-cloudy,snow</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny,snow">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-sunny,snow</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-sunny,snow</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy,snow">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-cloudy,snow</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-cloudy,snow</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy,showers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-cloudy,showers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-cloudy,showers</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny,showers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-sunny,showers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-sunny,showers</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy,showers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-cloudy,showers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-cloudy,showers</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-cloudy">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-cloudy</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-cloudy</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/partly-sunny">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">partly-sunny</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">partly-sunny</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-cloudy">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-cloudy</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-cloudy</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-sunny">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-sunny</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-sunny</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/mostly-clear">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mostly-clear</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mostly-clear</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spweatherprediction/indoor-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">indoor-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">indoor-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spweatherprediction/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

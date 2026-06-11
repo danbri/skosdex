@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptournamentform/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/hosted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/single-group"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/series"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/single-elimination"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/home-and-home"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptournamentform/hosted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hosted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hosted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">For a tournament that holds stages in different locations. Eg. different
+				host cities/countries for PGA, FIS, Diamond League (IAAF) and even Tour de
+				France</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptournamentform/single-group">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">single-group</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">single-group</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The stage involves only a single group of competitors. For example Italian
+				Serie A where teams vie for placement in the league table. Also, a single group
+				competition in a multi-group stage, such as the World Cup group stage.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptournamentform/series">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">series</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">series</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A stage in which two competitors face off in a series of games (eg. best 3
+				of 5) the winner of which proceeds to the next stage, or wins the
+				tournament.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptournamentform/single-elimination">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">single-elimination</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">single-elimination</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A stage in which two competitors face off in a single match to determine who
+				proceeds to the next stage, or wins the tournament. Eg. elimination stage of World
+				Cup of Soccer or NFL playoffs.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptournamentform/home-and-home">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">home-and-home</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">home-and-home</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A stage in which two competitors face off in a two matches (or legs) at each
+				team's home location. The overall winner proceeds ahead. Usually culiminates in a
+				single-elimination match at a neutral location i.e. UEFA Champions
+				League.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptournamentform/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

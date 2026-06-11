@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/duration"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/set-number"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/score-tiebreaker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/aces"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-services-good"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-services-good-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-services-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-services-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-services-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-services-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/service-games-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/service-games-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/service-games-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/break-points-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/break-points-saved"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/break-points-saved-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/serve-points-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/service-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/service-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/double-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-service-top-speed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-serve-average-speed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-services-good"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-services-good-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-serve-average-speed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/speed-units"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/returns-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/receive-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/receive-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-service-return-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/first-service-return-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-service-return-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/second-service-return-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/return-games-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/return-games-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/return-games-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/break-points-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/break-points-converted"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/break-points-converted-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/net-points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/net-points-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/net-points-won-pct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/points-won"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/winners"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/winners-forehand"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/winners-backhand"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/winners-volley"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenstat/unforced-errors"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Either love, 15, 30, 40, or game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/duration">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">duration</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">duration</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The length in minutes of the set or game where it is inserted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/set-number">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">set-number</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">set-number</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An integer, generally 1 through 7.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/score-tiebreaker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score-tiebreaker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score-tiebreaker</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">An integer. Generally 0 through 7.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/aces">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">aces</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">aces</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many serve-aces the player shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-services-good">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-services-good</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-services-good</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of first serves that were good.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-services-good-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-services-good-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-services-good-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of good first serves.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-services-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-services-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-services-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points won after the first serve was good.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-services-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-services-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-services-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of games won after first serve was good.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-services-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-services-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-services-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points won after the second serve was good.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-services-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-services-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-services-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of games won after second serve was good.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/service-games-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-games-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-games-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many games in the match or set this player or team served.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/service-games-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-games-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-games-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games won in which the player served.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/service-games-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-games-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-games-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of games won in which the player served.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/break-points-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">break-points-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">break-points-against</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many break-points did the other team/player have against the serving
+                player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/break-points-saved">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">break-points-saved</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">break-points-saved</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many of these break-points were saved by the serving
+                player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/break-points-saved-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">break-points-saved-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">break-points-saved-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of breakpoints saved. (There is some discussion on whether to
+                include all possible break-points or just the deciding ones.)</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/serve-points-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">serve-points-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">serve-points-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points were played with this player/team serving. New attribute and
+                therefore using the more proper term serve instead of service.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/service-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total points won where the player served. This should be the same as a sum
+                of first-service-points-won and second-service-points-won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/service-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of points won by the serving player. Should be possible to
+                calculate from other attributes here.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/double-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-faults</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many double-faults committed by the serving player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-service-top-speed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-service-top-speed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-service-top-speed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The top speed recorded among the serves from this player/team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-serve-average-speed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-serve-average-speed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-serve-average-speed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average speed recorded among the first serves from this player/team. New
+                attribute and therefore using the more proper term serve instead of
+                service.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-services-good">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-services-good</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-services-good</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of good second serves.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-services-good-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-services-good-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-services-good-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of good second serves.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-serve-average-speed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-serve-average-speed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-serve-average-speed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average speed recorded among the second serves from this player/team.
+                New attribute and therefore using the more proper term serve instead of
+                service.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/speed-units">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">speed-units</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">speed-units</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The measurement unit used for the various speed attributes. Normally mph,
+                but can be m/s or km/h or something else.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/returns-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">returns-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">returns-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points played where this player/team received the
+                serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/receive-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receive-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receive-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points won by the receiving player. New attribute using the term
+                receive which is preferred to return.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/receive-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receive-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receive-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of points won by the receiving player. New attribute using
+                the term receive which is preferred to return.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-service-return-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-service-return-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-service-return-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points won by the player after receiving the first
+                serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/first-service-return-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">first-service-return-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">first-service-return-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of points won by the player after receiving the first
+                serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-service-return-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-service-return-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-service-return-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many points won after receiving the second serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/second-service-return-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">second-service-return-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">second-service-return-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of points won after receiving the second serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/return-games-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">return-games-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">return-games-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">And how does this compare to the returns-played and matches-played
+                above?</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/return-games-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">return-games-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">return-games-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many games won after receiving the serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/return-games-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">return-games-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">return-games-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of games won after receiving the serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/break-points-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">break-points-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">break-points-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many possible break-points the receiving player/team had.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/break-points-converted">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">break-points-converted</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">break-points-converted</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of break-points that resulted in actually breaking the
+                serve.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/break-points-converted-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">break-points-converted-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">break-points-converted-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The percentage of converted break-points.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/net-points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">net-points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">net-points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Points won after the player went forward close to the net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/net-points-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">net-points-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">net-points-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of points played where the player went forward to the
+                net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/net-points-won-pct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">net-points-won-pct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">net-points-won-pct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of points won after the player went forward close to the net.
+                Should be possible to calculate from the other net-xxx attributes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/points-won">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-won</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-won</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/winners">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">winners</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">winners</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of winning strokes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/winners-forehand">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">winners-forehand</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">winners-forehand</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of winning strokes using the forehand.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/winners-backhand">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">winners-backhand</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">winners-backhand</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of winning strokes using the backhand.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/winners-volley">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">winners-volley</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">winners-volley</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of winning strokes using volley.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenstat/unforced-errors">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unforced-errors</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unforced-errors</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of unforced errors performed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

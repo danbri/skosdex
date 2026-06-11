@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenwin/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenwin/forced"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptenwin/unforced"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenwin/forced">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">forced</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">forced</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The point was made while the opponent for example advanced towards the
+                net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenwin/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptenwin/unforced">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unforced</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unforced</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The point was made regardless of specific actions by the
+                opponent.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptenwin/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spteamcoverage/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spteamcoverage/single-team"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spteamcoverage/multi-team"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spteamcoverage/single-team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">single-team</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">single-team</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Contains only information about a single team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spteamcoverage/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spteamcoverage/multi-team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">multi-team</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">multi-team</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Contains information about many or all teams in a league.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spteamcoverage/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

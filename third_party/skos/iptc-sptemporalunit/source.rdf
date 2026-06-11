@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/period"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/event"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/tournament"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/tournament-pool"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/tournament-seed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/recent-ten-events"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/hourly"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/daily"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/weekly"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/monthly"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/preseason"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/season-exhibition"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/season-regular"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/season-playoffs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/season"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/career"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/period">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">period</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">period</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/event">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/tournament">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tournament</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tournament</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/tournament-pool">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tournament-pool</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tournament-pool</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/tournament-seed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tournament-seed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tournament-seed</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/recent-ten-events">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">recent-ten-events</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">recent-ten-events</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/hourly">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hourly</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hourly</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/daily">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">daily</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">daily</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/weekly">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">weekly</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">weekly</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/monthly">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">monthly</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">monthly</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/preseason">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">preseason</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">preseason</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/season-exhibition">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">season-exhibition</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">season-exhibition</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/season-regular">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">season-regular</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">season-regular</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The default value.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/season-playoffs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">season-playoffs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">season-playoffs</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/season">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">season</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">season</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptemporalunit/career">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">career</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">career</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptemporalunit/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

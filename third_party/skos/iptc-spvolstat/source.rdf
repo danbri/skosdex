@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/errors-oppenent"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/faults-opponent"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/point-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/attacks-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/attacks-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/attack-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/attack-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/attacks-in-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/attacks-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/blocks-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/blocks-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/block-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/block-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/blocks-in-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/blocks-average-per-set"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/service-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/aces"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/services-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/service-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/services-in-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/aces-average-per-set"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/defense-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/digs-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/dig-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/digs-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/digs-in-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/digs-average-per-set"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/defense-rank-sets"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/running-sets-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/sets-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/sets-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/sets-in-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/sets-average-per-set"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/receptions-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/receptions-excellent"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/receptions-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/reception-faults"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/receptions-in-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/reception-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/points-player"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/point-attempts-player"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spvolstat/points-percentage-of-team"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/errors-oppenent">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">errors-oppenent</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">errors-oppenent</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/faults-opponent">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faults-opponent</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faults-opponent</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/point-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">point-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">point-attempts</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/attacks-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attacks-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attacks-rank</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/attacks-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attacks-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attacks-total</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/attack-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attack-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attack-attempts</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/attack-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attack-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attack-faults</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/attacks-in-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attacks-in-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attacks-in-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/attacks-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attacks-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attacks-percentage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/blocks-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-rank</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/blocks-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-total</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/block-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">block-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">block-attempts</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/block-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">block-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">block-faults</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/blocks-in-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-in-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-in-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/blocks-average-per-set">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocks-average-per-set</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocks-average-per-set</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/service-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-rank</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/aces">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">aces</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">aces</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/services-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">services-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">services-total</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/service-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">service-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">service-faults</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/services-in-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">services-in-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">services-in-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/aces-average-per-set">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">aces-average-per-set</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">aces-average-per-set</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/defense-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defense-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defense-rank</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/digs-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">digs-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">digs-total</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/dig-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">dig-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">dig-attempts</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/digs-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">digs-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">digs-faults</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/digs-in-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">digs-in-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">digs-in-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/digs-average-per-set">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">digs-average-per-set</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">digs-average-per-set</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/defense-rank-sets">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defense-rank-sets</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defense-rank-sets</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/running-sets-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">running-sets-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">running-sets-total</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/sets-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sets-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sets-attempts</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/sets-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sets-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sets-faults</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/sets-in-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sets-in-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sets-in-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/sets-average-per-set">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">sets-average-per-set</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">sets-average-per-set</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/receptions-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receptions-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receptions-rank</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/receptions-excellent">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receptions-excellent</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receptions-excellent</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/receptions-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receptions-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receptions-attempts</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/reception-faults">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">reception-faults</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">reception-faults</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/receptions-in-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">receptions-in-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">receptions-in-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/reception-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">reception-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">reception-percentage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/points-player">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-player</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-player</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/point-attempts-player">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">point-attempts-player</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">point-attempts-player</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spvolstat/points-percentage-of-team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-percentage-of-team</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-percentage-of-team</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spvolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

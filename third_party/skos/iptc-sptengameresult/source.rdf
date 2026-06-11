@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/love"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/15"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/30"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/40"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/ad"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/deuce"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/love">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">love</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">love</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/15">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">15</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">15</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/30">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">30</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">30</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/40">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">40</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">40</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">game</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/ad">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ad</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ad</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/sptengameresult/deuce">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">deuce</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">deuce</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/sptengameresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

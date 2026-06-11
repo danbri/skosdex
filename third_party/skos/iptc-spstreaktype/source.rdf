@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/win"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/loss"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/tie"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/assist"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/point"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/win">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">win</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">win</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/loss">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">loss</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">loss</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/tie">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tie</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tie</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">score</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/assist">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assist</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assist</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spstreaktype/point">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">point</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">point</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spstreaktype/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

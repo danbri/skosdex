@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:ikos="http://cv.iptc.org/newscodes/ikos/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dct="http://purl.org/dc/terms/">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<ikos:prefSchemeAlias>squ</ikos:prefSchemeAlias>
+		<ikos:authority>http://www.iptc.org</ikos:authority>
+		<dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+		<ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+		<ikos:dateReleased>2018-01-25T14:11:53+00:00</ikos:dateReleased>
+		<skos:prefLabel xml:lang="en-GB">Subject Qualifier</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Indicates a narrower attribute-like context for a Subject Code,  e.g. for sports: the gender of participants, indoor/outdoor competition etc.</skos:definition>
+		<skos:note xml:lang="en-GB">This vocabulary should be used with the Subject Codes</skos:note>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/00000001"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/00000002"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/12000001"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/12000002"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000001"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000002"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000003"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000004"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000005"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000006"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000007"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000008"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000009"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000010"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000011"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000012"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000013"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000014"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000015"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000016"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000017"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000018"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000019"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000020"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000021"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000022"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000023"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000024"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000025"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000026"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000027"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000028"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000029"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000030"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000031"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000032"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000033"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000034"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000035"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000036"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000037"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000038"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000039"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000040"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000041"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000042"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000043"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000044"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000045"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000046"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/15000047"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/00000001">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">female</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A generic qualifier that pertains to the female sex </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/00000002">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">male</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A generic qualifier that pertains to the male sex </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/12000001">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">church (organisation)</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">In Christian doctrine, the Christian religious community as a whole, or a body or organisation of Christian believers. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/12000002">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">religious facility</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Any facility where a group can carry out its religious rites whether it is a mosque, a church, a house or a tent </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000001">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">men</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000002">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">women</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000003">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">mixed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000004">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">individual</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000005">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">duet/double</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000006">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">team</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000007">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">indoor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000008">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">outdoor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000009">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">amateur</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000010">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">professional</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000011">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">college</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000012">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">senior</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000013">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">junior</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000014">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">under 18</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000015">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">under 15</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000016">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">under 13</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000017">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">under 11</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000018">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">under 9</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000019">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">precollege school related</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000020">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">qualifying/elimination</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000021">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">preliminary</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000022">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">round</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000023">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">qualifying round</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000024">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">final</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000025">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">classification match</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000026">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">play-off</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000027">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">doping</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000028">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">sponsorship</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000029">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">marketing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000030">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">disabled</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000031">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">deaf</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">NA </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000032">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">opening ceremony</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Public ceremony marking the start of a series of sporting competitions </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000033">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">closing ceremony</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Public ceremony marking the conclusion of a series of sporting competitions </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000034">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">major</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Professional, top-ranking within the sport </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000035">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">minor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Professional, but lower ranking within the sport </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000036">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">semi-professional</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Part time paid athletes or players. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000037">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">game/match/contest</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Specific match or contest between individuals or teams </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000038">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">league</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Governing body of a group of teams or individual players </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000039">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">event in progress</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">To indicate that the data contained in the body relates to an unfinished event, such as half-time scores, league standings at a specific time etc. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000040">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">event final</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">To indicate that the data contained in the body relates to an event that has been concluded and that this data is, for example, the final score, or the winning team/player of a championship. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000041">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">injury</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Injury to a sports person that could cause them to be sidelined, and the resulting effect on their team/sport. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000042">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">business</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Including contractual negotiations and agreements between sporting persons, teams, labour organisations and businesses related to sports.. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000043">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">sports facilities</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Gymnasiums, stadiums or arenas where sports events take place </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000044">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">record</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The best performance in a specific sport or discipline thereof of an individual or a team compared with earlier performances either of the same individual or team or with earlier performances of other individuals or teams. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000045">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">selection</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A list of competitors, or players chosen for a team for a specific game or event </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000046">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">coaches/trainers/managers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The responsible official for a team's or individual's performance. To include changes of the official contract extensions etc. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/subjectqualifier/15000047">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-GB">umpires/referees</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Officials, including linesmen, stewards, marshals etc, responsible for the fair and orderly conduct of a sporting event. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/subjectqualifier/"/>
+		<ikos:created>2008-01-01T01:00:00+00:00</ikos:created>
+		<ikos:modified>2010-12-15T22:14:42+00:00</ikos:modified><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
