@@ -27,3 +27,7 @@ docs/solr-docs.json
 
 # Subagent worktrees (ephemeral)
 .claude/worktrees/
+
+# Generated standalone demo (4MB+ of embedded JSON) — regenerate with
+# `node scripts/skosdex demo`; the live endpoint serves the real corpus.
+docs/index.html
