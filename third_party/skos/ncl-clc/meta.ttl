@@ -1,0 +1,19 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# 中國圖書分類法 — Chinese Library Classification (2007 ed.), as Linked Data by
+# Taiwan's National Central Library (NCL) + NTU Library (LDT@Library). ~28,350
+# skos:Concept with Chinese prefLabels + skos:notation; the first PRC-tradition
+# classification in skosdex with native Chinese labels. License: Taiwan Open
+# Government Data License v1.0 (commercial reuse OK, attribution) -> open.
+# Source: the Classification RDF bundle (one Turtle file per concept), combined.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "中國圖書分類法 — Chinese Library Classification (Taiwan NCL, 2007 ed.)" ;
+    dcterms:publisher <https://www.ncl.edu.tw/> ;
+    skosdex:conceptSchemeURI <https://ld.ncl.edu.tw/classification/> ;
+    skosdex:sourceURL <https://ld.ncl.edu.tw/download/Classification_RDF_202312.zip> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://data.gov.tw/license> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
