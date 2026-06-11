@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/advisory"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/roster"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/action-penalty"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/action-score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/highlight"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/action"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/action-summary"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/substitution"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/player-capsules"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/event-score"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/event-stats"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/event-stats-summary"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/event-stats-progressive"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/season-stats"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaderboard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/lineup"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/mid-event-coverage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/post-event-coverage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/post-event-scoring"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/pre-event-coverage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/scoreboard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/tournament-scoreboard"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/winners"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/alert"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/general-news"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/league-at-a-glance"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/league-calendar"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/league-capsules"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/league-notes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/league-roundup"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/league-today"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/odds"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/this-date-in-history"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/top-stories"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/transaction-coverage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/schedule"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/schedule-daily"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/schedule-monthly"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/schedule-playoff"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/schedule-single-team"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/schedule-tournament"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/tournament-schedule"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/poll"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-by-division"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-by-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-by-state"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-complete"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-manufacturers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-nations-cup"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-playoff"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-rookie"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-team-vs-team"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/standings-wild-card"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/attendance-report"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/career-leaders"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/coaching-stats"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/event-highs-player"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/featured-statistic"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/individual-bests"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/individual-stats"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leader-list"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-career"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-career-money"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-individual"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-money"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-player-of-the-year"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-rankings"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-rookie-of-the-year"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-team"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/leaders-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-comparison"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-comparison-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-event-highs"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-point-spreads"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-rankings"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-stats"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/team-streaks"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spfixt/trade-stats"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/advisory">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">advisory</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">advisory</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/roster">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">roster</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">roster</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/action-penalty">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">action-penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">action-penalty</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/action-score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">action-score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">action-score</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/highlight">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">highlight</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">highlight</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/action">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">action</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">action</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/action-summary">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">action-summary</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">action-summary</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/substitution">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">substitution</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">substitution</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/player-capsules">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">player-capsules</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">player-capsules</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/event-score">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-score</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-score</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/event-stats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-stats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-stats</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/event-stats-summary">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-stats-summary</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-stats-summary</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/event-stats-progressive">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-stats-progressive</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-stats-progressive</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/season-stats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">season-stats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">season-stats</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaderboard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaderboard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaderboard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/lineup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">lineup</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">lineup</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/mid-event-coverage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">mid-event-coverage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">mid-event-coverage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/post-event-coverage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">post-event-coverage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">post-event-coverage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/post-event-scoring">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">post-event-scoring</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">post-event-scoring</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/pre-event-coverage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pre-event-coverage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pre-event-coverage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/scoreboard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scoreboard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scoreboard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/tournament-scoreboard">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tournament-scoreboard</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tournament-scoreboard</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/winners">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">winners</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">winners</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/alert">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">alert</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">alert</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/general-news">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">general-news</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">general-news</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/league-at-a-glance">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league-at-a-glance</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league-at-a-glance</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/league-calendar">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league-calendar</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league-calendar</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/league-capsules">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league-capsules</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league-capsules</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/league-notes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league-notes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league-notes</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/league-roundup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league-roundup</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league-roundup</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/league-today">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">league-today</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">league-today</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/odds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">odds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">odds</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/this-date-in-history">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">this-date-in-history</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">this-date-in-history</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/top-stories">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">top-stories</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">top-stories</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/transaction-coverage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">transaction-coverage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">transaction-coverage</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/schedule">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">schedule</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">schedule</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/schedule-daily">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">schedule-daily</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">schedule-daily</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/schedule-monthly">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">schedule-monthly</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">schedule-monthly</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/schedule-playoff">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">schedule-playoff</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">schedule-playoff</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/schedule-single-team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">schedule-single-team</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">schedule-single-team</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/schedule-tournament">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">schedule-tournament</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">schedule-tournament</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/tournament-schedule">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tournament-schedule</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tournament-schedule</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/poll">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">poll</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">poll</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-by-division">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-by-division</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-by-division</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-by-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-by-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-by-rank</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-by-state">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-by-state</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-by-state</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-complete">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-complete</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-complete</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-manufacturers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-manufacturers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-manufacturers</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-nations-cup">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-nations-cup</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-nations-cup</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-playoff">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-playoff</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-playoff</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-rookie">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-rookie</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-rookie</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-team-vs-team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-team-vs-team</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-team-vs-team</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/standings-wild-card">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">standings-wild-card</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">standings-wild-card</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/attendance-report">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attendance-report</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attendance-report</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/career-leaders">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">career-leaders</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">career-leaders</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/coaching-stats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coaching-stats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coaching-stats</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/event-highs-player">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">event-highs-player</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">event-highs-player</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/featured-statistic">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">featured-statistic</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">featured-statistic</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/individual-bests">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">individual-bests</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">individual-bests</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/individual-stats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">individual-stats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">individual-stats</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leader-list">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leader-list</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leader-list</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-career">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-career</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-career</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-career-money">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-career-money</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-career-money</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-individual">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-individual</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-individual</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-money">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-money</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-money</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-player-of-the-year">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-player-of-the-year</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-player-of-the-year</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-rankings">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-rankings</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-rankings</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-rookie-of-the-year">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-rookie-of-the-year</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-rookie-of-the-year</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-team">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-team</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-team</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/leaders-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaders-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaders-wins</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-comparison">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-comparison</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-comparison</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-comparison-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-comparison-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-comparison-wins</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-event-highs">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-event-highs</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-event-highs</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-point-spreads">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-point-spreads</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-point-spreads</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-rankings">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-rankings</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-rankings</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-stats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-stats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-stats</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/team-streaks">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">team-streaks</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">team-streaks</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spfixt/trade-stats">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">trade-stats</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">trade-stats</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spfixt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

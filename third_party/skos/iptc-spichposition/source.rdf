@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/defenseman"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/left-defenseman"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/right-defenseman"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/center"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/left-forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/right-forward"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/goalie"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/referee"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/linesman"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/goal-judge"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/penalty-timekeeper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/official-scorer"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/game-timekeeper"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/coach"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichposition/assistant-coach"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/defenseman">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">defenseman</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">defenseman</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/left-defenseman">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">left-defenseman</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">left-defenseman</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/right-defenseman">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">right-defenseman</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">right-defenseman</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">forward</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/center">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">center</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">center</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/left-forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">left-forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">left-forward</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/right-forward">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">right-forward</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">right-forward</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/goalie">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goalie</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goalie</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/referee">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">referee</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">referee</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/linesman">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">linesman</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">linesman</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/goal-judge">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goal-judge</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goal-judge</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/penalty-timekeeper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-timekeeper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-timekeeper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/official-scorer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">official-scorer</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">official-scorer</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/game-timekeeper">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">game-timekeeper</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">game-timekeeper</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichposition/assistant-coach">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assistant-coach</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assistant-coach</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichposition/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

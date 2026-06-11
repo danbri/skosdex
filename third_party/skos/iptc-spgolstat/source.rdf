@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/handicap"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/rounds"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/distance-longest"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/distance-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/drives"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-rounds"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-strokes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-holes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-putts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-driving"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/total-par-or-less"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/birdies"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/birdies-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/eagles"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/eagles-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/saves"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/saves-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/bunkers"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/eagle-per-holes-frequency"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/greens-hit"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/greens-hit-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/greens-in-regulation-missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/greens-in-regulation-putting"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/greens-in-regulation-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/fairways-hit"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/fairways-possible"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/putts-per-round"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/putts-per-round-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/holes-under-par"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/scoring-adjustment"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/finishes-top-10"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/finishes-first-place"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/finishes-second-place"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/performance-par-3"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/performance-par-4"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/performance-par-5"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/money"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/money-value"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/points-lost"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/points-gained"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/drive-accuracy"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/drive-accuracy-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/rounds-under-par"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/bogeys"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/bogeys-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/double-bogeys"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/double-bogeys-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/finish-other"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/finish-other-rank"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/pars"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolstat/pars-rank"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How this player ranks among the other competing players.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/handicap">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">handicap</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">handicap</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The handicap-value of this player. This will normally not be used in
+                professional tournaments.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/rounds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rounds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rounds</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How many rounds the player or team has completed in this particular
+                tournament.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average score of the player or team. Number of shots devided by number of
+                holes??</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/distance-longest">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">distance-longest</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">distance-longest</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The longest distance the player shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/distance-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">distance-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">distance-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The rank in the round or tournament for the player when comparing the
+                longest distance shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/drives">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drives</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drives</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of drives made by the player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-rounds">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-rounds</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-rounds</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of rounds played during the current tournament.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-strokes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-strokes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-strokes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of strokes (or swings) (or shots) made.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-holes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-holes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-holes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of holes played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-putts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-putts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-putts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of putts attempted.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total score of the player. Depending on the system used in the tournament
+                the score could be something other than the actual number of strokes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-driving">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-driving</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-driving</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total driving distance.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/total-par-or-less">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">total-par-or-less</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">total-par-or-less</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of holes played by the player at par or less than
+                par.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/birdies">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">birdies</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">birdies</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of birdies.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/birdies-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">birdies-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">birdies-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks in the round or tournament regarding
+                birdies.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/eagles">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">eagles</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">eagles</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of eagles.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/eagles-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">eagles-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">eagles-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks in the round or tournament regarding
+                eagles.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/saves">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of saves when the ball landed in a sand bunker.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/saves-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks in the round or tournament regarding saves from the
+                bunker.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/bunkers">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bunkers</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bunkers</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of bunker shots the player took.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/eagle-per-holes-frequency">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">eagle-per-holes-frequency</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">eagle-per-holes-frequency</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Frequency of hitting eagles.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/greens-hit">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">greens-hit</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">greens-hit</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">This is a very special golf term. To reach a green in regulation (GIR) the
+                player must place the ball on the green with two strokes less than the par of the
+                course. The attribute holds the number of times the player or team has achieved this
+                in the timeframe the stats cover.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/greens-hit-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">greens-hit-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">greens-hit-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks in the tournament or round regarding greens hit in
+                regulation.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/greens-in-regulation-missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">greens-in-regulation-missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">greens-in-regulation-missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of greens missed during regulation play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/greens-in-regulation-putting">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">greens-in-regulation-putting</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">greens-in-regulation-putting</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average number of puts needed to finish holes after hitting the green in
+                regulation (GIR).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/greens-in-regulation-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">greens-in-regulation-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">greens-in-regulation-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Rank of player in terms of the greens-in-regulation putting.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/fairways-hit">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fairways-hit</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fairways-hit</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of fairways hit.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/fairways-possible">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fairways-possible</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fairways-possible</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Maximum number of fairways it was possible to hit.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/putts-per-round">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">putts-per-round</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">putts-per-round</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The average number of putts needed per complete round.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/putts-per-round-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">putts-per-round-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">putts-per-round-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks when comparing the average
+                putts-per-round.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/holes-under-par">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">holes-under-par</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">holes-under-par</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of holes finished under par.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/scoring-adjustment">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scoring-adjustment</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scoring-adjustment</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Scoring adjustment.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/finishes-top-10">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finishes-top-10</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finishes-top-10</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of finishes the player had in the top ten.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/finishes-first-place">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finishes-first-place</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finishes-first-place</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of first-place finishes the player had.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/finishes-second-place">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finishes-second-place</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finishes-second-place</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of second-place finishes the player had.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/performance-par-3">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">performance-par-3</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">performance-par-3</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The performance of the player on par-3 holes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/performance-par-4">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">performance-par-4</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">performance-par-4</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The performance of the player on par-4 holes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/performance-par-5">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">performance-par-5</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">performance-par-5</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The performance of the player on par-5 holes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/money">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">money</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">money</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of money earned by the player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/money-value">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">money-value</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">money-value</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Money value.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of points.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/points-lost">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-lost</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-lost</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of points lost.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/points-gained">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-gained</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-gained</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of points gained.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/drive-accuracy">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drive-accuracy</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drive-accuracy</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A percentage of how good the drives from the player or team has been in the
+                given frame the stats cover.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/drive-accuracy-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">drive-accuracy-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">drive-accuracy-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks when comparing drive-accuracy.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/rounds-under-par">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">rounds-under-par</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">rounds-under-par</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of rounds the player has completed a course under
+                par.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/bogeys">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bogeys</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bogeys</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of holes finished one above par for that hole.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/bogeys-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bogeys-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bogeys-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks when comparing bogeys.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/double-bogeys">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-bogeys</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-bogeys</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of holes finished two above par for that hole.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/double-bogeys-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-bogeys-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-bogeys-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks when comparing double-bogeys.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/finish-other">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finish-other</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finish-other</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of holes finished with either more than two under par or two over
+                par.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/finish-other-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">finish-other-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">finish-other-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks when comparing finish-other.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/pars">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pars</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pars</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The number of holes finished on par.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolstat/pars-rank">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">pars-rank</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">pars-rank</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">How the player ranks when comparing pars.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

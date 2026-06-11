@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/minor"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/bench-minor"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/double-minor"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/major"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/misconduct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/match"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/game-misconduct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/gross-misconduct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/penalty-shot"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/minor">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">minor</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">minor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A two-minute penalty given to a player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/bench-minor">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">bench-minor</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">bench-minor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A two-minute penalty given to a team (served by player on that
+                team).</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/double-minor">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">double-minor</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">double-minor</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A four-minute penalty given to a player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/major">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">major</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">major</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A five-minute penalty given to a player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/misconduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">misconduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">misconduct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A ten-minute penalty given to a player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/match">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">match</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">match</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A player is removed for the balance of the game. A substitute is allowed
+                after five minutes.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/game-misconduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">game-misconduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">game-misconduct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Suspension of a player for the balance of the game. A substitute is
+                permitted to replace the penalized player immediately.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/gross-misconduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">gross-misconduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">gross-misconduct</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Suspension of any player, coach or trainer for the balance of the game. A
+                substitute is permitted to replace the penalized player immediately.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenaltylevel/penalty-shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-shot</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">For certain penalities, a free shot is awarded instead of a player being
+                required to serve penalty time.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenaltylevel/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

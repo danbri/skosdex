@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:ikos="http://cv.iptc.org/newscodes/ikos/"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolshot/">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      <ikos:prefSchemeAlias>spgolshot</ikos:prefSchemeAlias>
+      <ikos:authority>http://www.iptc.org</ikos:authority>
+      <dct:rightsHolder>IPTC, International Press Telecommunications Council - https://iptc.org</dct:rightsHolder>
+      <ikos:licenceLink>http://creativecommons.org/licenses/by/4.0/</ikos:licenceLink>
+      <ikos:dateReleased>2024-09-26T12:00:00+00:00</ikos:dateReleased>
+      <skos:prefLabel xml:lang="en-US">Golf Shot Types</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">Golf Shot Types</skos:prefLabel>
+      <skos:definition xml:lang="en-GB">Types of shot in golf.</skos:definition>
+      <skos:definition xml:lang="en-US">Types of shot in golf.</skos:definition>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolshot/chip"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolshot/drive"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolshot/putt"/>
+      <skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spgolshot/pitch"/>
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolshot/chip">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">chip</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">chip</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolshot/"/>
+      <ikos:created>2024-09-26T12:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolshot/drive">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">drive</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">drive</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolshot/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolshot/putt">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">putt</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">putt</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolshot/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+   <rdf:Description rdf:about="http://cv.iptc.org/newscodes/spgolshot/pitch">
+      <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+      <skos:prefLabel xml:lang="en-US">pitch</skos:prefLabel>
+      <skos:prefLabel xml:lang="en-GB">pitch</skos:prefLabel>
+      <skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spgolshot/"/>
+      <ikos:created>2016-05-02T00:00:00+00:00</ikos:created>
+      <!--Broader Relationships-->
+      <!--Narrower Relationships-->
+      <!--SKOS Mapping Relationships-->
+   </rdf:Description>
+</rdf:RDF>

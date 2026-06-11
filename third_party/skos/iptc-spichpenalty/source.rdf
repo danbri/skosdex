@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/abuse-of-officials"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/adjustment-to-clothing-equipment"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/attempt-to-injure"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/boarding"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/broken-stick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/butt-ending"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/charging"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/checking-from-behind"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/clipping"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/closing-hand-on-puck"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/cross-checking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/delay-of-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/deliberate-injury"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/diving"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/elbowing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/falling-on-puck"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/fighting"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/goalie-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/gross-misconduct"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/head-butting"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/high-sticking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/holding"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/holding-the-stick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/hooking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/illegal-stick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/instigator"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/interference-by-with-spectator"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/kicking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/kneeing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/leaving-the-bench-penalty"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/left-crease"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/ob-high-sticking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/ob-holding"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/ob-holding-the-stick"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/ob-hooking"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/ob-interference"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/ob-tripping"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/obscene-language"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/refusal-to-start-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/roughing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/slashing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/spearing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/too-many-men-on-ice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/tripping"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/unsportsmanlike-conduct"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/abuse-of-officials">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">abuse-of-officials</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">abuse-of-officials</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/adjustment-to-clothing-equipment">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">adjustment-to-clothing-equipment</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">adjustment-to-clothing-equipment</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A penalty may be assessed when a player adjusting his equipment delays the
+                game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/attempt-to-injure">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">attempt-to-injure</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">attempt-to-injure</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/boarding">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">boarding</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">boarding</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/broken-stick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">broken-stick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">broken-stick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/butt-ending">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">butt-ending</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">butt-ending</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/charging">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">charging</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">charging</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/checking-from-behind">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">checking-from-behind</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">checking-from-behind</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/clipping">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">clipping</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">clipping</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/closing-hand-on-puck">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">closing-hand-on-puck</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">closing-hand-on-puck</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/cross-checking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">cross-checking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">cross-checking</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/delay-of-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">delay-of-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">delay-of-game</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/deliberate-injury">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">deliberate-injury</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">deliberate-injury</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/diving">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">diving</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">diving</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/elbowing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">elbowing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">elbowing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/falling-on-puck">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">falling-on-puck</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">falling-on-puck</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/fighting">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">fighting</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">fighting</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/goalie-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goalie-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goalie-interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/gross-misconduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">gross-misconduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">gross-misconduct</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/head-butting">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">head-butting</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">head-butting</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/high-sticking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">high-sticking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">high-sticking</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/holding">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">holding</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">holding</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/holding-the-stick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">holding-the-stick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">holding-the-stick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/hooking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hooking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hooking</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/illegal-stick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">illegal-stick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">illegal-stick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/instigator">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">instigator</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">instigator</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/interference-by-with-spectator">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">interference-by-with-spectator</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">interference-by-with-spectator</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/kicking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kicking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kicking</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/kneeing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">kneeing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">kneeing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/leaving-the-bench-penalty">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">leaving-the-bench-penalty</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">leaving-the-bench-penalty</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/left-crease">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">left-crease</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">left-crease</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/ob-high-sticking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ob-high-sticking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ob-high-sticking</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/ob-holding">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ob-holding</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ob-holding</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/ob-holding-the-stick">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ob-holding-the-stick</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ob-holding-the-stick</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/ob-hooking">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ob-hooking</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ob-hooking</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/ob-interference">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ob-interference</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ob-interference</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/ob-tripping">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">ob-tripping</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">ob-tripping</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/obscene-language">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">obscene-language</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">obscene-language</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/refusal-to-start-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">refusal-to-start-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">refusal-to-start-play</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/roughing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">roughing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">roughing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/slashing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">slashing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">slashing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/spearing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">spearing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">spearing</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/too-many-men-on-ice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">too-many-men-on-ice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">too-many-men-on-ice</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/tripping">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">tripping</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">tripping</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichpenalty/unsportsmanlike-conduct">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">unsportsmanlike-conduct</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">unsportsmanlike-conduct</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichpenalty/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

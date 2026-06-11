@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattemptresult/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/saved"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/blocked"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/off-post"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattemptresult/missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The puck missed the goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattemptresult/saved">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saved</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saved</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The goalie has stopped the shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattemptresult/blocked">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocked</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocked</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">A non-goalie diverted the shot from reaching the goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattemptresult/off-post">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">off-post</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">off-post</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">The framework of the goal itself blocked the shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattemptresult/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

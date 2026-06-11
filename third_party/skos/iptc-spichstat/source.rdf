@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/minutes-played"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/plus-minus"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/plus-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/minus-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/penalty-minutes"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-game-winning"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-game-tying"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-even-strength"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-empty-net"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-overtime"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-shootout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-shootout-attempts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-penalty-shot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-per-game"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/assists"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/assists-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/assists-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/assists-game-winning"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/assists-game-tying"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/assists-overtime"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/points"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/points-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/points-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/power-play-amount"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/power-play-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-taken"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/giveaways"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/minutes-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/scoring-chances"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/hat-tricks"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-missed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shot-attempts-blocked"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-even-strength"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-power-play-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-power-play-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-penalty-shot-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-empty-net-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-short-handed-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-against-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-against-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/saves"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/save-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goals-shootout-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-shootout-allowed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/penalty-killing-amount"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/penalty-killing-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shots-blocked"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/takeaways"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shutouts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/minutes-penalty-killing"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/hits"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goaltender-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goaltender-losses"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goaltender-ties"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goaltender-wins-overtime"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/goaltender-losses-overtime"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoff-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoff-losses"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoff-win-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-losses"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-win-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-losses"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-win-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-total"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-wins"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-losses"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-win-percentage"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shifts"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shifts-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shifts-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/shifts-average"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-average-per-shift"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-average-even-strength"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-average-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-average-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-power-play"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-short-handed"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-even-strength"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-empty-net"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-power-play-empty-net"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-short-handed-empty-net"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichstat/time-even-strength-empty-net"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/minutes-played">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">minutes-played</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">minutes-played</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of minutes player was on ice.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/plus-minus">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">plus-minus</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">plus-minus</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times team/player was on ice when own team scored minus the number
+                of times team/player was on ice when opponent scored.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/plus-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">plus-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">plus-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of team/times player was on ice when own team scored.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/minus-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">minus-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">minus-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times tteam/player was on ice when opponent scored.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/penalty-minutes">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-minutes</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-minutes</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of penalty minutes accrued by a single player or
+                team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of goals by the team. Could differ from the score if
+                score-points are awarded for shootout, for example.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-game-winning">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-game-winning</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-game-winning</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals that provided the winning margin in a game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-game-tying">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-game-tying</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-game-tying</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals that caused the game to be tied.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored while the team was having a power-play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored while the team was playing short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-even-strength">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-even-strength</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-even-strength</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored while the teams were at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-empty-net">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-empty-net</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-empty-net</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored on an empty goal, with the opposing goalie pulled from the
+                net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-overtime">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-overtime</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-overtime</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored during overtime.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-shootout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-shootout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-shootout</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored during a shootout.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-shootout-attempts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-shootout-attempts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-shootout-attempts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals attempted during a shootout.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-penalty-shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-penalty-shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-penalty-shot</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Goals scored as penalty shots.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-per-game">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-per-game</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-per-game</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average of goals scored per game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/assists">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of assists.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/assists-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of assists made during a power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/assists-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of assists made while short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/assists-game-winning">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-game-winning</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-game-winning</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Assists on goals that provided the winning margin in a game.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/assists-game-tying">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-game-tying</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-game-tying</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Assists on goals that caused the game to be tied.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/assists-overtime">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assists-overtime</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assists-overtime</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Assists on goals scored during overtime.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/points">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points, with a score and an assist generally counted as one
+                point each.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/points-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points during power plays, with a score and an assist
+                generally counted as one point each.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/points-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">points-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">points-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of points while short-handed, with a score and an assist
+                generally counted as one point each.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/power-play-amount">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">power-play-amount</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">power-play-amount</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of power-play opportunities a team has had.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/power-play-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">power-play-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">power-play-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Measure of success at power plays. Figured by dividing goals-power-play by
+                power-play-amount.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-taken">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-penalty-shot-taken</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-penalty-shot-taken</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of penalty shots taken by a shooting player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-penalty-shot-missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-penalty-shot-missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of penalty shots missed by a shooting player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-penalty-shot-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-penalty-shot-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of penalty shots that resulted in goals.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/giveaways">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">giveaways</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">giveaways</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of times that passes were attempted but intercepted. A judgment call
+                whose exact conditions vary.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/minutes-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">minutes-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">minutes-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of minutes played in a power-play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/scoring-chances">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scoring-chances</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scoring-chances</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of qualified chances to score.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/hat-tricks">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hat-tricks</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hat-tricks</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of hat-trick games.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-missed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-missed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-missed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of shots missed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shot-attempts-blocked">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shot-attempts-blocked</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shot-attempts-blocked</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shots taken which were blocked by an opponent. </skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-even-strength">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-even-strength</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-even-strength</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shots taken at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shots taken on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shots taken while short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-power-play-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-power-play-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-power-play-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of shots on goal allowed during power-play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-penalty-shot-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-penalty-shot-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-penalty-shot-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of shots allowed as penalty-shots.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-power-play-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-power-play-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-power-play-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of goals allowed while the opposing team has a
+                power-play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-penalty-shot-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-penalty-shot-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-penalty-shot-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of goals allowed as penalty-shots.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-empty-net-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-empty-net-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-empty-net-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of goals allowed while the net was empty.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-short-handed-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-short-handed-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-short-handed-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of goals allowed while playing short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-against-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-against-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-against-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of goals against for the given period. Could differ from the
+                score if score-points are deducted for some reason.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-against-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-against-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-against-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of goals per game allowed by the team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/saves">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">saves</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">saves</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of saves.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/save-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">save-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">save-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of saves compared to total number of shots.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goals-shootout-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goals-shootout-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goals-shootout-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shootout goals that went in for a score for the opposing
+                team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-shootout-allowed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-shootout-allowed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-shootout-allowed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shootout shots that were attempted by the opposing
+                team.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/penalty-killing-amount">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-killing-amount</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-killing-amount</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of penalty-killing sessions, aka number of short-handed
+                sessions.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/penalty-killing-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-killing-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-killing-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Equals goals-penalty-allowed divided by penalty-killing-amount.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shots-blocked">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shots-blocked</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shots-blocked</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shots that were blocked. This statistic is generally tracked for
+                non-goalies.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/takeaways">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">takeaways</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">takeaways</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of intercepted passes. A judgment call whose exact conditions
+                vary.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shutouts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shutouts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shutouts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of games where the opposing team did not score.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/minutes-penalty-killing">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">minutes-penalty-killing</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">minutes-penalty-killing</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of minutes played short-handed, while the other team had a
+                power-play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/hits">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hits</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hits</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of body checks made against an opposing player.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goaltender-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender-wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of games with this goaltender.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goaltender-losses">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender-losses</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender-losses</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of games lost with this goaltender.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goaltender-ties">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender-ties</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender-ties</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of games tied with this goaltender.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goaltender-wins-overtime">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender-wins-overtime</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender-wins-overtime</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games won while play is in overtime.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/goaltender-losses-overtime">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender-losses-overtime</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender-losses-overtime</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of games lost while play is in overtime.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of faceoffs taken.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoff-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoff-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoff-wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of won faceoffs.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoff-losses">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoff-losses</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoff-losses</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Total number of lost faceoffs.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoff-win-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoff-win-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoff-win-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of faceoffs that were won.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-even-strength-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-even-strength-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs taken at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-even-strength-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-even-strength-wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs won at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-losses">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-even-strength-losses</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-even-strength-losses</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs lost at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-even-strength-win-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-even-strength-win-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-even-strength-win-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of faceoffs won at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-power-play-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-power-play-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs taken on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-power-play-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-power-play-wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs won on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-losses">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-power-play-losses</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-power-play-losses</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs lost on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-power-play-win-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-power-play-win-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-power-play-win-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of faceoffs won on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-total">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-short-handed-total</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-short-handed-total</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs taken while short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-wins">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-short-handed-wins</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-short-handed-wins</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs won while short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-losses">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-short-handed-losses</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-short-handed-losses</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of faceoffs lost while short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/faceoffs-short-handed-win-percentage">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoffs-short-handed-win-percentage</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoffs-short-handed-win-percentage</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Percentage of faceoffs won while short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shifts">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shifts</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shifts</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of shifts played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shifts-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shifts-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shifts-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of power-play shifts played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shifts-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shifts-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shifts-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Number of short-handed shifts played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/shifts-average">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shifts-average</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shifts-average</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average number of shifts played.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-average-per-shift">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-average-per-shift</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-average-per-shift</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average amount of time played per shift.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-average-even-strength">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-average-even-strength</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-average-even-strength</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average amount of time played at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-average-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-average-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-average-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average amount of time played short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-average-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-average-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-average-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Average amount of time played on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-power-play">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-power-play</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-power-play</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played on power play.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-short-handed">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-short-handed</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-short-handed</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played short-handed.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-even-strength">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-even-strength</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-even-strength</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played at even strength.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-empty-net">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-empty-net</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-empty-net</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played with an empty net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-power-play-empty-net">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-power-play-empty-net</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-power-play-empty-net</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played on power play with empty net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-short-handed-empty-net">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-short-handed-empty-net</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-short-handed-empty-net</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played short-handed with empty net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichstat/time-even-strength-empty-net">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">time-even-strength-empty-net</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">time-even-strength-empty-net</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Amount of time played even strength with empty net.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichstat/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

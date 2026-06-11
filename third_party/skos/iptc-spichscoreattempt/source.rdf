@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/regular"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/penalty-shot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/empty-net"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/shootout"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/own-goal"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/awarded"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/regular">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">regular</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">regular</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Occurs while both teams have an equal number of players on the
+                ice.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/penalty-shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-shot</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Occurs while shooting player is taking a penalty shot.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/empty-net">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">empty-net</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">empty-net</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Occurs when shot is taken on net vacated by goalie who has been replaced on
+                the ice by a non-goalie.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/shootout">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shootout</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shootout</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Occurs when a shot is taken during a game-ending shootout
+                situation.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/own-goal">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">own-goal</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">own-goal</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Occurs when shot is inadvertantly scored into the wrong goal.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichscoreattempt/awarded">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">awarded</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">awarded</skos:prefLabel>
+		<skos:definition xml:lang="en-GB">Occurs when own-goals are not awarded and not opponent has contact with
+                puck. Goal is awarded to non-participant on opposing team of actual
+                scorer.</skos:definition>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichscoreattempt/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>

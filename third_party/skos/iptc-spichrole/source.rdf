@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/on-ice"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/scorer"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/assist"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/goaltender"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/shooter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/blocker"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/hitter"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/hittee"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/shot"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/penalty-committed-by"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/penalty-committed-against"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/penalty-served-by"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/faceoff-winner"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/faceoff-loser"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/giveaway"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/takeaway"/>
+		<skos:hasTopConcept rdf:resource="http://cv.iptc.org/newscodes/spichrole/off-ice"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/on-ice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">on-ice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">on-ice</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/scorer">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">scorer</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">scorer</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/assist">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">assist</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">assist</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/goaltender">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">goaltender</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">goaltender</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/shooter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shooter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shooter</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/blocker">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">blocker</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">blocker</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/hitter">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hitter</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hitter</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/hittee">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">hittee</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">hittee</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/shot">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">shot</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">shot</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/penalty-committed-by">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-committed-by</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-committed-by</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/penalty-committed-against">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-committed-against</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-committed-against</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/penalty-served-by">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">penalty-served-by</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">penalty-served-by</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/faceoff-winner">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoff-winner</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoff-winner</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/faceoff-loser">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">faceoff-loser</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">faceoff-loser</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/giveaway">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">giveaway</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">giveaway</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/takeaway">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">takeaway</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">takeaway</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description><rdf:Description rdf:about="http://cv.iptc.org/newscodes/spichrole/off-ice">
+		<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+		<skos:prefLabel xml:lang="en-US">off-ice</skos:prefLabel>
+		<skos:prefLabel xml:lang="en-GB">off-ice</skos:prefLabel>
+		<skos:inScheme rdf:resource="http://cv.iptc.org/newscodes/spichrole/"/><!--Broader Relationships--><!--Narrower Relationships--><!--SKOS Mapping Relationships--></rdf:Description></rdf:RDF>
