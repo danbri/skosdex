@@ -71,6 +71,76 @@ commit `source.rdf` per CV for reproducible rebuilds.
 > with `skosdex:bundle false` first, then flipped on deliberately — see
 > `lcsh/meta.ttl` as the pattern.
 
+## 🛒 Commerce, trade & compliance codelists (researched 2026-06)
+
+Modern e-commerce / product-standards / regulatory-compliance vocabularies (EU
+and global), triaged for "is it actually SKOS, and is it openly licensed". The
+honest headline: **the EU Publications Office is the motherlode of clean, open
+SKOS here** (SKOS-AP-EU, reuse under Decision 2011/833/EU ≈ CC BY); most
+industry classifications (HS, UNSPSC, GPC, eCl@ss, Incoterms) are either
+non-RDF or license-blocked.
+
+### ✅ Bundleable — open + genuinely SKOS (onboard these first)
+
+| Scheme | Publisher | Covers | Format | License | Source |
+|--------|-----------|--------|--------|---------|--------|
+| **EU List of Wastes 2015 (LoW)** ⭐ | EU Publications Office / Eurostat | European Waste Catalogue, 842 waste types, 6-digit EWC codes, hazardous flags (Dec. 2014/955/EU) | SKOS RDF/XML | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/low2015> |
+| **EWC-Stat Rev.4 + waste categories** | Eurostat | substance-oriented statistical waste nomenclature (51 cats) | SKOS/XKOS RDF | open (2011/833/EU) | EU Vocabularies → `dataset/ewc4` |
+| **EU eForms / eProcurement codelists** ⭐ | OP-TED | ~75 procurement code lists (buyer type, procedure, award criterion, exclusion ground…) — complements CPV | SKOS-core / SKOS-AP-ACT | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables> |
+| **EU Authority tables (NALs)** | EU Publications Office | currency (ISO 4217), measurement-unit (UN/ECE Rec 20), place, corporate-body, file-type, frequency… | SKOS-AP-EU RDF/XML | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/authority-tables> (we already hold country, language, CPV) |
+| **EuroSciVoc** | OP / CORDIS | fields-of-science taxonomy (Frascati-based, 1000+ cats, 6 langs) | SKOS Turtle + RDF/XML | open (2011/833/EU) | <https://op.europa.eu/en/web/eu-vocabularies/euroscivoc> |
+| **UN/LOCODE** ⭐ | UNECE / UN/CEFACT (RDF by ga-group) | trade & transport location codes (ports, airports…) | SKOS Turtle | CC BY 4.0 (ga-group) / ODC-PDDL (datahub) | <https://github.com/ga-group/un-locode> |
+| **NACE Rev. 2.1 / CN / CPA / PRODCOM** | Eurostat (via ShowVoc) | economic activities; Combined Nomenclature (customs); products-by-activity; industrial production | SKOS + **XKOS** RDF | open (2011/833/EU) | <https://showvoc.op.europa.eu> ; SPARQL `https://publications.europa.eu/webapi/rdf/sparql` |
+
+Download mechanics: NAL/EuroVoc/EuroSciVoc use
+`op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=<uri>&fileName=<file>`;
+all OP vocabularies are also in the **Cellar SPARQL** endpoint above. Eurostat
+classifications (NACE/CN/…) are XKOS — loadable but the extra XKOS predicates
+need handling (hence the existing `getty-aat` is the ODC-By precedent; note
+**we already bundle ODC-By data via Getty AAT**, so ODC-By is de-facto granted
+even though the policy line still singles out ODbL).
+
+### 🔶 Open RDF but **OWL, not SKOS** (out of strict SKOS scope — would need SKOS-ification)
+
+| Scheme | License | Note |
+|--------|---------|------|
+| GS1 Web Vocabulary | Apache-2.0 | product-data property/class ontology; **GPC is *not* in it** |
+| GoodRelations | CC BY 3.0 | e-commerce offers/prices ontology (now folded into schema.org) |
+| Product Types Ontology (PTO) | CC BY-SA 3.0 (copyleft) | ~300k product classes from Wikipedia; container-eligible if SKOS-ified |
+| QUDT / OM | CC BY 4.0 | units/quantities (OWL). For units-as-SKOS prefer EU **measurement-unit** NAL |
+| DPPO (Digital Product Passport Ontology) | unstated — verify GitHub LICENSE | academic OWL (LiU), informs CIRPASS-2; *not* an official EU deliverable, not SKOS |
+
+### 🚫 License-blocked or not-a-vocabulary (exclude)
+
+| Scheme | Why excluded |
+|--------|--------------|
+| **HS (Harmonized System)** | WCO © — nomenclature not freely redistributable; no official RDF |
+| **UNSPSC** | UNDP; free-with-account, no open redistribution licence; no official SKOS |
+| **Incoterms®** | ICC trademark + © (bare 3-char codes only obtainable via UN/CEFACT Rec 5) |
+| **eCl@ss** | paid / membership-walled; eClassOWL is a research wrapper over proprietary data |
+| **GS1 GPC** | free download but GS1 IP terms, not an open-data licence; JSON/XML only |
+| **Google Product Taxonomy** | no explicit licence → "unknown" → excluded; `.txt` only |
+| **NIGP Code** | proprietary |
+
+### 🛠 Needs conversion — open data, but no SKOS yet (build a derivative)
+
+| Scheme | Format | License | Note |
+|--------|--------|---------|------|
+| Safety Gate / RAPEX (GPSR) | Excel → CSV/JSON | open (data.europa.eu) | risk/product-category taxonomy is *embedded* in alerts, not published as SKOS |
+| ECHA SVHC candidate list / CLP C&L | CSV/XML, web DB | reusable w/ attribution | substance lists convertible; no official SKOS |
+| EU Taxonomy for sustainable activities | XBRL / Excel / JSON | open | NACE-linked, but criteria are not RDF; the NACE backbone *is* SKOS |
+| EPREL (energy labels) | REST JSON API (key) | restrictive T&C — **not** open | container-only at best; energy-class enum is tiny if hand-modelled |
+| TARIC | daily XML / Excel | EU reuse | built on CN; the **CN layer is the SKOS part** |
+| CLP/GHS hazard classes & H-statements | regulation text | public | small, stable; only a third-party SHACL-SKOS prototype exists |
+
+**Top picks to onboard next (open, native SKOS, high commerce/compliance value):**
+1. **EU List of Wastes 2015** + EWC-Stat — clean SKOS, CC BY, real compliance use.
+2. **eForms/eProcurement codelists** — native SKOS, directly extends our CPV.
+3. **EU Currency + Measurement-unit authority tables** — same pipeline as our existing country/language NALs; trivial.
+4. **UN/LOCODE** — CC BY 4.0 Turtle, the canonical trade/transport location codes.
+5. **EuroSciVoc** — clean Turtle, one-shot add.
+6. **NACE** (+ CN) — high trade value; medium effort (XKOS normalization).
+
 ## 🚫 Metadata-only — copyleft / non-commercial / proprietary
 
 Never bundle the data; keep a `meta.ttl` record so others can fetch it.
