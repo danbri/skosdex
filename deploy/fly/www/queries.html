@@ -163,6 +163,44 @@ SELECT ?child ?label ?grandchild WHERE {
     FILTER(LANG(?label)='en')
   }
 } LIMIT 40`},
+{sec:'Federation (SERVICE) — no local clone of the hubs'},
+{title:'Enrich our concepts with live Wikidata labels',
+ why:'Oxigraph runs federated SERVICE queries, so we do not mirror Wikidata/VIAF/DBpedia — we follow our owl:sameAs links to them at query time. Here: RAMEAU concepts → their Wikidata item → the English label fetched live from QLever.',
+ slow:true,
+ q:`PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?concept ?wd ?wdLabel WHERE {
+  GRAPH <https://data.bnf.fr/vocabulary/rameau> {
+    ?concept owl:sameAs ?wd .
+    FILTER(STRSTARTS(STR(?wd),"http://www.wikidata.org/entity/"))
+  }
+  SERVICE <https://qlever.dev/api/wikidata> {
+    ?wd rdfs:label ?wdLabel . FILTER(LANG(?wdLabel)="en")
+  }
+} LIMIT 10`},
+{title:'Bridge to DBpedia via Wikidata',
+ why:'Answers "can the Wikidata links reach DBpedia?" — yes. We hold owl:sameAs to a Wikidata Q-id; DBpedia holds owl:sameAs back to the same Q-id; federating to dbpedia.org resolves the DBpedia resource. Our RAMEAU "riz" → Q5090 → dbpedia.org/resource/Rice.',
+ slow:true,
+ q:`PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?concept ?wd ?dbpedia WHERE {
+  GRAPH <https://data.bnf.fr/vocabulary/rameau> {
+    ?concept owl:sameAs ?wd .
+    FILTER(STRSTARTS(STR(?wd),"http://www.wikidata.org/entity/"))
+  }
+  SERVICE <https://dbpedia.org/sparql> {
+    ?dbpedia owl:sameAs ?wd .
+    FILTER(STRSTARTS(STR(?dbpedia),"http://dbpedia.org/resource/"))
+  }
+} LIMIT 10`},
+{title:'De-facto crosswalk: two of OUR schemes meeting at one Wikidata id',
+ why:'Where two vocabularies both owl:sameAs the same Q-id, they are mapped through Wikidata even without a direct skos:exactMatch — a cross-walk we get for free.',
+ slow:true,
+ q:`PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?wd ?a ?ga ?b ?gb WHERE {
+  GRAPH ?ga { ?a owl:sameAs ?wd }
+  GRAPH ?gb { ?b owl:sameAs ?wd }
+  FILTER(STRSTARTS(STR(?wd),"http://www.wikidata.org/entity/") && ?ga != ?gb && STR(?a) < STR(?b))
+} LIMIT 10`},
 ];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const list=document.getElementById('list');

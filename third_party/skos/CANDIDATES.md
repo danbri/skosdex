@@ -119,3 +119,24 @@ Notes:
 Sources for licenses above: FAO/AIMS (AGROVOC), Getty Research Institute,
 OCLC FAST, IPTC, GeoNames/Creative Commons, EU Publications Office, EEA Eionet,
 USDA NAL Ag Data Commons, US NLM, ZBW, Homosaurus.org, GESIS.
+
+## 🔗 Federated, not ingested (entity/authority hubs)
+
+Our concepts carry ~205k `owl:sameAs` + match links into these hubs. They are
+**entity-identifier services**, not concept schemes, and are far too large to
+clone — so we reach them at query time via SPARQL `SERVICE` (Oxigraph 0.5.2
+runs federation; verified live 2026-06). No local copy, always current.
+
+| Hub | Endpoint used | Reached via |
+|-----|---------------|-------------|
+| Wikidata | `https://qlever.dev/api/wikidata` (QLever) | our `owl:sameAs` → Wikidata Q-ids |
+| DBpedia | `https://dbpedia.org/sparql` (OpenLink Virtuoso) | Wikidata Q-id ↔ DBpedia `owl:sameAs` bridge |
+| VIAF, idref.fr, datos.bne.es | resolve per-URI / their SPARQL | mapping targets; federate as needed |
+
+**Wikidata↔DBpedia bridge confirmed**: a RAMEAU concept `owl:sameAs` Q5090 →
+`SERVICE dbpedia.org` → `dbpedia.org/resource/Rice`. Wikidata is the hub; two of
+our schemes sharing a Q-id are de-facto mapped without a direct exactMatch. See
+the live "Federation (SERVICE)" queries in the cookbook (`/queries.html`).
+
+**Genuine SKOS thesauri to ingest** (concept schemes, mapping targets): BNCF
+(Nuovo Soggettario, Italian), CAB Thesaurus (CABI, agriculture) — in progress.
