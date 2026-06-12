@@ -175,6 +175,27 @@ mirror exists but is CSV-transformed (not faithful SKOS), so not preferred.
 
 **Blocked / not viable:** ICD-11 (CC BY-**ND** — our pipeline emits derivative N-Quads); SDGIO (no licence, OWL not SKOS); ILO ISCO-08 & WIPO IPC (not published as native SKOS — ISCO only exists as SKOS *inside* ESCO); mainland-PRC vocabularies 中图法 / 汉语主题词表(ISTIC) / Shenzhen CCT (commercial, login-walled, or no open licence). **African SKOS is genuinely near-empty** — realistic African-language coverage comes from language slices of multilingual holdings (AGROVOC), not net-new schemes. **UNBIS** is already held (`unbis/`, noncommercial, container-only).
 
+## 🇫🇮 Finto — Finnish national vocabulary service (onboarded 2026-06)
+
+[Finto](https://finto.fi) (National Library of Finland) hosts 51 SKOS
+vocabularies via a REST API (`api.finto.fi/rest/v1/<id>/data?format=text/turtle`).
+**41 onboarded** as `finto-*`, each license verified in its own RDF dump (the API
+metadata returns null for licence) — CC BY 3.0/4.0 or CC0, all "open". Flagships:
+**YSO** (general ontology, trilingual), **KOKO** (merged upper ontology), plus
+domain ontologies (afo, geo, tero, maotao, muso, oma, pto, liiko, valo, juho,
+jupo, oiko, soto, puho, kito, kulo, kto, keko, kauno, tsr…), legacy thesauri
+(ysa, allars, kaunokki — CC0), and small sets (slm genre/form, musa, seko, ykl,
+yso-paikat places, yso-aika, lapponica, hero, mts, tt, cer, kkaa, hklj, kassu,
+lajisto, yse). ~15M quads total.
+
+**Kept metadata-only (policy-excluded, verified in-data):** `lexvo` & `udcs`
+(CC BY-**SA** = copyleft), `ucum` (custom non-CC terms), `okm-tieteenala` &
+`ponduskategorier` (no licence triple). **Skipped as dup/already-held:** `iptc`,
+`mesh` (Finnish MeSH translation), `ic` (Iconclass, also ODbL). **Skipped as
+name-authorities** (not concept schemes, huge): `finaf` (KANTO, ~175 MB), `cn`
+(corporate names). (`kassu`/`lajisto` plant/species names were *kept* — they
+carry 112k/56k real `skos:Concept`, not just taxa.)
+
 ## 🚫 Metadata-only — copyleft / non-commercial / proprietary
 
 Never bundle the data; keep a `meta.ttl` record so others can fetch it.
