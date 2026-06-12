@@ -212,9 +212,12 @@ carry 112k/56k real `skos:Concept`, not just taxa.)
   **TODO: crack the `/api/resource/downloads/<apId>/<file>.rdf` pattern** (the
   apId↔vocab mapping wasn't in the API view). High value (~250 open SKOS) if cracked.
 - **CESSDA ELSST** — onboarded (`cessda-elsst/`, CC BY-SA → container-only).
-- **BARTOC Skosmos** (`skosmos.bartoc.org`, ~250 vocabs) — working `/data` export
-  but a heterogeneous aggregator (dups of what we hold, mixed licences, some
-  SKOS-XL-only); needs per-vocab vetting, not bulk-trust.
+- **BARTOC Skosmos** (~250 vocabs) — REGISTRY only; `/data` returns 0 bytes (it
+  points to external sources, doesn't host triples). Not a bulk-download vein.
+- **Pattern note:** Loterre-Skosmos, RVA, and BARTOC are all *registries* whose
+  Skosmos `/data` is disabled — the actual RDF lives at the original publishers
+  (ORTOLANG cracked it for Loterre). Finto is the exception that truly hosts +
+  exports. So "scrape a Skosmos" is not a general strategy.
 - **AgroPortal** SKOS (not OWL) ontologies beyond GACS/LandVoc — `/ontologies/<ACR>/download`.
 - **Getty TGN / ULAN / FAST** — open (ODC-By) but disk-blocked here (38.8 GB /
   10.5 GB uncompressed / host-blocked); need a bigger build box.
