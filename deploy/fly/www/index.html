@@ -139,6 +139,18 @@
      <input type="number" id="set-exact" min="0" max="200" step="1"></div>
    <div class="field"><span>Max 1 result per vocabulary <span class="hint">dedup by scheme</span></span>
      <input type="checkbox" id="set-onePer"></div>
+   <div class="field"><span>Label language <span class="hint">show concept labels you understand</span></span>
+     <select id="set-lang">
+       <option value="auto">Auto (browser)</option>
+       <option value="any">Any (first available)</option>
+       <option value="en">English</option><option value="fr">Français</option>
+       <option value="de">Deutsch</option><option value="es">Español</option>
+       <option value="it">Italiano</option><option value="nl">Nederlands</option>
+       <option value="pt">Português</option><option value="sv">Svenska</option>
+       <option value="fi">Suomi</option><option value="pl">Polski</option>
+       <option value="ru">Русский</option><option value="ar">العربية</option>
+       <option value="zh">中文</option><option value="ja">日本語</option>
+     </select></div>
 
    <h3>Schemes — include / exclude / prioritise</h3>
    <div class="muted" style="margin-bottom:.3rem">Untick to exclude. Priority boosts (↑) or demotes (↓) a scheme in ranking.</div>
@@ -162,12 +174,40 @@ const $=id=>document.getElementById(id);
 const SKOS='http://www.w3.org/2004/02/skos/core#';
 const schemeNames={};
 let SCHEMES=[];           // [{slug,title,graph,quads,licenseClass,containerOnly}]
-const DEFAULTS={rows:25,limit:400,exactBoost:20};
+const DEFAULTS={rows:25,limit:400,exactBoost:20,lang:'auto'};
 // cfg.schemes[graph] = {on:bool, prio:0|+1|-1}
 let cfg=loadCfg();
 
 function loadCfg(){ try{return JSON.parse(localStorage.getItem('skosdex.cfg'))||{}}catch{ return {} } }
 function saveCfg(){ localStorage.setItem('skosdex.cfg',JSON.stringify(cfg)) }
+// Preferred label languages, most-preferred first. 'auto' follows the OS/browser
+// (navigator.languages); an explicit code pins one language; 'any' expresses no
+// preference. We always fall through English then untagged labels, so a concept
+// still shows something when a scheme is monolingual or lacks the chosen language
+// ("...unless the scheme restricts" — the fallback handles that automatically).
+function prefLangs(){
+  let base;
+  const L=cfg.lang||'auto';
+  if(L==='any') base=[];
+  else if(L!=='auto') base=[L];
+  else base=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'en'])
+              .map(x=>String(x).toLowerCase().split('-')[0]);
+  const seen=new Set(),out=[];
+  for(const l of [...base,'en','']) if(!seen.has(l)){seen.add(l);out.push(l);}
+  return out;
+}
+// Browser's primary language as a 2-letter code (for the "Auto (xx)" label).
+function autoLang(){ return String((navigator.languages&&navigator.languages[0])||navigator.language||'en').toLowerCase().split('-')[0]; }
+// Pick the best item from SPARQL label bindings by preferred language; langOf
+// reads the binding's xml:lang. Falls back to the first label if none match.
+function pickByLang(items,langOf){
+  if(!items||!items.length) return null;
+  for(const want of prefLangs()){
+    const hit=items.find(x=>String(langOf(x)||'').toLowerCase()===want);
+    if(hit) return hit;
+  }
+  return items[0];
+}
 function num(id,def){ const v=parseInt($(id).value,10); return Number.isFinite(v)?v:def }
 function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function schemeTag(uri){const n=schemeNames[uri];return n?`<span class="scheme-tag">${esc(n)}</span>`:''}
@@ -218,6 +258,9 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
 // ---- settings drawer ----
 function openSettings(){
   $('set-rows').value=cfg.rows; $('set-limit').value=cfg.limit; $('set-exact').value=cfg.exactBoost; $('set-onePer').checked=!!cfg.onePer;
+  $('set-lang').value=cfg.lang||'auto';
+  // reflect the detected browser language in the Auto option label
+  $('set-lang').options[0].textContent='Auto (browser: '+autoLang()+')';
   const srow=s=>{
     const c=cfg.schemes[s.graph]||{on:true,prio:0};
     return `<div class="srow">
@@ -250,6 +293,7 @@ function schemesAll(on){ document.querySelectorAll('.s-on').forEach(c=>c.checked
 // read the drawer inputs into cfg + persist (shared by Save and Save & search)
 function readSettings(){
   cfg.rows=num('set-rows',DEFAULTS.rows); cfg.limit=num('set-limit',DEFAULTS.limit); cfg.exactBoost=num('set-exact',DEFAULTS.exactBoost); cfg.onePer=$('set-onePer').checked;
+  cfg.lang=$('set-lang').value;
   document.querySelectorAll('.s-on').forEach(c=>{ (cfg.schemes[c.dataset.g] ||= {}).on=c.checked; });
   document.querySelectorAll('.s-prio').forEach(s=>{ (cfg.schemes[s.dataset.g] ||= {}).prio=parseInt(s.value,10); });
   saveCfg();
@@ -258,7 +302,7 @@ function saveSettings(){ readSettings(); closeSettings(); }                     
 function applySettings(){ readSettings(); closeSettings(); search($('q').value); } // save & search
 function resetSettings(){ openSettings(); }   // discard unsaved edits -> re-render drawer from saved cfg
 function defaultsSettings(){                   // factory defaults
-  cfg={rows:DEFAULTS.rows,limit:DEFAULTS.limit,exactBoost:DEFAULTS.exactBoost,schemes:{}};
+  cfg={rows:DEFAULTS.rows,limit:DEFAULTS.limit,exactBoost:DEFAULTS.exactBoost,lang:DEFAULTS.lang,schemes:{}};
   for(const s of SCHEMES) cfg.schemes[s.graph]={on:true,prio:0};
   saveCfg(); openSettings();
 }
@@ -357,14 +401,25 @@ async function show(uri){
   $('concept').innerHTML='<p class="muted">loading…</p>';
   // On narrow screens the concept section sits below the results — bring it up.
   if(window.innerWidth<900) $('sec-concept').scrollIntoView({behavior:'smooth',block:'start'});
+  // Pull related-concept labels in the user's preferred languages (+ en + none),
+  // so a French user navigating broader/narrower sees French labels where they exist.
+  const wantLangs=prefLangs().slice(0,4);
+  const langFilter=wantLangs.map(l=>`LANG(?lbl)=${JSON.stringify(l)}`).join(' || ');
   const rows=await sparql(`
     PREFIX skos: <${SKOS}>
     SELECT ?p ?o ?lbl WHERE { GRAPH ?g {
       <${uri}> ?p ?o .
-      OPTIONAL { GRAPH ?g2 { ?o skos:prefLabel ?lbl . FILTER(LANG(?lbl)="en" || LANG(?lbl)="") } }
-    } } LIMIT ${cfg.limit||400}`);
+      OPTIONAL { GRAPH ?g2 { ?o skos:prefLabel ?lbl . FILTRE } }
+    } } LIMIT ${cfg.limit||400}`.replace('FILTRE', langFilter?`FILTER(${langFilter})`:''));
   const OWL='http://www.w3.org/2002/07/owl#', FOAF='http://xmlns.com/foaf/0.1/';
   const pref=[],alt=[],defs=[],rel={broader:[],narrower:[],related:[]};
+  // dedupe related concepts by URI, keeping the best-ranked-language label
+  const langRank=l=>{const i=prefLangs().indexOf(String(l||'').toLowerCase());return i<0?999:i;};
+  const addRel=(bucket,o,lbl)=>{
+    const arr=rel[bucket], u=o.value, e=arr.find(x=>x.u===u), s=langRank(lbl&&lbl['xml:lang']);
+    if(!e) arr.push({u,l:lbl&&lbl.value,_s:lbl?s:999});
+    else if(lbl && s<e._s){ e.l=lbl.value; e._s=s; }
+  };
   // Cross-scheme links: hierarchy navigation stays internal (show()); mapping
   // links point to OTHER datasets so they open in a new tab. foaf:focus is the
   // authority idiom (concept -> the real-world entity it is about).
@@ -375,9 +430,9 @@ async function show(uri){
     if(p===SKOS+'prefLabel')pref.push(o);
     else if(p===SKOS+'altLabel')alt.push(o);
     else if(p===SKOS+'definition'||p===SKOS+'scopeNote')defs.push(o);
-    else if(p===SKOS+'broader')rel.broader.push({u:o.value,l:r.lbl?.value});
-    else if(p===SKOS+'narrower')rel.narrower.push({u:o.value,l:r.lbl?.value});
-    else if(p===SKOS+'related')rel.related.push({u:o.value,l:r.lbl?.value});
+    else if(p===SKOS+'broader')addRel('broader',o,r.lbl);
+    else if(p===SKOS+'narrower')addRel('narrower',o,r.lbl);
+    else if(p===SKOS+'related')addRel('related',o,r.lbl);
     else if(p===SKOS+'exactMatch')map.exactMatch.push(o.value);
     else if(p===SKOS+'closeMatch')map.closeMatch.push(o.value);
     else if(p===SKOS+'broadMatch')map.broadMatch.push(o.value);
@@ -387,8 +442,9 @@ async function show(uri){
     else if(p===FOAF+'focus')map.focus.push(o.value);
     else if(p===SKOS+'inScheme')scheme=o.value;
   }
-  const en=pref.find(x=>x['xml:lang']==='en')||pref[0];
-  const others=pref.filter(x=>x!==en).slice(0,12);
+  const main=pickByLang(pref,x=>x['xml:lang']);            // heading in preferred language
+  const others=pref.filter(x=>x!==main).slice(0,12);       // the rest, as language chips
+  const def=pickByLang(defs,x=>x['xml:lang']);             // definition in preferred language
   const relHtml=k=>rel[k].length?`<div class="reln"><b>${k}</b><br>${rel[k].slice(0,30).map(x=>
     `<a onclick="show('${esc(x.u)}')">${esc(x.l||x.u.split(/[\\/#]/).pop())}</a>`).join('')}</div>`:'';
   // shorten an external URI to host + last segment for a compact chip label
@@ -396,11 +452,11 @@ async function show(uri){
   const mapHtml=k=>map[k].length?`<div class="reln"><b>${k==='focus'?'focus (real-world entity)':k}</b><br>${map[k].slice(0,30).map(u=>
     `<a href="${esc(u)}" target="_blank" rel="noopener" title="${esc(u)}">${esc(shortUri(u))} ↗</a>`).join('')}</div>`:'';
   $('concept').innerHTML=`
-    <h2>${esc(en?en.value:uri)}</h2>
+    <h2>${esc(main?main.value:uri)}${main&&main['xml:lang']?` <span class="lg">${esc(main['xml:lang'])}</span>`:''}</h2>
     <div class="uri"><a href="${esc(uri)}" target="_blank" rel="noopener">${esc(uri)}</a>${scheme?`<span data-scheme="${esc(scheme)}"></span>`:''}</div>
     ${others.length?`<div class="langs">${others.map(x=>`<span><span class="lg">${esc(x['xml:lang']||'')}</span>${esc(x.value)}</span>`).join(' · ')}</div>`:''}
     ${alt.length?`<div class="langs">also: ${alt.slice(0,10).map(x=>esc(x.value)).join(' · ')}</div>`:''}
-    ${defs.length?`<div class="def">${esc(defs[0].value)}</div>`:''}
+    ${def?`<div class="def">${esc(def.value)}</div>`:''}
     ${relHtml('broader')}${relHtml('narrower')}${relHtml('related')}
     ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
   renderSchemeTags();
