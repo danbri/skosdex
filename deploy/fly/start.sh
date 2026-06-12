@@ -79,27 +79,47 @@ for f in /seed/graphed/*.nq.gz; do
 done
 
 # --- Stage 2: Solr core + docs (parts of <=50k docs) ------------------------
+# seed_solr posts every part (idempotent upsert by id) into the core. Returns
+# non-zero on failure so the caller decides whether that's fatal.
 PARTS_SUM=$(cat /seed/solr-parts/part-*.json | md5sum | cut -d" " -f1)
-if [ "$(cat "$SEED_MARKER" 2>/dev/null)" != "$PARTS_SUM" ]; then
+seed_solr() {
   echo "creating solr core..."
+  local create
   create=$(curl -s "http://localhost:8983/solr/admin/cores?action=CREATE&name=skos&configSet=_default")
   echo "$create" | grep -q '"status":0' \
     || echo "$create" | grep -qi "already exists" \
-    || { echo "FATAL: core create failed: $(echo "$create" | head -c 400)"; exit 1; }
-
+    || { echo "ERROR: core create failed: $(echo "$create" | head -c 400)"; return 1; }
   echo "indexing solr docs..."
+  local part resp
   for part in /seed/solr-parts/part-*.json; do
     echo "  posting $(basename "$part")"
     resp=$(curl -s -m 600 "http://localhost:8983/solr/skos/update" \
            -H 'Content-Type: application/json' --data-binary @"$part")
     echo "$resp" | grep -q '"status":0' \
-      || { echo "FATAL: solr rejected $(basename "$part"): $(echo "$resp" | head -c 400)"; exit 1; }
+      || { echo "ERROR: solr rejected $(basename "$part"): $(echo "$resp" | head -c 400)"; return 1; }
   done
   curl -s "http://localhost:8983/solr/skos/update?commit=true" \
        -H 'Content-Type: application/json' --data '[]' >/dev/null
-
   echo "$PARTS_SUM" > "$SEED_MARKER"
-  echo "seeding complete"
+  echo "solr seeding complete"
+}
+
+if [ ! -f "$SEED_MARKER" ]; then
+  # First seed on this volume: the core is empty, so block until it's populated
+  # (there's nothing to serve otherwise).
+  seed_solr || { echo "FATAL: initial solr seed failed"; exit 1; }
+elif [ "$(cat "$SEED_MARKER")" != "$PARTS_SUM" ]; then
+  if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
+    # Cutover staging must finish seeding before it exits.
+    seed_solr || { echo "FATAL: staged solr seed failed"; exit 1; }
+  else
+    # The core already persists on the volume and stays queryable, so re-index
+    # the (upsert) parts in the BACKGROUND — search keeps serving the existing
+    # docs and converges as parts commit. No search blackout on a data deploy.
+    echo "solr parts changed — re-indexing in background (core stays queryable)"
+    ( seed_solr || echo "WARN: background solr re-index failed (see logs)" ) \
+      >/tmp/solr-seed.log 2>&1 &
+  fi
 else
   echo "already seeded; reusing volume"
 fi
