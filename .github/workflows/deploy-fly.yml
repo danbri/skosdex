@@ -101,7 +101,9 @@ jobs:
           FLY_APP: skosdex
           FLY_REGION: iad
           IMAGE: ghcr.io/${{ github.repository_owner }}/skosdex-fly:${{ github.sha }}
-          CUTOVER_NO_SWAP: ${{ vars.CUTOVER_NO_SWAP || '1' }}
+          # Validated end-to-end 2026-06-12. Full zero-downtime cutover by default;
+          # set repo var CUTOVER_NO_SWAP=1 to force a dry run.
+          CUTOVER_NO_SWAP: ${{ vars.CUTOVER_NO_SWAP || '0' }}
         run: |
           set -euo pipefail
           if [ "${CUTOVER_NO_SWAP}" = "1" ]; then
