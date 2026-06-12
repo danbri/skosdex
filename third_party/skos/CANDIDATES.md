@@ -46,8 +46,8 @@ control / sports-statistics CVs — "all the SKOS", not just the subject ones.
 vocabularies.)
 
 Onboarding note: IPTC's `?format=turtle` URL param serves **HTML, not Turtle**
-(only `Accept: text/turtle` content-negotiation returns valid Turtle — see
-[issue #4](../../issues/4)); we fetch the clean **RDF/XML** serialization
+(only `Accept: text/turtle` content-negotiation returns valid Turtle); we fetch
+the clean **RDF/XML** serialization
 (`?format=rdfxml`) via rapper and commit `source.rdf` per CV for reproducible
 rebuilds.
 
