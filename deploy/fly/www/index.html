@@ -101,6 +101,7 @@
  <div>
   <h1>skosdex</h1>
   <p>All the SKOS in the world? <span id="total"></span> ·
+     <a href="/galaxy.html?scheme=gemet">🌌 GEMET galaxy</a> ·
      <a href="/queries.html">SPARQL cookbook</a> · <a href="/sparql/">SPARQL</a> · <a href="/manifest.json">manifest</a> ·
      <a href="https://github.com/danbri/skosdex">GitHub</a></p>
  </div>
@@ -259,7 +260,11 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
   $('schemes').innerHTML=groupCards.concat(singleCards).join('');
   $('total').textContent=tot.toLocaleString()+' triples, '+SCHEMES.length+' schemes ('+(groups.length+singles.length)+' groups).';
   renderSchemeTags();
+  openFromHash();   // deep-link: /#c=<conceptURI> opens that concept (e.g. from the galaxy)
 });
+// open a concept addressed in the URL hash (#c=<uri>), e.g. linked from galaxy.html
+function openFromHash(){ const m=location.hash.match(/^#c=(.+)$/); if(m){ try{ show(decodeURIComponent(m[1])); }catch{} } }
+addEventListener('hashchange', openFromHash);
 
 // ---- settings drawer ----
 function openSettings(){
