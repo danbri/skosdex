@@ -48,14 +48,24 @@ say "staged volume=$STAGE_VOL (clone of prod, all existing data)"
 cleanup_stage(){ flyctl volumes destroy "$STAGE_VOL" --app "$APP" --yes >/dev/null 2>&1 || true; }
 
 # --- 2. temp indexer machine seeds the fork + optimizes, then exits ----------
-say "starting temporary indexer machine on the staged volume (SEED_AND_EXIT)…"
-IDX_MACHINE=$(flyctl machine run "$IMAGE" \
-  --app "$APP" --region "$REGION" --vm-size "$VM_SIZE" \
-  --volume "$STAGE_VOL:/data" --env SEED_AND_EXIT=1 --restart no --detach \
-  --json | python3 -c "import sys,json;print(json.load(sys.stdin)['id'])")
-say "indexer machine=$IDX_MACHINE — waiting for it to finish (stopped state)…"
+# (machine run/status don't support --json on this flyctl; use a fixed --name and
+#  read state from `machines list --json`.)
+IDX_NAME="skosdex-indexer"
+mstate(){ flyctl machines list --app "$APP" --json 2>/dev/null \
+  | python3 -c "import sys,json;m=[x for x in json.load(sys.stdin) if x.get('name')=='$IDX_NAME'];print(m[0]['state'] if m else 'none')"; }
+mid(){ flyctl machines list --app "$APP" --json 2>/dev/null \
+  | python3 -c "import sys,json;m=[x for x in json.load(sys.stdin) if x.get('name')=='$IDX_NAME'];print(m[0]['id'] if m else '')"; }
+# clean any stale indexer from a previous run
+OLD=$(mid); [ -n "$OLD" ] && flyctl machine destroy "$OLD" --app "$APP" --force >/dev/null 2>&1 || true
+say "starting temporary indexer machine '$IDX_NAME' on the staged volume (SEED_AND_EXIT)…"
+flyctl machine run "$IMAGE" \
+  --app "$APP" --name "$IDX_NAME" --region "$REGION" --vm-size "$VM_SIZE" \
+  --volume "$STAGE_VOL:/data" --env SEED_AND_EXIT=1 --restart no --detach
+sleep 5
+IDX_MACHINE=$(mid)
+say "indexer machine=$IDX_MACHINE — waiting for it to finish seeding (stopped state)…"
 for i in $(seq 1 180); do   # up to 90 min
-  st=$(flyctl machine status "$IDX_MACHINE" --app "$APP" --json 2>/dev/null | python3 -c "import sys,json;print(json.load(sys.stdin).get('state',''))" || echo "")
+  st=$(mstate)
   echo "  indexer state: $st ($((i*30))s)"
   [ "$st" = "stopped" ] && { say "indexer finished seeding+optimizing the fork."; break; }
   [ "$st" = "failed" ] && { echo "indexer FAILED — aborting, prod untouched"; flyctl machine destroy "$IDX_MACHINE" --app "$APP" --force >/dev/null 2>&1; cleanup_stage; exit 1; }

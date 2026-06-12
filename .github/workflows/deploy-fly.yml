@@ -90,23 +90,23 @@ jobs:
               --region "$FLY_REGION" --size 80 --yes
           fi
 
-      - name: Deploy prebuilt image
+      # Zero-downtime deploy via the cutover (deploy/fly/cutover.sh): a temporary
+      # indexer machine seeds+optimizes a FORK of the prod volume while prod keeps
+      # serving, then prod swaps onto the pre-seeded fork (~1-min reboot).
+      # CUTOVER_NO_SWAP=1 makes it a safe DRY RUN (fork+seed only, no swap) — used
+      # for the first validation; unset it to perform the real swap.
+      - name: Deploy via zero-downtime cutover
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_APP: skosdex
+          FLY_REGION: iad
+          IMAGE: ghcr.io/${{ github.repository_owner }}/skosdex-fly:${{ github.sha }}
+          CUTOVER_NO_SWAP: ${{ vars.CUTOVER_NO_SWAP || '1' }}
         run: |
-          flyctl deploy \
-            --image ghcr.io/${{ github.repository_owner }}/skosdex-fly:${{ github.sha }} \
-            --config deploy/fly/fly.toml --strategy immediate --app skosdex
-
-      # NOTE: a fresh corpus only reaches the store when the volume seeds —
-      # start.sh skips seeding if the volume carries the marker file. To force a
-      # reseed after a data change: flyctl volumes destroy + create, then rerun.
-      - name: Smoke test (SPARQL up, may still be seeding)
-        run: |
-          for i in $(seq 1 30); do
-            if curl -sf -m 10 "https://skosdex.fly.dev/query?query=ASK%7B%7D" | grep -qi true; then
-              echo "SPARQL endpoint answering"; exit 0
-            fi
-            echo "waiting for seed/boot ($i)"; sleep 30
-          done
-          echo "endpoint not up within 15m — likely still seeding; check flyctl logs"
+          set -euo pipefail
+          if [ "${CUTOVER_NO_SWAP}" = "1" ]; then
+            echo "::notice::cutover DRY RUN (--no-swap): seeds a fork, leaves prod untouched"
+            bash deploy/fly/cutover.sh --no-swap
+          else
+            bash deploy/fly/cutover.sh
+          fi
