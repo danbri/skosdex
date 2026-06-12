@@ -249,7 +249,14 @@ let t;
 $('q').addEventListener('input',e=>{clearTimeout(t);t=setTimeout(()=>search(e.target.value),300)});
 $('q').addEventListener('keydown',e=>{ if(e.key==='Enter'){clearTimeout(t);search($('q').value);} });
 
-function solrUrl(q){
+// POST Solr queries (not GET): a scheme-filter fq across hundreds of schemes
+// makes the URL too long for Safari/iOS fetch (it throws "string did not match
+// the expected pattern"). POST has no such limit. /select stays read-only.
+function solrPost(params){
+  return fetch('/solr/skos/select',{method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()});
+}
+function solrParams(q){
   const p=new URLSearchParams();
   p.set('wt','json'); p.set('q', q+' OR '+q+'*'); p.set('defType','edismax');
   p.set('qf',`exactLabel^${cfg.exactBoost} prefLabel^3 altLabel`);
@@ -268,14 +275,14 @@ function solrUrl(q){
   for(const s of SCHEMES){ const pr=cfg.schemes[s.graph]?.prio||0;
     if(pr>0) bq.push('scheme:"'+s.graph+'"^4'); else if(pr<0) bq.push('scheme:"'+s.graph+'"^0.25'); }
   bq.forEach(b=>p.append('bq',b));
-  return '/solr/skos/select?'+p.toString();
+  return p;
 }
 
 async function search(q){
   q=q.trim();
   if(!q){$('results').innerHTML='';$('stat').innerHTML='&nbsp;';return}
   try{
-    const d=await (await fetch(solrUrl(q))).json();
+    const d=await (await solrPost(solrParams(q))).json();
     let docs=d.response?.docs||[];
     const nf=d.response.numFound;
     if(cfg.onePer){
@@ -362,7 +369,7 @@ $('schemes').addEventListener('click',e=>{
 });
 function schemeByGraph(g){ return SCHEMES.find(s=>s.graph===g); }
 async function solrDocs(params){
-  try{ const d=await (await fetch('/solr/skos/select?'+new URLSearchParams(params))).json();
+  try{ const d=await (await solrPost(new URLSearchParams(params))).json();
     return {docs:d.response.docs||[], n:d.response.numFound||0}; }
   catch{ return {docs:[], n:0}; }
 }
