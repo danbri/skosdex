@@ -41,6 +41,8 @@
  .crumb{font-size:.82rem;margin:0 0 .3rem;line-height:1.6} .crumb a{color:#1d4e89;text-decoration:none;cursor:pointer} .crumb a:hover{text-decoration:underline} .crumb .sep{color:#9aa5b1;margin:0 .3rem}
  .seg{display:inline-flex;border:1px solid #cbd2d9;border-radius:6px;overflow:hidden;vertical-align:middle;margin-left:.3rem;text-transform:none;letter-spacing:0}
  .seg a{padding:.02rem .4rem;font-size:.74rem;color:#52606d;cursor:pointer;background:#fff} .seg a.on{background:#2563eb;color:#fff} .seg a:not(.on):hover{background:#eef2f7}
+ /* "also" = a semantic neighbour not already linked above: italic + gentle tint */
+ .reln a.alsohit{font-style:italic;background:#eaf5ec;color:#1b5e34} .reln a.alsohit:hover{background:#d8eddd}
  .langs{font-size:.86rem;color:#3e4c59;margin:.4rem 0 0} .langs .lg{color:#9aa5b1;font-size:.72rem;margin-right:.15rem}
  .def{margin:.5rem 0 0;font-size:.93rem}
  #schemes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem;margin-top:1rem}
@@ -446,7 +448,8 @@ function renderSimilar(){
   const all=!!cfg.simAll;
   const shown=all?SIM.hits:SIM.hits.filter(h=>!SHOWN.has(h.id));
   const seg=`<span class="seg"><a onclick="setSim(0)" class="${all?'':'on'}">also</a><a onclick="setSim(1)" class="${all?'on':''}">all</a></span>`;
-  const body=shown.slice(0,10).map(h=>`<a onclick="show('${esc(h.id)}')" title="cosine ${h.s.toFixed(2)}">${esc(h.l)}</a>`).join('')
+  const body=shown.slice(0,12).map(h=>{ const isNew=!SHOWN.has(h.id);
+    return `<a class="${isNew?'alsohit':''}" onclick="show('${esc(h.id)}')" title="cosine ${h.s.toFixed(2)}${isNew?' · not linked above':''}">${esc(h.l)}</a>`; }).join('')
     || `<span class="muted">all ${SIM.hits.length} already linked above</span>`;
   el.innerHTML=`<div class="reln"><b>similar by meaning <span class="ct">embeddings · experimental</span> ${seg}</b><br>${body}</div>`;
 }
