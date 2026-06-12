@@ -45,10 +45,11 @@ control / sports-statistics CVs — "all the SKOS", not just the subject ones.
 ~66k quads total. (`dummy` and `groups` excluded — placeholder/listing, not
 vocabularies.)
 
-Onboarding note: IPTC's per-CV **Turtle** is malformed (undeclared scheme
-prefix, UTF-8 BOM, unescaped inner quotes) and rejected by strict parsers; we
-fetch the clean **RDF/XML** serialization (`?format=rdfxml`) via rapper and
-commit `source.rdf` per CV for reproducible rebuilds.
+Onboarding note: IPTC's `?format=turtle` URL param serves **HTML, not Turtle**
+(only `Accept: text/turtle` content-negotiation returns valid Turtle — see
+[issue #4](../../issues/4)); we fetch the clean **RDF/XML** serialization
+(`?format=rdfxml`) via rapper and commit `source.rdf` per CV for reproducible
+rebuilds.
 
 ## ✅ Bundleable — open / public-domain (ready to onboard)
 
