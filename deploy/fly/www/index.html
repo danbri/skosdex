@@ -174,6 +174,7 @@
 const $=id=>document.getElementById(id);
 const SKOS='http://www.w3.org/2004/02/skos/core#';
 const schemeNames={};
+const SLUG_BY_GRAPH={};   // conceptScheme graph URI -> scheme slug (for embeddings lookup)
 let SCHEMES=[];           // [{slug,title,graph,quads,licenseClass,containerOnly}]
 const DEFAULTS={rows:25,limit:400,exactBoost:20,lang:'auto'};
 // cfg.schemes[graph] = {on:bool, prio:0|+1|-1}
@@ -235,7 +236,7 @@ const famName=f=>FAMILY_LABEL[f]||f;
 
 fetch('/manifest.json').then(r=>r.json()).then(m=>{
   let tot=0;
-  SCHEMES=m.included.filter(s=>s.graph).map(s=>{ schemeNames[s.graph]=s.title; tot+=s.quads; return s; });
+  SCHEMES=m.included.filter(s=>s.graph).map(s=>{ schemeNames[s.graph]=s.title; SLUG_BY_GRAPH[s.graph]=s.slug; tot+=s.quads; return s; });
   cfg.rows ??= DEFAULTS.rows; cfg.limit ??= DEFAULTS.limit; cfg.exactBoost ??= DEFAULTS.exactBoost;
   cfg.schemes ??= {};
   for(const s of SCHEMES) cfg.schemes[s.graph] ??= {on:true,prio:0};
@@ -392,6 +393,49 @@ function renderResults(){
 // toggling cluster re-runs the search (cluster mode samples more rows)
 $('cluster').addEventListener('change',()=>{ if(LAST.q) search(LAST.q); });
 
+// ---- embeddings: in-browser semantic KNN ("similar by meaning") ------------
+// Experimental. For schemes we've embedded (deploy/fly/www/embeddings/<slug>.*,
+// open MiniLM model), we ship a compact float16 vector per concept and do the
+// nearest-neighbour search client-side — no server, no Solr vector field yet.
+// Scales to small/medium vocabularies; the full corpus would move to Solr KNN.
+const EMB={};            // slug -> {ids, labels, idx:Map, mat:Float32Array, dim, n}
+let EMB_SET=null;        // Set of slugs that have embeddings (from index.json)
+function half2float(u16){ // decode IEEE-754 half-precision -> Float32Array
+  const out=new Float32Array(u16.length);
+  for(let i=0;i<u16.length;i++){ const h=u16[i], s=(h&0x8000)>>15, e=(h&0x7c00)>>10, f=h&0x3ff;
+    out[i]= e===0 ? (s?-1:1)*Math.pow(2,-14)*(f/1024)
+          : e===31 ? (f?NaN:(s?-1:1)*Infinity)
+          : (s?-1:1)*Math.pow(2,e-15)*(1+f/1024); }
+  return out;
+}
+async function embSet(){ if(EMB_SET)return EMB_SET;
+  try{ EMB_SET=new Set(await (await fetch('/embeddings/index.json')).json()); }catch{ EMB_SET=new Set(); }
+  return EMB_SET; }
+async function embLoad(slug){
+  if(EMB[slug])return EMB[slug];
+  const meta=await (await fetch(`/embeddings/${slug}.emb.json`)).json();
+  const buf=await (await fetch(`/embeddings/${slug}.emb.f16`)).arrayBuffer();
+  const mat=half2float(new Uint16Array(buf));
+  const idx=new Map(); meta.ids.forEach((id,i)=>idx.set(id,i));
+  return (EMB[slug]={ids:meta.ids,labels:meta.labels||meta.ids,idx,mat,dim:meta.dim,n:meta.n});
+}
+function embSimilar(E,uri,k=10){
+  const r=E.idx.get(uri); if(r==null)return [];
+  const {mat,dim,n}=E, base=r*dim, sc=new Float32Array(n);
+  for(let i=0;i<n;i++){ let s=0; const off=i*dim; for(let d=0;d<dim;d++) s+=mat[base+d]*mat[off+d]; sc[i]=s; }
+  return [...sc.keys()].filter(i=>i!==r).sort((a,b)=>sc[b]-sc[a]).slice(0,k).map(i=>({id:E.ids[i],l:E.labels[i],s:sc[i]}));
+}
+async function loadSimilar(uri,scheme){
+  try{
+    const slug=SLUG_BY_GRAPH[scheme]; if(!slug)return;
+    if(!(await embSet()).has(slug))return;
+    const E=await embLoad(slug); const hits=embSimilar(E,uri,10);
+    const el=$('similar'); if(!el||!hits.length)return;
+    el.innerHTML=`<div class="reln"><b>similar by meaning <span class="ct">embeddings · experimental</span></b><br>`
+      +hits.map(h=>`<a onclick="show('${esc(h.id)}')" title="cosine ${h.s.toFixed(2)}">${esc(h.l)}</a>`).join('')+'</div>';
+  }catch{}
+}
+
 async function sparql(query){
   const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:query});
   return (await r.json()).results.bindings;
@@ -460,10 +504,13 @@ async function show(uri){
     ${alt.length?`<div class="langs">also: ${alt.slice(0,10).map(x=>esc(x.value)).join(' · ')}</div>`:''}
     ${def?`<div class="def">${esc(def.value)}</div>`:''}
     ${relHtml('broader')}<div id="sibs"></div>${relHtml('narrower')}${relHtml('related')}
+    <div id="similar"></div>
     ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
   renderSchemeTags();
   // fill ancestor breadcrumb + siblings asynchronously (keeps the panel snappy)
   loadHierarchyNav(uri, rel.broader.map(x=>x.u));
+  // embeddings: "similar by meaning" for schemes we've embedded (experimental)
+  loadSimilar(uri, scheme);
 }
 
 // Ancestor breadcrumb (root › … › parent › this) and siblings (concepts sharing
