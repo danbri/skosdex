@@ -196,6 +196,19 @@ name-authorities** (not concept schemes, huge): `finaf` (KANTO, ~175 MB), `cn`
 (corporate names). (`kassu`/`lajisto` plant/species names were *kept* — they
 carry 112k/56k real `skos:Concept`, not just taxa.)
 
+## 🌐 Frontier — open SKOS veins to mine next (2026-06)
+
+- **Loterre** (INIST-CNRS) — 74 French scientific terminologies, CC BY 4.0, listed
+  at `loterre.istex.fr/rest/v1/vocabularies`. BUT the Skosmos `/data` export is
+  disabled (63-byte stub) and the `data.loterre.fr/ark:/67375/<id>` ARK returns
+  HTML; needs the real per-thesaurus download URL or correct SPARQL path. **TODO:
+  find bulk-download endpoint** (worth it — 74 open SKOS schemes).
+- **Research Vocabularies Australia** (`vocabs.ardc.edu.au`) — many open SKOS.
+- **AgroPortal** SKOS (not OWL) ontologies beyond GACS/LandVoc — `/ontologies/<ACR>/download`.
+- **Getty TGN / ULAN / FAST** — open (ODC-By) but disk-blocked here (38.8 GB /
+  10.5 GB uncompressed / host-blocked); need a bigger build box.
+- **GND** (DNB, CC0), **Wikidata** (CC0, needs scoping) — large, deferred.
+
 ## 🚫 Metadata-only — copyleft / non-commercial / proprietary
 
 Never bundle the data; keep a `meta.ttl` record so others can fetch it.
