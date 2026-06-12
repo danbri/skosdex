@@ -172,7 +172,7 @@ function groupSchemes(list){
   for(const s of list) if(!used.has(s)) singles.push(s);
   return {groups, singles};
 }
-const FAMILY_LABEL={iptc:'IPTC NewsCodes', eu:'EU authority tables', lc:'Library of Congress', getty:'Getty vocabularies'};
+const FAMILY_LABEL={iptc:'IPTC NewsCodes', eu:'EU authority tables', lc:'Library of Congress', getty:'Getty vocabularies', finto:'Finto (Finnish vocabularies)'};
 const famName=f=>FAMILY_LABEL[f]||f;
 
 fetch('/manifest.json').then(r=>r.json()).then(m=>{
