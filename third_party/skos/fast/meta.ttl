@@ -19,9 +19,16 @@
 # (HTTP 403, `cf-mitigated: challenge`, CAPTCHA requiring JS+cookies), so the
 # dump cannot be fetched from this automated/headless environment. The other
 # OCLC FAST endpoints (id.worldcat.org/fast/, fast.oclc.org) are likewise
-# blocked/unavailable. Flip to `bundle true` and run `skosdex build fast` from
-# an environment that can clear the Cloudflare challenge (e.g. an interactive
-# browser-assisted fetch) to materialize the canonical N-Quads.
+# blocked/unavailable (all 403).
+#
+# Re-attempted 2026-06-12 with a headless Chromium (the technique that cleared
+# AgroPortal): does NOT work here either — the sandbox's TLS-intercepting egress
+# proxy breaks the browser<->Cloudflare handshake, so the challenge returns
+# Cloudflare 525 "SSL handshake failed" and never sets cf_clearance. So both
+# plain HTTP (403) and browser-assisted fetch (525) fail FROM THIS ENVIRONMENT.
+# Flip to `bundle true` and run `skosdex build fast` from a network WITHOUT a
+# TLS-mitm proxy (a normal browser/host clears the CF challenge). Dump is small
+# (~266MB zipped) — not a disk problem.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "FAST — Faceted Application of Subject Terminology" ;
     dcterms:publisher <https://www.oclc.org/research/> ;
