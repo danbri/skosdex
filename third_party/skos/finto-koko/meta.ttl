@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# KOKO Ontology (Finnish upper-level ontology aggregating YSO + domain ontologies) — National Library of Finland / Finto service. Multilingual (fi/sv/en).
+# License: CC BY 3.0 (verified in the data) -> open. Source: Finto REST API Turtle
+# dump (api.finto.fi/rest/v1/koko/data).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "KOKO Ontology (Finnish upper-level ontology aggregating YSO + domain ontologies)" ;
+    dcterms:publisher <https://finto.fi/> ;
+    skosdex:conceptSchemeURI <http://www.yso.fi/onto/koko/> ;
+    skosdex:sourceURL <https://api.finto.fi/rest/v1/koko/data?format=text/turtle> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/3.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

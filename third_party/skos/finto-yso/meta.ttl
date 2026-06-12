@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# YSO — General Finnish Ontology (Yleinen suomalainen ontologia) — National Library of Finland / Finto service. Multilingual (fi/sv/en).
+# License: CC BY 4.0 (verified in the data) -> open. Source: Finto REST API Turtle
+# dump (api.finto.fi/rest/v1/yso/data).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "YSO — General Finnish Ontology (Yleinen suomalainen ontologia)" ;
+    dcterms:publisher <https://finto.fi/> ;
+    skosdex:conceptSchemeURI <http://www.yso.fi/onto/yso/> ;
+    skosdex:sourceURL <https://api.finto.fi/rest/v1/yso/data?format=text/turtle> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
