@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Alteration Type — Research Vocabularies Australia (ARDC). Licence: CC-BY. Source: ARDC
+# Vocabulary Registry sesameDownload (N-Triples).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Alteration Type (Research Vocabularies Australia)" ;
+    dcterms:publisher <https://vocabs.ardc.edu.au/> ;
+    skosdex:conceptSchemeURI <http://resource.geosciml.org/classifierscheme/cgi/2016.01/alterationtype> ;
+    skosdex:sourceURL <https://vocabs.ardc.edu.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

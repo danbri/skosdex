@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# AusPlots Rangelands Vocabularies — Research Vocabularies Australia (ARDC). Licence: CC-BY. Source: ARDC
+# Vocabulary Registry sesameDownload (N-Triples).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "AusPlots Rangelands Vocabularies (Research Vocabularies Australia)" ;
+    dcterms:publisher <https://vocabs.ardc.edu.au/> ;
+    skosdex:conceptSchemeURI <http://linked.data.gov.au/def/ausplots-cv/09d697de-3178-4094-985d-bdca7e393f2a> ;
+    skosdex:sourceURL <https://vocabs.ardc.edu.au/registry/api/resource/downloads/946/tern-rva_ausplots-rangelands-vocabularies_0-0-1.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

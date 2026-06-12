@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# TERN Instruments List — Research Vocabularies Australia (ARDC). Licence: CC-BY. Source: ARDC
+# Vocabulary Registry sesameDownload (N-Triples).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "TERN Instruments List (Research Vocabularies Australia)" ;
+    dcterms:publisher <https://vocabs.ardc.edu.au/> ;
+    skosdex:conceptSchemeURI <http://data.tern.org.au/instrument/134bb498-2a1c-4574-b4fe-4df4cb807170> ;
+    skosdex:sourceURL <https://vocabs.ardc.edu.au/registry/api/resource/downloads/1000/tern-rva_tern-instruments-list_0-0-1.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

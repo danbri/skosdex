@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# DataCite Metadata Schema Roles — Research Vocabularies Australia (ARDC). Licence: CC-BY-SA. Source: ARDC
+# Vocabulary Registry sesameDownload (N-Triples).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "DataCite Metadata Schema Roles (Research Vocabularies Australia)" ;
+    dcterms:publisher <https://vocabs.ardc.edu.au/> ;
+    skosdex:conceptSchemeURI <http://linked.data.gov.au/def/dataciteroles/conceptScheme> ;
+    skosdex:sourceURL <https://vocabs.ardc.edu.au/registry/api/resource/downloads/1012/gsq_datacite-metadata-schema-roles_ad6dc16.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .
