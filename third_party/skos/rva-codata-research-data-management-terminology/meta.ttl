@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# CODATA Research Data Management Terminology — Research Vocabularies Australia (ARDC). Licence: CC-BY-SA. Source: ARDC
+# Vocabulary Registry sesameDownload (N-Triples).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "CODATA Research Data Management Terminology (Research Vocabularies Australia)" ;
+    dcterms:publisher <https://vocabs.ardc.edu.au/> ;
+    skosdex:conceptSchemeURI <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+    skosdex:sourceURL <https://vocabs.ardc.edu.au/registry/api/resource/downloads/4948/codata_codata-research-data-management-terminology_v001.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .
