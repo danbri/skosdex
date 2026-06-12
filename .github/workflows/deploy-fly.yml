@@ -87,7 +87,7 @@ jobs:
             || flyctl apps create "$FLY_APP" --org contextris
           if ! flyctl volumes list --app "$FLY_APP" 2>/dev/null | grep -q skosdex_data; then
             flyctl volumes create skosdex_data --app "$FLY_APP" \
-              --region "$FLY_REGION" --size 40 --yes
+              --region "$FLY_REGION" --size 80 --yes
           fi
 
       - name: Deploy prebuilt image
