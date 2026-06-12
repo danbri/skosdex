@@ -1,0 +1,67 @@
+name: Cleanup Fly volume (destroy an orphaned volume)
+
+# One-shot: destroy a specific unattached volume (e.g. an orphaned cutover fork
+# that bills while idle). Guarded — refuses to destroy a volume that has an
+# attached machine, so the live prod volume can't be removed by mistake.
+# Push-to-own-file trigger (the integration token can't workflow_dispatch).
+on:
+  push:
+    branches: [claude/main]
+    paths:
+      - '.github/workflows/cleanup-fly-volume.yml'
+  workflow_dispatch:
+    inputs:
+      volume:
+        description: "Volume ID to destroy (must be unattached)"
+        required: false
+
+concurrency:
+  group: fly-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  CLEANUP_VOL: vol_vgnymnm63kwxmjj4   # the orphaned seeded TGN fork
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Destroy the orphaned volume (only if unattached)
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_APP: skosdex
+          VOL: ${{ github.event.inputs.volume || env.CLEANUP_VOL }}
+        run: |
+          set -euo pipefail
+          echo "target volume: $VOL"
+          echo "== state before =="
+          flyctl machines list --app "$FLY_APP" || true
+          flyctl volumes list --app "$FLY_APP" || true
+
+          # Pull the target's JSON record; bail if it's gone or attached.
+          rec=$(flyctl volumes list --app "$FLY_APP" --json \
+            | python3 -c "import sys,json; v=[x for x in json.load(sys.stdin) if x.get('id')=='$VOL']; print(json.dumps(v[0]) if v else '')")
+          if [ -z "$rec" ]; then echo "volume $VOL not found — nothing to do"; exit 0; fi
+          attached=$(echo "$rec" | python3 -c "import sys,json; print(json.load(sys.stdin).get('attached_machine_id') or '')")
+          if [ -n "$attached" ]; then
+            echo "REFUSING: $VOL is attached to machine $attached (would take prod down)"; exit 1
+          fi
+
+          # Destroy (retry in case the fork is still hydrating / transiently locked).
+          for i in $(seq 1 30); do
+            if flyctl volumes destroy "$VOL" --app "$FLY_APP" --yes; then
+              echo "destroyed $VOL"; break
+            fi
+            if ! flyctl volumes list --app "$FLY_APP" --json | grep -q "$VOL"; then
+              echo "$VOL already gone"; break
+            fi
+            echo "attempt $i: destroy blocked, retry in 15s"; sleep 15
+          done
+
+          echo "== state after (expect 1 machine, 1 volume) =="
+          flyctl machines list --app "$FLY_APP" || true
+          flyctl volumes list --app "$FLY_APP" || true
