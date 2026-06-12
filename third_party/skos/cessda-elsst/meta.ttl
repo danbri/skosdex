@@ -1,0 +1,17 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# ELSST — European Language Social Science Thesaurus (CESSDA), v6 (2025).
+# Multilingual social-science thesaurus, ~3,471 concepts. License: CC BY-SA 4.0
+# -> copyleft -> container-only (in the SPARQL/Solr endpoint, NOT the static demo;
+# the demo builder filters copyleft out). Source: CESSDA Skosmos REST Turtle.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "ELSST — European Language Social Science Thesaurus (CESSDA, v6)" ;
+    dcterms:publisher <https://www.cessda.eu/> ;
+    skosdex:conceptSchemeURI <https://elsst.cessda.eu/id/6/> ;
+    skosdex:sourceURL <https://thesauri.cessda.eu/rest/v1/elsst-6/data?format=text/turtle> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .
