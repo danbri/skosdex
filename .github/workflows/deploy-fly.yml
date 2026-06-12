@@ -90,25 +90,26 @@ jobs:
               --region "$FLY_REGION" --size 80 --yes
           fi
 
-      # Zero-downtime deploy via the cutover (deploy/fly/cutover.sh): a temporary
-      # indexer machine seeds+optimizes a FORK of the prod volume while prod keeps
-      # serving, then prod swaps onto the pre-seeded fork (~1-min reboot).
-      # CUTOVER_NO_SWAP=1 makes it a safe DRY RUN (fork+seed only, no swap) — used
-      # for the first validation; unset it to perform the real swap.
-      - name: Deploy via zero-downtime cutover
+      # Deploy. Two paths:
+      #  - DIRECT (default): flyctl deploy in place. start.sh's optimize-gate skips
+      #    the expensive compaction for small/code-only deltas, so it's a fast
+      #    reboot with no blackout. Right for UI/config changes and small data.
+      #  - CUTOVER (set repo var CUTOVER=1, or --no-swap dry run via CUTOVER=dry):
+      #    deploy/fly/cutover.sh forks the prod volume, seeds+optimizes it on a
+      #    temp machine while prod serves, then swaps — zero downtime for BIG data
+      #    deltas (Getty TGN etc.) that would otherwise trigger a long optimize.
+      - name: Deploy
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
           FLY_APP: skosdex
           FLY_REGION: iad
           IMAGE: ghcr.io/${{ github.repository_owner }}/skosdex-fly:${{ github.sha }}
-          # Validated end-to-end 2026-06-12. Full zero-downtime cutover by default;
-          # set repo var CUTOVER_NO_SWAP=1 to force a dry run.
-          CUTOVER_NO_SWAP: ${{ vars.CUTOVER_NO_SWAP || '0' }}
+          CUTOVER: ${{ vars.CUTOVER || '0' }}
         run: |
           set -euo pipefail
-          if [ "${CUTOVER_NO_SWAP}" = "1" ]; then
-            echo "::notice::cutover DRY RUN (--no-swap): seeds a fork, leaves prod untouched"
-            bash deploy/fly/cutover.sh --no-swap
-          else
-            bash deploy/fly/cutover.sh
-          fi
+          case "${CUTOVER}" in
+            1)   echo "::notice::zero-downtime cutover (big-data deploy)"; bash deploy/fly/cutover.sh ;;
+            dry) echo "::notice::cutover DRY RUN"; bash deploy/fly/cutover.sh --no-swap ;;
+            *)   echo "::notice::direct deploy (optimize-gate skips compaction for small deltas)";
+                 flyctl deploy --image "$IMAGE" --config deploy/fly/fly.toml --strategy immediate --app "$FLY_APP" ;;
+          esac

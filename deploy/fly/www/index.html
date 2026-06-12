@@ -65,9 +65,21 @@
  .sgroup{border-bottom:1px solid #e4e7eb;margin:.1rem 0}
  .sgroup>summary{cursor:pointer;padding:.4rem 0;font-size:.9rem;list-style:none;display:flex;align-items:center;gap:.5rem}
  .sgroup>summary::-webkit-details-marker{display:none}
- .sgroup>summary::before{content:'▸';color:#9aa5b1;font-size:.8rem}
- .sgroup[open]>summary::before{content:'▾'}
  .sgroup .ct{margin-left:auto}
+ /* animated SVG disclosure triangle, shared by settings groups + result folders */
+ .tri{flex:none;width:.72em;height:.72em;color:#9aa5b1;transition:transform .18s ease;transform-origin:50% 50%}
+ details[open]>summary .tri{transform:rotate(90deg)}
+ summary{cursor:pointer}
+ /* cluster-by-source result folders */
+ .clbl{font:inherit;font-size:.75rem;text-transform:none;letter-spacing:0;color:#52606d;font-weight:400;float:right;cursor:pointer;display:inline-flex;align-items:center;gap:.3rem}
+ .clbl input{width:1rem;height:1rem}
+ .fld{border:1px solid #e4e7eb;border-radius:8px;background:#fff;margin-bottom:.5rem;overflow:hidden}
+ .fld>summary{list-style:none;display:flex;align-items:center;gap:.5rem;padding:.5rem .7rem;font-weight:600;font-size:.9rem}
+ .fld>summary::-webkit-details-marker{display:none}
+ .fld>summary:hover{background:#f5f8f5}
+ .fld .fct{margin-left:auto;color:#7b8794;font-weight:400;font-size:.78rem}
+ .fld-body{padding:.15rem .6rem .55rem}
+ .fld-body .hit{margin:.4rem 0 0}
  .sgroup-body{padding-left:1.1rem;border-left:2px solid #eef2f6;margin-left:.3rem}
  .srow .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
  .srow .ct{color:#9aa5b1;font-size:.74rem}
@@ -99,7 +111,7 @@
   <div class="muted" id="stat">&nbsp;</div>
  </div>
  <div class="row">
-   <div class="col section" id="sec-results"><h3>Results</h3><div id="results"></div></div>
+   <div class="col section" id="sec-results"><h3>Results <label class="clbl" title="Group results into collapsible folders by vocabulary so one big source doesn't swamp the rest"><input type="checkbox" id="cluster"> cluster by source</label></h3><div id="results"></div></div>
    <div class="col section" id="sec-concept" hidden><h3>Concept</h3><div id="concept"></div></div>
  </div>
  <div class="section" id="sec-schemes">
@@ -135,10 +147,12 @@
    <div class="btnrow">
      <button onclick="schemesAll(true)">All on</button>
      <button onclick="schemesAll(false)">All off</button>
-     <button onclick="resetSettings()">Defaults</button>
+     <button onclick="defaultsSettings()">Defaults</button>
    </div>
    <div class="btnrow">
-     <button class="primary" onclick="applySettings()">Apply &amp; search</button>
+     <button onclick="resetSettings()" title="Discard unsaved edits (revert to last saved)">Reset</button>
+     <button onclick="saveSettings()" title="Save settings without running a search">Save</button>
+     <button class="primary" onclick="applySettings()">Save &amp; search</button>
    </div>
  </div>
 </aside>
@@ -158,6 +172,9 @@ function num(id,def){ const v=parseInt($(id).value,10); return Number.isFinite(v
 function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function schemeTag(uri){const n=schemeNames[uri];return n?`<span class="scheme-tag">${esc(n)}</span>`:''}
 function renderSchemeTags(){document.querySelectorAll('[data-scheme]').forEach(e=>{e.innerHTML=schemeTag(e.dataset.scheme)})}
+// animated SVG disclosure triangle (rotates via CSS when its <details> is open)
+const TRI='<svg class="tri" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 1 L8 5 L2.5 9 Z" fill="currentColor"/></svg>';
+const firstScheme=x=>String((Array.isArray(x.scheme)?x.scheme[0]:x.scheme)||'');
 
 // Group large scheme families (218 IPTC NewsCodes etc.) so the UI stays
 // readable — the DATA stays one-graph-per-scheme; only the presentation folds.
@@ -216,7 +233,7 @@ function openSettings(){
   const groupBlocks=groups.map(g=>{
     const allOn=g.members.every(s=>cfg.schemes[s.graph]?.on!==false);
     return `<details class="sgroup">
-      <summary><input type="checkbox" class="s-grp" data-fam="${esc(g.family)}" ${allOn?'checked':''}
+      <summary>${TRI}<input type="checkbox" class="s-grp" data-fam="${esc(g.family)}" ${allOn?'checked':''}
         onclick="event.stopPropagation()"> <b>${esc(famName(g.family))}</b>
         <span class="ct">${g.members.length} schemes</span></summary>
       <div class="sgroup-body">${g.members.map(srow).join('')}</div></details>`;
@@ -230,16 +247,20 @@ function openSettings(){
 }
 function closeSettings(){ $('scrim').classList.remove('open'); $('drawer').classList.remove('open'); }
 function schemesAll(on){ document.querySelectorAll('.s-on').forEach(c=>c.checked=on); }
-function resetSettings(){
-  cfg={rows:DEFAULTS.rows,limit:DEFAULTS.limit,exactBoost:DEFAULTS.exactBoost,schemes:{}};
-  for(const s of SCHEMES) cfg.schemes[s.graph]={on:true,prio:0};
-  saveCfg(); openSettings();
-}
-function applySettings(){
+// read the drawer inputs into cfg + persist (shared by Save and Save & search)
+function readSettings(){
   cfg.rows=num('set-rows',DEFAULTS.rows); cfg.limit=num('set-limit',DEFAULTS.limit); cfg.exactBoost=num('set-exact',DEFAULTS.exactBoost); cfg.onePer=$('set-onePer').checked;
   document.querySelectorAll('.s-on').forEach(c=>{ (cfg.schemes[c.dataset.g] ||= {}).on=c.checked; });
   document.querySelectorAll('.s-prio').forEach(s=>{ (cfg.schemes[s.dataset.g] ||= {}).prio=parseInt(s.value,10); });
-  saveCfg(); closeSettings(); search($('q').value);
+  saveCfg();
+}
+function saveSettings(){ readSettings(); closeSettings(); }                       // save, no search
+function applySettings(){ readSettings(); closeSettings(); search($('q').value); } // save & search
+function resetSettings(){ openSettings(); }   // discard unsaved edits -> re-render drawer from saved cfg
+function defaultsSettings(){                   // factory defaults
+  cfg={rows:DEFAULTS.rows,limit:DEFAULTS.limit,exactBoost:DEFAULTS.exactBoost,schemes:{}};
+  for(const s of SCHEMES) cfg.schemes[s.graph]={on:true,prio:0};
+  saveCfg(); openSettings();
 }
 
 // ---- search (frontend builds the Solr query, so every knob is honoured) ----
@@ -256,11 +277,11 @@ function solrPost(params){
   return fetch('/solr/skos/select',{method:'POST',
     headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.toString()});
 }
-function solrParams(q){
+function solrParams(q,rows){
   const p=new URLSearchParams();
   p.set('wt','json'); p.set('q', q+' OR '+q+'*'); p.set('defType','edismax');
   p.set('qf',`exactLabel^${cfg.exactBoost} prefLabel^3 altLabel`);
-  p.set('rows',String(cfg.onePer?Math.min(200,cfg.rows*10):cfg.rows));
+  p.set('rows',String(rows||cfg.rows));
   p.set('fl','id,prefLabel,altLabel,notation,scheme,exactMatch,closeMatch');
   // include/exclude -> filter query
   const on=SCHEMES.map(s=>s.graph).filter(g=>cfg.schemes[g]?.on!==false);
@@ -278,27 +299,53 @@ function solrParams(q){
   return p;
 }
 
+let LAST={q:'',docs:[],nf:0};
+const isCluster=()=>$('cluster')?.checked;
+function hitHtml(x){return `<div class="hit" onclick="show('${esc(x.id)}')">`
+  +`<span class="lbl">${esc((x.prefLabel||[x.id])[0])}</span><span data-scheme="${esc(firstScheme(x))}"></span>`
+  +`${x.altLabel?`<div class="alt">${esc(x.altLabel.slice(0,4).join(' · '))}</div>`:''}</div>`;}
+
 async function search(q){
   q=q.trim();
-  if(!q){$('results').innerHTML='';$('stat').innerHTML='&nbsp;';return}
+  LAST={q,docs:[],nf:0};
+  if(!q){renderResults();return}
   try{
-    const d=await (await solrPost(solrParams(q))).json();
-    let docs=d.response?.docs||[];
-    const nf=d.response.numFound;
-    if(cfg.onePer){
-      const seen=new Set();
-      docs=docs.filter(x=>{const g=String(x.scheme||''); if(seen.has(g))return false; seen.add(g); return true;}).slice(0,cfg.rows);
-    } else docs=docs.slice(0,cfg.rows);
-    $('stat').innerHTML=`${nf.toLocaleString()} match "${esc(q)}" — showing ${docs.length}`
-      + (cfg.onePer?' <span class="muted">(1 per vocabulary; ⚙)</span>':'')
-      + (!cfg.onePer&&nf>docs.length?` <span class="muted">(max ${cfg.rows}; raise in ⚙)</span>`:'');
-    $('results').innerHTML=docs.map(x=>`<div class="hit" onclick="show('${esc(x.id)}')">
-      <span class="lbl">${esc((x.prefLabel||[x.id])[0])}</span><span data-scheme="${esc(x.scheme||'')}"></span>
-      ${x.altLabel?`<div class="alt">${esc(x.altLabel.slice(0,4).join(' · '))}</div>`:''}
-    </div>`).join('')||'<p class="muted">No hits in the selected schemes.</p>';
-    renderSchemeTags();
+    // when clustering we pull a wider sample so the per-source folders have content
+    const rows=isCluster()?300:(cfg.onePer?Math.min(200,cfg.rows*10):cfg.rows);
+    const d=await (await solrPost(solrParams(q,rows))).json();
+    LAST={q,docs:d.response?.docs||[],nf:d.response?.numFound||0};
+    renderResults();
   }catch(e){$('stat').textContent='search error: '+e.message}
 }
+
+function renderResults(){
+  const {q,docs,nf}=LAST;
+  if(!q){$('results').innerHTML='';$('stat').innerHTML='&nbsp;';return}
+  if(isCluster()){
+    // group the sampled hits by source vocabulary -> collapsible folders
+    const groups=new Map();
+    for(const x of docs){ const g=firstScheme(x)||'(no scheme)'; (groups.get(g)||groups.set(g,[]).get(g)).push(x); }
+    const sorted=[...groups.entries()].sort((a,b)=>b[1].length-a[1].length);
+    $('stat').innerHTML=`${nf.toLocaleString()} match "${esc(q)}" across ${sorted.length} source${sorted.length>1?'s':''} `
+      +`<span class="muted">(clustered; ${docs.length} sampled)</span>`;
+    $('results').innerHTML=sorted.map(([g,hits],i)=>`<details class="fld"${i===0?' open':''}>
+      <summary>${TRI}<span>${esc(schemeNames[g]||g)}</span>
+        <span class="fct">${hits.length} hit${hits.length>1?'s':''} · <a onclick="event.preventDefault();event.stopPropagation();browseScheme('${esc(g)}')">browse all ↗</a></span></summary>
+      <div class="fld-body">${hits.slice(0,15).map(hitHtml).join('')}${hits.length>15?`<div class="muted" style="padding:.3rem .2rem">…and ${hits.length-15} more in this source — browse all</div>`:''}</div></details>`).join('')
+      ||'<p class="muted">No hits in the selected schemes.</p>';
+  } else {
+    let d=docs;
+    if(cfg.onePer){ const seen=new Set(); d=d.filter(x=>{const g=firstScheme(x); if(seen.has(g))return false; seen.add(g); return true;}); }
+    d=d.slice(0,cfg.rows);
+    $('stat').innerHTML=`${nf.toLocaleString()} match "${esc(q)}" — showing ${d.length}`
+      + (cfg.onePer?' <span class="muted">(1 per vocabulary; ⚙)</span>':'')
+      + (!cfg.onePer&&nf>d.length?` <span class="muted">(max ${cfg.rows}; raise in ⚙)</span>`:'');
+    $('results').innerHTML=d.map(hitHtml).join('')||'<p class="muted">No hits in the selected schemes.</p>';
+  }
+  renderSchemeTags();
+}
+// toggling cluster re-runs the search (cluster mode samples more rows)
+$('cluster').addEventListener('change',()=>{ if(LAST.q) search(LAST.q); });
 
 async function sparql(query){
   const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:query});
