@@ -2,13 +2,13 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-# LCSHAC — LC Children's Subject Headings — Library of Congress (id.loc.gov). US Government work, no
+# ISO 639-3 Languages (LC) — Library of Congress (id.loc.gov). US Government work, no
 # domestic copyright -> public-domain, bundleable. SKOS .skosrdf.nt.gz (gzip).
 <#scheme> a skosdex:Scheme ;
-    dcterms:title "LCSHAC — LC Children's Subject Headings" ;
+    dcterms:title "ISO 639-3 Languages (LC)" ;
     dcterms:publisher <https://www.loc.gov/> ;
-    skosdex:conceptSchemeURI <http://id.loc.gov/authorities/childrensSubjects> ;
-    skosdex:sourceURL <https://id.loc.gov/download/authorities/childrensSubjects.skosrdf.nt.gz> ;
+    skosdex:conceptSchemeURI <http://id.loc.gov/vocabulary/iso639-3> ;
+    skosdex:sourceURL <https://id.loc.gov/download/vocabulary/iso639-3.skosrdf.nt.gz> ;
     skosdex:sourceFormat "application/n-triples" ;
     skosdex:compression "gzip" ;
     dcterms:license <https://www.loc.gov/legal/> ;
