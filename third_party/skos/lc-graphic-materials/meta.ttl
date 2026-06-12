@@ -1,0 +1,17 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# TGM — Thesaurus for Graphic Materials — Library of Congress (id.loc.gov). US Government work, no
+# domestic copyright -> public-domain, bundleable everywhere. SKOS/MADS RDF
+# bulk export (.skosrdf.nt.gz), same pipeline as LCSH.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "TGM — Thesaurus for Graphic Materials" ;
+    dcterms:publisher <https://www.loc.gov/> ;
+    skosdex:conceptSchemeURI <http://id.loc.gov/vocabulary/graphicMaterials> ;
+    skosdex:sourceURL <https://id.loc.gov/download/vocabulary/graphicMaterials.skosrdf.nt.gz> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://www.loc.gov/legal/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .
