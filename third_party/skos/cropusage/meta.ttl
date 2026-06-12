@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# French Crop Usage thesaurus (crops classified by usage) — INRAE, via AgroPortal.
+# SKOS Turtle, converted to N-Triples via riot. CC BY 4.0 -> open.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "French Crop Usage thesaurus (crops by usage)" ;
+    dcterms:publisher <https://agroportal.eu/> ;
+    skosdex:conceptSchemeURI <https://opendata.inrae.fr/fcu-res/scheme> ;
+    skosdex:sourceURL <https://agroportal.eu/ontologies/CROPUSAGE/download> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

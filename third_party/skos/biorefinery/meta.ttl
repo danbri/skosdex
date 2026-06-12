@@ -1,0 +1,14 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Biorefinery (biomass transformation) — via AgroPortal. SKOS (RDF/XML). License: CC BY 4.0 -> open.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Biorefinery (biomass transformation)" ;
+    dcterms:publisher <https://agroportal.eu/> ;
+    skosdex:conceptSchemeURI <http://agroportal.eu/ontologies/BIOREFINERY> ;
+    skosdex:sourceURL <https://agroportal.eu/ontologies/BIOREFINERY/download> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
