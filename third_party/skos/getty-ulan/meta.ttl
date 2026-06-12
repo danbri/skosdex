@@ -2,12 +2,13 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-# Getty Union List of Artist Names (ULAN). ODC-By 1.0 -> open, bundleable in
-# principle. full.zip (~638MB) holds three N-Triples members; ULANOut_Full.nt
-# is the complete graph (~10.5GB). compression "zip" + sourceEntry select it.
-# DEFERRED (bundle:false): at 10.5GB it needs more transient disk than the
-# current build env has (source + sort temp files). The record is ready —
-# flip bundle:true and `skosdex build getty-ulan` on a box with ~40GB free.
+# Getty Union List of Artist Names (ULAN). ODC-By 1.0 -> open, bundleable.
+# full.zip (~638MB) holds three N-Triples members; ULANOut_Full.nt is the
+# complete graph (~10.5GB). compression "zip" + sourceEntry select it.
+# Onboarded by streaming the build (unzip -p | sort -u --compress-program=gzip
+# | gzip) so the 10.5GB intermediate never materializes — fits a ~24GB box.
+# `skosdex build getty-ulan` (which materializes the intermediate) still wants
+# ~40GB; the streamed form produces an identical sorted canonical.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "Getty Union List of Artist Names (ULAN)" ;
     dcterms:publisher <https://www.getty.edu/research/> ;
@@ -18,4 +19,4 @@
     skosdex:sourceEntry "ULANOut_Full.nt" ;
     dcterms:license <https://opendatacommons.org/licenses/by/1-0/> ;
     skosdex:licenseClass "open" ;
-    skosdex:bundle false .
+    skosdex:bundle true .
