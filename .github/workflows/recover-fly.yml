@@ -1,0 +1,76 @@
+name: Recover Fly prod (resume a half-finished cutover)
+
+# Manual safety net. The cutover (deploy/fly/cutover.sh) destroys the prod
+# machine and the old volume before redeploying onto the seeded fork; if the
+# volume destroy hits Fly's transient "volume is being used for fork" lock the
+# script exits with prod already gone (503). Run this to finish the swap:
+# destroy the stale volume (retrying until the fork lock clears) and deploy onto
+# the remaining seeded volume, reusing the image that was already built.
+on:
+  workflow_dispatch:
+    inputs:
+      old_volume:
+        description: "Stale pre-cutover volume ID to destroy"
+        required: true
+        default: vol_rnzjnwk1xym2170r
+      image:
+        description: "Already-built image to deploy"
+        required: true
+        default: ghcr.io/danbri/skosdex-fly:9beb29af077f3203def69d8d887f079dc2a5f0a1
+
+concurrency:
+  group: fly-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4   # for deploy/fly/fly.toml
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Resume swap — destroy stale volume, deploy onto seeded fork
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_APP: skosdex
+          OLD_VOL: ${{ inputs.old_volume }}
+          IMAGE: ${{ inputs.image }}
+        run: |
+          set -euo pipefail
+          echo "== current state =="
+          flyctl machines list --app "$FLY_APP" || true
+          flyctl volumes list --app "$FLY_APP" || true
+
+          # Destroy the stale pre-cutover volume. The fork lock that blocked the
+          # cutover clears once Fly finishes copying the fork; retry past it.
+          echo "== destroying stale volume $OLD_VOL =="
+          for i in $(seq 1 30); do
+            if flyctl volumes destroy "$OLD_VOL" --app "$FLY_APP" --yes; then
+              echo "destroyed $OLD_VOL"; break
+            fi
+            if ! flyctl volumes list --app "$FLY_APP" --json | grep -q "$OLD_VOL"; then
+              echo "$OLD_VOL already gone"; break
+            fi
+            echo "attempt $i: destroy blocked (fork lock?), retry in 15s"; sleep 15
+          done
+
+          # Exactly one skosdex_data volume should remain now — the seeded fork.
+          echo "== remaining volumes =="
+          flyctl volumes list --app "$FLY_APP" || true
+
+          # Recreate prod on it. start.sh sees all markers present (indexer already
+          # seeded+optimized), so it boots straight to serving.
+          echo "== deploying prod onto the seeded volume =="
+          flyctl deploy --image "$IMAGE" --config deploy/fly/fly.toml \
+            --strategy immediate --app "$FLY_APP"
+
+          echo "== verifying endpoint =="
+          for i in $(seq 1 40); do
+            if curl -sf -m 10 "https://$FLY_APP.fly.dev/query?query=ASK%7B%7D" | grep -qi true; then
+              echo "LIVE after $((i*10))s"; exit 0
+            fi
+            sleep 10
+          done
+          echo "endpoint not up yet — check 'flyctl logs'"; exit 1
