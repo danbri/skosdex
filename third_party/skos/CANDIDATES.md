@@ -223,6 +223,21 @@ carry 112k/56k real `skos:Concept`, not just taxa.)
   10.5 GB uncompressed / host-blocked); need a bigger build box.
 - **GND** (DNB, CC0), **Wikidata** (CC0, needs scoping) — large, deferred.
 
+
+## 🌾 AgroPortal SKOS ontologies — licence-verification pending
+
+AgroPortal's SKOS filter (`ontologies_filter?format=SKOS`, found via headless
+browser; key-free `/ontologies/<ACR>/download` works) yields ~26 SKOS ontologies.
+~20 are NEW (FOODEX2, AFO, INRAETHES, THESAGRO, VOCGEO, MEAT-T, CVO, BIODIVTHES,
+ICC, SHKG, WCACROPS, …). **Built then REMOVED**: their licences are NOT reliably
+recoverable without the AgroPortal API key — the public pages render licence
+inconsistently and at least FOODEX2 shows **"No license"**. Under the
+explicit-licence gate we won't bundle these with a guessed licence. Re-onboard
+with a (free) AgroPortal API key: `data.agroportal.eu/ontologies/<ACR>/latest_submission?apikey=…`
+returns `omv:hasLicense` cleanly per ontology → keep CC-BY/CC0, drop "No license"/
+copyleft. (The 3 already held — anaeethes, biorefinery, cropusage — were licence-
+verified earlier and stay.)
+
 ## 🚫 Metadata-only — copyleft / non-commercial / proprietary
 
 Never bundle the data; keep a `meta.ttl` record so others can fetch it.
