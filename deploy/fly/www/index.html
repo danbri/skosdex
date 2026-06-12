@@ -38,6 +38,7 @@
  .reln{margin:.6rem 0 0} .reln b{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#52606d}
  .reln a{display:inline-block;background:#f0f4f8;border-radius:5px;padding:.1rem .5rem;margin:.15rem .2rem 0 0;color:#1d4e89;text-decoration:none;cursor:pointer;font-size:.9rem}
  .reln a:hover{background:#dbe4ee}
+ .crumb{font-size:.82rem;margin:0 0 .3rem;line-height:1.6} .crumb a{color:#1d4e89;text-decoration:none;cursor:pointer} .crumb a:hover{text-decoration:underline} .crumb .sep{color:#9aa5b1;margin:0 .3rem}
  .langs{font-size:.86rem;color:#3e4c59;margin:.4rem 0 0} .langs .lg{color:#9aa5b1;font-size:.72rem;margin-right:.15rem}
  .def{margin:.5rem 0 0;font-size:.93rem}
  #schemes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem;margin-top:1rem}
@@ -452,14 +453,54 @@ async function show(uri){
   const mapHtml=k=>map[k].length?`<div class="reln"><b>${k==='focus'?'focus (real-world entity)':k}</b><br>${map[k].slice(0,30).map(u=>
     `<a href="${esc(u)}" target="_blank" rel="noopener" title="${esc(u)}">${esc(shortUri(u))} ↗</a>`).join('')}</div>`:'';
   $('concept').innerHTML=`
+    <div id="crumb" class="crumb"></div>
     <h2>${esc(main?main.value:uri)}${main&&main['xml:lang']?` <span class="lg">${esc(main['xml:lang'])}</span>`:''}</h2>
     <div class="uri"><a href="${esc(uri)}" target="_blank" rel="noopener">${esc(uri)}</a>${scheme?`<span data-scheme="${esc(scheme)}"></span>`:''}</div>
     ${others.length?`<div class="langs">${others.map(x=>`<span><span class="lg">${esc(x['xml:lang']||'')}</span>${esc(x.value)}</span>`).join(' · ')}</div>`:''}
     ${alt.length?`<div class="langs">also: ${alt.slice(0,10).map(x=>esc(x.value)).join(' · ')}</div>`:''}
     ${def?`<div class="def">${esc(def.value)}</div>`:''}
-    ${relHtml('broader')}${relHtml('narrower')}${relHtml('related')}
+    ${relHtml('broader')}<div id="sibs"></div>${relHtml('narrower')}${relHtml('related')}
     ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
   renderSchemeTags();
+  // fill ancestor breadcrumb + siblings asynchronously (keeps the panel snappy)
+  loadHierarchyNav(uri, rel.broader.map(x=>x.u));
+}
+
+// Ancestor breadcrumb (root › … › parent › this) and siblings (concepts sharing
+// a broader) — the two moves that make in-scheme browsing fast. Both run after
+// the panel paints; labels follow the language preference.
+async function loadHierarchyNav(uri, directBroaders){
+  const lf=prefLangs().slice(0,4).map(l=>`LANG(?l)=${JSON.stringify(l)}`).join(' || ');
+  const last=u=>u.split(/[\\/#]/).filter(Boolean).pop();
+  // --- breadcrumb: pull all ancestors + each one's broader, walk the chain ----
+  try{
+    if(directBroaders&&directBroaders.length){
+      const anc=await sparql(`PREFIX skos:<${SKOS}> SELECT ?a ?ab ?l WHERE { GRAPH ?g {
+        <${uri}> skos:broader+ ?a . OPTIONAL { ?a skos:broader ?ab }
+        OPTIONAL { ?a skos:prefLabel ?l . FILTER(${lf}) } } } LIMIT 200`);
+      const par={}, lbl={};
+      for(const r of anc){ const a=r.a.value; if(r.ab)par[a]=r.ab.value; if(r.l&&!lbl[a])lbl[a]=r.l.value; }
+      const chain=[]; const seen=new Set(); let cur=directBroaders[0];
+      while(cur&&!seen.has(cur)){ seen.add(cur); chain.push({u:cur,l:lbl[cur]||last(cur)}); cur=par[cur]; }
+      chain.reverse();
+      const el=$('crumb');
+      if(el&&chain.length) el.innerHTML=chain.map(x=>`<a onclick="show('${esc(x.u)}')">${esc(x.l)}</a>`).join('<span class="sep">›</span>')+'<span class="sep">›</span>';
+    }
+  }catch{}
+  // --- siblings: other narrower-of-my-broader ---------------------------------
+  try{
+    if(directBroaders&&directBroaders.length){
+      const bvals=directBroaders.slice(0,3).map(b=>`(<${b}>)`).join(' ');
+      const sib=await sparql(`PREFIX skos:<${SKOS}> SELECT DISTINCT ?s ?l WHERE { GRAPH ?g {
+        VALUES (?b) { ${bvals} } ?s skos:broader ?b . FILTER(?s != <${uri}>)
+        OPTIONAL { ?s skos:prefLabel ?l . FILTER(${lf}) } } } LIMIT 60`);
+      const seen=new Set(), items=[];
+      for(const r of sib){ const u=r.s.value; if(seen.has(u))continue; seen.add(u); items.push({u,l:r.l?r.l.value:last(u)}); }
+      const el=$('sibs');
+      if(el&&items.length) el.innerHTML=`<div class="reln"><b>siblings <span class="ct">${items.length}${items.length>=60?'+':''}</span></b><br>`
+        +items.slice(0,40).map(x=>`<a onclick="show('${esc(x.u)}')">${esc(x.l)}</a>`).join('')+'</div>';
+    }
+  }catch{}
 }
 // ---- browse into a vocabulary (click a scheme card) ----
 // Scheme cards open a "peek": a link out to the scheme's own page + a Wikipedia

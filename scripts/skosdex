@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
+import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import readline from 'node:readline';
 import { Readable } from 'node:stream';
@@ -430,12 +431,22 @@ function appendSchemeToBundle(meta, canon, rawOut) {
 // global sort (schemes occupy disjoint graphs and each canonical is already
 // sorted+deduped), so adding one scheme never re-processes the others: the
 // container loads these incrementally against per-scheme volume markers.
+// Bump when the graphed transform (awk program / graph injection) changes, to
+// invalidate every per-scheme cache at once.
+const GRAPHED_CACHE_VER = 'v1';
+
 async function graphedAll() {
   const metas = listSlugs().map(readMeta);
   const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
   const outDir = path.join(DIST_DIR, 'graphed');
-  fs.rmSync(outDir, { recursive: true, force: true });
+  // Incremental: keep prior outputs and reuse any scheme whose canonical (and
+  // the transform) is unchanged. A <slug>.json sidecar records the cache key +
+  // quad count next to each <slug>.nq.gz, so a one-scheme change re-graphs only
+  // that scheme instead of the whole ~370M-quad corpus. (Pair with actions/cache
+  // on dist/graphed in CI so the sidecars survive between runs.)
   fs.mkdirSync(outDir, { recursive: true });
+  const valid = new Set();
+  let rebuilt = 0, reused = 0;
 
   for (const meta of metas) {
     const reason = bundleReason(meta);
@@ -451,15 +462,38 @@ async function graphedAll() {
       continue;
     }
     const out = path.join(outDir, `${meta.slug}.${NQ}`);
+    const sidecar = path.join(outDir, `${meta.slug}.json`);
     const graph = meta.conceptSchemeURI ? ` <${meta.conceptSchemeURI}> ` : ' ';
-    const prog =
-      `{ sub(/[ \\t]*\\.[ \\t]*$/, "");` +
-      ` if (index($0, "_:")) gsub(/_:/, "_:${meta.slug}");` +
-      ` print $0 "${graph}." }`;
-    execFileSync('bash', ['-c',
-      `set -o pipefail; zcat "${canon}" | awk '${prog}' | gzip > "${out}"`,
-    ], { stdio: 'inherit', maxBuffer: Infinity });
-    const count = Number(execFileSync('bash', ['-c', `zcat "${canon}" | wc -l`], { encoding: 'utf8' }).trim());
+    // Cache key = transform version + injected graph + canonical content digest
+    // (md5sum streams the file, so even multi-GB canonicals aren't read into JS).
+    const canonMd5 = execFileSync('md5sum', [canon], { encoding: 'utf8' }).split(' ')[0];
+    const key = crypto.createHash('md5')
+      .update(`${GRAPHED_CACHE_VER}\0${graph}\0${canonMd5}`).digest('hex');
+
+    let count, cached = false;
+    if (fs.existsSync(out) && fs.existsSync(sidecar)) {
+      try {
+        const sc = JSON.parse(fs.readFileSync(sidecar, 'utf8'));
+        if (sc.key === key && Number.isFinite(sc.quads)) { count = sc.quads; cached = true; }
+      } catch { /* rebuild on any sidecar problem */ }
+    }
+    if (cached) {
+      reused++;
+      console.log(`  graphed  ${meta.slug}: ${count} quads (cached)`);
+    } else {
+      const prog =
+        `{ sub(/[ \\t]*\\.[ \\t]*$/, "");` +
+        ` if (index($0, "_:")) gsub(/_:/, "_:${meta.slug}");` +
+        ` print $0 "${graph}." }`;
+      execFileSync('bash', ['-c',
+        `set -o pipefail; zcat "${canon}" | awk '${prog}' | gzip > "${out}"`,
+      ], { stdio: 'inherit', maxBuffer: Infinity });
+      count = Number(execFileSync('bash', ['-c', `zcat "${canon}" | wc -l`], { encoding: 'utf8' }).trim());
+      fs.writeFileSync(sidecar, JSON.stringify({ key, quads: count }) + '\n');
+      rebuilt++;
+      console.log(`  graphed  ${meta.slug}: ${count} quads -> dist/graphed/${meta.slug}.${NQ}`);
+    }
+    valid.add(meta.slug);
     manifest.included.push({
       slug: meta.slug,
       title: meta.title,
@@ -470,10 +504,14 @@ async function graphedAll() {
       graph: meta.conceptSchemeURI || null,
       quads: count,
     });
-    console.log(`  graphed  ${meta.slug}: ${count} quads -> dist/graphed/${meta.slug}.${NQ}`);
+  }
+  // Prune stale outputs (schemes removed or no longer eligible).
+  for (const f of fs.readdirSync(outDir)) {
+    const slug = f.replace(/\.(nq\.gz|json)$/, '');
+    if (!valid.has(slug)) fs.rmSync(path.join(outDir, f), { force: true });
   }
   fs.writeFileSync(path.join(DIST_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
-  console.log(`  graphed  -> ${manifest.included.length} schemes`);
+  console.log(`  graphed  -> ${manifest.included.length} schemes (${rebuilt} rebuilt, ${reused} cached)`);
 }
 
 async function bundleAll() {
@@ -526,10 +564,72 @@ async function bundleAll() {
   console.log(`  bundle   -> dist/bundle.${NQ} (${total} quads, ${manifest.included.length} schemes)`);
 }
 
-// Flatten the bundle into one Solr doc per skos:Concept. Streams the (sorted)
-// gzipped bundle line-by-line: all lines for a subject are contiguous, so we
-// accumulate one subject at a time and flush — bounded memory even for AGROVOC.
-// Writes a JSON array incrementally so the full doc set never lives in RAM.
+// Predicate -> Solr field map + the subset also copied into a unified 'mapping'
+// field (one place to recall every outbound link of a concept). Module-level so
+// the per-scheme parser and the cache key version travel together.
+const SOLR_FIELD = {
+  [NS.skos + 'prefLabel']: 'prefLabel',
+  [NS.skos + 'altLabel']: 'altLabel',
+  [NS.skos + 'definition']: 'definition',
+  [NS.skos + 'broader']: 'broader',
+  [NS.skos + 'narrower']: 'narrower',
+  // RDF extras for the REST/autocomplete API: cross-scheme mappings + codes.
+  [NS.skos + 'exactMatch']: 'exactMatch',
+  [NS.skos + 'closeMatch']: 'closeMatch',
+  [NS.skos + 'broadMatch']: 'broadMatch',
+  [NS.skos + 'narrowMatch']: 'narrowMatch',
+  [NS.skos + 'relatedMatch']: 'relatedMatch',
+  [NS.skos + 'related']: 'related',
+  [NS.owl + 'sameAs']: 'sameAs',
+  [NS.owl + 'equivalentClass']: 'equivalentClass',
+  [NS.owl + 'equivalentProperty']: 'equivalentProperty',
+  [NS.foaf + 'focus']: 'focus',       // authority idiom: concept -> real-world entity (RAMEAU/BnF)
+  [NS.skos + 'notation']: 'notation',
+};
+const SOLR_MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','equivalentClass','equivalentProperty','focus']);
+// Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
+const SOLR_LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
+// Bump to invalidate every per-scheme solr-docs cache (doc shape / field logic change).
+const SOLR_CACHE_VER = 'v1';
+
+// Parse one graphed N-Quads file into Solr concept docs, calling emit(jsonStr)
+// once per skos:Concept. Subjects are contiguous in the sorted file, so we
+// accumulate one subject at a time — bounded memory even for AGROVOC.
+// Solr indexes skos:Concept only (non-SKOS ontology graphs stay in the
+// triplestore for SPARQL; ontology search is a separate planned path).
+async function eachConceptDoc(input, emit) {
+  const TYPE = NS.rdf + 'type', CONCEPT = NS.skos + 'Concept';
+  let cur = null;
+  const flush = () => {
+    if (cur && cur.isConcept)
+      emit(JSON.stringify({ id: cur.id, scheme: cur.scheme, ...(cur.exactLabel ? { exactLabel: cur.exactLabel } : {}), ...cur.fields }));
+  };
+  const rl = readline.createInterface({ input: fs.createReadStream(input).pipe(zlib.createGunzip()) });
+  for await (const line of rl) {
+    const m = SOLR_LINE.exec(line);
+    if (!m) continue;
+    const [, s, p, oIri, oLit, lang, graph] = m;
+    if (!cur || cur.id !== s) { flush(); cur = { id: s, scheme: graph || null, isConcept: false, exactLabel: null, fields: {} }; }
+    if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
+    const field = SOLR_FIELD[p];
+    if (field) {
+      const val = oIri !== undefined ? oIri : oLit;
+      (cur.fields[field] ||= []).push(val);
+      if (SOLR_MAPPING_FIELDS.has(field)) (cur.fields.mapping ||= []).push(val);
+    }
+    // Single English prefLabel -> exactLabel: a low-cardinality field so an
+    // entry whose whole label IS the query ranks above ones that merely list
+    // it among 40 languages (AGROVOC 'rice' was losing to monolingual LCSH).
+    if (p === NS.skos + 'prefLabel' && oLit !== undefined && (lang === 'en' || !lang) && !cur.exactLabel) cur.exactLabel = oLit;
+  }
+  flush();
+}
+
+// Flatten the graphed corpus into one Solr doc per skos:Concept. Incremental:
+// each graphed file is parsed into a cached per-scheme dist/solr-cache/<slug>.ndjson
+// (keyed on the graphed file's digest), so a one-scheme change re-parses only
+// that scheme instead of all ~370M quads. The (cheap, ~doc-count) assembly then
+// concatenates the cached docs into solr-docs.json + the chunked part files.
 async function solrDocs() {
   const graphedDir = path.join(DIST_DIR, 'graphed');
   const bundle = path.join(DIST_DIR, `bundle.${NQ}`);
@@ -537,45 +637,37 @@ async function solrDocs() {
     ? fs.readdirSync(graphedDir).filter((f) => f.endsWith(`.${NQ}`)).sort().map((f) => path.join(graphedDir, f))
     : (fs.existsSync(bundle) ? [bundle] : []);
   if (!inputs.length) throw new Error('no dist/graphed/*.nq.gz or dist/bundle.nq.gz — run graphed (or bundle) first');
+  const slugOf = (input) => path.basename(input).replace(new RegExp(`\\.${NQ.replace(/\./g, '\\.')}$`), '');
 
-  const FIELD = {
-    [NS.skos + 'prefLabel']: 'prefLabel',
-    [NS.skos + 'altLabel']: 'altLabel',
-    [NS.skos + 'definition']: 'definition',
-    [NS.skos + 'broader']: 'broader',
-    [NS.skos + 'narrower']: 'narrower',
-    // RDF extras for the REST/autocomplete API: cross-scheme mappings + codes.
-    [NS.skos + 'exactMatch']: 'exactMatch',
-    [NS.skos + 'closeMatch']: 'closeMatch',
-    [NS.skos + 'broadMatch']: 'broadMatch',
-    [NS.skos + 'narrowMatch']: 'narrowMatch',
-    [NS.skos + 'relatedMatch']: 'relatedMatch',
-    [NS.skos + 'related']: 'related',
-    [NS.owl + 'sameAs']: 'sameAs',
-    [NS.owl + 'equivalentClass']: 'equivalentClass',
-    [NS.owl + 'equivalentProperty']: 'equivalentProperty',
-    [NS.foaf + 'focus']: 'focus',       // authority idiom: concept -> real-world entity (RAMEAU/BnF)
-    [NS.skos + 'notation']: 'notation',
-  };
-  // Predicates whose objects are ALSO copied into a single multivalued
-  // 'mapping' field — one place to recall every outbound link of a concept
-  // (exact/close/broad/narrow/related/sameAs/focus), regardless of idiom.
-  const MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','equivalentClass','equivalentProperty','focus']);
-  const TYPE = NS.rdf + 'type';
-  const CONCEPT = NS.skos + 'Concept';
-  // Solr indexes skos:Concept only. Non-SKOS ontology graphs (e.g.
-  // wikidata-ontology — genuine RDFS/OWL) live in the triplestore for SPARQL
-  // but are deliberately NOT force-indexed here; ontology search is a separate
-  // planned path. (An earlier change indexed owl:Class/ObjectProperty + treated
-  // rdfs:label as a label; reverted per owner — keep the index SKOS-only.)
-  // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
-  const LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
+  // --- parse only the changed schemes into the per-scheme doc cache -----------
+  const cacheDir = path.join(DIST_DIR, 'solr-cache');
+  fs.mkdirSync(cacheDir, { recursive: true });
+  const valid = new Set();
+  let parsed = 0, cachedN = 0;
+  for (const input of inputs) {
+    const slug = slugOf(input);
+    valid.add(slug);
+    const nd = path.join(cacheDir, `${slug}.ndjson`);
+    const kf = path.join(cacheDir, `${slug}.key`);
+    const md5 = execFileSync('md5sum', [input], { encoding: 'utf8' }).split(' ')[0];
+    const key = `${SOLR_CACHE_VER}:${md5}`;
+    if (fs.existsSync(nd) && fs.existsSync(kf) && fs.readFileSync(kf, 'utf8').trim() === key) { cachedN++; continue; }
+    const w = fs.createWriteStream(nd);
+    await eachConceptDoc(input, (json) => w.write(json + '\n'));
+    await new Promise((r) => w.end(r));
+    fs.writeFileSync(kf, key + '\n');
+    parsed++;
+  }
+  // prune cache entries for schemes no longer present
+  for (const f of fs.readdirSync(cacheDir)) {
+    const slug = f.replace(/\.(ndjson|key)$/, '');
+    if (!valid.has(slug)) fs.rmSync(path.join(cacheDir, f), { force: true });
+  }
 
-  fs.mkdirSync(DIST_DIR, { recursive: true });
+  // --- assemble solr-docs.json + the chunked part files ----------------------
   // Two outputs: the single solr-docs.json (demo/Pages consume it) and
   // dist/solr-parts/part-NNNN.json batches of PART_DOCS docs each — Solr's
-  // default heap can't swallow a single ~180MB POST (it shipped, it died),
-  // so the deployment posts the parts one by one.
+  // default heap can't swallow a single ~180MB POST, so the deploy posts parts.
   const PART_DOCS = 50000;
   const partsDir = path.join(DIST_DIR, 'solr-parts');
   fs.rmSync(partsDir, { recursive: true, force: true });
@@ -585,47 +677,23 @@ async function solrDocs() {
   let nDocs = 0, partNo = 0, partCount = 0, partStream = null;
   const openPart = () => {
     partStream = fs.createWriteStream(path.join(partsDir, `part-${String(partNo).padStart(4, '0')}.json`));
-    partStream.write('[\n');
-    partCount = 0;
+    partStream.write('[\n'); partCount = 0;
   };
   const closePart = () => new Promise((r) => { partStream.write('\n]\n'); partStream.end(r); });
   openPart();
-  let cur = null; // { id, scheme, isConcept, fields:{} }
-  const flushDoc = async () => {
-    if (cur && cur.isConcept) {
-      const json = JSON.stringify({ id: cur.id, scheme: cur.scheme, ...(cur.exactLabel ? { exactLabel: cur.exactLabel } : {}), ...cur.fields });
-      outStream.write((nDocs++ ? ',\n' : '') + json);
-      if (partCount >= PART_DOCS) { await closePart(); partNo++; openPart(); }
-      partStream.write((partCount++ ? ',\n' : '') + json);
-    }
+  const writeDoc = async (json) => {
+    outStream.write((nDocs++ ? ',\n' : '') + json);
+    if (partCount >= PART_DOCS) { await closePart(); partNo++; openPart(); }
+    partStream.write((partCount++ ? ',\n' : '') + json);
   };
-
   for (const input of inputs) {
-  const rl = readline.createInterface({ input: fs.createReadStream(input).pipe(zlib.createGunzip()) });
-  for await (const line of rl) {
-    const m = LINE.exec(line);
-    if (!m) continue;
-    const [, s, p, oIri, oLit, lang, graph] = m;
-    if (!cur || cur.id !== s) { await flushDoc(); cur = { id: s, scheme: graph || null, isConcept: false, exactLabel: null, fields: {} }; }
-    if (p === TYPE && oIri === CONCEPT) cur.isConcept = true;
-    const field = FIELD[p];
-    if (field) {
-      const val = oIri !== undefined ? oIri : oLit;
-      (cur.fields[field] ||= []).push(val);
-      if (MAPPING_FIELDS.has(field)) (cur.fields.mapping ||= []).push(val);
-    }
-    // Single English prefLabel -> exactLabel: a low-cardinality field so an
-    // entry whose whole label IS the query ranks above ones that merely list
-    // it among 40 languages (AGROVOC 'rice' was losing to monolingual LCSH).
-    if (p === NS.skos + 'prefLabel' && oLit !== undefined && (lang === 'en' || !lang) && !cur.exactLabel) {
-      cur.exactLabel = oLit;
-    }
+    const nd = path.join(cacheDir, `${slugOf(input)}.ndjson`);
+    const rl = readline.createInterface({ input: fs.createReadStream(nd) });
+    for await (const line of rl) { if (line) await writeDoc(line); }
   }
-  }
-  await flushDoc();
   outStream.write('\n]\n');
   await Promise.all([new Promise((r) => outStream.end(r)), closePart()]);
-  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs; ${partNo + 1} parts of <=${PART_DOCS})`);
+  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs; ${partNo + 1} parts of <=${PART_DOCS}; ${parsed} schemes parsed, ${cachedN} cached)`);
 }
 
 // Bake a single self-contained HTML file with the concept data embedded, so the

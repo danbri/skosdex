@@ -71,10 +71,33 @@ jobs:
       - if: steps.scope.outputs.ui_only != 'true'
         run: npm ci
 
-      # Deploy artifacts from the committed LFS corpus — no network fetches.
-      # Skipped entirely on the UI fast path.
+      # Cache the LFS object store so unchanged canonicals aren't re-downloaded
+      # every build (faster, and saves the repo's LFS bandwidth budget). Keyed on
+      # the committed pointers, which carry each object's content oid.
+      - name: Cache LFS objects
+        if: steps.scope.outputs.ui_only != 'true'
+        uses: actions/cache@v4
+        with:
+          path: .git/lfs
+          key: lfs-${{ hashFiles('third_party/skos/**/canonical.nq.gz') }}
+          restore-keys: lfs-
       - if: steps.scope.outputs.ui_only != 'true'
         run: git lfs pull
+
+      # Cache the per-scheme graphed artifacts. `skosdex graphed` reuses any
+      # scheme whose canonical is unchanged (sidecar hash match), so restoring
+      # the previous run's dist/graphed makes a one-scheme data change re-graph
+      # only that scheme instead of the whole corpus. Unique key + restore-keys
+      # prefix = always restore the latest, always save a fresh snapshot.
+      - name: Cache graphed + solr-docs artifacts (incremental rebuild)
+        if: steps.scope.outputs.ui_only != 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            dist/graphed
+            dist/solr-cache
+          key: artifacts-${{ github.sha }}
+          restore-keys: artifacts-
       - if: steps.scope.outputs.ui_only != 'true'
         run: node scripts/skosdex graphed
       - if: steps.scope.outputs.ui_only != 'true'
