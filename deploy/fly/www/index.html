@@ -39,6 +39,8 @@
  .reln a{display:inline-block;background:#f0f4f8;border-radius:5px;padding:.1rem .5rem;margin:.15rem .2rem 0 0;color:#1d4e89;text-decoration:none;cursor:pointer;font-size:.9rem}
  .reln a:hover{background:#dbe4ee}
  .crumb{font-size:.82rem;margin:0 0 .3rem;line-height:1.6} .crumb a{color:#1d4e89;text-decoration:none;cursor:pointer} .crumb a:hover{text-decoration:underline} .crumb .sep{color:#9aa5b1;margin:0 .3rem}
+ .seg{display:inline-flex;border:1px solid #cbd2d9;border-radius:6px;overflow:hidden;vertical-align:middle;margin-left:.3rem;text-transform:none;letter-spacing:0}
+ .seg a{padding:.02rem .4rem;font-size:.74rem;color:#52606d;cursor:pointer;background:#fff} .seg a.on{background:#2563eb;color:#fff} .seg a:not(.on):hover{background:#eef2f7}
  .langs{font-size:.86rem;color:#3e4c59;margin:.4rem 0 0} .langs .lg{color:#9aa5b1;font-size:.72rem;margin-right:.15rem}
  .def{margin:.5rem 0 0;font-size:.93rem}
  #schemes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.6rem;margin-top:1rem}
@@ -400,6 +402,8 @@ $('cluster').addEventListener('change',()=>{ if(LAST.q) search(LAST.q); });
 // Scales to small/medium vocabularies; the full corpus would move to Solr KNN.
 const EMB={};            // slug -> {ids, labels, idx:Map, mat:Float32Array, dim, n}
 let EMB_SET=null;        // Set of slugs that have embeddings (from index.json)
+let SHOWN=new Set();     // URIs already linked on the current concept panel (broader/narrower/related/siblings/mappings)
+let SIM=null;            // {hits} for the current concept, so the all|also toggle re-renders without recompute
 function half2float(u16){ // decode IEEE-754 half-precision -> Float32Array
   const out=new Float32Array(u16.length);
   for(let i=0;i<u16.length;i++){ const h=u16[i], s=(h&0x8000)>>15, e=(h&0x7c00)>>10, f=h&0x3ff;
@@ -426,15 +430,27 @@ function embSimilar(E,uri,k=10){
   return [...sc.keys()].filter(i=>i!==r).sort((a,b)=>sc[b]-sc[a]).slice(0,k).map(i=>({id:E.ids[i],l:E.labels[i],s:sc[i]}));
 }
 async function loadSimilar(uri,scheme){
+  SIM=null;
   try{
     const slug=SLUG_BY_GRAPH[scheme]; if(!slug)return;
     if(!(await embSet()).has(slug))return;
-    const E=await embLoad(slug); const hits=embSimilar(E,uri,10);
-    const el=$('similar'); if(!el||!hits.length)return;
-    el.innerHTML=`<div class="reln"><b>similar by meaning <span class="ct">embeddings · experimental</span></b><br>`
-      +hits.map(h=>`<a onclick="show('${esc(h.id)}')" title="cosine ${h.s.toFixed(2)}">${esc(h.l)}</a>`).join('')+'</div>';
+    const E=await embLoad(slug); const hits=embSimilar(E,uri,14);
+    if(!hits.length)return;
+    SIM={hits}; renderSimilar();
   }catch{}
 }
+// "also" (default) hides concepts already linked above (broader/narrower/related/
+// siblings/mappings) so we don't repeat them; "all" shows every neighbour.
+function renderSimilar(){
+  const el=$('similar'); if(!el||!SIM)return;
+  const all=!!cfg.simAll;
+  const shown=all?SIM.hits:SIM.hits.filter(h=>!SHOWN.has(h.id));
+  const seg=`<span class="seg"><a onclick="setSim(0)" class="${all?'':'on'}">also</a><a onclick="setSim(1)" class="${all?'on':''}">all</a></span>`;
+  const body=shown.slice(0,10).map(h=>`<a onclick="show('${esc(h.id)}')" title="cosine ${h.s.toFixed(2)}">${esc(h.l)}</a>`).join('')
+    || `<span class="muted">all ${SIM.hits.length} already linked above</span>`;
+  el.innerHTML=`<div class="reln"><b>similar by meaning <span class="ct">embeddings · experimental</span> ${seg}</b><br>${body}</div>`;
+}
+function setSim(v){ cfg.simAll=!!v; saveCfg(); renderSimilar(); }
 
 async function sparql(query){
   const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:query});
@@ -507,10 +523,14 @@ async function show(uri){
     <div id="similar"></div>
     ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
   renderSchemeTags();
-  // fill ancestor breadcrumb + siblings asynchronously (keeps the panel snappy)
-  loadHierarchyNav(uri, rel.broader.map(x=>x.u));
-  // embeddings: "similar by meaning" for schemes we've embedded (experimental)
-  loadSimilar(uri, scheme);
+  // track every URI already linked on the panel, so "similar by meaning"'s
+  // default "also" view can skip repeats. Siblings/ancestors are added async.
+  SHOWN=new Set([uri]);
+  ['broader','narrower','related'].forEach(k=>rel[k].forEach(x=>SHOWN.add(x.u)));
+  Object.values(map).forEach(a=>a.forEach(u=>SHOWN.add(u)));
+  // fill ancestor breadcrumb + siblings, THEN the embeddings "similar" panel
+  // (so siblings are already in SHOWN and won't be repeated).
+  loadHierarchyNav(uri, rel.broader.map(x=>x.u)).then(()=>loadSimilar(uri, scheme));
 }
 
 // Ancestor breadcrumb (root › … › parent › this) and siblings (concepts sharing
@@ -530,6 +550,7 @@ async function loadHierarchyNav(uri, directBroaders){
       const chain=[]; const seen=new Set(); let cur=directBroaders[0];
       while(cur&&!seen.has(cur)){ seen.add(cur); chain.push({u:cur,l:lbl[cur]||last(cur)}); cur=par[cur]; }
       chain.reverse();
+      chain.forEach(x=>SHOWN.add(x.u));
       const el=$('crumb');
       if(el&&chain.length) el.innerHTML=chain.map(x=>`<a onclick="show('${esc(x.u)}')">${esc(x.l)}</a>`).join('<span class="sep">›</span>')+'<span class="sep">›</span>';
     }
@@ -542,7 +563,7 @@ async function loadHierarchyNav(uri, directBroaders){
         VALUES (?b) { ${bvals} } ?s skos:broader ?b . FILTER(?s != <${uri}>)
         OPTIONAL { ?s skos:prefLabel ?l . FILTER(${lf}) } } } LIMIT 60`);
       const seen=new Set(), items=[];
-      for(const r of sib){ const u=r.s.value; if(seen.has(u))continue; seen.add(u); items.push({u,l:r.l?r.l.value:last(u)}); }
+      for(const r of sib){ const u=r.s.value; if(seen.has(u))continue; seen.add(u); items.push({u,l:r.l?r.l.value:last(u)}); SHOWN.add(u); }
       const el=$('sibs');
       if(el&&items.length) el.innerHTML=`<div class="reln"><b>siblings <span class="ct">${items.length}${items.length>=60?'+':''}</span></b><br>`
         +items.slice(0,40).map(x=>`<a onclick="show('${esc(x.u)}')">${esc(x.l)}</a>`).join('')+'</div>';
