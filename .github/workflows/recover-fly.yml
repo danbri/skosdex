@@ -3,20 +3,25 @@ name: Recover Fly prod (resume a half-finished cutover)
 # Manual safety net. The cutover (deploy/fly/cutover.sh) destroys the prod
 # machine and the old volume before redeploying onto the seeded fork; if the
 # volume destroy hits Fly's transient "volume is being used for fork" lock the
-# script exits with prod already gone (503). Run this to finish the swap:
-# destroy the stale volume (retrying until the fork lock clears) and deploy onto
-# the remaining seeded volume, reusing the image that was already built.
+# script exits with prod already gone (503). This finishes the swap: destroy the
+# stale volume (retrying until the fork lock clears) and deploy onto the
+# remaining seeded volume, reusing the image that was already built.
+#
+# Triggered by a push to THIS file (the integration token can't workflow_dispatch).
+# RECOVER_OLD_VOL / RECOVER_IMAGE below are the live values from the failed run.
 on:
+  push:
+    branches: [claude/main]
+    paths:
+      - '.github/workflows/recover-fly.yml'
   workflow_dispatch:
     inputs:
       old_volume:
         description: "Stale pre-cutover volume ID to destroy"
-        required: true
-        default: vol_rnzjnwk1xym2170r
+        required: false
       image:
         description: "Already-built image to deploy"
-        required: true
-        default: ghcr.io/danbri/skosdex-fly:9beb29af077f3203def69d8d887f079dc2a5f0a1
+        required: false
 
 concurrency:
   group: fly-deploy
@@ -24,6 +29,10 @@ concurrency:
 
 permissions:
   contents: read
+
+env:
+  RECOVER_OLD_VOL: vol_rnzjnwk1xym2170r
+  RECOVER_IMAGE: ghcr.io/danbri/skosdex-fly:9beb29af077f3203def69d8d887f079dc2a5f0a1
 
 jobs:
   recover:
@@ -35,10 +44,11 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
           FLY_APP: skosdex
-          OLD_VOL: ${{ inputs.old_volume }}
-          IMAGE: ${{ inputs.image }}
+          OLD_VOL: ${{ github.event.inputs.old_volume || env.RECOVER_OLD_VOL }}
+          IMAGE: ${{ github.event.inputs.image || env.RECOVER_IMAGE }}
         run: |
           set -euo pipefail
+          echo "recovering with OLD_VOL=$OLD_VOL IMAGE=$IMAGE"
           echo "== current state =="
           flyctl machines list --app "$FLY_APP" || true
           flyctl volumes list --app "$FLY_APP" || true
@@ -56,12 +66,11 @@ jobs:
             echo "attempt $i: destroy blocked (fork lock?), retry in 15s"; sleep 15
           done
 
-          # Exactly one skosdex_data volume should remain now — the seeded fork.
           echo "== remaining volumes =="
           flyctl volumes list --app "$FLY_APP" || true
 
-          # Recreate prod on it. start.sh sees all markers present (indexer already
-          # seeded+optimized), so it boots straight to serving.
+          # Recreate prod on the seeded volume. start.sh sees all markers present
+          # (indexer already seeded+optimized), so it boots straight to serving.
           echo "== deploying prod onto the seeded volume =="
           flyctl deploy --image "$IMAGE" --config deploy/fly/fly.toml \
             --strategy immediate --app "$FLY_APP"
