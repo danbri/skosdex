@@ -80,10 +80,32 @@ fi
 # --- 3. SWAP (the only downtime: a ~1-2 min prod recreate) -------------------
 # Destroy the indexer first so the staged volume is free to attach to prod.
 say "destroying indexer machine…"; flyctl machine destroy "$IDX_MACHINE" --app "$APP" --force >/dev/null 2>&1 || true
+
+# CRITICAL: a freshly forked volume keeps its SOURCE (the prod volume) locked
+# until Fly finishes copying ("hydrating") it. Destroying the source while the
+# fork hydrates fails with "volume is being used for fork" — which once stranded
+# prod with no machine. Wait for the fork to leave 'hydrating' first.
+vstate(){ flyctl volumes list --app "$APP" --json 2>/dev/null \
+  | python3 -c "import sys,json;v=[x for x in json.load(sys.stdin) if x.get('id')=='$STAGE_VOL'];print(v[0]['state'] if v else 'gone')"; }
+say "waiting for staged fork to finish hydrating (unlocks the prod volume)…"
+for i in $(seq 1 160); do   # up to 40 min (80 GB fork copy)
+  st=$(vstate)
+  echo "  staged fork state: $st ($((i*15))s)"
+  [ "$st" != "hydrating" ] && { say "fork hydrated (state=$st)."; break; }
+  sleep 15
+done
+
 say "SWAP: pointing production at the pre-seeded volume (brief reboot)…"
 flyctl machine destroy "$PROD_MACHINE" --app "$APP" --force
-flyctl volumes destroy "$PROD_VOL" --app "$APP" --yes
-# Recreate prod from fly.toml against the only remaining volume (the seeded fork).
+# Best-effort: free the old volume so only the seeded fork remains for deploy to
+# attach. If it's still transiently locked, retry — but NEVER abort here, or prod
+# stays down. Worst case both volumes survive and we clean the loser up after.
+for i in $(seq 1 20); do
+  flyctl volumes destroy "$PROD_VOL" --app "$APP" --yes && { say "old volume destroyed."; break; }
+  flyctl volumes list --app "$APP" --json | grep -q "$PROD_VOL" || { say "old volume already gone."; break; }
+  echo "  old-volume destroy blocked, retry in 15s ($i)"; sleep 15
+done
+# Recreate prod against the remaining skosdex_data volume (the seeded fork).
 flyctl deploy --image "$IMAGE" --config deploy/fly/fly.toml --strategy immediate --app "$APP"
 
 # --- 4. verify ---------------------------------------------------------------

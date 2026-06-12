@@ -90,7 +90,7 @@ non-RDF or license-blocked.
 | **EU authority tables — complete set (135 NALs)** ⭐ | EU Publications Office | the FULL Named Authority List collection: all eForms/eProcurement codelists (procedure type, exclusion ground, award/selection criterion, legal basis, notice type…) PLUS general tables (place, corporate-body, atu, file-type, frequency, licence, resource-type, role, script, continent, human-sex, grammatical-*, …) | SKOS-core RDF/XML | open (2011/833/EU) | **onboarded** — 135 `eu-*` schemes (URLs via data.europa.eu API; one graph per table, UI-grouped) |
 | **EU Authority tables (NALs)** | EU Publications Office | currency (ISO 4217), measurement-unit (UN/ECE Rec 20), place, corporate-body, file-type, frequency… | SKOS-AP-EU RDF/XML | open (2011/833/EU) | **onboarded** `eu-currency/` (19k), `eu-measurement-unit/` (4k); already held country, language, CPV |
 | **EuroSciVoc** | OP / CORDIS | fields-of-science taxonomy (Frascati-based, 1000+ cats, 6 langs) | SKOS Turtle + RDF/XML | open (2011/833/EU) | **onboarded** — `euroscivoc/` |
-| **UN/LOCODE** ⭐ | UNECE / UN/CEFACT (RDF by ga-group) | trade & transport location codes (ports, airports…) | SKOS Turtle | CC BY 4.0 (ga-group) / ODC-PDDL (datahub) | <https://github.com/ga-group/un-locode> |
+| ~~UN/LOCODE~~ (ga-group) | UNECE / UN/CEFACT (RDF by ga-group) | trade & transport location codes | ~~SKOS~~ **OWL, not SKOS** | CC BY 4.0 | <https://github.com/ga-group/un-locode> — see note below |
 | **NACE Rev. 2.1 / CN / CPA / PRODCOM** | Eurostat (via ShowVoc) | economic activities; Combined Nomenclature (customs); products-by-activity; industrial production | SKOS + **XKOS** RDF | open (2011/833/EU) | <https://showvoc.op.europa.eu> ; SPARQL `https://publications.europa.eu/webapi/rdf/sparql` |
 
 Download mechanics: NAL/EuroVoc/EuroSciVoc use
@@ -134,12 +134,21 @@ even though the policy line still singles out ODbL).
 | TARIC | daily XML / Excel | EU reuse | built on CN; the **CN layer is the SKOS part** |
 | CLP/GHS hazard classes & H-statements | regulation text | public | small, stable; only a third-party SHACL-SKOS prototype exists |
 
+**UN/LOCODE — checked 2026-06-12, NOT onboarded (OWL, not SKOS):** the ga-group
+RDF (`un-locode.ttl`, 47 MB, CC BY 4.0) is an `owl:Ontology`; locations are
+`owl:Individual` / `uncefact:Location` carrying `rdfs:label` + `skos:notation`
+(an annotation prop) — there is **no `skos:ConceptScheme`, no `skos:Concept`, no
+`skos:prefLabel`**. Loading it yields **zero Solr concept docs** (extraction keys
+on `skos:prefLabel`); it fails the "is it actually SKOS" gate, same as
+GS1/GoodRelations. Would need genuine SKOS-ification (derive Concept+prefLabel
+from the individuals) — a derivative build, deferred.
+
 **Top picks to onboard next (open, native SKOS, high commerce/compliance value):**
 1. **EU List of Wastes 2015** + EWC-Stat — clean SKOS, CC BY, real compliance use.
 2. **eForms/eProcurement codelists** — native SKOS, directly extends our CPV.
 3. **EU Currency + Measurement-unit authority tables** — same pipeline as our existing country/language NALs; trivial.
-4. **UN/LOCODE** — CC BY 4.0 Turtle, the canonical trade/transport location codes.
-5. **EuroSciVoc** — clean Turtle, one-shot add.
+4. **EuroVoc** — flagship EU multilingual thesaurus, native SKOS-AP-EU, CC BY (download via OP Cellar; in progress).
+5. **EuroSciVoc** — clean Turtle, one-shot add (**onboarded**).
 6. **NACE** (+ CN) — high trade value; medium effort (XKOS normalization).
 
 ## 🎓 Skills, education & labour-market (researched 2026-06)
