@@ -9,17 +9,20 @@
 # https://creativecommons.org/licenses/by/3.0/, verified 2026-06-10 at
 # https://nomisma.org/) -> open.
 #
-# Source: the full Turtle dump published at nomisma.org (~28-37MB).
+# Source: the full Turtle dump published at nomisma.org (~38MB).
 #
-# DEFERRED (bundle:false): the upstream dump is MALFORMED Turtle as of
-# 2026-06-10 — it contains 60 IRIs with unescaped parentheses in the local
-# name (e.g. `nm:italy_kingdom_(oadacer)` at line 419, `nm:a(-)oros_colophon`,
-# etc.), which is invalid per the Turtle/N-Triples grammar. Both the pipeline's
-# n3 parser ("Expected entity but got ( on line 419") and rapper
-# ("syntax error, unexpected (") reject the file. Onboarding needs either an
-# upstream fix or a per-scheme sanitiser in tools/ (out of scope here; would be
-# a semantic change to the source). License/source verified; flip bundle:true
-# once the dump parses cleanly.
+# ONBOARDED 2026-06-12 (bundle:true): the upstream dump is MALFORMED Turtle —
+# 60 prefixed names carry unescaped parentheses in the local part (e.g.
+# `nm:italy_kingdom_(oadacer)`, `nm:a(-)oros_colophon`, `nm:taler_(jefimok)`),
+# illegal per the Turtle grammar, so n3 and rapper both reject the file.
+# Parentheses ARE legal inside a full IRIREF and `nm:` expands to
+# <http://nomisma.org/id/>, so tools/nomisma-sanitise.mjs rewrites only those
+# offending prefixed names to equivalent full IRIs — identical entities, valid
+# syntax (a formatting fix, no semantic change). Rebuild from scratch:
+#   skosdex fetch nomisma
+#   node tools/nomisma-sanitise.mjs third_party/skos/nomisma/cache/source.ttl
+#   skosdex normalize nomisma && skosdex canonicalize nomisma
+# ~755k quads / 24k skos:Concept.
 <#scheme> a skosdex:Scheme ;
     dcterms:title "Nomisma.org numismatic concepts" ;
     dcterms:publisher <https://nomisma.org/> ;
@@ -28,4 +31,4 @@
     skosdex:sourceFormat "text/turtle" ;
     dcterms:license <https://creativecommons.org/licenses/by/3.0/> ;
     skosdex:licenseClass "open" ;
-    skosdex:bundle false .
+    skosdex:bundle true .
