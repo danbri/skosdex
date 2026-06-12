@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Finto vocabulary "cer" — National Library of Finland / Finto. License
+# http://creativecommons.org/licenses/by/3.0/ (verified in the data) -> open. Source: Finto REST API Turtle dump.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "cer (Finto — National Library of Finland)" ;
+    dcterms:publisher <https://finto.fi/> ;
+    skosdex:conceptSchemeURI <http://www.yso.fi/onto/kasvimofologia/conceptscheme> ;
+    skosdex:sourceURL <https://api.finto.fi/rest/v1/cer/data?format=text/turtle> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <http://creativecommons.org/licenses/by/3.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
