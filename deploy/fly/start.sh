@@ -115,6 +115,8 @@ fi
 # accumulate (marker on the volume) and ride the next threshold crossing; the
 # site comes straight up instead. Force a compaction any time with
 # FORCE_OPTIMIZE=1, or tune the threshold with OPTIMIZE_BYTES.
+# Cutover staging machines always fully compact the volume they hand to prod.
+[ "${SEED_AND_EXIT:-0}" = 1 ] && FORCE_OPTIMIZE=1
 PENDING_FILE="$DATA/.pending-optimize-bytes"
 OPTIMIZE_BYTES="${OPTIMIZE_BYTES:-20000000}"   # ~20 MB gz (~a few M quads)
 if [ "$CHANGED" = 1 ] || [ "${FORCE_OPTIMIZE:-0}" = 1 ]; then
@@ -130,9 +132,23 @@ if [ "$CHANGED" = 1 ] || [ "${FORCE_OPTIMIZE:-0}" = 1 ]; then
   fi
 fi
 
+# --- Cutover staging: seed+optimize-only, then exit (no serving) -------------
+# A temporary "indexer" machine (deploy/fly/cutover.sh) boots this image against
+# a FORK of the production volume, seeds the new schemes + optimizes (above),
+# then exits. Production is later pointed at that pre-seeded volume and boots
+# straight past stages 1-3 (everything already loaded) into serving — so the
+# 30-min seed+optimize happens off to the side and prod only pays a ~1-min
+# reboot. The Solr core + Oxigraph store both live on the volume, so both are
+# ready for prod.
+if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
+  echo "SEED_AND_EXIT: staged volume is seeded + optimized; shutting down (not serving)."
+  solr stop -all >/dev/null 2>&1 || true
+  exit 0
+fi
+
 # --- nginx front proxy -------------------------------------------------------
 # One public port (8080 -> Fly 443): / entrance page, /query + /sparql/ ->
-# Oxigraph, /solr/skos/select (GET-only) -> Solr. Oxigraph + Solr stay local.
+# Oxigraph, /solr/skos/select (GET+POST) -> Solr. Oxigraph + Solr stay local.
 echo "starting nginx front proxy on :8080"
 nginx
 
