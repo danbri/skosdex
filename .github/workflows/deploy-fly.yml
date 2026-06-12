@@ -72,7 +72,9 @@ jobs:
     needs: build-image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4   # for deploy/fly/fly.toml only (no LFS)
+      - uses: actions/checkout@v4   # deploy scripts only (LFS off); full history,
+        with:                       # pointer blobs only, to size the data delta
+          fetch-depth: 0
       - uses: superfly/flyctl-actions/setup-flyctl@master
 
       # Self-bootstrap app + volume if absent (idempotent).
@@ -90,24 +92,44 @@ jobs:
               --region "$FLY_REGION" --size 80 --yes
           fi
 
-      # Deploy. Two paths:
-      #  - DIRECT (default): flyctl deploy in place. start.sh's optimize-gate skips
-      #    the expensive compaction for small/code-only deltas, so it's a fast
-      #    reboot with no blackout. Right for UI/config changes and small data.
-      #  - CUTOVER (set repo var CUTOVER=1, or --no-swap dry run via CUTOVER=dry):
-      #    deploy/fly/cutover.sh forks the prod volume, seeds+optimizes it on a
-      #    temp machine while prod serves, then swaps — zero downtime for BIG data
-      #    deltas (Getty TGN etc.) that would otherwise trigger a long optimize.
+      # Deploy. Mode is auto-selected from the size of the DATA delta in this push
+      # (sum of changed canonical.nq.gz, read from their LFS pointers — no pull):
+      #  - DIRECT: small/code-only deltas. flyctl deploy in place; start.sh's
+      #    optimize-gate skips compaction, so it's a fast reboot with no blackout.
+      #  - CUTOVER: a large new/changed scheme (>= CUTOVER_BYTES) that would trigger
+      #    a long on-prod optimize. deploy/fly/cutover.sh forks the prod volume,
+      #    seeds+optimizes on a temp machine while prod serves, then swaps —
+      #    zero downtime for BIG data (Getty TGN etc.).
+      # Override the auto choice any time with repo var CUTOVER = 1 | 0 | dry.
       - name: Deploy
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
           FLY_APP: skosdex
           FLY_REGION: iad
           IMAGE: ghcr.io/${{ github.repository_owner }}/skosdex-fly:${{ github.sha }}
-          CUTOVER: ${{ vars.CUTOVER || '0' }}
+          CUTOVER: ${{ vars.CUTOVER || 'auto' }}
+          CUTOVER_BYTES: ${{ vars.CUTOVER_BYTES || '52428800' }}   # 50 MB gz
+          BEFORE: ${{ github.event.before }}
         run: |
           set -euo pipefail
-          case "${CUTOVER}" in
+          mode="${CUTOVER}"
+          if [ "$mode" = "auto" ]; then
+            # Diff the whole push (before..HEAD) so the data commit is included
+            # regardless of ordering; fall back to HEAD^ for manual dispatch.
+            base="${BEFORE:-}"
+            case "$base" in ""|0000000000000000000000000000000000000000) base="HEAD^";; esac
+            git rev-parse -q --verify "$base^{commit}" >/dev/null 2>&1 || base="HEAD^"
+            # Sum the gzipped sizes of canonical.nq.gz changed in this push, read
+            # straight from the LFS pointer blobs (`size N` line) — no LFS content.
+            bytes=0
+            for f in $(git diff --name-only "$base" HEAD -- 'third_party/skos/**/canonical.nq.gz' 2>/dev/null || true); do
+              sz=$(git show "HEAD:$f" 2>/dev/null | sed -n 's/^size //p' | head -1)
+              [ -n "$sz" ] && bytes=$((bytes + sz))
+            done
+            if [ "$bytes" -ge "${CUTOVER_BYTES}" ]; then mode=1; else mode=0; fi
+            echo "::notice::auto deploy: base=$base changed canonical bytes=$bytes (threshold ${CUTOVER_BYTES}) -> $([ "$mode" = 1 ] && echo CUTOVER || echo DIRECT)"
+          fi
+          case "${mode}" in
             1)   echo "::notice::zero-downtime cutover (big-data deploy)"; bash deploy/fly/cutover.sh ;;
             dry) echo "::notice::cutover DRY RUN"; bash deploy/fly/cutover.sh --no-swap ;;
             *)   echo "::notice::direct deploy (optimize-gate skips compaction for small deltas)";
