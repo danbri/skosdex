@@ -24,10 +24,13 @@ def reduce(d):
 print('  umap 3d…', flush=True); c3 = reduce(3)
 print('  umap 2d…', flush=True); c2 = reduce(2)
 
-print('  kmeans…', flush=True)
-km = KMeans(n_clusters=K, n_init=10, random_state=42).fit(V)
+# Cluster in the DISPLAY (3D layout) space, not raw embedding space, so the
+# colours form clean spatial islands instead of intermixing across the cloud —
+# UMAP already preserves semantic neighbourhoods, so the regions stay coherent.
+print('  kmeans (on layout)…', flush=True)
+km = KMeans(n_clusters=K, n_init=10, random_state=42).fit(c3)
 cl = km.labels_
-# name each cluster by the concept closest to its (normalised) centroid
+# name each spatial cluster by the concept nearest its centroid in MEANING space
 names = []
 for c in range(K):
     idx = np.where(cl == c)[0]
