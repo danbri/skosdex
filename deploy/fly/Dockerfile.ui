@@ -1,0 +1,13 @@
+# UI-only fast path. A push that touches ONLY deploy/fly/www/** changes the
+# static site nginx serves — the SKOS corpus (Oxigraph store + Solr core) is
+# byte-for-byte unchanged. So instead of re-pulling 3.7 GB of LFS, re-running
+# graphed/solr-docs over ~370M quads, and re-baking a 2 GB image, we layer the
+# new www onto the last published image. Build + push is seconds; the deploy is
+# a plain reboot (start.sh sees identical /seed, skips all loads + optimize).
+#
+# BASE must be a previously-built full image that already carries /seed/* and
+# the oxigraph binary — normally ghcr.io/<owner>/skosdex-fly:latest.
+ARG BASE=ghcr.io/danbri/skosdex-fly:latest
+FROM ${BASE}
+
+COPY deploy/fly/www/ /opt/skosdex/www/

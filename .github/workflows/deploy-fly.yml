@@ -33,22 +33,54 @@ permissions:
 jobs:
   build-image:
     runs-on: ubuntu-latest
+    outputs:
+      ui_only: ${{ steps.scope.outputs.ui_only }}
     steps:
+      # Cheap checkout first (no LFS smudge) so we can decide whether this push
+      # even needs the corpus. A push that only touches deploy/fly/www/** is a
+      # static-site change: the corpus is unchanged, so we skip the 3.7 GB LFS
+      # pull, graphed/solr-docs, and the 2 GB image rebuild, and instead layer
+      # the new www onto :latest (Dockerfile.ui). UI tweak: ~1-2 min, not ~50.
       - uses: actions/checkout@v4
         with:
-          lfs: true
-      - run: git lfs pull
+          lfs: false
+          fetch-depth: 0
+      - name: Classify change scope
+        id: scope
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          base="${BEFORE:-}"
+          case "$base" in ""|0000000000000000000000000000000000000000) base="HEAD^";; esac
+          git rev-parse -q --verify "$base^{commit}" >/dev/null 2>&1 || base="HEAD^"
+          changed=$(git diff --name-only "$base" HEAD || true)
+          echo "changed files:"; echo "$changed" | sed 's/^/  /'
+          # UI-only iff there is at least one change and every change is under www.
+          if [ -n "$changed" ] && ! echo "$changed" | grep -qv '^deploy/fly/www/'; then
+            echo "ui_only=true" >> "$GITHUB_OUTPUT"; echo "::notice::UI-only push — fast path (skip corpus rebuild)"
+          else
+            echo "ui_only=false" >> "$GITHUB_OUTPUT"; echo "::notice::full build (corpus artifacts)"
+          fi
 
       - uses: actions/setup-node@v4
+        if: steps.scope.outputs.ui_only != 'true'
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
+      - if: steps.scope.outputs.ui_only != 'true'
+        run: npm ci
 
       # Deploy artifacts from the committed LFS corpus — no network fetches.
-      - run: node scripts/skosdex graphed
-      - run: node scripts/skosdex solr-docs
+      # Skipped entirely on the UI fast path.
+      - if: steps.scope.outputs.ui_only != 'true'
+        run: git lfs pull
+      - if: steps.scope.outputs.ui_only != 'true'
+        run: node scripts/skosdex graphed
+      - if: steps.scope.outputs.ui_only != 'true'
+        run: node scripts/skosdex solr-docs
       - name: Report artifact sizes
+        if: steps.scope.outputs.ui_only != 'true'
         run: |
           ls -la dist/graphed/ dist/solr-docs.json
           echo "quads: $(zcat dist/graphed/*.nq.gz | wc -l)"
@@ -62,9 +94,17 @@ jobs:
 
       - name: Build and push image
         run: |
+          set -euo pipefail
           IMG=ghcr.io/${{ github.repository_owner }}/skosdex-fly
-          docker build -f deploy/fly/Dockerfile \
-            -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
+          if [ "${{ steps.scope.outputs.ui_only }}" = "true" ]; then
+            # Thin image: new www layered onto the last full image (corpus intact).
+            docker pull "$IMG:latest"
+            docker build -f deploy/fly/Dockerfile.ui --build-arg BASE="$IMG:latest" \
+              -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
+          else
+            docker build -f deploy/fly/Dockerfile \
+              -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
+          fi
           docker push "$IMG:latest"
           docker push "$IMG:${{ github.sha }}"
 
@@ -110,9 +150,13 @@ jobs:
           CUTOVER: ${{ vars.CUTOVER || 'auto' }}
           CUTOVER_BYTES: ${{ vars.CUTOVER_BYTES || '52428800' }}   # 50 MB gz
           BEFORE: ${{ github.event.before }}
+          UI_ONLY: ${{ needs.build-image.outputs.ui_only }}
         run: |
           set -euo pipefail
           mode="${CUTOVER}"
+          # UI fast path: corpus untouched, so never cut over — just reboot onto
+          # the thin image. (start.sh sees identical /seed, skips loads+optimize.)
+          [ "$UI_ONLY" = "true" ] && mode=0
           if [ "$mode" = "auto" ]; then
             # Diff the whole push (before..HEAD) so the data commit is included
             # regardless of ordering; fall back to HEAD^ for manual dispatch.
