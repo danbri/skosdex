@@ -204,7 +204,17 @@ carry 112k/56k real `skos:Concept`, not just taxa.)
   disabled (63-byte stub) and the `data.loterre.fr/ark:/67375/<id>` ARK returns
   HTML; needs the real per-thesaurus download URL or correct SPARQL path. **TODO:
   find bulk-download endpoint** (worth it — 74 open SKOS schemes).
-- **Research Vocabularies Australia** (`vocabs.ardc.edu.au`) — many open SKOS.
+- **Research Vocabularies Australia** (`vocabs.ardc.edu.au`) — 493 vocabs, 257
+  open-licensed (CC-BY/CC0/ODC-By) + 24 CC-BY-SA. BUT the registry API
+  (`/registry/api/resource/vocabularies/<id>?includeAccessPoints=true`) exposes
+  mostly metadata-only records (web-page links); the actual RDF lives behind a
+  PoolParty/sesame download path that didn't resolve programmatically here.
+  **TODO: crack the `/api/resource/downloads/<apId>/<file>.rdf` pattern** (the
+  apId↔vocab mapping wasn't in the API view). High value (~250 open SKOS) if cracked.
+- **CESSDA ELSST** — onboarded (`cessda-elsst/`, CC BY-SA → container-only).
+- **BARTOC Skosmos** (`skosmos.bartoc.org`, ~250 vocabs) — working `/data` export
+  but a heterogeneous aggregator (dups of what we hold, mixed licences, some
+  SKOS-XL-only); needs per-vocab vetting, not bulk-trust.
 - **AgroPortal** SKOS (not OWL) ontologies beyond GACS/LandVoc — `/ontologies/<ACR>/download`.
 - **Getty TGN / ULAN / FAST** — open (ODC-By) but disk-blocked here (38.8 GB /
   10.5 GB uncompressed / host-blocked); need a bigger build box.
