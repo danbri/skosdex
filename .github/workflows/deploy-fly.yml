@@ -228,3 +228,22 @@ jobs:
             *)   echo "::notice::direct deploy (optimize-gate skips compaction for small deltas)";
                  flyctl deploy --image "$IMAGE" --config deploy/fly/fly.toml --strategy immediate --app "$FLY_APP" ;;
           esac
+
+      # TEMP diagnostic: the machine reboots onto the new image and start.sh
+      # (re)runs the Solr seed/reindex on the box — whose log isn't visible from
+      # CI. Stream the machine logs for a few minutes to capture that output
+      # (OOM? part error? crash-loop?). Remove once the reindex is healthy.
+      - name: Capture machine logs (diagnostic)
+        if: always()
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          FLY_APP: skosdex
+        run: |
+          set +e
+          echo "=== machines (state / restarts) ==="
+          flyctl machines list --app "$FLY_APP"
+          echo "=== streaming machine logs ~4m (boot + Solr seed/reindex) ==="
+          timeout 240 flyctl logs -a "$FLY_APP" 2>&1 | tail -n 800
+          echo "=== machines (after) ==="
+          flyctl machines list --app "$FLY_APP"
+          true
