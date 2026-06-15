@@ -32,10 +32,12 @@ export SOLR_HEAP="${SOLR_HEAP:-6g}"
 # by the container hard limit; SOLR_ULIMIT_CHECKS=false silences the (now-handled) warning.
 ulimit -n 65535 2>/dev/null || ulimit -n "$(ulimit -Hn 2>/dev/null || echo 65535)" 2>/dev/null || true
 export SOLR_ULIMIT_CHECKS=false
-solr start -force
-until curl -sf "http://localhost:8983/solr/admin/info/system" >/dev/null 2>&1; do
-  echo "waiting for solr..."; sleep 2
-done
+# NOTE: Solr is started + (re)seeded LATER, OFF the boot critical path (see the
+# end of this script). The previous version started Solr and *waited* for it here,
+# so the slow Solr JVM start + core load gated nginx/Oxigraph and the box was down
+# for minutes on every reboot. Now only the cutover indexer (SEED_AND_EXIT) runs
+# Solr in the foreground; a serving boot brings it up in the background and comes
+# up to serve within seconds.
 
 # --- Stage 1: per-scheme incremental Oxigraph loads ---------------------------
 # Each /seed/graphed/<slug>.nq.gz carries one scheme in its named graph. A
@@ -50,51 +52,63 @@ if [ -f "$DATA/.oxigraph-loaded-v1" ]; then
   echo "legacy monolithic store detected — full rebuild"
   NEED_WIPE=1
 fi
-# Pass 1: hash every scheme ONCE (reused below) to detect any changed scheme.
-# (Was two md5sum passes + a basename/cat per file across ~650 files = minutes of
-# avoidable boot delay before the server starts; now one pass, bash-native string
-# ops, no per-scheme "skipping" spam.)
-declare -A SUM
-for f in /seed/graphed/*.nq.gz; do
-  slug=${f##*/}; slug=${slug%.nq.gz}
-  s=$(md5sum < "$f"); SUM["$slug"]="${s%% *}"
-  marker="$DATA/.loaded-$slug"
-  if [ -f "$marker" ] && [ "$(<"$marker")" != "${SUM[$slug]}" ]; then
-    echo "scheme $slug changed upstream — full rebuild"
-    NEED_WIPE=1
+# FAST PATH: /seed/graphed.fp is a build-time fingerprint of the whole graphed set
+# (md5 of all per-scheme md5s, baked by the Dockerfile). If it matches the
+# last-loaded fingerprint on the volume — and the store exists with no legacy
+# marker — then every scheme is already loaded, so skip the ~650-file hash+load
+# pass entirely. This is what makes a code/UI redeploy boot in seconds instead of
+# minutes (the per-file md5 over ~1.7 GB was the gate before nginx came up).
+FP_IMG=$([ -f /seed/graphed.fp ] && cat /seed/graphed.fp || true)
+FP_VOL="$DATA/.graphed-fp"
+if [ -n "$FP_IMG" ] && [ "$NEED_WIPE" != 1 ] && [ -d "$OX_STORE" ] && [ -f "$FP_VOL" ] && [ "$(<"$FP_VOL")" = "$FP_IMG" ]; then
+  echo "oxigraph stage 1: graphed set unchanged (fp ${FP_IMG}) — skipping per-scheme hash + load"
+else
+  # Pass 1: hash every scheme ONCE (reused below) to detect any changed scheme.
+  declare -A SUM
+  for f in /seed/graphed/*.nq.gz; do
+    slug=${f##*/}; slug=${slug%.nq.gz}
+    s=$(md5sum < "$f"); SUM["$slug"]="${s%% *}"
+    marker="$DATA/.loaded-$slug"
+    if [ -f "$marker" ] && [ "$(<"$marker")" != "${SUM[$slug]}" ]; then
+      echo "scheme $slug changed upstream — full rebuild"
+      NEED_WIPE=1
+    fi
+  done
+  if [ "$NEED_WIPE" = 1 ]; then
+    rm -rf "$OX_STORE"; mkdir -p "$OX_STORE"
+    rm -f "$DATA"/.loaded-* "$DATA/.oxigraph-loaded-v1" "$DATA/.optimized-v1" "$DATA/.seeded-v1" "$FP_VOL"
   fi
-done
-if [ "$NEED_WIPE" = 1 ]; then
-  rm -rf "$OX_STORE"; mkdir -p "$OX_STORE"
-  rm -f "$DATA"/.loaded-* "$DATA/.oxigraph-loaded-v1" "$DATA/.optimized-v1" "$DATA/.seeded-v1"
+  # Pass 2: load only schemes without an up-to-date marker (reuse the hashes above).
+  loaded=0; skipped=0
+  for f in /seed/graphed/*.nq.gz; do
+    slug=${f##*/}; slug=${slug%.nq.gz}
+    marker="$DATA/.loaded-$slug"
+    if [ -f "$marker" ]; then skipped=$((skipped+1)); continue; fi
+    echo "loading scheme $slug (streamed)..."
+    if ! gzip -dc "$f" \
+       | /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --format nq 2>&1 \
+       | tee /tmp/oxload.out; then
+      echo "FATAL: oxigraph load failed for $slug"; exit 1
+    fi
+    if grep -qi "error" /tmp/oxload.out; then
+      echo "FATAL: oxigraph load reported errors for $slug"; exit 1
+    fi
+    rm -f /tmp/oxload.out
+    echo "${SUM[$slug]}" > "$marker"
+    CHANGED=1
+    LOADED_BYTES=$(( LOADED_BYTES + $(stat -c%s "$f") ))
+    loaded=$((loaded+1))
+  done
+  echo "oxigraph stage 1: $loaded scheme(s) loaded, $skipped already present"
+  # Record the fingerprint so the next unchanged boot takes the fast path.
+  [ -n "$FP_IMG" ] && printf '%s' "$FP_IMG" > "$FP_VOL"
 fi
-# Pass 2: load only schemes without an up-to-date marker (reuse the hashes above).
-loaded=0; skipped=0
-for f in /seed/graphed/*.nq.gz; do
-  slug=${f##*/}; slug=${slug%.nq.gz}
-  marker="$DATA/.loaded-$slug"
-  if [ -f "$marker" ]; then skipped=$((skipped+1)); continue; fi
-  echo "loading scheme $slug (streamed)..."
-  if ! gzip -dc "$f" \
-     | /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --format nq 2>&1 \
-     | tee /tmp/oxload.out; then
-    echo "FATAL: oxigraph load failed for $slug"; exit 1
-  fi
-  if grep -qi "error" /tmp/oxload.out; then
-    echo "FATAL: oxigraph load reported errors for $slug"; exit 1
-  fi
-  rm -f /tmp/oxload.out
-  echo "${SUM[$slug]}" > "$marker"
-  CHANGED=1
-  LOADED_BYTES=$(( LOADED_BYTES + $(stat -c%s "$f") ))
-  loaded=$((loaded+1))
-done
-echo "oxigraph stage 1: $loaded scheme(s) loaded, $skipped already present"
 
 # --- Stage 2: Solr core + docs (parts of <=50k docs) ------------------------
 # seed_solr posts every part (idempotent upsert by id) into the core. Returns
 # non-zero on failure so the caller decides whether that's fatal.
-PARTS_SUM=$(cat /seed/solr-parts/part-*.json | md5sum | cut -d" " -f1)
+# PARTS_SUM (md5 over all ~2.2 GB of parts) is computed inside solr_bringup, NOT
+# here — doing it in the foreground would read 2.2 GB and delay the boot.
 
 # Bump to force a one-time clean core rebuild with the typed schema below.
 SOLR_SCHEMA_VER="v3-typed-langfields"
@@ -142,17 +156,14 @@ apply_schema() {
   echo "  apply_schema: FAILED to verify dynamic fields"; return 1
 }
 
-# Drop a core that predates the typed schema so it is rebuilt clean (schemaless
-# already mis-typed fields on the live core; only a fresh schema fixes them).
-if [ ! -f "$SCHEMA_MARKER" ]; then
-  # Schema version not known-good on this volume -> drop ANY existing core so it is
-  # rebuilt clean with verified types. (Unconditional on SEED_MARKER: a failed
-  # reseed leaves a mis-typed core but no seed marker, and that core still needs
-  # rebuilding.) UNLOAD is harmless if no core exists yet (fresh volume).
-  echo "typed schema $SOLR_SCHEMA_VER not applied — dropping any existing core for a clean rebuild"
-  curl -s "http://localhost:8983/solr/admin/cores?action=UNLOAD&core=skos&deleteIndex=true&deleteDataDir=true&deleteInstanceDir=true" >/dev/null 2>&1 || true
-  rm -f "$SEED_MARKER"
-fi
+# Wait until Solr's admin endpoint responds. Solr is started inside solr_bringup
+# (off the boot critical path), so this is only called from there. ~360s ceiling.
+wait_for_solr() {
+  local i; for i in $(seq 1 180); do
+    curl -sf "http://localhost:8983/solr/admin/info/system" >/dev/null 2>&1 && return 0
+    sleep 2
+  done; echo "WARN: solr not ready after ~360s"; return 1
+}
 
 seed_solr() {
   echo "ensuring solr core + typed schema..."
@@ -192,38 +203,32 @@ seed_solr() {
   echo "solr seeding finished with $failed/$total failed part(s) — marker NOT written (retries next boot)"; return 1
 }
 
-if [ ! -f "$SEED_MARKER" ]; then
-  if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
-    # Cutover staging machine must finish seeding before it exits (it never serves).
-    seed_solr || { echo "FATAL: initial solr seed failed"; exit 1; }
-  else
-    # Empty core (fresh volume OR a schema-version wipe): seed in the BACKGROUND so
-    # nginx + oxigraph come up immediately and the :8080 health check passes while
-    # Solr fills in. A FOREGROUND seed here blocks startup for the whole reseed —
-    # the health check then fails and Fly takes the site down (and may restart-loop
-    # the machine, so the reseed never finishes). SPARQL serves the full corpus
-    # throughout; Solr search grows from empty as parts commit.
-    echo "solr core empty — seeding in background (site serves; Solr fills in)"
-    ( seed_solr || echo "WARN: solr seed failed" ) 2>&1 | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' &
+# Full Solr bring-up: start the JVM, wait for it, drop a stale-schema core, then
+# (re)seed. A serving boot runs this in the BACKGROUND (caller adds `&`) so it
+# never gates nginx/Oxigraph; the cutover indexer (SEED_AND_EXIT) runs it foreground.
+solr_bringup() {
+  solr start -force
+  wait_for_solr || { echo "WARN: solr never came up — skipping seed this boot"; return 1; }
+  # md5 over all parts (~2.2 GB) — computed here (background) so it never delays boot.
+  PARTS_SUM=$(cat /seed/solr-parts/part-*.json | md5sum | cut -d" " -f1)
+  # One-time clean rebuild if the typed-schema version isn't recorded on the volume
+  # (a failed reseed leaves a mis-typed core but no seed marker). UNLOAD is harmless
+  # if no core exists yet. Must run AFTER Solr is up.
+  if [ ! -f "$SCHEMA_MARKER" ]; then
+    echo "typed schema $SOLR_SCHEMA_VER not applied — dropping any existing core for a clean rebuild"
+    curl -s "http://localhost:8983/solr/admin/cores?action=UNLOAD&core=skos&deleteIndex=true&deleteDataDir=true&deleteInstanceDir=true" >/dev/null 2>&1 || true
+    rm -f "$SEED_MARKER"
   fi
-elif [ "$(cat "$SEED_MARKER")" != "$PARTS_SUM" ]; then
-  if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
-    # Cutover staging must finish seeding before it exits.
-    seed_solr || { echo "FATAL: staged solr seed failed"; exit 1; }
+  if [ ! -f "$SEED_MARKER" ]; then
+    echo "solr core empty — seeding"
+    seed_solr || { echo "WARN: solr seed failed"; return 1; }
+  elif [ "$(cat "$SEED_MARKER")" != "$PARTS_SUM" ]; then
+    echo "solr parts changed — re-indexing (core stays queryable)"
+    seed_solr || { echo "WARN: solr re-index failed"; return 1; }
   else
-    # The core already persists on the volume and stays queryable, so re-index
-    # the (upsert) parts in the BACKGROUND — search keeps serving the existing
-    # docs and converges as parts commit. No search blackout on a data deploy.
-    echo "solr parts changed — re-indexing in background (core stays queryable)"
-    # Stream the reindex to STDOUT (prefixed) as well as /tmp/solr-seed.log, so its
-    # progress/errors are visible in `fly logs` — previously it went only to the
-    # file on the box, making a stalled reindex impossible to diagnose remotely.
-    ( seed_solr || echo "WARN: background solr re-index failed" ) 2>&1 \
-      | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' &
+    echo "solr already seeded; reusing volume"
   fi
-else
-  echo "already seeded; reusing volume"
-fi
+}
 
 # --- Stage 3: optimize the store (gated on large deltas) --------------------
 # A bulk-loaded RocksDB store is uncompacted; `oxigraph optimize` compacts it
@@ -262,10 +267,18 @@ fi
 # reboot. The Solr core + Oxigraph store both live on the volume, so both are
 # ready for prod.
 if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
+  # Cutover indexer: seed Solr in the FOREGROUND (this machine never serves), then
+  # exit so the seeded+optimized volume can be handed to prod.
+  solr_bringup || { echo "FATAL: staged solr seed failed"; exit 1; }
   echo "SEED_AND_EXIT: staged volume is seeded + optimized; shutting down (not serving)."
   solr stop -all >/dev/null 2>&1 || true
   exit 0
 fi
+
+# Serving boot: bring Solr up + (re)seed in the BACKGROUND so nginx + Oxigraph come
+# up immediately (health check passes in seconds). Solr search serves the existing
+# core meanwhile and converges; output is tee'd to the log + stdout for `fly logs`.
+( solr_bringup 2>&1 | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' ) &
 
 # --- nginx front proxy -------------------------------------------------------
 # One public port (8080 -> Fly 443): / entrance page, /query + /sparql/ ->

@@ -24,6 +24,10 @@ COPY --from=oxigraph /usr/local/bin/oxigraph /usr/local/bin/oxigraph
 # Solr docs ship as part files (<=50k docs each): one ~180MB POST kills Solr's
 # default heap, so start.sh posts the parts sequentially.
 COPY dist/graphed/       /seed/graphed/
+# Build-time fingerprint of the whole graphed set (md5 of all per-scheme md5s).
+# start.sh compares it to the volume's last-loaded fingerprint to skip the
+# ~650-file boot hash when nothing changed — so code/UI redeploys boot in seconds.
+RUN md5sum /seed/graphed/*.nq.gz | md5sum | cut -d' ' -f1 > /seed/graphed.fp
 COPY dist/solr-parts/    /seed/solr-parts/
 # Per-scheme license manifest: makes every bundled scheme's license explicit
 # inside the container (policy: BY-SA / NC-ND data ships container-only, with
