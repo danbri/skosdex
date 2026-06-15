@@ -6,6 +6,9 @@ _site/
 # (copyleft / share-alike) or anti-commercial (NC) license. See
 # third_party/skos/README.md for the policy.
 third_party/skos/*/cache/
+# Top-level scratch for raw upstream downloads (e.g. before a per-scheme
+# preparer writes the committed sourceFile). Re-fetchable; never committed.
+/cache/
 
 # N-Quads artifacts are stored gzipped (*.nq.gz) via Git LFS — see
 # .gitattributes. Canonical files are committed (LFS); intermediate

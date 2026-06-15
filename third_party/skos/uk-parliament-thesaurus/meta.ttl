@@ -1,0 +1,37 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# UK Parliament Thesaurus (Commons Library / lda.data.parliament.uk terms).
+# Subject thesaurus used to index UK Parliament material. Published under the
+# Open Parliament Licence v3.0 (Crown copyright; attribution, commercial use
+# allowed, NO share-alike — equivalent in spirit to the Open Government Licence)
+# -> licenseClass "open", bundleable.
+#
+# ⚠ TEST / PARTIAL ONBOARDING (2026-06-15): the upstream crawl did not complete
+# (the legacy Elda deep-paging endpoint failed beyond offset ~1000), so this is
+# a PARTIAL dump — 1724 of the full term set. Re-dump when the source endpoint
+# is reachable to complete it. Source provenance/limits are in the file header
+# of source/parliament-lda-terms.typed.ttl.
+#
+# The upstream Turtle carries SKOS *properties* (prefLabel/broader/narrower/
+# related/exactMatch/notation) but declares no rdf:type and no ConceptScheme.
+# tools/parliament-lda-type.mjs makes the SKOS typing EXPLICIT — an RDFS
+# entailment of skos:prefLabel's domain (skos:Concept), not a semantic change —
+# and adds the ConceptScheme + skos:inScheme links. The committed sourceFile is
+# that prepared Turtle; the pipeline then does syntax-only N-Quads normalization.
+# Rebuild from scratch:
+#   curl -sS https://fpkg.fly.dev/kgx/parliament-lda-terms.ttl -o cache/parliament-lda-terms.ttl
+#   node tools/parliament-lda-type.mjs cache/parliament-lda-terms.ttl \
+#     third_party/skos/uk-parliament-thesaurus/source/parliament-lda-terms.typed.ttl
+#   node scripts/skosdex normalize uk-parliament-thesaurus
+#   node scripts/skosdex canonicalize uk-parliament-thesaurus
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "UK Parliament Thesaurus (Commons Library, partial)" ;
+    dcterms:publisher <https://www.parliament.uk/> ;
+    skosdex:conceptSchemeURI <http://data.parliament.uk/terms/> ;
+    skosdex:sourceFile "source/parliament-lda-terms.typed.ttl" ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://www.parliament.uk/site-information/copyright-parliament/open-parliament-licence/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
