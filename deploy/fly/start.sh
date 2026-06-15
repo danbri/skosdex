@@ -167,9 +167,19 @@ seed_solr() {
 }
 
 if [ ! -f "$SEED_MARKER" ]; then
-  # First seed on this volume: the core is empty, so block until it's populated
-  # (there's nothing to serve otherwise).
-  seed_solr || { echo "FATAL: initial solr seed failed"; exit 1; }
+  if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
+    # Cutover staging machine must finish seeding before it exits (it never serves).
+    seed_solr || { echo "FATAL: initial solr seed failed"; exit 1; }
+  else
+    # Empty core (fresh volume OR a schema-version wipe): seed in the BACKGROUND so
+    # nginx + oxigraph come up immediately and the :8080 health check passes while
+    # Solr fills in. A FOREGROUND seed here blocks startup for the whole reseed —
+    # the health check then fails and Fly takes the site down (and may restart-loop
+    # the machine, so the reseed never finishes). SPARQL serves the full corpus
+    # throughout; Solr search grows from empty as parts commit.
+    echo "solr core empty — seeding in background (site serves; Solr fills in)"
+    ( seed_solr || echo "WARN: solr seed failed" ) 2>&1 | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' &
+  fi
 elif [ "$(cat "$SEED_MARKER")" != "$PARTS_SUM" ]; then
   if [ "${SEED_AND_EXIT:-0}" = 1 ]; then
     # Cutover staging must finish seeding before it exits.
