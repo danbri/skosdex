@@ -98,7 +98,7 @@ recovery.
 - `third_party/skos/<slug>/meta.ttl` — per-scheme metadata (source, license, compression)
 - `third_party/skos/<slug>/canonical.nq.gz` — committed canonical data (LFS)
 - `ns/skosdex.ttl` — the metadata vocabulary
-- `skills/*/SKILL.md` — workflows (add-skos-scheme, normalize-skos, build-data-bundle, run-endpoints, deploy-fly, curate-vocabularies)
+- `skills/*/SKILL.md` — workflows (add-skos-scheme, normalize-skos, build-data-bundle, run-endpoints, deploy-fly, embeddings-api, curate-vocabularies). **deploy-fly** has a "Debugging the live box / gotchas" section — read it before touching the Solr schema or the seed flow.
 - `deploy/fly/` — live deployment (Dockerfile, start.sh, cutover.sh, EMBEDDINGS-API.md); CI in `.github/workflows/deploy-fly.yml`
 - `docs/` — the published GitHub Pages site
 - `CANDIDATES.md`, `AUDIT.md` — vocabulary backlog and data audit

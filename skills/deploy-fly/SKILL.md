@@ -102,3 +102,47 @@ If a deploy strands prod (no machine / wedged volume), run the
 `recover-fly.yml` workflow. Cutover itself is conservative — it aborts before the
 swap if the indexer fails (prod untouched) and waits for the fork to finish
 hydrating before destroying the source volume.
+
+## Debugging the live box (you'll need this)
+
+CI only sees the *deploy*; the corpus load + Solr seed happen **on the machine**
+(`deploy/fly/start.sh`), and that log is **not** in GitHub Actions. To see it you
+need a **Fly token** (`fly tokens create deploy -a skosdex`), then locally:
+
+```bash
+export FLY_API_TOKEN='FlyV1 …'
+curl -L https://fly.io/install.sh | sh        # if no flyctl
+fly logs -a skosdex | grep -E 'solr-seed|oxigraph|Health'   # tail boot + seed
+fly machines list -a skosdex                  # STATE + CHECKS (1/1 = healthy)
+```
+
+- `start.sh` streams the Solr reindex as `[solr-seed] ok part N/92` / `WARN … rejected: <err>`.
+- **`fly ssh console` needs an org/wireguard token** — an app deploy token gives a
+  `503` building the tunnel. `fly logs`/`machines` work with the app token.
+- The browser/CI route only exposes `/solr/skos/select` (read-only) and
+  `/query` — there is **no** way to post to Solr or read `/solr/.../schema` from
+  outside; you must be on the box (or read the seed log via `fly logs`).
+
+## Gotchas / lessons learned (the hard way)
+
+- **Solr is schemaless → it GUESSES field types from the first value.** A numeric-
+  looking first value (a code like notation `"10002"`, or a label that parses as a
+  number) makes the field numeric, then later text values throw
+  `NumberFormatException` and Solr rejects the **whole part**. `start.sh` now
+  **predefines + verifies** types (labels=text, codes/links/lang=strings, dynamic
+  `prefLabel_*`/`altLabel_*`/`definition_*`=text) on a fresh core *before* seeding.
+  If you add fields, type them there too. Bump `SOLR_SCHEMA_VER` to force a clean
+  rebuild; the seed marker is only written once the types are verified.
+- **`numFound` ≈ 2.55M, not the ~3.16M doc-line count.** Solr's unique key is the
+  concept IRI, so the same IRI across schemes de-dupes (~615k dupes). "Complete"
+  means `unique-ids ≈ original + any new scheme`, not the `solr-docs.json` length.
+- **Seeding an empty/wiped core must be BACKGROUND**, or start.sh blocks before
+  nginx, the `:8080` health check fails, and Fly takes the site down (and may
+  restart-loop). Only `SEED_AND_EXIT` cutover staging seeds in the foreground.
+- **Parts are byte-capped (~24 MB)** and Solr runs `SOLR_HEAP=6g` + `ulimit -n
+  65535` — heavy multilingual parts (AGROVOC) OOM'd / hit FD limits otherwise.
+- **Reindex resilience:** the seed commits per part, retries 3×, and skips a bad
+  part rather than aborting the whole corpus (a marker is only written on a fully
+  clean pass, so it retries skipped parts next boot).
+- **Every reboot reloads markers for ~650 schemes** before serving; keep that loop
+  cheap (it hashes each graphed file once) so deploys aren't a long blackout.

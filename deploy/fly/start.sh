@@ -50,11 +50,16 @@ if [ -f "$DATA/.oxigraph-loaded-v1" ]; then
   echo "legacy monolithic store detected — full rebuild"
   NEED_WIPE=1
 fi
+# Pass 1: hash every scheme ONCE (reused below) to detect any changed scheme.
+# (Was two md5sum passes + a basename/cat per file across ~650 files = minutes of
+# avoidable boot delay before the server starts; now one pass, bash-native string
+# ops, no per-scheme "skipping" spam.)
+declare -A SUM
 for f in /seed/graphed/*.nq.gz; do
-  slug=$(basename "$f" .nq.gz)
-  sum=$(md5sum < "$f" | cut -d' ' -f1)
+  slug=${f##*/}; slug=${slug%.nq.gz}
+  s=$(md5sum < "$f"); SUM["$slug"]="${s%% *}"
   marker="$DATA/.loaded-$slug"
-  if [ -f "$marker" ] && [ "$(cat "$marker")" != "$sum" ]; then
+  if [ -f "$marker" ] && [ "$(<"$marker")" != "${SUM[$slug]}" ]; then
     echo "scheme $slug changed upstream — full rebuild"
     NEED_WIPE=1
   fi
@@ -63,14 +68,12 @@ if [ "$NEED_WIPE" = 1 ]; then
   rm -rf "$OX_STORE"; mkdir -p "$OX_STORE"
   rm -f "$DATA"/.loaded-* "$DATA/.oxigraph-loaded-v1" "$DATA/.optimized-v1" "$DATA/.seeded-v1"
 fi
+# Pass 2: load only schemes without an up-to-date marker (reuse the hashes above).
+loaded=0; skipped=0
 for f in /seed/graphed/*.nq.gz; do
-  slug=$(basename "$f" .nq.gz)
-  sum=$(md5sum < "$f" | cut -d' ' -f1)
+  slug=${f##*/}; slug=${slug%.nq.gz}
   marker="$DATA/.loaded-$slug"
-  if [ -f "$marker" ]; then
-    echo "scheme $slug already loaded; skipping"
-    continue
-  fi
+  if [ -f "$marker" ]; then skipped=$((skipped+1)); continue; fi
   echo "loading scheme $slug (streamed)..."
   if ! gzip -dc "$f" \
      | /usr/local/bin/oxigraph load --lenient --location "$OX_STORE" --format nq 2>&1 \
@@ -81,11 +84,12 @@ for f in /seed/graphed/*.nq.gz; do
     echo "FATAL: oxigraph load reported errors for $slug"; exit 1
   fi
   rm -f /tmp/oxload.out
-  echo "$sum" > "$marker"
+  echo "${SUM[$slug]}" > "$marker"
   CHANGED=1
   LOADED_BYTES=$(( LOADED_BYTES + $(stat -c%s "$f") ))
-  echo "scheme $slug load complete"
+  loaded=$((loaded+1))
 done
+echo "oxigraph stage 1: $loaded scheme(s) loaded, $skipped already present"
 
 # --- Stage 2: Solr core + docs (parts of <=50k docs) ------------------------
 # seed_solr posts every part (idempotent upsert by id) into the core. Returns
