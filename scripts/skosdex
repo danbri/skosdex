@@ -594,16 +594,19 @@ const SOLR_MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','nar
 // language-mixed fields (prefLabel/altLabel/definition) are kept unchanged for
 // back-compat with the UIs and check.mjs; the subfields are purely additive.
 const SOLR_LANG_FIELDS = new Set(['prefLabel', 'altLabel', 'definition']);
-// BCP47 tag -> Solr-field-name-safe suffix: lowercase, '-' -> '_'
-// (en -> en, pt-BR -> pt_br, zh-Hant -> zh_hant). Field names dislike hyphens;
-// `lang` *values* keep the hyphen (see below) since they're values, not names.
-const langSuffix = (lang) => lang.toLowerCase().replace(/-/g, '_');
+// Bucket by PRIMARY language subtag only — `es`, `zh`, `pt`, not `es-MX`,
+// `zh-Hant`, `pt-BR`. One field per language keeps the schema small and the
+// facet intuitive ("Spanish" = es), instead of a field per region/script. The
+// full BCP47 tag is preserved on the SPARQL side (Oxigraph keeps @lang); Solr
+// only needs the coarse language for filtering.
+const primaryLang = (tag) => tag.toLowerCase().split('-')[0];
 // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
 const SOLR_LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 // Bump to invalidate every per-scheme solr-docs cache (doc shape / field logic
 // change). v2: preserve language tags via per-language subfields + `lang` facet.
 // v3: bucket untagged literals under 'und' so they aren't lost to language queries.
-const SOLR_CACHE_VER = 'v3';
+// v4: collapse per-language subfields to the primary subtag (es, not es-MX/es-ES).
+const SOLR_CACHE_VER = 'v4';
 
 // Parse one graphed N-Quads file into Solr concept docs, calling emit(jsonStr)
 // once per skos:Concept. Subjects are contiguous in the sorted file, so we
@@ -631,19 +634,16 @@ async function eachConceptDoc(input, emit) {
       const val = oIri !== undefined ? oIri : oLit;
       (cur.fields[field] ||= []).push(val);
       if (SOLR_MAPPING_FIELDS.has(field)) (cur.fields.mapping ||= []).push(val);
-      // Preserve the language tag the combined field would otherwise drop: emit
-      // a per-language subfield plus the doc's distinct language set. Untagged or
-      // datatyped literals (no @lang — e.g. plain-string schemes like UK
-      // Parliament, NUTS codes) are bucketed under BCP47 'und' (undetermined)
-      // rather than left out of the language view, so NOTHING is invisible to a
-      // language query: fq=lang:und finds them, fq=lang:(en OR und) is the
-      // practical "English-ish" filter. We also add the primary subtag
-      // (en-GB -> en) so fq=lang:en catches regional variants.
+      // Preserve the language tag the combined field would otherwise drop: emit a
+      // per-language subfield (keyed on the primary subtag) plus the doc's distinct
+      // language set. Untagged/datatyped literals (no @lang — e.g. plain-string
+      // schemes like UK Parliament, NUTS codes) bucket under BCP47 'und', so they
+      // stay reachable: fq=lang:und finds them, fq=lang:(en OR und) is the
+      // practical "English-ish" filter.
       if (oLit !== undefined && SOLR_LANG_FIELDS.has(field)) {
-        const tag = lang ? lang.toLowerCase() : 'und';
-        (cur.fields[`${field}_${langSuffix(tag)}`] ||= []).push(oLit);
+        const tag = lang ? primaryLang(lang) : 'und';
+        (cur.fields[`${field}_${tag}`] ||= []).push(oLit);
         (cur.langSet ||= new Set()).add(tag);
-        if (lang) { const primary = tag.split('-')[0]; if (primary !== tag) cur.langSet.add(primary); }
       }
     }
     // Single English prefLabel -> exactLabel: a low-cardinality field so an

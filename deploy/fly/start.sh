@@ -85,13 +85,62 @@ done
 # seed_solr posts every part (idempotent upsert by id) into the core. Returns
 # non-zero on failure so the caller decides whether that's fatal.
 PARTS_SUM=$(cat /seed/solr-parts/part-*.json | md5sum | cut -d" " -f1)
+
+# Bump to force a one-time clean core rebuild with the typed schema below.
+SOLR_SCHEMA_VER="v2-typed-langfields"
+SCHEMA_MARKER="$DATA/.solr-schema-$SOLR_SCHEMA_VER"
+
+# Explicit field types. Schemaless Solr INFERS a field's type from its first
+# value, which mis-typed per-language subfields (e.g. prefLabel_is) and codes
+# (notation "10002" vs "ID") as numbers — then rejected entire parts with
+# NumberFormatException, silently dropping docs. Define types up front: labels =
+# tokenised text, codes/links/langs = strings, and dynamic prefLabel_*/altLabel_*/
+# definition_* so EVERY language subfield is text regardless of its first value.
+apply_schema() {
+  curl -s "http://localhost:8983/solr/skos/schema" -H 'Content-Type: application/json' --data-binary '{
+    "add-field":[
+      {"name":"prefLabel","type":"text_general","multiValued":true},
+      {"name":"altLabel","type":"text_general","multiValued":true},
+      {"name":"definition","type":"text_general","multiValued":true},
+      {"name":"exactLabel","type":"text_general","multiValued":true},
+      {"name":"notation","type":"strings"},
+      {"name":"scheme","type":"strings"},
+      {"name":"lang","type":"strings"},
+      {"name":"broader","type":"strings"},{"name":"narrower","type":"strings"},
+      {"name":"related","type":"strings"},{"name":"mapping","type":"strings"},
+      {"name":"exactMatch","type":"strings"},{"name":"closeMatch","type":"strings"},
+      {"name":"broadMatch","type":"strings"},{"name":"narrowMatch","type":"strings"},
+      {"name":"relatedMatch","type":"strings"},{"name":"sameAs","type":"strings"},
+      {"name":"equivalentClass","type":"strings"},{"name":"equivalentProperty","type":"strings"},
+      {"name":"focus","type":"strings"}
+    ],
+    "add-dynamic-field":[
+      {"name":"prefLabel_*","type":"text_general","multiValued":true},
+      {"name":"altLabel_*","type":"text_general","multiValued":true},
+      {"name":"definition_*","type":"text_general","multiValued":true}
+    ]
+  }' | grep -qi '"errors"' && echo "  apply_schema: some fields already present (ok)" || echo "  apply_schema: typed fields installed"
+}
+
+# Drop a core that predates the typed schema so it is rebuilt clean (schemaless
+# already mis-typed fields on the live core; only a fresh schema fixes them).
+if [ ! -f "$SCHEMA_MARKER" ] && [ -f "$SEED_MARKER" ]; then
+  echo "typed schema $SOLR_SCHEMA_VER not applied — dropping core for a clean rebuild"
+  curl -s "http://localhost:8983/solr/admin/cores?action=UNLOAD&core=skos&deleteIndex=true&deleteDataDir=true&deleteInstanceDir=true" >/dev/null 2>&1 || true
+  rm -f "$SEED_MARKER"
+fi
+
 seed_solr() {
-  echo "creating solr core..."
+  echo "ensuring solr core + typed schema..."
   local create
   create=$(curl -s "http://localhost:8983/solr/admin/cores?action=CREATE&name=skos&configSet=_default")
-  echo "$create" | grep -q '"status":0' \
-    || echo "$create" | grep -qi "already exists" \
-    || { echo "ERROR: core create failed: $(echo "$create" | head -c 400)"; return 1; }
+  if echo "$create" | grep -q '"status":0'; then
+    apply_schema; echo "$SOLR_SCHEMA_VER" > "$SCHEMA_MARKER"
+  elif echo "$create" | grep -qi "already exists"; then
+    [ -f "$SCHEMA_MARKER" ] || { apply_schema; echo "$SOLR_SCHEMA_VER" > "$SCHEMA_MARKER"; }
+  else
+    echo "ERROR: core create failed: $(echo "$create" | head -c 400)"; return 1
+  fi
   local total; total=$(ls /seed/solr-parts/part-*.json | wc -l)
   echo "indexing solr docs ($total parts)..."
   local part resp failed=0 n=0 ok try
