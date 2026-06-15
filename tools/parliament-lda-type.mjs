@@ -18,7 +18,7 @@ import fs from 'node:fs';
 import N3 from 'n3';
 
 const { Parser, Writer, DataFactory } = N3;
-const { namedNode, quad } = DataFactory;
+const { namedNode, literal, quad } = DataFactory;
 
 const inPath = process.argv[2];
 const outPath = process.argv[3];
@@ -31,6 +31,18 @@ if (!inPath || !outPath) {
 const RDF_TYPE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type';
 const SKOS = 'http://www.w3.org/2004/02/skos/core#';
 const RDFS_LABEL = 'http://www.w3.org/2000/01/rdf-schema#label';
+const XSD_STRING = 'http://www.w3.org/2001/XMLSchema#string';
+
+// Curatorial language tagging (owner-authorised, 2026-06-15). The upstream
+// labels are plain literals with no @lang, which would bucket as 'und' in Solr.
+// A subagent scan of all 1724 labels found them 99.94% English; we therefore tag
+// every label @en EXCEPT the single confirmed non-English one. This is a
+// deliberate per-scheme enrichment recorded here (not a silent pipeline change).
+const DEFAULT_LANG = 'en';
+const LANG_OVERRIDE = {
+  // "Aciéries réunies de Burbach-Eich-Dudelange" — French (Luxembourg steelmaker)
+  'http://data.parliament.uk/terms/436521': 'fr',
+};
 
 const text = fs.readFileSync(inPath, 'utf8');
 const quads = new Parser().parse(text);
@@ -58,8 +70,18 @@ const writer = new Writer({
 // Concept scheme node.
 writer.addQuad(quad(namedNode(schemeIRI), namedNode(RDF_TYPE), namedNode(SKOS + 'ConceptScheme')));
 
-// Original triples, untouched.
-for (const q of quads) writer.addQuad(q);
+// Original triples — with plain-literal labels language-tagged (see above).
+let tagged = 0;
+for (const q of quads) {
+  if (q.object.termType === 'Literal' && LABEL_PREDS.has(q.predicate.value)
+      && q.object.language === '' && q.object.datatype.value === XSD_STRING) {
+    const lang = LANG_OVERRIDE[q.subject.value] || DEFAULT_LANG;
+    writer.addQuad(quad(q.subject, q.predicate, literal(q.object.value, lang)));
+    tagged++;
+  } else {
+    writer.addQuad(q);
+  }
+}
 
 // Explicit typing + scheme membership for every concept.
 for (const c of [...concepts].sort()) {
@@ -70,5 +92,5 @@ for (const c of [...concepts].sort()) {
 writer.end((err, result) => {
   if (err) { console.error(err); process.exit(1); }
   fs.writeFileSync(outPath, result);
-  console.log(`  typed ${concepts.size} concepts -> ${outPath} (scheme <${schemeIRI}>)`);
+  console.log(`  typed ${concepts.size} concepts, language-tagged ${tagged} labels (default @${DEFAULT_LANG}, ${Object.keys(LANG_OVERRIDE).length} override) -> ${outPath} (scheme <${schemeIRI}>)`);
 });
