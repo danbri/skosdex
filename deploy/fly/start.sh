@@ -92,19 +92,29 @@ seed_solr() {
   echo "$create" | grep -q '"status":0' \
     || echo "$create" | grep -qi "already exists" \
     || { echo "ERROR: core create failed: $(echo "$create" | head -c 400)"; return 1; }
-  echo "indexing solr docs..."
-  local part resp
+  local total; total=$(ls /seed/solr-parts/part-*.json | wc -l)
+  echo "indexing solr docs ($total parts)..."
+  local part resp failed=0 n=0 ok try
   for part in /seed/solr-parts/part-*.json; do
-    echo "  posting $(basename "$part")"
-    resp=$(curl -s -m 600 "http://localhost:8983/solr/skos/update" \
-           -H 'Content-Type: application/json' --data-binary @"$part")
-    echo "$resp" | grep -q '"status":0' \
-      || { echo "ERROR: solr rejected $(basename "$part"): $(echo "$resp" | head -c 400)"; return 1; }
+    n=$((n+1)); ok=0
+    # Commit after EVERY part so progress is durable + visible (lang:* climbs as
+    # parts land) and a later failure can't lose earlier parts. Retry a part a few
+    # times, then SKIP it and continue — one bad/oversized part must not block the
+    # whole corpus (that silent abort is what stalled the reindex at ~80k docs).
+    for try in 1 2 3; do
+      resp=$(curl -s -m 600 "http://localhost:8983/solr/skos/update?commit=true" \
+             -H 'Content-Type: application/json' --data-binary @"$part")
+      if echo "$resp" | grep -q '"status":0'; then ok=1; break; fi
+      echo "  WARN part $n/$total $(basename "$part") try $try rejected: $(echo "$resp" | head -c 300)"
+      sleep 5
+    done
+    if [ "$ok" = 1 ]; then echo "  ok   part $n/$total $(basename "$part")"
+    else echo "  FAIL part $n/$total $(basename "$part") after 3 tries"; failed=$((failed+1)); fi
   done
   curl -s "http://localhost:8983/solr/skos/update?commit=true" \
        -H 'Content-Type: application/json' --data '[]' >/dev/null
-  echo "$PARTS_SUM" > "$SEED_MARKER"
-  echo "solr seeding complete"
+  if [ "$failed" -eq 0 ]; then echo "$PARTS_SUM" > "$SEED_MARKER"; echo "solr seeding complete ($total parts)"; return 0; fi
+  echo "solr seeding finished with $failed/$total failed part(s) — marker NOT written (retries next boot)"; return 1
 }
 
 if [ ! -f "$SEED_MARKER" ]; then
@@ -120,8 +130,11 @@ elif [ "$(cat "$SEED_MARKER")" != "$PARTS_SUM" ]; then
     # the (upsert) parts in the BACKGROUND — search keeps serving the existing
     # docs and converges as parts commit. No search blackout on a data deploy.
     echo "solr parts changed — re-indexing in background (core stays queryable)"
-    ( seed_solr || echo "WARN: background solr re-index failed (see logs)" ) \
-      >/tmp/solr-seed.log 2>&1 &
+    # Stream the reindex to STDOUT (prefixed) as well as /tmp/solr-seed.log, so its
+    # progress/errors are visible in `fly logs` — previously it went only to the
+    # file on the box, making a stalled reindex impossible to diagnose remotely.
+    ( seed_solr || echo "WARN: background solr re-index failed" ) 2>&1 \
+      | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' &
   fi
 else
   echo "already seeded; reusing volume"
