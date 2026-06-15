@@ -22,7 +22,10 @@ if [ ! -f "$SOLR_HOME/solr.xml" ]; then
   cp -r /opt/solr/server/solr/* "$SOLR_HOME/"
 fi
 export SOLR_HOME
-export SOLR_HEAP="${SOLR_HEAP:-2g}"
+# 4g (machine has 16 GB): the per-language label subfields enlarged each indexed
+# doc and the posted parts, OOM'ing a 2g heap mid-reindex. RocksDB/Oxigraph use
+# the OS page cache, not this heap, so 4g leaves ample room.
+export SOLR_HEAP="${SOLR_HEAP:-4g}"
 solr start -force
 until curl -sf "http://localhost:8983/solr/admin/info/system" >/dev/null 2>&1; do
   echo "waiting for solr..."; sleep 2

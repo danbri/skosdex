@@ -695,25 +695,31 @@ async function solrDocs() {
 
   // --- assemble solr-docs.json + the chunked part files ----------------------
   // Two outputs: the single solr-docs.json (demo/Pages consume it) and
-  // dist/solr-parts/part-NNNN.json batches of PART_DOCS docs each — Solr's
-  // default heap can't swallow a single ~180MB POST, so the deploy posts parts.
+  // dist/solr-parts/part-NNNN.json batches the deploy posts one at a time —
+  // Solr's heap can't swallow one giant POST. Cap each part by BYTES as well as
+  // doc count, whichever comes first: per-language label subfields make
+  // multilingual docs large, so 50k-doc parts grew to ~115 MB and OOM'd the
+  // indexer at SOLR_HEAP=2g (stalling the background reindex). ~24 MB parts post
+  // comfortably; the doc cap still bounds tiny-doc schemes.
   const PART_DOCS = 50000;
+  const PART_BYTES = 24 * 1024 * 1024;
   const partsDir = path.join(DIST_DIR, 'solr-parts');
   fs.rmSync(partsDir, { recursive: true, force: true });
   fs.mkdirSync(partsDir, { recursive: true });
   const outStream = fs.createWriteStream(path.join(DIST_DIR, 'solr-docs.json'));
   outStream.write('[\n');
-  let nDocs = 0, partNo = 0, partCount = 0, partStream = null;
+  let nDocs = 0, partNo = 0, partCount = 0, partBytes = 0, partStream = null;
   const openPart = () => {
     partStream = fs.createWriteStream(path.join(partsDir, `part-${String(partNo).padStart(4, '0')}.json`));
-    partStream.write('[\n'); partCount = 0;
+    partStream.write('[\n'); partCount = 0; partBytes = 2;
   };
   const closePart = () => new Promise((r) => { partStream.write('\n]\n'); partStream.end(r); });
   openPart();
   const writeDoc = async (json) => {
     outStream.write((nDocs++ ? ',\n' : '') + json);
-    if (partCount >= PART_DOCS) { await closePart(); partNo++; openPart(); }
+    if (partCount >= PART_DOCS || partBytes + json.length + 2 >= PART_BYTES) { await closePart(); partNo++; openPart(); }
     partStream.write((partCount++ ? ',\n' : '') + json);
+    partBytes += json.length + 2;
   };
   for (const input of inputs) {
     const nd = path.join(cacheDir, `${slugOf(input)}.ndjson`);
@@ -722,7 +728,7 @@ async function solrDocs() {
   }
   outStream.write('\n]\n');
   await Promise.all([new Promise((r) => outStream.end(r)), closePart()]);
-  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs; ${partNo + 1} parts of <=${PART_DOCS}; ${parsed} schemes parsed, ${cachedN} cached)`);
+  console.log(`  solr     -> dist/solr-docs.json (${nDocs} concept docs; ${partNo + 1} parts of <=${PART_DOCS} docs / <=${(PART_BYTES/1048576)|0}MB; ${parsed} schemes parsed, ${cachedN} cached)`);
 }
 
 // Bake a single self-contained HTML file with the concept data embedded, so the
