@@ -80,6 +80,19 @@
 <div id="legend" class="panel" hidden><h2><span class="caret">▾</span>themes</h2><div id="legitems"></div></div>
 <div id="tip"></div>
 
+<script>
+  // Never hang silently on "summoning…": surface the real error (module/import
+  // failure, WebGL, bad data, timeout) right in the loader so we can see it.
+  window.__galaxyOK = false;
+  function galaxyFail(msg){
+    var l = document.getElementById('loading'); if (!l) return;
+    l.style.cssText = 'position:fixed;inset:0;display:grid;place-items:center;padding:1.2rem;text-align:center;color:#ff9b9b;font-size:.9rem;white-space:pre-wrap';
+    l.textContent = '⚠ galaxy failed to load\n\n' + msg + '\n\nscheme: ' + (new URLSearchParams(location.search).get('scheme')||'gemet');
+  }
+  addEventListener('error', function(e){ if(!window.__galaxyOK) galaxyFail((e.message||'load error') + (e.filename ? '\n'+e.filename : '')); }, true);
+  addEventListener('unhandledrejection', function(e){ if(!window.__galaxyOK){ var r=e.reason; galaxyFail(String(r&&(r.stack||r.message)||r||'promise rejected')); } });
+  setTimeout(function(){ if(!window.__galaxyOK && document.getElementById('loading')) galaxyFail('timed out after 12s — the 3D engine (three.js CDN / import map) or the layout data did not load'); }, 12000);
+</script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
@@ -176,18 +189,19 @@ scene.add(points);
 })();
 
 // reveal UI
+window.__galaxyOK = true;   // reached the render path — silence the failure surfacing
 document.getElementById('loading').remove();
 for(const id of ['head','ctrl','legend']) document.getElementById(id).hidden=false;
 // galaxy switcher: populate from the embeddings registry (skip the combined _all)
-const pick = document.getElementById('scheme');
+const schemeSel = document.getElementById('scheme');   // NB: not `pick` — a function pick(ev) already exists
 const optFor = (s) => { const o = document.createElement('option'); o.value = s;
   o.textContent = s.toUpperCase().replace(/-/g, ' '); if (s === slug) o.selected = true; return o; };
 fetch('/embeddings/index.json').then(r => r.json()).then(list => {
   const galaxies = list.filter(x => !x.startsWith('_'));
   if (!galaxies.includes(slug)) galaxies.push(slug);
-  for (const s of galaxies) pick.appendChild(optFor(s));
-}).catch(() => pick.appendChild(optFor(slug)));
-pick.onchange = () => { if (pick.value && pick.value !== slug) location.search = '?scheme=' + encodeURIComponent(pick.value); };
+  for (const s of galaxies) schemeSel.appendChild(optFor(s));
+}).catch(() => schemeSel.appendChild(optFor(slug)));
+schemeSel.onchange = () => { if (schemeSel.value && schemeSel.value !== slug) location.search = '?scheme=' + encodeURIComponent(schemeSel.value); };
 document.getElementById('count').textContent = N.toLocaleString() + ' concepts';
 
 // ---- declutter: details + controls hint live behind the ⓘ toggle; the theme
