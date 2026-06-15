@@ -22,10 +22,16 @@ if [ ! -f "$SOLR_HOME/solr.xml" ]; then
   cp -r /opt/solr/server/solr/* "$SOLR_HOME/"
 fi
 export SOLR_HOME
-# 4g (machine has 16 GB): the per-language label subfields enlarged each indexed
-# doc and the posted parts, OOM'ing a 2g heap mid-reindex. RocksDB/Oxigraph use
-# the OS page cache, not this heap, so 4g leaves ample room.
-export SOLR_HEAP="${SOLR_HEAP:-4g}"
+# 6g (machine has 16 GB): heavy multilingual schemes (AGROVOC) need headroom to
+# index the largest parts without OOM. RocksDB/Oxigraph use the OS page cache, not
+# this JVM heap, so 6g still leaves ample room.
+export SOLR_HEAP="${SOLR_HEAP:-6g}"
+# Raise the open-file limit — Solr warns the default 10240 is too low, and a large
+# index with many language subfields opens many segment files; exhausting FDs makes
+# the heavy part posts fail (which stalled the reseed at ~76%). Best-effort, capped
+# by the container hard limit; SOLR_ULIMIT_CHECKS=false silences the (now-handled) warning.
+ulimit -n 65535 2>/dev/null || ulimit -n "$(ulimit -Hn 2>/dev/null || echo 65535)" 2>/dev/null || true
+export SOLR_ULIMIT_CHECKS=false
 solr start -force
 until curl -sf "http://localhost:8983/solr/admin/info/system" >/dev/null 2>&1; do
   echo "waiting for solr..."; sleep 2
