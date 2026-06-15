@@ -602,7 +602,8 @@ const langSuffix = (lang) => lang.toLowerCase().replace(/-/g, '_');
 const SOLR_LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
 // Bump to invalidate every per-scheme solr-docs cache (doc shape / field logic
 // change). v2: preserve language tags via per-language subfields + `lang` facet.
-const SOLR_CACHE_VER = 'v2';
+// v3: bucket untagged literals under 'und' so they aren't lost to language queries.
+const SOLR_CACHE_VER = 'v3';
 
 // Parse one graphed N-Quads file into Solr concept docs, calling emit(jsonStr)
 // once per skos:Concept. Subjects are contiguous in the sorted file, so we
@@ -631,14 +632,18 @@ async function eachConceptDoc(input, emit) {
       (cur.fields[field] ||= []).push(val);
       if (SOLR_MAPPING_FIELDS.has(field)) (cur.fields.mapping ||= []).push(val);
       // Preserve the language tag the combined field would otherwise drop: emit
-      // a per-language subfield plus the doc's distinct language set. We also add
-      // the primary subtag (en-GB -> en), so fq=lang:en catches regional variants.
-      if (lang && oLit !== undefined && SOLR_LANG_FIELDS.has(field)) {
-        (cur.fields[`${field}_${langSuffix(lang)}`] ||= []).push(oLit);
-        const tag = lang.toLowerCase();
+      // a per-language subfield plus the doc's distinct language set. Untagged or
+      // datatyped literals (no @lang — e.g. plain-string schemes like UK
+      // Parliament, NUTS codes) are bucketed under BCP47 'und' (undetermined)
+      // rather than left out of the language view, so NOTHING is invisible to a
+      // language query: fq=lang:und finds them, fq=lang:(en OR und) is the
+      // practical "English-ish" filter. We also add the primary subtag
+      // (en-GB -> en) so fq=lang:en catches regional variants.
+      if (oLit !== undefined && SOLR_LANG_FIELDS.has(field)) {
+        const tag = lang ? lang.toLowerCase() : 'und';
+        (cur.fields[`${field}_${langSuffix(tag)}`] ||= []).push(oLit);
         (cur.langSet ||= new Set()).add(tag);
-        const primary = tag.split('-')[0];
-        if (primary !== tag) cur.langSet.add(primary);
+        if (lang) { const primary = tag.split('-')[0]; if (primary !== tag) cur.langSet.add(primary); }
       }
     }
     // Single English prefLabel -> exactLabel: a low-cardinality field so an

@@ -33,5 +33,7 @@ docs=$(grep -c '"id"' dist/solr-docs.json)
 # survived into the docs so a regression that drops them again is caught here.
 grep -q '"lang"' dist/solr-docs.json || fail "no 'lang' facet in solr-docs.json — language metadata dropped"
 grep -q '"prefLabel_en"' dist/solr-docs.json || fail "no per-language subfield (prefLabel_en) in solr-docs.json"
+# Untagged literals must be bucketed under 'und', not lost to language queries.
+grep -q '"prefLabel_und"' dist/solr-docs.json || fail "no 'und' bucket — untagged labels lost from the language view"
 
 echo "ok: bundle + solr-docs ($docs concepts; lang facet + per-language subfields) + demo built from gzipped LFS artifacts"
