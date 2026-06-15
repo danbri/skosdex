@@ -75,12 +75,30 @@ node scripts/skosdex build <slug>   # one scheme
 - `dist/` and `_site/` are gitignored build outputs; `docs/` IS committed
   (it's the Pages site).
 
+## Deploy / redeploy (live endpoints)
+
+The live stack (https://skosdex.fly.dev — Oxigraph + Solr + web) is deployed by
+**CI from `claude/main`**, never by hand. Land changes on `claude/main` (merge /
+PR) and `.github/workflows/deploy-fly.yml` builds the GHCR image and deploys.
+
+The one decision that matters: **direct vs cutover**. A direct deploy reloads +
+`oxigraph optimize`s on the prod box (a serving blackout); the **cutover** path
+(`deploy/fly/cutover.sh`) does that on a forked volume via a temp "second box",
+then swaps in ~1–2 min (zero downtime). `auto` mode only sizes the *current push*,
+so a **big catch-up** (live well behind main) needs cutover forced:
+`gh variable set CUTOVER --body 1` before merging, or
+`gh workflow run deploy-fly.yml --ref claude/main -f cutover=1`.
+**See `skills/deploy-fly/SKILL.md`** for the full how-to, monitoring, verify, and
+recovery.
+
+
 ## Where things live
 
 - `scripts/skosdex` — the CLI (fetch/normalize/canonicalize/bundle/solr-docs/demo/site)
 - `third_party/skos/<slug>/meta.ttl` — per-scheme metadata (source, license, compression)
 - `third_party/skos/<slug>/canonical.nq.gz` — committed canonical data (LFS)
 - `ns/skosdex.ttl` — the metadata vocabulary
-- `skills/*/SKILL.md` — workflows (add-skos-scheme, normalize-skos, build-data-bundle, run-endpoints, curate-vocabularies)
+- `skills/*/SKILL.md` — workflows (add-skos-scheme, normalize-skos, build-data-bundle, run-endpoints, deploy-fly, curate-vocabularies)
+- `deploy/fly/` — live deployment (Dockerfile, start.sh, cutover.sh, EMBEDDINGS-API.md); CI in `.github/workflows/deploy-fly.yml`
 - `docs/` — the published GitHub Pages site
 - `CANDIDATES.md`, `AUDIT.md` — vocabulary backlog and data audit
