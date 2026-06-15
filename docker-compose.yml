@@ -31,7 +31,11 @@ services:
       - solr-data:/var/solr
     restart: unless-stopped
 
-  # One-shot: waits for Solr, then posts dist/solr-docs.json into the core.
+  # One-shot: waits for Solr, then posts the chunked dist/solr-parts/*.json into
+  # the core. We post the parts (50k docs each) rather than the single
+  # dist/solr-docs.json: per-language label subfields make the full-corpus file
+  # multi-GB, which a single --data-binary POST can't stream into Solr's default
+  # heap. A final commit makes everything searchable at once.
   solr-init:
     image: curlimages/curl:latest
     depends_on:
@@ -44,10 +48,14 @@ services:
         until curl -sf http://solr:8983/solr/skos/admin/ping >/dev/null 2>&1; do
           echo "waiting for solr..."; sleep 2;
         done;
-        curl -sf "http://solr:8983/solr/skos/update?commit=true"
-          -H 'Content-Type: application/json'
-          --data-binary @/dist/solr-docs.json
-        && echo "indexed $(grep -c '\"id\"' /dist/solr-docs.json) docs";
+        for p in /dist/solr-parts/part-*.json; do
+          echo "posting $p ...";
+          curl -sf "http://solr:8983/solr/skos/update"
+            -H 'Content-Type: application/json' --data-binary @"$p" >/dev/null
+            || { echo "FAILED posting $p"; exit 1; };
+        done;
+        curl -sf "http://solr:8983/solr/skos/update?commit=true" >/dev/null
+        && echo "indexed $(cat /dist/solr-parts/part-*.json | grep -c '\"id\"') docs in parts";
     restart: "no"
 
   # Static frontend + same-origin reverse proxy to sparql and solr.

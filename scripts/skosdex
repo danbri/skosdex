@@ -587,10 +587,22 @@ const SOLR_FIELD = {
   [NS.skos + 'notation']: 'notation',
 };
 const SOLR_MAPPING_FIELDS = new Set(['exactMatch','closeMatch','broadMatch','narrowMatch','relatedMatch','related','sameAs','equivalentClass','equivalentProperty','focus']);
+// Text fields that carry an RDF language tag. For these we additionally emit a
+// per-language subfield (prefLabel_en, altLabel_fr, definition_de, ...) and
+// record the doc's distinct languages in a `lang` facet — so callers can filter
+// or boost by language (e.g. fq=lang:en, qf=prefLabel_en). The combined,
+// language-mixed fields (prefLabel/altLabel/definition) are kept unchanged for
+// back-compat with the UIs and check.mjs; the subfields are purely additive.
+const SOLR_LANG_FIELDS = new Set(['prefLabel', 'altLabel', 'definition']);
+// BCP47 tag -> Solr-field-name-safe suffix: lowercase, '-' -> '_'
+// (en -> en, pt-BR -> pt_br, zh-Hant -> zh_hant). Field names dislike hyphens;
+// `lang` *values* keep the hyphen (see below) since they're values, not names.
+const langSuffix = (lang) => lang.toLowerCase().replace(/-/g, '_');
 // Match an N-Quads line: <s> <p> ("lit"... | <o>) [<graph>] .
 const SOLR_LINE = /^<([^>]+)>\s+<([^>]+)>\s+(?:<([^>]+)>|"((?:[^"\\]|\\.)*)"(?:@([\w-]+)|\^\^<[^>]+>)?)\s*(?:<([^>]+)>\s*)?\.\s*$/;
-// Bump to invalidate every per-scheme solr-docs cache (doc shape / field logic change).
-const SOLR_CACHE_VER = 'v1';
+// Bump to invalidate every per-scheme solr-docs cache (doc shape / field logic
+// change). v2: preserve language tags via per-language subfields + `lang` facet.
+const SOLR_CACHE_VER = 'v2';
 
 // Parse one graphed N-Quads file into Solr concept docs, calling emit(jsonStr)
 // once per skos:Concept. Subjects are contiguous in the sorted file, so we
@@ -601,8 +613,10 @@ async function eachConceptDoc(input, emit) {
   const TYPE = NS.rdf + 'type', CONCEPT = NS.skos + 'Concept';
   let cur = null;
   const flush = () => {
-    if (cur && cur.isConcept)
+    if (cur && cur.isConcept) {
+      if (cur.langSet && cur.langSet.size) cur.fields.lang = [...cur.langSet];
       emit(JSON.stringify({ id: cur.id, scheme: cur.scheme, ...(cur.exactLabel ? { exactLabel: cur.exactLabel } : {}), ...cur.fields }));
+    }
   };
   const rl = readline.createInterface({ input: fs.createReadStream(input).pipe(zlib.createGunzip()) });
   for await (const line of rl) {
@@ -616,6 +630,16 @@ async function eachConceptDoc(input, emit) {
       const val = oIri !== undefined ? oIri : oLit;
       (cur.fields[field] ||= []).push(val);
       if (SOLR_MAPPING_FIELDS.has(field)) (cur.fields.mapping ||= []).push(val);
+      // Preserve the language tag the combined field would otherwise drop: emit
+      // a per-language subfield plus the doc's distinct language set. We also add
+      // the primary subtag (en-GB -> en), so fq=lang:en catches regional variants.
+      if (lang && oLit !== undefined && SOLR_LANG_FIELDS.has(field)) {
+        (cur.fields[`${field}_${langSuffix(lang)}`] ||= []).push(oLit);
+        const tag = lang.toLowerCase();
+        (cur.langSet ||= new Set()).add(tag);
+        const primary = tag.split('-')[0];
+        if (primary !== tag) cur.langSet.add(primary);
+      }
     }
     // Single English prefLabel -> exactLabel: a low-cardinality field so an
     // entry whose whole label IS the query ranks above ones that merely list

@@ -22,7 +22,16 @@ ls dist/graphed/*.nq.gz >/dev/null 2>&1 || fail "dist/graphed/*.nq.gz not produc
 # bundle must be gzip — verify the magic bytes (1f 8b) and that it gunzips.
 for g in dist/graphed/*.nq.gz; do gzip -t "$g" || fail "$g failed gzip integrity check"; done
 
-docs=$(node -e 'console.log(require("./dist/solr-docs.json").length)')
+# Count docs by line — solrDocs writes one doc per line, so this streams instead
+# of require()-ing the whole array (which overflows V8's ~512MB string limit now
+# that per-language label subfields make the full-corpus file multi-GB).
+docs=$(grep -c '"id"' dist/solr-docs.json)
 [ "$docs" -gt 1000 ] || fail "expected >1000 solr docs, got $docs"
 
-echo "ok: bundle + solr-docs ($docs concepts) + demo built from gzipped LFS artifacts"
+# Per-language fix: every text field's language tag is preserved as a per-language
+# subfield (prefLabel_en, ...) plus a distinct-language `lang` facet. Assert both
+# survived into the docs so a regression that drops them again is caught here.
+grep -q '"lang"' dist/solr-docs.json || fail "no 'lang' facet in solr-docs.json — language metadata dropped"
+grep -q '"prefLabel_en"' dist/solr-docs.json || fail "no per-language subfield (prefLabel_en) in solr-docs.json"
+
+echo "ok: bundle + solr-docs ($docs concepts; lang facet + per-language subfields) + demo built from gzipped LFS artifacts"
