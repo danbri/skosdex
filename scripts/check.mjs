@@ -67,6 +67,24 @@ async function sparql(query, { timeoutMs = 90_000 } = {}) {
 const rowsOf = (j) => j?.results?.bindings ?? [];
 const scalar = (j) => { const b = rowsOf(j)[0]; return b ? Number(b[Object.keys(b)[0]].value) : NaN; };
 
+// --- Solr helper (POST form body to /solr/skos/select). Throws on non-200 or
+// non-JSON, like the SPARQL helper. -----------------------------------------
+async function solrSelect(params, { timeoutMs = 45_000 } = {}) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const r = await fetch(`${ENDPOINT}/solr/skos/select`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `${params.replace(/ /g, '%20')}&wt=json`, signal: ctrl.signal,
+    });
+    const text = await r.text();
+    if (!r.ok) throw new Error(`HTTP ${r.status}: ${text.slice(0, 120)}`);
+    try { return JSON.parse(text); }
+    catch { throw new Error(`non-JSON Solr response (${text.length}B)`); }
+  } finally { clearTimeout(t); }
+}
+
 async function getText(path, { timeoutMs = 30_000, accept } = {}) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), timeoutMs);
@@ -108,10 +126,23 @@ async function checkInfra() {
 
 // ============================================================ COOKBOOK ========
 async function checkCookbook() {
-  head(`COOKBOOK — ${QUERIES.filter(e => e.q).length} queries from deploy/fly/www/queries.js`);
+  head(`COOKBOOK — ${QUERIES.filter(e => e.q || e.solr).length} queries from deploy/fly/www/queries.js`);
   for (const e of QUERIES) {
-    if (!e.q) continue;
     const label = e.title;
+    if (e.solr) {
+      // Solr: a clean run is HTTP 200 + valid JSON. 0 results soft-warn rather
+      // than fail — Solr emptiness can be legitimate, and a newly added field
+      // (e.g. prefLabel_en, lang) only exists once the index is redeployed.
+      try {
+        const j = await solrSelect(e.solr, { timeoutMs: e.slow ? 120_000 : 45_000 });
+        const ff = j.facet_counts?.facet_fields;
+        const n = ff ? Object.values(ff)[0].length / 2 : (j.response?.numFound ?? 0);
+        n > 0 ? ok(`${label} — ${n} ${ff ? 'facet value(s)' : 'doc(s)'} [solr]`)
+              : soft(`${label} — 0 results [solr] (field may need a redeploy/reindex)`);
+      } catch (e2) { bad(`${label} — ${e2.message} [solr]`); }
+      continue;
+    }
+    if (!e.q) continue;
     try {
       const j = await sparql(e.q, { timeoutMs: e.slow ? 120_000 : 45_000 });
       const n = rowsOf(j).length;

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>skosdex — SPARQL cookbook</title>
+<title>skosdex — SPARQL + Solr cookbook</title>
 <style>
  *{box-sizing:border-box} body{font:15px/1.55 system-ui,sans-serif;margin:0;color:#1a1a1a;background:#f4f6f8}
  header{background:#1f2933;color:#fff;padding:1.1rem 1.4rem}
@@ -24,12 +24,14 @@
  .out th{background:#f0f4f8}
  .out .err{color:#b91c1c}
  .sec{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:#52606d;margin:1.6rem 0 .6rem}
+ .tag{font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;padding:.08rem .35rem;border-radius:4px;vertical-align:middle;font-weight:600}
+ .tag-sparql{background:#e0e7ff;color:#3730a3} .tag-solr{background:#dcfce7;color:#166534}
 </style>
 </head>
 <body>
 <header>
- <h1>SPARQL cookbook</h1>
- <p>Canned queries against the live corpus — every one checked by <code>node scripts/check.mjs</code>. <a href="/">← search UI</a> · <a href="/sparql/">raw SPARQL UI</a> · <a href="/query">POST /query</a></p>
+ <h1>SPARQL + Solr cookbook</h1>
+ <p>Canned queries against the live corpus — SPARQL (Oxigraph) and Solr search, every one checked by <code>node scripts/check.mjs</code>. <a href="/">← search UI</a> · <a href="/sparql/">raw SPARQL UI</a> · <a href="/query">POST /query</a> · <a href="/solr/skos/select?q=*:*&rows=0">Solr select</a></p>
 </header>
 <div class="wrap" id="list"></div>
 <script type="module">
@@ -42,9 +44,10 @@ let i=0;
 for(const e of QUERIES){
   if(e.sec){ list.insertAdjacentHTML('beforeend',`<div class="sec">${esc(e.sec)}</div>`); continue; }
   const id='q'+(i++);
+  const kind=e.solr?'solr':'sparql';
   list.insertAdjacentHTML('beforeend',`<div class="card">
-    <h2>${esc(e.title)}</h2><p class="why">${esc(e.why)}</p>
-    <pre id="${id}-src">${esc(e.q)}</pre>
+    <h2>${esc(e.title)} <span class="tag tag-${kind}">${kind}</span></h2><p class="why">${esc(e.why)}</p>
+    <pre id="${id}-src" data-kind="${kind}">${esc(e.solr||e.q)}</pre>
     <div class="bar">
       <button class="run" onclick="run('${id}')">Run</button>
       <button onclick="copyQ('${id}')">Copy</button>
@@ -53,10 +56,12 @@ for(const e of QUERIES){
     <div class="out" id="${id}-out"></div></div>`);
 }
 async function run(id){
-  const q=document.getElementById(id+'-src').textContent;
+  const pre=document.getElementById(id+'-src');
+  const q=pre.textContent, kind=pre.dataset.kind;
   const out=document.getElementById(id+'-out');
   out.style.display='block'; out.innerHTML='<span class="why">running…</span>';
   try{
+    if(kind==='solr'){ renderSolr(out, await solrSelect(q)); return; }
     const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:q});
     if(!r.ok) throw new Error('HTTP '+r.status);
     const j=await r.json();
@@ -65,6 +70,25 @@ async function run(id){
       rows.slice(0,50).map(b=>'<tr>'+vars.map(v=>'<td>'+esc(b[v]?.value??'')+'</td>').join('')+'</tr>').join('')+
       `</table><div class="why">${rows.length} row(s)${rows.length>50?' (showing 50)':''}</div>`;
   }catch(err){ out.innerHTML='<span class="err">'+esc(err.message)+'</span>'; }
+}
+async function solrSelect(params){
+  // params are shown readable (with spaces); encode spaces for the form body so
+  // values like qf=a^2 b or fq=lang:(en OR und) round-trip unambiguously.
+  const r=await fetch('/solr/skos/select',{method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},body:params.replace(/ /g,'%20')+'&wt=json'});
+  if(!r.ok) throw new Error('HTTP '+r.status); return r.json();
+}
+function renderSolr(out,j){
+  const ff=j.facet_counts&&j.facet_counts.facet_fields;
+  if(ff){ const name=Object.keys(ff)[0], arr=ff[name]||[]; let rows='';
+    for(let k=0;k<arr.length;k+=2) rows+=`<tr><td>${esc(arr[k])}</td><td>${esc(arr[k+1])}</td></tr>`;
+    out.innerHTML=`<table><tr><th>${esc(name)}</th><th>count</th></tr>${rows}</table>`+
+      `<div class="why">${(j.response?.numFound??0).toLocaleString()} docs matched · ${arr.length/2} facet value(s)</div>`; return; }
+  const docs=(j.response&&j.response.docs)||[];
+  const cols=[...new Set(docs.flatMap(d=>Object.keys(d)))];
+  out.innerHTML=`<table><tr>${cols.map(c=>'<th>'+esc(c)+'</th>').join('')}</tr>`+
+    docs.map(d=>'<tr>'+cols.map(c=>'<td>'+esc([].concat(d[c]??'').join(', '))+'</td>').join('')+'</tr>').join('')+
+    `</table><div class="why">${(j.response?.numFound??0).toLocaleString()} doc(s)${docs.length<(j.response?.numFound??0)?` (showing ${docs.length})`:''}</div>`;
 }
 function copyQ(id){ navigator.clipboard.writeText(document.getElementById(id+'-src').textContent); }
 // inline onclick handlers resolve against window

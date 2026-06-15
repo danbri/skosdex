@@ -6,10 +6,15 @@
 //
 // Entry shapes:
 //   { sec: '...' }                         section heading
-//   { title, why, q, slow?, federation? }  a runnable query
+//   { title, why, q, slow?, federation? }  a runnable SPARQL query (POST /query)
+//   { title, why, solr, slow? }            a runnable Solr query — `solr` is the
+//                                          /solr/skos/select param string (POST
+//                                          form body); the page renders docs or
+//                                          facet counts.
 // `federation:true` marks a query that calls a remote SERVICE endpoint; the
 // harness treats those as best-effort (external endpoint may be slow/down) and
-// does not hard-fail the build on them.
+// does not hard-fail the build on them. Solr entries 0-result soft-warn (a new
+// field may simply need a redeploy/reindex), but errors hard-fail.
 export const QUERIES = [
 {sec:'The shape they (mostly) share'},
 {title:'Concept census — skos:Concept per scheme',
@@ -191,4 +196,24 @@ SELECT ?wd ?ga ?a ?gb ?b WHERE {
   GRAPH ?gb { ?b skos:exactMatch ?wd }
   FILTER(STRSTARTS(STR(?wd),"http://www.wikidata.org/entity/") && STR(?ga) < STR(?gb))
 } LIMIT 10`},
+
+{sec:'Solr — full-text search & language facets'},
+{title:'Full-text search — what the search box sends',
+ why:'The live search runs edismax over Solr: exactLabel (the English prefLabel) is boosted hardest, then prefLabel, then altLabel. Each hit is one flattened concept doc. This is /solr/skos/select, POSTed as a form body.',
+ solr:`q=climate&defType=edismax&qf=exactLabel^20 prefLabel^3 altLabel&fl=id,prefLabel,scheme&rows=10`},
+{title:'English labels only — per-language subfields',
+ why:'Language tags are preserved: every text value is also indexed under a per-language subfield (prefLabel_en, altLabel_fr, definition_de). So you can search and return just one language — here, match and show only English prefLabels.',
+ solr:`q=migration&defType=edismax&qf=prefLabel_en&fl=id,prefLabel_en,scheme&rows=10`},
+{title:'Filter by language — the lang facet',
+ why:'Each doc lists its distinct languages in the lang field (with primary subtags added, so en-GB also yields en). Restrict results to concepts that carry French text.',
+ solr:`q=*:*&fq=lang:fr&fl=id,prefLabel_fr,scheme&rows=10`},
+{title:'Language coverage — facet on lang',
+ why:'Facet the whole corpus by language tag. und = literals with no language tag (codes, some plain-string schemes); en/fr/es/… are explicit. The big multilingual thesauri (AGROVOC, EuroVoc, UDC) dominate the counts.',
+ solr:`q=*:*&rows=0&facet=true&facet.field=lang&facet.limit=25&facet.mincount=1`},
+{title:'English-ish — tagged en OR untagged und',
+ why:'Some schemes ship plain (untagged) English, bucketed as und so they are never invisible to a language query. lang:(en OR und) is the pragmatic "English or unlabelled" filter — e.g. across the UK Parliament terms.',
+ solr:`q=*:*&fq=lang:(en OR und)&fl=id,prefLabel,lang&rows=10`},
+{title:'Facet by scheme — which vocabularies match',
+ why:'Solr facet over the scheme field (the same field the search UI uses to include/exclude vocabularies): which schemes contain a concept matching "river".',
+ solr:`q=river&defType=edismax&qf=prefLabel&rows=0&facet=true&facet.field=scheme&facet.limit=12&facet.mincount=1`},
 ];
