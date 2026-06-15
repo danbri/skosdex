@@ -22,11 +22,15 @@
   #about[hidden]{display:none}
   .ibtn{margin-left:auto;background:transparent;border:0;color:#7b88b0;font-size:.95rem;cursor:pointer;padding:0 .1rem;line-height:1}
   .ibtn:hover,.ibtn.on{color:#8ab4ff}
-  /* galaxy switcher: looks like the title, acts like a menu */
-  #scheme{background:transparent;border:0;color:var(--fg);font:inherit;font-weight:650;letter-spacing:.2px;
-    cursor:pointer;padding:.05rem .2rem;border-radius:6px;-webkit-appearance:none;appearance:none}
-  #scheme:hover{background:rgba(120,140,200,.15)}
+  /* galaxy switcher: an obvious labelled dropdown (caret + pill) so it's clear
+     which vocabulary is loaded and that you can switch it */
+  #scheme{color:var(--fg);font:inherit;font-weight:650;letter-spacing:.2px;cursor:pointer;
+    -webkit-appearance:none;appearance:none;max-width:46vw;
+    border:1px solid rgba(130,150,210,.4);border-radius:8px;padding:.16rem 1.5rem .16rem .55rem;
+    background:rgba(120,140,200,.16) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' fill='none' stroke='%238ab4ff' stroke-width='1.6'><path d='M1 1l4.5 4.5L10 1'/></svg>") no-repeat right .5rem center}
+  #scheme:hover,#scheme:focus{background-color:rgba(120,140,200,.3);border-color:#8ab4ff;outline:none}
   #scheme option{background:#0a0f22;color:var(--fg);font-weight:500}
+  #head .vlabel{color:#7b88b0;font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;margin-right:.15rem}
   #ctrl{top:14px;right:14px;padding:.55rem;display:flex;gap:.5rem;align-items:center}
   #ctrl input{width:150px;background:#0a0f22;border:1px solid #2a3358;border-radius:8px;color:var(--fg);
     padding:.35rem .55rem;font-size:.84rem}
@@ -62,7 +66,7 @@
 <div id="loading">summoning the galaxy…</div>
 
 <div id="head" class="panel" hidden>
-  <h1>🌌 <select id="scheme" title="switch galaxy"></select> <span id="count" class="sub"></span>
+  <h1>🌌 <span class="vlabel">vocabulary</span><select id="scheme" title="switch vocabulary / embedding"></select> <span id="count" class="sub"></span>
       <button id="info" class="ibtn" title="about &amp; controls" aria-label="about">ⓘ</button></h1>
   <div id="about" hidden>
     <p>Concepts placed by meaning — UMAP on MiniLM embeddings, coloured by theme. <a href="/">← skosdex</a></p>
@@ -194,13 +198,22 @@ document.getElementById('loading').remove();
 for(const id of ['head','ctrl','legend']) document.getElementById(id).hidden=false;
 // galaxy switcher: populate from the embeddings registry (skip the combined _all)
 const schemeSel = document.getElementById('scheme');   // NB: not `pick` — a function pick(ev) already exists
-const optFor = (s) => { const o = document.createElement('option'); o.value = s;
-  o.textContent = s.toUpperCase().replace(/-/g, ' '); if (s === slug) o.selected = true; return o; };
-fetch('/embeddings/index.json').then(r => r.json()).then(list => {
+const shortTitle = (t, s) => {
+  if (!t) return s.toUpperCase().replace(/-/g, ' ');
+  const head = t.split('—')[0].trim();                 // "GEMET — GEneral…" -> "GEMET"
+  return head.length > 34 ? head.slice(0, 33) + '…' : head;
+};
+const optFor = (s, t) => { const o = document.createElement('option'); o.value = s;
+  o.textContent = shortTitle(t, s); if (s === slug) o.selected = true; return o; };
+Promise.all([
+  fetch('/embeddings/index.json').then(r => r.json()).catch(() => [slug]),
+  fetch('/manifest.json').then(r => r.json())
+    .then(m => Object.fromEntries((m.included || []).map(x => [x.slug, x.title]))).catch(() => ({})),
+]).then(([list, titles]) => {
   const galaxies = list.filter(x => !x.startsWith('_'));
   if (!galaxies.includes(slug)) galaxies.push(slug);
-  for (const s of galaxies) schemeSel.appendChild(optFor(s));
-}).catch(() => schemeSel.appendChild(optFor(slug)));
+  for (const s of galaxies) schemeSel.appendChild(optFor(s, titles[s]));
+});
 schemeSel.onchange = () => { if (schemeSel.value && schemeSel.value !== slug) location.search = '?scheme=' + encodeURIComponent(schemeSel.value); };
 document.getElementById('count').textContent = N.toLocaleString() + ' concepts';
 
