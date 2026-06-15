@@ -9,6 +9,8 @@
  header{background:#1f2933;color:#fff;padding:1.1rem 1.4rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
  header h1{margin:0;font-size:1.35rem} header p{margin:.3rem 0 0;color:#9aa5b1;font-size:.9rem}
  header a{color:#7cc4fa;text-decoration:none}
+ #galaxypick{background:#2b3744;color:#7cc4fa;border:1px solid #3e4c59;border-radius:6px;font:inherit;font-size:.9rem;padding:.04rem .3rem;cursor:pointer}
+ #galaxypick option{background:#1f2933;color:#e6edf3}
  .gear{background:none;border:1px solid #3e4c59;color:#cbd2d9;border-radius:8px;font-size:1.1rem;padding:.35rem .6rem;cursor:pointer;white-space:nowrap}
  .gear:hover{background:#2b3744}
  .wrap{max-width:980px;margin:0 auto;padding:1.3rem}
@@ -101,7 +103,8 @@
  <div>
   <h1>skosdex</h1>
   <p>All the SKOS in the world? <span id="total"></span> ·
-     <a href="/galaxy.html?scheme=gemet">🌌 galaxies</a> ·
+     <select id="galaxypick" title="open a vocabulary galaxy"
+       onchange="if(this.value){location.href='/galaxy.html?scheme='+encodeURIComponent(this.value)}"><option value="">🌌 galaxy…</option></select> ·
      <a href="/queries.html">SPARQL + Solr cookbook</a> · <a href="/sparql/">SPARQL</a> · <a href="/manifest.json">manifest</a> ·
      <a href="https://github.com/danbri/skosdex">GitHub</a></p>
  </div>
@@ -246,6 +249,16 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
   cfg.schemes ??= {};
   for(const s of SCHEMES) cfg.schemes[s.graph] ??= {on:true,prio:0};
   saveCfg();
+  // galaxy picker: list schemes that have embeddings (from index.json), with
+  // human titles from the manifest; selecting one opens its galaxy.
+  embSet().then(emb=>{
+    const sel=document.getElementById('galaxypick'); if(!sel)return;
+    const titleOf={}; for(const s of SCHEMES) titleOf[s.slug]=s.title;
+    [...emb].filter(x=>!x.startsWith('_')).sort().forEach(slug=>{
+      const o=document.createElement('option'); o.value=slug;
+      o.textContent='🌌 '+(titleOf[slug]||slug); sel.appendChild(o);
+    });
+  }).catch(()=>{});
   // scheme cards: one card per family (with count) + one per standalone scheme
   const {groups, singles}=groupSchemes(SCHEMES);
   const groupCards=groups.map(g=>{
