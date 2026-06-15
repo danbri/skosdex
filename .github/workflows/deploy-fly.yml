@@ -42,6 +42,17 @@ jobs:
     outputs:
       ui_only: ${{ steps.scope.outputs.ui_only }}
     steps:
+      # GitHub-hosted runners have ~14 GB free on /, but a full build now juggles
+      # ~6 GB dist artifacts + ~3.5 GB LFS + a ~4.5 GB image (per-language Solr
+      # docs roughly tripled the part payload), exhausting the disk during docker
+      # build/push. Reclaim ~25 GB of preinstalled toolchains we never use.
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android \
+                      /opt/hostedtoolcache/CodeQL /usr/local/share/boost \
+                      /usr/share/swift /usr/local/lib/node_modules/npm/changelogs || true
+          sudo docker image prune -af || true
+          df -h /
       # Cheap checkout first (no LFS smudge) so we can decide whether this push
       # even needs the corpus. A push that only touches deploy/fly/www/** is a
       # static-site change: the corpus is unchanged, so we skip the 3.7 GB LFS
@@ -136,6 +147,10 @@ jobs:
             docker build -f deploy/fly/Dockerfile.ui --build-arg BASE="$IMG:latest" \
               -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
           else
+            # The image bakes only dist/solr-parts + dist/graphed — drop the ~2 GB
+            # monolithic solr-docs.json before the build so it doesn't sit in the
+            # build context / eat runner disk.
+            rm -f dist/solr-docs.json
             docker build -f deploy/fly/Dockerfile \
               -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
           fi
