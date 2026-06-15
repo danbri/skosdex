@@ -144,5 +144,28 @@ fly machines list -a skosdex                  # STATE + CHECKS (1/1 = healthy)
 - **Reindex resilience:** the seed commits per part, retries 3×, and skips a bad
   part rather than aborting the whole corpus (a marker is only written on a fully
   clean pass, so it retries skipped parts next boot).
-- **Every reboot reloads markers for ~650 schemes** before serving; keep that loop
-  cheap (it hashes each graphed file once) so deploys aren't a long blackout.
+- **Keep the boot critical path tiny — serve FIRST.** Every deploy reboots the one
+  machine, and it can't serve until `start.sh` reaches `exec oxigraph serve`. The
+  old script blocked there for *minutes*: it waited for the Solr JVM + core load,
+  hashed ~1.7 GB of graphed files, and md5'd ~2.2 GB of parts, all in the
+  foreground → a multi-minute blackout on every single deploy. The lesson: nothing
+  slow may sit before nginx/oxigraph.
+
+## Boot flow (serve-first — how `start.sh` is ordered)
+
+1. **Stage 1 (oxigraph):** a build-time fingerprint `/seed/graphed.fp` (md5 of all
+   per-scheme md5s, baked by the Dockerfile) is compared to the volume's
+   `.graphed-fp`. **Match → skip the ~650-file hash+load entirely.** Only a changed
+   corpus does the per-scheme hash/load.
+2. **Stage 3 (optimize):** gated — skipped unless a large delta / `FORCE_OPTIMIZE`.
+3. **`exec oxigraph serve` + `nginx`** come up here → health check (`/query`) passes
+   in **seconds**.
+4. **Solr is decoupled:** `solr_bringup()` (start JVM, wait, schema wipe-gate,
+   `PARTS_SUM`, reseed) runs in the **background** for a serving boot; search serves
+   the existing core and converges. It runs **foreground only for `SEED_AND_EXIT`**
+   (the cutover indexer, which never serves).
+
+So a code/UI redeploy: first reboot records the fingerprint (one slightly slower
+boot, no reseed); every reboot after is **near-instant**. A *data* change (new/changed
+`canonical.nq.gz`) invalidates the fingerprint → Stage 1 reloads only the changed
+schemes, and Solr reseeds in the background.
