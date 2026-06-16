@@ -127,6 +127,26 @@
   #grip::before{content:"";width:48px;height:4px;border-radius:3px;background:rgba(150,170,230,.55);box-shadow:0 0 0 7px rgba(7,10,22,.55)}
   body.mode-table #head, body.mode-table #ctrl, body.mode-table #legend, body.mode-table #tip, body.mode-table #selbar{display:none!important}
   body.mode-split #legend{display:none!important}
+
+  /* ===== mixed-scheme "blends" finder ===== */
+  #blends{right:14px;bottom:14px;width:min(92vw,320px);max-height:min(70vh,540px);
+    display:flex;flex-direction:column;padding:.5rem .55rem;z-index:7}
+  #blends[hidden]{display:none}
+  #blends .bh{display:flex;align-items:center;gap:.4rem;margin:0 0 .45rem;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.08em;color:#8597c6;font-weight:600}
+  #blends .bh .x{margin-left:auto;background:transparent;border:0;color:#7b88b0;cursor:pointer;font-size:1rem;line-height:1}
+  #blends .bh .x:hover{color:#8ab4ff}
+  #blendlist{overflow:auto;display:flex;flex-direction:column;gap:.35rem}
+  .blend{display:block;width:100%;text-align:left;background:rgba(120,140,200,.08);
+    border:1px solid rgba(120,140,200,.18);border-radius:9px;padding:.42rem .5rem;color:var(--fg);cursor:pointer;font:inherit}
+  .blend:hover,.blend:focus{background:rgba(120,140,200,.2);border-color:#8ab4ff;outline:none}
+  .blend .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.28rem}
+  .chip{display:inline-flex;align-items:center;gap:.28rem;font-size:.74rem;font-weight:600;
+    background:rgba(0,0,0,.28);border-radius:999px;padding:.08rem .48rem}
+  .chip .dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor}
+  .blend .samp{color:#9fb0d8;font-size:.76rem;line-height:1.3;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bnone{color:#7b88b0;font-size:.8rem;padding:.4rem;line-height:1.5}
   @media (max-width:640px){
     #tabs{top:8px}
     #head{top:46px}
@@ -153,7 +173,8 @@
   <div id="about" hidden>
     <p>Concepts placed by meaning — UMAP on MiniLM embeddings, coloured by theme. <a href="/">← skosdex</a></p>
     <p class="hint">drag to orbit · scroll to zoom · click to open · double-click to fly in &amp; centre</p>
-    <p class="hint">◎ select: drag a glowing sphere over a cluster to highlight a set, then flip to the <b>table</b> tab (or <b>split</b>) to read / copy / save them</p>
+    <p class="hint">◎ select: drag the glowing sphere (press <i>on</i> it) to highlight a set — drag <i>outside</i> still orbits/pans · pinch / wheel / slider to size · then read them in the <b>table</b> / <b>split</b> tab</p>
+    <p id="blendhint" class="hint" hidden>✦ blends: auto-finds spheres that mix schemes evenly — to see where vocabularies actually overlap</p>
     <p id="overlaynote" class="hint" hidden>✦ compare overlay: one shared UMAP across schemes, coloured by source.
       Local neighbourhoods are roughly faithful; global distances &amp; cluster sizes are not — read it as a sketch, not a map.</p>
   </div>
@@ -163,6 +184,7 @@
   <input id="q" type="search" placeholder="highlight…" autocomplete="off">
   <div class="seg"><button id="b3" class="on">3D</button><button id="b2">2D</button></div>
   <button class="btn" id="sel" title="highlight a set of concepts with a sphere">◎ select</button>
+  <button class="btn" id="blendbtn" hidden title="auto-find spheres that mix schemes">✦ blends</button>
   <button class="btn" id="spin">⏸</button>
   <button class="btn" id="reset">reset</button>
 </div>
@@ -172,9 +194,14 @@
 
 <div id="selbar" class="panel" hidden>
   <span class="h">drag to move · pinch / slider to size</span>
-  <input id="selrad" type="range" min="0.05" max="3" step="0.01" value="0.55" aria-label="selection radius">
+  <input id="selrad" type="range" min="0" max="1" step="0.001" value="0.62" aria-label="selection radius">
   <span class="h"><span id="selcnt" class="cnt">0</span> in sphere</span>
   <button class="btn" id="seldone">done</button>
+</div>
+
+<div id="blends" class="panel" hidden>
+  <div class="bh">mixed-scheme spheres <button class="x" id="blendclose" title="close">✕</button></div>
+  <div id="blendlist"></div>
 </div>
 
 <div id="grip" hidden></div>
@@ -434,6 +461,10 @@ function syncVis(snap, which){
 // reflect overlay mode into the about caveat + initialise the visibility mask
 function applyOverlayMode(){
   const note=document.getElementById('overlaynote'); if(note) note.hidden=!overlay;
+  // the "blends" finder only makes sense across schemes → overlay only
+  const bb=document.getElementById('blendbtn'); if(bb) bb.hidden=!overlay;
+  const bh=document.getElementById('blendhint'); if(bh) bh.hidden=!overlay;
+  if(!overlay){ const bp=document.getElementById('blends'); if(bp) bp.hidden=true; }
   syncVis(true);
   if(typeof applyFilter==='function') applyFilter();
 }
@@ -479,8 +510,12 @@ function setDim(d){
   document.getElementById('b2').classList.toggle('on', d===2);
   target = d===3? pos3 : pos2; morph = 0;
   controls.autoRotate = d===3 && spinOn && !selMode;
-  controls.enableRotate = d===3 && !selMode;
-  if(d===2){ animTo(new THREE.Vector3(0,0,2.6), new THREE.Vector3(0,0,0)); }
+  controls.enableRotate = d===3;
+  // 3D: one finger / left-drag orbits. 2D: it pans (no rotation off-plane).
+  if(d===2){ controls.touches.ONE=THREE.TOUCH.PAN; controls.mouseButtons.LEFT=THREE.MOUSE.PAN;
+    animTo(new THREE.Vector3(0,0,2.6), new THREE.Vector3(0,0,0)); }
+  else { controls.touches.ONE=THREE.TOUCH.ROTATE; controls.mouseButtons.LEFT=THREE.MOUSE.ROTATE; }
+  closeBlends();
   // re-evaluate which points the sphere now contains once the morph settles
   if(selMode || selCount>0) setTimeout(()=>{ if(!swirl && !maskSwirl) recomputeSelection(); }, 650);
 }
@@ -542,37 +577,60 @@ function hideTip(){ tip.style.opacity=0; tip.classList.remove('pinned'); pinned=
 function canvasNDC(ev){ const r=renderer.domElement.getBoundingClientRect();
   return [((ev.clientX-r.left)/r.width)*2-1, -(((ev.clientY-r.top)/r.height)*2-1)]; }
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
-// select-mode gesture state: drag a finger/mouse to move the sphere; two fingers
-// (or the wheel / slider) resize it. Orbit is disabled while sculpting.
-const activeP=new Map(); let pinchStart=0, pinchR0=0;
+// Select-mode sculpting. The sphere is GRABBED only when you press ON it (its
+// projected circle + a modest border); presses OUTSIDE fall straight through to
+// OrbitControls, so you can still orbit (3D) or pan (2D) while selecting. Two
+// fingers on the sphere pinch-resize; the wheel / slider also resize.
+const activeP=new Map(); let pinchStart=0, pinchR0=0, grab=false, clickTimer=0;
 function pinchDist(){ const a=[...activeP.values()]; return a.length<2?0:Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]); }
 function moveSphereTo(ev){ const c=canvasNDC(ev); const v=selCenter.clone().project(camera);
-  v.x=c[0]; v.y=c[1]; v.unproject(camera); selCenter.copy(v); updateSphere(); }
+  v.x=c[0]; v.y=c[1]; v.unproject(camera); if(curDim===2) v.z=0; selCenter.copy(v); updateSphere(); }
+// is the pointer over the sphere's screen footprint (+ a modest grab border)?
+function sphereScreenHit(ev){
+  const r=renderer.domElement.getBoundingClientRect();
+  const c=selCenter.clone().project(camera);
+  if(c.z>1) return false;                                   // behind the camera
+  const right=new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld,0);
+  const edge=selCenter.clone().addScaledVector(right,selRadius).project(camera);
+  const cx=(c.x*0.5+0.5)*r.width, cy=(-c.y*0.5+0.5)*r.height;
+  const ex=(edge.x*0.5+0.5)*r.width, ey=(-edge.y*0.5+0.5)*r.height;
+  const rad=Math.hypot(ex-cx,ey-cy);
+  const px=ev.clientX-r.left, py=ev.clientY-r.top;
+  return Math.hypot(px-cx,py-cy) <= rad + Math.max(26, rad*0.2);
+}
 
-renderer.domElement.addEventListener('pointermove',ev=>{
-  if(selMode){
-    if(activeP.has(ev.pointerId)) activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
-    if(activeP.size>=2){ const d=pinchDist(); if(pinchStart>0){ selRadius=clamp(pinchR0*d/pinchStart,0.05,4); updateSphere(); syncRadiusSlider(); recomputeSelection(); } }
-    else if(activeP.size===1){ moveSphereTo(ev); recomputeSelection(); }
-    return;
+// capture phase so we can claim the gesture BEFORE OrbitControls sees it
+renderer.domElement.addEventListener('pointerdown',ev=>{
+  if(!selMode) return;
+  if(grab){ activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
+    if(activeP.size===2){ pinchStart=pinchDist(); pinchR0=selRadius; } ev.stopPropagation(); return; }
+  if(sphereScreenHit(ev)){
+    grab=true; controls.enabled=false; activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
+    try{ renderer.domElement.setPointerCapture(ev.pointerId); }catch(_){}
+    moveSphereTo(ev); recomputeSelection(); ev.stopPropagation();
   }
+  // else: outside the sphere → let OrbitControls orbit/pan as normal
+}, true);
+renderer.domElement.addEventListener('pointermove',ev=>{
+  if(selMode && grab){
+    if(activeP.has(ev.pointerId)) activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
+    if(activeP.size>=2){ const d=pinchDist(); if(pinchStart>0) setRadius(pinchR0*d/pinchStart); }
+    else if(activeP.size===1){ moveSphereTo(ev); recomputeSelection(); }
+    ev.stopPropagation(); return;
+  }
+  if(selMode) return;                    // not grabbing: controls handle it, no hover
   if(ev.pointerType==='touch') return;   // touch uses tap-to-pin, not hover
   hover=pick(ev);
   if(hover>=0){ showTip(hover, ev.clientX, ev.clientY, false); document.body.style.cursor='pointer'; }
   else { if(pinned<0) tip.style.opacity=0; document.body.style.cursor='default'; }
 });
-renderer.domElement.addEventListener('pointerdown',ev=>{
+renderer.domElement.addEventListener('pointerdown',ev=>{ if(selMode) return; downXY=[ev.clientX,ev.clientY,ev.pointerType]; });
+function endPointer(ev){
   if(selMode){
-    try{ renderer.domElement.setPointerCapture(ev.pointerId); }catch(_){}
-    activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
-    if(activeP.size===2){ pinchStart=pinchDist(); pinchR0=selRadius; }
-    else if(activeP.size===1){ moveSphereTo(ev); recomputeSelection(); }
+    if(grab){ activeP.delete(ev.pointerId); if(activeP.size<2) pinchStart=0;
+      if(activeP.size===0){ grab=false; controls.enabled=true; } scheduleTableRebuild(true); }
     return;
   }
-  downXY=[ev.clientX,ev.clientY,ev.pointerType];
-});
-function endPointer(ev){
-  if(selMode){ activeP.delete(ev.pointerId); if(activeP.size<2) pinchStart=0; scheduleTableRebuild(true); return; }
   if(!downXY) return; const moved=Math.hypot(ev.clientX-downXY[0],ev.clientY-downXY[1]);
   const ptype=downXY[2]; downXY=null;
   if(moved>6) return;                     // a drag (orbit), not a tap/click
@@ -586,13 +644,14 @@ function endPointer(ev){
     if(i>=0){ clearTimeout(clickTimer); clickTimer=setTimeout(()=>openConcept(i),240); }
   }
 }
-let clickTimer=0;
 renderer.domElement.addEventListener('pointerup',endPointer);
 renderer.domElement.addEventListener('pointercancel',endPointer);
 renderer.domElement.addEventListener('dblclick',ev=>{ clearTimeout(clickTimer); if(selMode) return;
   const i=pick(ev); if(i>=0) focusNode(i); });
-renderer.domElement.addEventListener('wheel',ev=>{ if(!selMode) return; ev.preventDefault();
-  selRadius=clamp(selRadius*(1-ev.deltaY*0.0015),0.05,4); updateSphere(); syncRadiusSlider(); recomputeSelection(); }, {passive:false});
+// in select mode the wheel resizes the sphere (capture + stop so it doesn't also zoom)
+renderer.domElement.addEventListener('wheel',ev=>{ if(!selMode) return;
+  ev.preventDefault(); ev.stopPropagation(); setRadius(selRadius*(1-ev.deltaY*0.0015)); },
+  {passive:false, capture:true});
 
 addEventListener('resize',()=>relayout());
 
@@ -771,6 +830,7 @@ function finishSwirl(){
   const title = schemeTitles[slug];
   refreshSchemeUI(sw.nd, title);
   clearSelection();   // selection indices belong to the old scheme — drop them
+  closeBlends();      // any candidate spheres were for the old dataset
 }
 
 // ---- overlay: add/remove ONE scheme with a swirl, others stay put ----------
@@ -865,24 +925,27 @@ const sphMat=new THREE.ShaderMaterial({
 const sphMesh=new THREE.Mesh(new THREE.SphereGeometry(1,48,32), sphMat);
 sphMesh.visible=false; scene.add(sphMesh);
 const selCenter=new THREE.Vector3(0,0,0); let selRadius=0.55, selMode=false;
+const R_MIN=0.03, R_MAX=1.4;   // useful sphere sizes; the cloud spans roughly ±1.3
 function updateSphere(){ sphMesh.position.copy(selCenter); sphMesh.scale.setScalar(selRadius); }
+// radius slider uses a quadratic curve so the low end (precise, small spheres)
+// gets most of the travel instead of being wasted on huge radii
+function setRadius(r){ selRadius=clamp(r,R_MIN,R_MAX); updateSphere(); syncRadiusSlider(); recomputeSelection(); }
 
 const selRadEl=document.getElementById('selrad');
 const selBtn=document.getElementById('sel'), selBar=document.getElementById('selbar');
 const selcnt=document.getElementById('selcnt');
-function syncRadiusSlider(){ selRadEl.value=selRadius; }
+function syncRadiusSlider(){ selRadEl.value=Math.sqrt(Math.max(0,(selRadius-R_MIN)/(R_MAX-R_MIN))); }
 function setSelMode(on){
   selMode=on; selBtn.classList.toggle('on',on); sphMesh.visible=on; selBar.hidden=!on;
   document.body.classList.toggle('selecting',on);
-  controls.enabled=!on;
-  controls.autoRotate=(!on && spinOn && curDim===3);
-  controls.enableRotate=(curDim===3 && !on);
+  if(!on){ grab=false; controls.enabled=true; }   // controls stay live; only an
+  controls.autoRotate=(!on && spinOn && curDim===3); // active grab disables them
   if(on){ if(selCount===0) selCenter.copy(controls.target);
     updateSphere(); syncRadiusSlider(); recomputeSelection(); }
 }
 selBtn.onclick=()=>setSelMode(!selMode);
 document.getElementById('seldone').onclick=()=>setSelMode(false);
-selRadEl.oninput=()=>{ selRadius=parseFloat(selRadEl.value)||0.05; updateSphere(); recomputeSelection(); };
+selRadEl.oninput=()=>{ const t=parseFloat(selRadEl.value)||0; setRadius(R_MIN+(R_MAX-R_MIN)*t*t); };
 
 // --- which points fall inside the bubble (visible ones only, in overlay) ---
 function recomputeSelection(){
@@ -989,6 +1052,103 @@ document.getElementById('savesel').onclick=()=>{ const blob=new Blob([rowsCSV()]
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(slug||'selection')+'-nodes.csv';
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
 document.getElementById('clearsel').onclick=()=>clearSelection();
+
+// ===========================================================================
+//  "Blends" finder — auto-pick spheres that MIX schemes  (overlay only)
+// ===========================================================================
+// Scans candidate centres for a sphere of ~25 nodes whose membership splits
+// evenly across 2 (≈50/50) or 3 (≈⅓ each) of the visible schemes — i.e. the
+// places where schemes actually mingle. Lists them with coloured scheme chips +
+// sample labels, draws every candidate as a ghost sphere, and on click drops the
+// real selection sphere there. Only visible (toggled-on) schemes are considered.
+const ghostGeo=new THREE.SphereGeometry(1,24,16);
+const ghostGroup=new THREE.Group(); scene.add(ghostGroup);
+let blendCands=[], blendOpen=false;
+const blendBtn=document.getElementById('blendbtn'), blendPanel=document.getElementById('blends'), blendList=document.getElementById('blendlist');
+
+// the K nearest points to (cx,cy,cz), kept without a full per-seed sort
+function nearestK(src,dim3,cx,cy,cz,K){
+  const best=[]; let worst=Infinity;
+  for(let i=0;i<N;i++){ if(overlay && visCur[i]<0.5) continue;
+    const dx=src[i*3]-cx, dy=src[i*3+1]-cy, dz=(dim3?src[i*3+2]:0)-cz;
+    const d=dx*dx+dy*dy+dz*dz;
+    if(best.length<K){ best.push([d,i]); if(best.length===K){ best.sort((a,b)=>a[0]-b[0]); worst=best[K-1][0]; } }
+    else if(d<worst){ best[K-1]=[d,i]; let j=K-1; while(j>0 && best[j][0]<best[j-1][0]){ const t=best[j];best[j]=best[j-1];best[j-1]=t;j--; } worst=best[K-1][0]; }
+  }
+  if(best.length<K) best.sort((a,b)=>a[0]-b[0]);
+  return best;
+}
+function findBlends(){
+  const dim3=curDim===3, src=dim3?pos3:pos2, want=25;
+  const seeds=[]; const step=Math.max(1,Math.floor(N/500));
+  for(let i=0;i<N;i++){ if(i%step===0 && (!overlay||visCur[i]>0.5)) seeds.push(i); }
+  const out=[];
+  for(const s of seeds){
+    const cx=src[s*3], cy=src[s*3+1], cz=dim3?src[s*3+2]:0;
+    const nn=nearestK(src,dim3,cx,cy,cz,want);
+    if(nn.length<want) continue;
+    const cnt={}; for(const [,i] of nn){ const c=D.cluster[i]; cnt[c]=(cnt[c]||0)+1; }
+    const schemes=Object.keys(cnt).map(Number);
+    if(schemes.length<2) continue;                 // need an actual mix
+    const ideal=want/schemes.length; let dev=0; for(const c of schemes) dev+=Math.abs(cnt[c]-ideal);
+    const balance=1-dev/(2*want);                  // 1 = perfectly even split
+    const radius=Math.sqrt(nn[nn.length-1][0])*1.08;
+    out.push({ cx,cy,cz,radius,cnt,schemes,balance, ids:nn.map(x=>x[1]),
+      score: balance*2 + (schemes.length===2||schemes.length===3?0.5:0) });
+  }
+  out.sort((a,b)=>b.score-a.score);
+  const picked=[];                                 // spatially diverse top picks
+  for(const c of out){
+    if(picked.some(p=>Math.hypot(p.cx-c.cx,p.cy-c.cy,p.cz-c.cz) < Math.max(p.radius,c.radius)*0.85)) continue;
+    picked.push(c); if(picked.length>=6) break;
+  }
+  return picked;
+}
+function clearGhosts(){ while(ghostGroup.children.length){ const m=ghostGroup.children.pop(); m.material.dispose(); } }
+function renderGhosts(hi){
+  clearGhosts();
+  blendCands.forEach((c,k)=>{ const on=k===hi;
+    const m=new THREE.Mesh(ghostGeo, new THREE.MeshBasicMaterial({ color:on?0x8fe0ff:0xffffff,
+      wireframe:true, transparent:true, opacity:on?0.6:0.16, depthWrite:false }));
+    m.position.set(c.cx,c.cy,c.cz); m.scale.setScalar(c.radius); ghostGroup.add(m);
+  });
+}
+function chipFor(c, n){
+  const nm=D.clusterNames[c]; const title=(schemeTitles&&schemeTitles[nm])?shortTitle(schemeTitles[nm],nm):nm;
+  return `<span class="chip" style="color:${D.colors[c]}"><span class="dot" style="color:${D.colors[c]}"></span>${escHtml(title)} ${n}</span>`;
+}
+function openBlends(){
+  blendCands=findBlends(); blendOpen=true; blendPanel.hidden=false;
+  if(!blendCands.length){
+    blendList.innerHTML='<div class="bnone">No clearly mixed spheres in the current view. Toggle more schemes on (legend) and try again, or switch 2D/3D.</div>';
+    renderGhosts(-1); return;
+  }
+  let html='';
+  blendCands.forEach((c,k)=>{
+    const chips=c.schemes.slice().sort((a,b)=>c.cnt[b]-c.cnt[a]).map(s=>chipFor(s,c.cnt[s])).join('');
+    const labs=c.ids.slice(0,4).map(i=>escHtml(D.labels[i])).join(' · ');
+    html+=`<button class="blend" data-k="${k}"><div class="chips">${chips}</div><div class="samp">${labs} …</div></button>`;
+  });
+  blendList.innerHTML=html;
+  blendList.querySelectorAll('.blend').forEach(el=>{ const k=+el.dataset.k;
+    el.addEventListener('pointerenter',()=>renderGhosts(k));
+    el.addEventListener('focus',()=>renderGhosts(k));
+    el.addEventListener('click',()=>applyCandidate(k));
+  });
+  renderGhosts(-1);
+}
+function closeBlends(){ if(!blendOpen) return; blendOpen=false; if(blendPanel) blendPanel.hidden=true; clearGhosts(); }
+function applyCandidate(k){
+  const c=blendCands[k]; if(!c) return;
+  if(!selMode) setSelMode(true);
+  selCenter.set(c.cx,c.cy,c.cz); setRadius(c.radius);   // setRadius updates + reselects
+  closeBlends();
+  if(mode==='galaxy') setMode('split'); else rebuildTable();   // reveal the resulting table
+}
+if(blendBtn) blendBtn.onclick=()=>{ if(blendOpen){ closeBlends(); return; }
+  blendBtn.textContent='scanning…'; blendBtn.disabled=true;
+  setTimeout(()=>{ try{ openBlends(); } finally { blendBtn.textContent='✦ blends'; blendBtn.disabled=false; } }, 30); };
+document.getElementById('blendclose').onclick=closeBlends;
 
 setMode('galaxy');
 
