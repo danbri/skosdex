@@ -80,14 +80,26 @@ function knnVec(q, k, schemeFilter) {
 }
 
 // Embed a query string via the Python sidecar (tools/embed_query.py) — same
-// model as the corpus, so the vector is comparable. Returns null if it's down.
+// model as the corpus, so the vector is comparable. Uses the stdlib http client
+// (not global fetch) so it runs on the box's older Node too. Rejects if it's down.
 const QUERY_URL = process.env.EMB_QUERY_URL || 'http://127.0.0.1:8089';
-async function embedQuery(text) {
-  const r = await fetch(`${QUERY_URL}/embed?q=${encodeURIComponent(text)}`, { signal: AbortSignal.timeout(10000) });
-  if (!r.ok) throw new Error(`embed service HTTP ${r.status}`);
-  const j = await r.json();
-  if (!Array.isArray(j.vec) || j.vec.length !== dim) throw new Error('bad embed vector');
-  return Float32Array.from(j.vec);
+function embedQuery(text) {
+  return new Promise((resolve, reject) => {
+    const req = http.get(`${QUERY_URL}/embed?q=${encodeURIComponent(text)}`, (r) => {
+      if (r.statusCode !== 200) { r.resume(); return reject(new Error(`embed service HTTP ${r.statusCode}`)); }
+      let body = ''; r.setEncoding('utf8');
+      r.on('data', (c) => { body += c; });
+      r.on('end', () => {
+        try {
+          const j = JSON.parse(body);
+          if (!Array.isArray(j.vec) || j.vec.length !== dim) return reject(new Error('bad embed vector'));
+          resolve(Float32Array.from(j.vec));
+        } catch (e) { reject(e); }
+      });
+    });
+    req.on('error', reject);
+    req.setTimeout(10000, () => req.destroy(new Error('embed service timeout')));
+  });
 }
 
 const send = (res, code, obj) => {
