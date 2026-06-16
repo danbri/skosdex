@@ -280,7 +280,16 @@ fi
 # core meanwhile and converges; output is tee'd to the log + stdout for `fly logs`.
 ( solr_bringup 2>&1 | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' ) &
 
-# --- embeddings similarity API (background; non-essential, never gates serving) -
+# --- embeddings APIs (background; non-essential, never gate serving) ---------
+# query-embed sidecar (Python, same model as the corpus) powers /api/search text
+# search; the node KNN server answers /api/similar etc. and calls the sidecar.
+if command -v python3 >/dev/null 2>&1 && [ -f /opt/skosdex/embed_query.py ]; then
+  echo "starting query-embed sidecar on 127.0.0.1:8089"
+  SKOSDEX_MODEL_DIR=/opt/skosdex/models EMB_QUERY_PORT=8089 \
+    python3 /opt/skosdex/embed_query.py > /tmp/embed-query.log 2>&1 &
+else
+  echo "WARN: python3 or embed_query.py missing — /api/search text search disabled"
+fi
 # KNN over the combined MiniLM space (_all.emb.*). nginx proxies /api/ -> :8088.
 if command -v node >/dev/null 2>&1 && [ -f /opt/skosdex/embed_api.mjs ]; then
   echo "starting embeddings API on 127.0.0.1:8088"

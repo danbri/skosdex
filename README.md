@@ -96,9 +96,13 @@ crosses vocabulary boundaries. The combined space (`_all.emb.*`) is served two w
 | `GET /api/similar?id=<IRI>&k=10` | k nearest concepts (any scheme) |
 | `GET /api/similar?…&scheme=<slug>` | …restricted to one scheme |
 | `GET /api/similar?…&cross=1` | …**excluding** the source scheme — cross-vocabulary analogues |
-| `GET /api/search?q=…` | text→vector search — `501` until the query-time model is wired (see below) |
+| `GET /api/search?q=text&k=10[&scheme=<slug>]` | **free-text search** — embeds your text with the same model, returns nearest concepts |
 
 ```bash
+# free-text → nearest concepts (any scheme)
+curl -s 'https://skosdex.fly.dev/api/search?q=global%20warming%20policy&k=5'
+# → esco:"environmental policy" (0.68), gemet:"climate change mitigation" (0.66), …
+
 # cross-vocabulary analogues of GEMET "climate change"
 curl -s 'https://skosdex.fly.dev/api/similar?id=http://www.eionet.europa.eu/gemet/concept/1471&cross=1&k=5'
 # → esco:"climate change impact" (0.41), esco:"carry out meteorological research" (0.40), …
@@ -119,10 +123,10 @@ Run it locally with `node tools/embed_api.mjs 8088` (reads `deploy/fly/www/embed
 /embeddings/<slug>.layout.json  # UMAP 2D/3D + clusters for the galaxy
 ```
 
-*Text search* (`/api/search?q=…`) returns `501` for now: it needs the query string
-embedded with the same MiniLM model at request time (onnxruntime-node, or a small
-Python sidecar reusing `tools/embed_scheme.py`). Concept-to-concept `/api/similar`
-needs no model and works today.
+*Text search* (`/api/search?q=…`) embeds your query at request time with the same
+model (a small Python sidecar, `tools/embed_query.py`, sharing the corpus's ONNX
+MiniLM + pooling), then runs the same KNN — so a web page or query string maps
+straight onto skosdex concepts. Concept-to-concept `/api/similar` needs no model.
 
 Full reference: [`deploy/fly/EMBEDDINGS-API.md`](deploy/fly/EMBEDDINGS-API.md) and
 the [`embeddings-api`](skills/embeddings-api/SKILL.md) skill. Probe it with

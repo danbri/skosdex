@@ -51,26 +51,39 @@ curl -s https://skosdex.fly.dev/api/health    # {"ok":true,"n":...,"dim":384,"sc
 | `GET /api/similar?id=<IRI>&k=10` | k nearest concepts (any scheme) |
 | `GET /api/similar?...&scheme=<slug>` | …restricted to one scheme |
 | `GET /api/similar?...&cross=1` | …**excluding** the source scheme — cross-vocabulary analogues |
+| `GET /api/search?q=text&k=10` | **free-text search**: embeds `q` (same model) then KNN; `&scheme=<slug>` restricts |
 
-Example — cross-vocabulary analogues of GEMET *climate change*:
+Examples:
 
 ```
+GET /api/search?q=global warming policy&k=5
+→ esco:"environmental policy" (0.68), gemet:"climate change mitigation" (0.66), gemet:"global warming" (0.60), …
+
 GET /api/similar?id=http://www.eionet.europa.eu/gemet/concept/1471&cross=1
 → esco:"climate change impact" (0.41), esco:"carry out meteorological research" (0.40), …
 ```
 
-### Text search (`/api/search?q=…`) — TODO
+### Text search (`/api/search?q=…`) — how it works
 
-`/similar` is concept-to-concept and needs no model at query time. Free-text
-search must embed the query with the *same* MiniLM model first, then run the same
-KNN. Two ways to wire it:
+`/similar` is concept-to-concept and needs no model. `/search` embeds the query
+string at request time with the **same** model the corpus used, then runs the same
+KNN — so a web page or arbitrary text maps straight onto skosdex concepts.
 
-1. **onnxruntime-node** — load `model_quantized.onnx` (already fetched by
-   `embed_scheme.py` into `~/.cache/skosdex-embed`) in-process and embed the
-   query string. No Python at serve time.
-2. **sidecar** — a tiny Python service reusing `embed_scheme.py`'s embed path.
+The embedding is done by a tiny Python sidecar, **`tools/embed_query.py`**, which
+loads the same `model_quantized.onnx` + `tokenizer.json` and the identical
+masked-mean-pool + L2-norm as `embed_scheme.py` (verified: `embed(label)` vs the
+stored vector cosines ≈ 0.99, the residual being float16 storage). The node API
+calls it over localhost (`EMB_QUERY_URL`, default `http://127.0.0.1:8089`) and
+degrades to `501` if the sidecar is down (e.g. running `embed_api.mjs` alone
+locally). Run it locally with:
 
-The stub returns `501` for `/api/search` until one of these is added.
+```
+SKOSDEX_MODEL_DIR=~/.cache/skosdex-embed python3 tools/embed_query.py   # :8089
+node tools/embed_api.mjs 8088                                           # /api/search now works
+```
+
+A pure-JS alternative (onnxruntime-node in `embed_api.mjs`, no Python) works too
+but its `node_modules` is ~700 MB vs the Python wheel's ~16 MB, so the sidecar wins.
 
 ## How it's deployed (already wired)
 

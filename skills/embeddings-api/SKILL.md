@@ -63,19 +63,22 @@ cosine == dot product. Runs in the fly container (background process started by
 | `GET /api/similar?id=<IRI>&k=10` | k nearest concepts (any scheme): `[{id,label,scheme,score}]` |
 | `GET /api/similar?…&scheme=<slug>` | …restricted to one scheme |
 | `GET /api/similar?…&cross=1` | …**excluding** the source scheme — cross-vocabulary analogues |
-| `GET /api/search?q=…` | **501 (TODO)** — text search needs the query embedded with the same MiniLM model first (load `model_quantized.onnx` via onnxruntime-node, or a tiny Python sidecar), then the same KNN |
+| `GET /api/search?q=text&k=10[&scheme=<slug>]` | **free-text search** — embeds `q` with the same model (via the `embed_query.py` sidecar) then KNN: `[{id,label,scheme,score}]` |
 
 Example (cross-vocabulary): GEMET *climate change* → `cross=1` →
 `esco:"climate change impact"`, `esco:"carry out meteorological research"`, …
 
 ### How it's deployed (already wired)
 
-A deploy from `claude/main` ships the API: the **Dockerfile** installs Debian
-`nodejs` + copies `embed_api.mjs`; **start.sh** runs it in the background
-(`EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 &`)
-before nginx so it never gates serving; **nginx.conf** proxies `/api/` and serves
-`/embeddings/` (both CORS-open). The raw vectors are *also* a static API at
-`/embeddings/*.emb.{json,f16}`. Verify with `node scripts/check.mjs --api`.
+A deploy from `claude/main` ships the API. The **Dockerfile** installs Debian
+`nodejs` (KNN server) + `python3`/`onnxruntime`/`tokenizers` (query-embed sidecar)
+and bakes the MiniLM model into `/opt/skosdex/models`. **start.sh** runs both in
+the background before nginx so they never gate serving:
+`embed_query.py` (`:8089`, text→vector, same model as the corpus) and
+`embed_api.mjs` (`:8088`, KNN; calls the sidecar for `/api/search`). **nginx.conf**
+proxies `/api/` and serves `/embeddings/` (both CORS-open). The raw vectors are
+*also* a static API at `/embeddings/*.emb.{json,f16}`. Text search degrades to
+`501` if the sidecar is down. Verify with `node scripts/check.mjs --api`.
 Memory ≈ `n×384×4` bytes float32 (~40 MB for 26k); linear KNN is sub-ms to a few
 hundred-k — past that switch to an ANN index (hnswlib). Full notes:
 `deploy/fly/EMBEDDINGS-API.md`.

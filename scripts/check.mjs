@@ -187,6 +187,19 @@ async function checkApi() {
   } catch (e) { soft(`/api/similar probe: ${e.message}`); }
 
   try {
+    // free-text search via the query-embed sidecar; soft on 501 (sidecar warming
+    // up or absent) — the static vectors + /similar still work without it.
+    const { status, text } = await getText('/api/search?q=global%20warming%20policy&k=3');
+    if (status === 501) soft('/api/search → 501 (query-embed sidecar down/warming)');
+    else if (status !== 200) bad(`/api/search → ${status} ${text.slice(0, 80)}`);
+    else {
+      const r = JSON.parse(text).results ?? [];
+      r.length ? ok(`/api/search (free text) → ${r.length} hits; top: "${r[0].label}" [${r[0].scheme}] ${r[0].score}`)
+               : soft('/api/search → 0 results');
+    }
+  } catch (e) { soft(`/api/search probe: ${e.message}`); }
+
+  try {
     const { status } = await getText('/embeddings/index.json');
     status === 200 ? ok('/embeddings/index.json (static vectors) → 200') : bad(`/embeddings/index.json → ${status}`);
   } catch (e) { bad(`/embeddings/index.json failed: ${e.message}`); }

@@ -64,19 +64,46 @@ function knn(row, k, schemeFilter, cross) {
     .map(([s, i]) => ({ id: ids[i], label: labels[i], scheme: scheme[i], score: Math.round(s * 1e4) / 1e4 }));
 }
 
+// KNN from an arbitrary query vector (text search) — same dot-product ranking,
+// no source-row to exclude. `q` is a Float32Array(dim).
+function knnVec(q, k, schemeFilter) {
+  const heap = [];
+  for (let i = 0; i < n; i++) {
+    if (schemeFilter && scheme[i] !== schemeFilter) continue;
+    let dot = 0; const o = i * dim;
+    for (let d = 0; d < dim; d++) dot += q[d] * V[o + d];
+    if (heap.length < k) { heap.push([dot, i]); if (heap.length === k) heap.sort((a, b) => a[0] - b[0]); }
+    else if (dot > heap[0][0]) { heap[0] = [dot, i]; heap.sort((a, b) => a[0] - b[0]); }
+  }
+  return heap.sort((a, b) => b[0] - a[0])
+    .map(([s, i]) => ({ id: ids[i], label: labels[i], scheme: scheme[i], score: Math.round(s * 1e4) / 1e4 }));
+}
+
+// Embed a query string via the Python sidecar (tools/embed_query.py) — same
+// model as the corpus, so the vector is comparable. Returns null if it's down.
+const QUERY_URL = process.env.EMB_QUERY_URL || 'http://127.0.0.1:8089';
+async function embedQuery(text) {
+  const r = await fetch(`${QUERY_URL}/embed?q=${encodeURIComponent(text)}`, { signal: AbortSignal.timeout(10000) });
+  if (!r.ok) throw new Error(`embed service HTTP ${r.status}`);
+  const j = await r.json();
+  if (!Array.isArray(j.vec) || j.vec.length !== dim) throw new Error('bad embed vector');
+  return Float32Array.from(j.vec);
+}
+
 const send = (res, code, obj) => {
   res.writeHead(code, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
   res.end(JSON.stringify(obj));
 };
 
-http.createServer((req, res) => {
+http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://x');
   const p = url.pathname;
   if (p === '/api' || p === '/api/') return send(res, 200, {
     service: 'skosdex embeddings', model: meta.model, dim, n,
     schemes: Object.keys(schemes).length,
     endpoints: ['/api/health', '/api/schemes', '/api/concept?id=<IRI>',
-      '/api/similar?id=<IRI>&k=10[&scheme=<slug>][&cross=1]', '/api/search?q=… (501)'] });
+      '/api/similar?id=<IRI>&k=10[&scheme=<slug>][&cross=1]',
+      '/api/search?q=text&k=10[&scheme=<slug>]'] });
   if (p === '/api/health') return send(res, 200, { ok: true, n, dim, schemes: Object.keys(schemes).length });
   if (p === '/api/schemes') return send(res, 200, schemes);
   if (p === '/api/concept') {
@@ -93,6 +120,19 @@ http.createServer((req, res) => {
     const cross = url.searchParams.get('cross') === '1';
     return send(res, 200, { id, label: labels[i], scheme: scheme[i], k, results: knn(i, k, sf, cross) });
   }
-  if (p === '/api/search') return send(res, 501, { error: 'text search needs the MiniLM model — see EMBEDDINGS-API.md' });
+  if (p === '/api/search') {
+    const q = url.searchParams.get('q');
+    if (!q) return send(res, 400, { error: 'missing q' });
+    const k = Math.min(Math.max(Number(url.searchParams.get('k')) || 10, 1), 100);
+    const sf = url.searchParams.get('scheme') || null;
+    try {
+      const vec = await embedQuery(q);
+      return send(res, 200, { q, k, results: knnVec(vec, k, sf) });
+    } catch (e) {
+      // the query-embed sidecar isn't running (e.g. local `node embed_api.mjs`
+      // with no Python service) — degrade clearly rather than 500.
+      return send(res, 501, { error: 'text search unavailable — query-embed service down', detail: String(e.message || e) });
+    }
+  }
   return send(res, 404, { error: 'not found' });
 }).listen(PORT, HOST, () => console.log(`embed-api: http://${HOST}:${PORT}/api/health`));

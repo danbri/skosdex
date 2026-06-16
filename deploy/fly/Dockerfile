@@ -13,11 +13,14 @@ FROM solr:9 AS base
 
 USER root
 
-# nodejs runs the small embeddings similarity API (tools/embed_api.mjs); it's a
-# dependency-free stdlib server, so Debian's packaged node is plenty.
+# nodejs runs the embeddings similarity API (tools/embed_api.mjs, stdlib-only).
+# python3 + onnxruntime/tokenizers run the query-embed sidecar (embed_query.py)
+# for /api/search text search — the same model used to build the corpus, far
+# leaner than onnxruntime-node (~16MB wheel vs ~700MB node_modules).
 RUN apt-get update \
- && apt-get install -y --no-install-recommends curl ca-certificates gzip nginx nodejs \
- && rm -rf /var/lib/apt/lists/*
+ && apt-get install -y --no-install-recommends curl ca-certificates gzip nginx nodejs python3 python3-pip \
+ && pip3 install --no-cache-dir --break-system-packages onnxruntime tokenizers numpy \
+ && rm -rf /var/lib/apt/lists/* /root/.cache/pip
 
 # Oxigraph SPARQL server binary (RocksDB-backed).
 COPY --from=oxigraph /usr/local/bin/oxigraph /usr/local/bin/oxigraph
@@ -40,6 +43,13 @@ COPY deploy/fly/www/ /opt/skosdex/www/
 # Embeddings similarity API server (KNN over the combined _all.emb.* baked above
 # into www/embeddings); start.sh runs it in the background, nginx proxies /api/.
 COPY tools/embed_api.mjs /opt/skosdex/embed_api.mjs
+# Query-embed sidecar (/api/search text search) + its MiniLM model baked at build
+# time (CI has network) so the box never fetches from HuggingFace at runtime.
+COPY tools/embed_query.py /opt/skosdex/embed_query.py
+ENV SKOSDEX_MODEL_DIR=/opt/skosdex/models
+RUN mkdir -p /opt/skosdex/models \
+ && curl -fsSL -o /opt/skosdex/models/model_quantized.onnx https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx \
+ && curl -fsSL -o /opt/skosdex/models/tokenizer.json       https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start
