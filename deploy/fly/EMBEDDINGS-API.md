@@ -85,6 +85,12 @@ node tools/embed_api.mjs 8088                                           # /api/s
 A pure-JS alternative (onnxruntime-node in `embed_api.mjs`, no Python) works too
 but its `node_modules` is ~700 MB vs the Python wheel's ~16 MB, so the sidecar wins.
 
+The sidecar **warms the model at boot** (the first inference pays ONNX arena init,
+~hundreds of ms; done once at startup so real requests don't) and keeps an **LRU
+cache** of recent query→vector (size `EMB_CACHE_SIZE`, default 4096): a repeat
+query skips inference entirely (~32 ms → ~2 ms locally). `GET /health` reports
+`{cache:{hits,misses,size,max}}`.
+
 ## How it's deployed (already wired)
 
 The fly stack runs the API alongside nginx + Oxigraph + Solr — all three pieces

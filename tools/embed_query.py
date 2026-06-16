@@ -14,12 +14,14 @@
 # Model files load from SKOSDEX_MODEL_DIR (default ~/.cache/skosdex-embed); if a
 # file is missing it is fetched once (the fly image bakes them at build time).
 import os, json, urllib.parse, urllib.request, numpy as np, onnxruntime as ort
+from functools import lru_cache
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from tokenizers import Tokenizer
 
 CACHE = os.environ.get('SKOSDEX_MODEL_DIR', os.path.expanduser('~/.cache/skosdex-embed'))
 HOST = os.environ.get('EMB_QUERY_HOST', '127.0.0.1')
 PORT = int(os.environ.get('EMB_QUERY_PORT', '8089'))
+CACHE_SIZE = int(os.environ.get('EMB_CACHE_SIZE', '4096'))   # LRU of recent queries
 FILES = {  # identical to embed_scheme.py — same model => comparable vectors
     'model_quantized.onnx': 'https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx',
     'tokenizer.json':       'https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json',
@@ -43,6 +45,9 @@ sess = ort.InferenceSession(MODEL_PATH, providers=['CPUExecutionProvider'])
 INNAMES = {i.name for i in sess.get_inputs()}
 
 
+# LRU-cached: repeat queries (common for popular pages / re-runs) skip inference
+# entirely. The returned array is treated as read-only (callers only .tolist() it).
+@lru_cache(maxsize=CACHE_SIZE)
 def embed(text):
     enc = tok.encode(text)
     ii = np.array([enc.ids], dtype=np.int64)
@@ -72,7 +77,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         u = urllib.parse.urlparse(self.path)
         if u.path == '/health':
-            return self._send(200, {'ok': True, 'dim': 384})
+            ci = embed.cache_info()
+            return self._send(200, {'ok': True, 'dim': 384,
+                                    'cache': {'hits': ci.hits, 'misses': ci.misses, 'size': ci.currsize, 'max': ci.maxsize}})
         if u.path == '/embed':
             q = urllib.parse.parse_qs(u.query).get('q', [''])[0]
             if not q:
@@ -83,5 +90,12 @@ class Handler(BaseHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    print(f'embed-query: http://{HOST}:{PORT}/embed  (model {MODEL_PATH})', flush=True)
+    # warm up: the first inference pays ONNX arena/graph init; do it at boot so
+    # the first real /embed request is fast, not a multi-100ms cold start.
+    import time
+    _t = time.perf_counter()
+    embed('warm up')
+    embed.cache_clear()   # don't let the warmup string occupy a cache slot
+    print(f'  embed-query: warmed in {(time.perf_counter()-_t)*1000:.0f} ms', flush=True)
+    print(f'embed-query: http://{HOST}:{PORT}/embed  (model {MODEL_PATH}, cache {CACHE_SIZE})', flush=True)
     ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
