@@ -15,8 +15,11 @@ GitHub secret — there is no local flyctl access.
 ## What triggers a deploy
 
 - **Push to `claude/main`** touching `third_party/skos/**/canonical.nq.gz`,
-  `scripts/skosdex`, `deploy/fly/**`, or the workflow. So: **land changes on
-  `claude/main`** (merge your branch / PR) and CI builds + deploys automatically.
+  `scripts/skosdex`, `deploy/fly/**`, `tools/embed_api.mjs`,
+  `tools/embed_query.py` (both baked into the image), or the workflow. So:
+  **land changes on `claude/main`** (merge your branch / PR) and CI builds +
+  deploys automatically. ⚠️ A code file baked into the image but *not* in this
+  paths list won't trigger a deploy — add it there when you bake something new.
 - **Manual**: Actions → "Deploy corpus to fly.io" → Run workflow (or
   `gh workflow run deploy-fly.yml --ref claude/main`).
 

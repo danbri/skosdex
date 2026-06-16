@@ -26,6 +26,9 @@ on:
       - 'third_party/skos/**/canonical.nq.gz'
       - 'scripts/skosdex'
       - 'deploy/fly/**'
+      # baked into the image (embeddings API server + query-embed sidecar)
+      - 'tools/embed_api.mjs'
+      - 'tools/embed_query.py'
       - '.github/workflows/deploy-fly.yml'
 
 concurrency:
