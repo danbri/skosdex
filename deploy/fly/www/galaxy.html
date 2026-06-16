@@ -85,6 +85,8 @@
   <div id="about" hidden>
     <p>Concepts placed by meaning — UMAP on MiniLM embeddings, coloured by theme. <a href="/">← skosdex</a></p>
     <p class="hint">drag to orbit · scroll to zoom · hover a star · click to open</p>
+    <p id="overlaynote" class="hint" hidden>✦ compare overlay: one shared UMAP across schemes, coloured by source.
+      Local neighbourhoods are roughly faithful; global distances &amp; cluster sizes are not — read it as a sketch, not a map.</p>
   </div>
 </div>
 
@@ -129,6 +131,18 @@ let D = await (await fetch(`/embeddings/${slug}.layout.json`)).json();
 let N = D.n, K = D.k;
 const hex = h => new THREE.Color(h);
 let palette = D.colors.map(hex);
+
+// ---- compare / overlay mode -------------------------------------------------
+// When the loaded layout is the combined cross-scheme UMAP, the legend turns
+// into a per-scheme multi-select and points are coloured by SOURCE scheme
+// (D.cluster[i] is the scheme index; D.clusterNames are slugs). `schemeOn`
+// tracks which schemes are drawn; `vis`/`visCur` are a per-point visibility
+// mask (1 visible, 0 hidden) animated so a toggled scheme swirls in/out while
+// the others stay put. In single-scheme mode overlay=false and these are unused.
+let overlay = (slug === '_all' || D.method === 'umap-combined');
+let schemeOn = [];                       // boolean per scheme index
+function resetSchemeOn(d){ schemeOn = (d.clusterNames || []).map(() => true); }
+resetSchemeOn(D);
 
 // ---- scene / camera / renderer ----
 const app = document.getElementById('app');
@@ -189,6 +203,8 @@ let positions = pos3.slice();           // live (animated) positions, length cap
 let colArr = new Float32Array(cap*3);   // live (possibly dimmed) colours
 let baseCol = new Float32Array(cap*3);  // undimmed colours
 let sizes = new Float32Array(cap).fill(1);
+let vis = new Float32Array(cap).fill(1);    // target visibility per point (1/0), overlay only
+let visCur = new Float32Array(cap).fill(1); // animated current visibility (alpha mult)
 baseCol.set(baseCol0); colArr.set(baseCol0);
 geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
@@ -223,6 +239,7 @@ document.getElementById('loading').remove();
 for(const id of ['head','ctrl','legend']) document.getElementById(id).hidden=false;
 // galaxy switcher: populate from the embeddings registry (skip the combined _all)
 const schemeSel = document.getElementById('scheme');   // NB: not `pick` — a function pick(ev) already exists
+let schemeTitles = {};                                 // slug -> title; filled async, read by the legend/tip (declared early to dodge TDZ)
 const shortTitle = (t, s) => {
   if (!t) return s.toUpperCase().replace(/-/g, ' ');
   const head = t.split('—')[0].trim();                 // "GEMET — GEneral…" -> "GEMET"
@@ -237,8 +254,13 @@ Promise.all([
 ]).then(([list, titles]) => {
   schemeTitles = titles;                 // remembered for the in-place switcher's title update
   const galaxies = list.filter(x => !x.startsWith('_'));
-  if (!galaxies.includes(slug)) galaxies.push(slug);
+  if (slug !== '_all' && !galaxies.includes(slug)) galaxies.push(slug);
   for (const s of galaxies) schemeSel.appendChild(optFor(s, titles[s]));
+  // explicit combined-overlay entry (value `_all`, kept out of the `_`-filtered list)
+  const allOpt = document.createElement('option');
+  allOpt.value = '_all'; allOpt.textContent = '✦ compare (overlay)';
+  if (slug === '_all') allOpt.selected = true;
+  schemeSel.appendChild(allOpt);
 });
 schemeSel.onchange = () => { if (schemeSel.value && schemeSel.value !== slug) switchScheme(schemeSel.value); };
 const countEl = document.getElementById('count');
@@ -255,9 +277,20 @@ legend.querySelector('h2').onclick=()=>legend.classList.toggle('collapsed');
 // ---- legend (click to isolate a theme) ----
 const legitems = document.getElementById('legitems');
 let isolated = -1;
+const legendTitle = legend.querySelector('h2');
+// nodes touched by h2 .onclick; rebuild keeps the caret span. The h2 text is
+// "themes" in single-scheme mode, "schemes" in overlay mode.
+function setLegendHeading(txt){
+  const caret = legendTitle.querySelector('.caret');
+  legendTitle.textContent = '';
+  if(caret) legendTitle.appendChild(caret);
+  legendTitle.appendChild(document.createTextNode(txt));
+}
 function buildLegend(){
   isolated = -1;
   legitems.innerHTML = '';
+  if(overlay){ buildOverlayLegend(); return; }
+  setLegendHeading('themes');
   D.clusterNames.forEach((nm,c)=>{
     const el=document.createElement('div'); el.className='lg'; el.dataset.c=c;
     el.innerHTML=`<span class="dot" style="color:${D.colors[c]}"></span><span class="nm">${nm}</span><span class="ct">${D.clusterSizes[c]}</span>`;
@@ -266,6 +299,39 @@ function buildLegend(){
     legitems.appendChild(el);
   });
 }
+// overlay legend: one row per SOURCE scheme = colour dot + human title + count;
+// each row toggles that scheme's points in/out (multi-select). Default: all on.
+function buildOverlayLegend(){
+  setLegendHeading('schemes');
+  D.clusterNames.forEach((sName,c)=>{
+    const title = (schemeTitles && schemeTitles[sName]) ? shortTitle(schemeTitles[sName], sName) : sName;
+    const el=document.createElement('div'); el.className='lg'; el.dataset.c=c;
+    el.classList.toggle('off', !schemeOn[c]);
+    el.innerHTML=`<span class="dot" style="color:${D.colors[c]}"></span><span class="nm">${title}</span><span class="ct">${D.clusterSizes[c]}</span>`;
+    el.onclick=()=>{ if(maskSwirl) return;          // ignore taps mid-animation
+      schemeOn[c] = !schemeOn[c];
+      el.classList.toggle('off', !schemeOn[c]);
+      toggleScheme(c, schemeOn[c]); };
+    legitems.appendChild(el);
+  });
+}
+// Sync the per-point visibility mask to `schemeOn` (overlay only). `snap` sets
+// the animated current value instantly; otherwise the render loop eases visCur
+// toward vis. `which` limits the write to a single scheme index (for toggles).
+function syncVis(snap, which){
+  if(!overlay){ for(let i=0;i<N;i++){ vis[i]=1; visCur[i]=1; } return; }
+  for(let i=0;i<N;i++){
+    if(which!=null && D.cluster[i]!==which) continue;
+    vis[i] = schemeOn[D.cluster[i]] ? 1 : 0;
+    if(snap) visCur[i] = vis[i];
+  }
+}
+// reflect overlay mode into the about caveat + initialise the visibility mask
+function applyOverlayMode(){
+  const note=document.getElementById('overlaynote'); if(note) note.hidden=!overlay;
+  syncVis(true);
+  if(typeof applyFilter==='function') applyFilter();
+}
 buildLegend();
 
 // ---- search + theme filter dim the colour buffer ----
@@ -273,15 +339,25 @@ const q = document.getElementById('q');
 function applyFilter(){
   const term=q.value.trim().toLowerCase();
   for(let i=0;i<N;i++){
-    let on = (isolated<0 || D.cluster[i]===isolated);
-    if(on && term) on = D.labels[i].toLowerCase().includes(term);
-    const k = on?1: (term||isolated>=0?0.06:1);
+    // overlay: a point's visibility (its scheme being toggled on) gates
+    // everything — visCur multiplies colour and zeroes size when hidden.
+    const v = overlay ? visCur[i] : 1;
+    // in overlay mode the legend selects schemes, not isolating a theme, so the
+    // theme-isolate filter only applies in single-scheme mode
+    let on = overlay ? true : (isolated<0 || D.cluster[i]===isolated);
+    if(on && term && v>0.001) on = D.labels[i].toLowerCase().includes(term);
+    else if(on && term) on = false;      // hidden point can't be a search hit
+    const dim = term || (!overlay && isolated>=0);
+    const k = (on?1:(dim?0.06:1)) * v;
     colArr[i*3]=baseCol[i*3]*k; colArr[i*3+1]=baseCol[i*3+1]*k; colArr[i*3+2]=baseCol[i*3+2]*k;
-    sizes[i] = on && (term||isolated>=0) ? 1.7 : 1;
+    sizes[i] = (v>0.001 && on && dim) ? 1.7 : (v>0.001 ? 1 : 0);
   }
   geo.attributes.color.needsUpdate=true; geo.attributes.asize.needsUpdate=true;
 }
 q.addEventListener('input', applyFilter);
+
+// initial overlay setup (after `q`/`applyFilter` exist): caveat note + mask
+applyOverlayMode();
 
 // ---- 2D / 3D morph ----
 let target = pos3, morph = 1, curDim = 3; // 1 = at target
@@ -312,19 +388,29 @@ const ray=new THREE.Raycaster(); ray.params.Points.threshold=0.025;
 const tip=document.getElementById('tip'); const mouse=new THREE.Vector2(); let hover=-1, downXY=null, pinned=-1;
 // NB: a function pick(ev) already exists below convention — keep this name.
 function pick(ev){ mouse.x=(ev.clientX/innerWidth)*2-1; mouse.y=-(ev.clientY/innerHeight)*2+1;
-  ray.setFromCamera(mouse,camera); const h=ray.intersectObject(points); return h.length? h[0].index : -1; }
+  ray.setFromCamera(mouse,camera); const h=ray.intersectObject(points);
+  // overlay: only hidden-away schemes' points are off-screen — pick the nearest
+  // VISIBLE hit so toggled-off points can't be hovered/opened
+  for(const hit of h){ if(hit.index>=N) continue; if(overlay && visCur[hit.index]<0.5) continue; return hit.index; }
+  return -1; }
 function openConcept(i){ if(i>=0 && i<N) window.open('/#c='+encodeURIComponent(D.ids[i]),'_blank'); }
+// tip sub-label: theme name in single-scheme mode; source-scheme title in overlay
+function tipSub(i){
+  const nm=D.clusterNames[D.cluster[i]];
+  if(overlay) return (schemeTitles && schemeTitles[nm]) ? shortTitle(schemeTitles[nm], nm) : nm;
+  return nm;
+}
 function showTip(i, x, y, pin){
   tip.style.left=x+'px'; tip.style.top=y+'px'; tip.style.opacity=1;
   if(pin){
     tip.classList.add('pinned');
-    tip.innerHTML=`<b>${D.labels[i]}</b><span>${D.clusterNames[D.cluster[i]]}</span>`+
+    tip.innerHTML=`<b>${D.labels[i]}</b><span>${tipSub(i)}</span>`+
       `<a class="open" href="#" role="button">open ↗</a>`;
     const a=tip.querySelector('.open');
     a.addEventListener('click',e=>{ e.preventDefault(); openConcept(i); });
   } else {
     tip.classList.remove('pinned');
-    tip.innerHTML=`<b>${D.labels[i]}</b><span>${D.clusterNames[D.cluster[i]]}</span>`;
+    tip.innerHTML=`<b>${D.labels[i]}</b><span>${tipSub(i)}</span>`;
   }
 }
 function hideTip(){ tip.style.opacity=0; tip.classList.remove('pinned'); pinned=-1; }
@@ -362,6 +448,8 @@ const easeIO = t => t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
 function applySchemeData(nd){
   // commit a freshly-loaded layout `nd` as the live dataset
   D = nd; N = nd.n; K = nd.k; palette = nd.colors.map(hex);
+  overlay = (slug === '_all' || nd.method === 'umap-combined');
+  resetSchemeOn(nd);
   const a = layoutArrays(nd);
   pos3 = a.p3; pos2 = a.p2; baseCol0 = a.bc;
   // grow buffers if needed (rebuild attributes); else reuse and clamp draw range
@@ -371,12 +459,15 @@ function applySchemeData(nd){
     colArr = new Float32Array(cap*3);
     baseCol = new Float32Array(cap*3);
     sizes = new Float32Array(cap).fill(1);
+    vis = new Float32Array(cap).fill(1);
+    visCur = new Float32Array(cap).fill(1);
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
     geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
   }
   baseCol.set(baseCol0.subarray(0, N*3));
-  for(let i=N;i<cap;i++) sizes[i]=1;
+  for(let i=N;i<cap;i++){ sizes[i]=1; vis[i]=1; visCur[i]=1; }
+  syncVis(true);          // all schemes visible by default in overlay
   geo.setDrawRange(0, N);
 }
 
@@ -384,13 +475,15 @@ function refreshSchemeUI(nd, title){
   setTitleText(title, slug);
   countEl.textContent = N.toLocaleString() + ' concepts';
   buildLegend();
+  applyOverlayMode();
   q.value = '';
   if(schemeSel.value !== slug) schemeSel.value = slug;
   history.replaceState(null, '', '?scheme=' + encodeURIComponent(slug));
+  applyFilter();
 }
 
 async function switchScheme(next){
-  if(!next || next===slug || swirl) return;
+  if(!next || next===slug || swirl || maskSwirl) return;
   let nd;
   try {
     const res = await fetch(`/embeddings/${next}.layout.json`);
@@ -398,7 +491,13 @@ async function switchScheme(next){
     nd = await res.json();
     if(!nd || !nd.n) throw new Error('empty layout');
   } catch(e){
-    // couldn't load in-place — fall back to a clean (hard) load of the scheme
+    // couldn't load in-place. For the combined overlay, a hard reload would just
+    // hit the same missing file and brick the loader, so revert the dropdown to
+    // the current scheme instead. For a normal scheme, a clean hard load is fine.
+    if(next === '_all' || next.startsWith('_')){
+      schemeSel.value = slug;
+      return;
+    }
     location.search = '?scheme=' + encodeURIComponent(next);
     return;
   }
@@ -410,8 +509,8 @@ async function switchScheme(next){
   }
 }
 
-let schemeTitles = {};
 function setTitleText(title, s){
+  if(s === '_all') return;          // keep the fixed "✦ compare (overlay)" label
   // reflect into the dropdown's selected option label (the visible title)
   const opt = [...schemeSel.options].find(o=>o.value===s);
   if(opt) opt.textContent = shortTitle(title, s);
@@ -459,6 +558,8 @@ function startSwirl(next, nd){
     const nc=new Float32Array(cap*3); nc.set(colArr); colArr=nc;
     const nb=new Float32Array(cap*3); nb.set(baseCol); baseCol=nb;
     const ns=new Float32Array(cap).fill(1); ns.set(sizes); sizes=ns;
+    const nv=new Float32Array(cap).fill(1); nv.set(vis); vis=nv;
+    const nvc=new Float32Array(cap).fill(1); nvc.set(visCur); visCur=nvc;
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
     geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
@@ -509,12 +610,66 @@ function finishSwirl(){
   refreshSchemeUI(sw.nd, title);
 }
 
+// ---- overlay: add/remove ONE scheme with a swirl, others stay put ----------
+// Animate only the toggled scheme's points: hidden -> spiral out + fade; shown
+// -> spiral in from the same ring to their `_all` layout positions. Per-point
+// visibility (visCur) eases alongside so colour/size follow via applyFilter.
+let maskSwirl = null;
+function toggleScheme(c, show){
+  if(!overlay) return;
+  const idx=[]; for(let i=0;i<N;i++) if(D.cluster[i]===c) idx.push(i);
+  if(!idx.length){ vis[c]=show?1:0; return; }
+  const src = curDim===3 ? pos3 : pos2;     // canonical layout for the live dim
+  const from=new Float32Array(idx.length*3), tgt=new Float32Array(idx.length*3);
+  const fromV=new Float32Array(idx.length),  tgtV=new Float32Array(idx.length);
+  for(let j=0;j<idx.length;j++){
+    const i=idx[j];
+    const ang=i*2.399963, rad=2.6+ (i%7)*0.22;   // golden-angle spiral ring
+    const sx=Math.cos(ang)*rad, sy=(((i*131)%100)/100-0.5)*0.8, sz=Math.sin(ang)*rad;
+    const lx=src[i*3], ly=src[i*3+1], lz=src[i*3+2];
+    if(show){ from[j*3]=sx; from[j*3+1]=sy; from[j*3+2]=sz; tgt[j*3]=lx; tgt[j*3+1]=ly; tgt[j*3+2]=lz; fromV[j]=0; tgtV[j]=1; }
+    else    { from[j*3]=lx; from[j*3+1]=ly; from[j*3+2]=lz; tgt[j*3]=sx; tgt[j*3+1]=sy; tgt[j*3+2]=sz; fromV[j]=1; tgtV[j]=0; }
+  }
+  hideTip();
+  maskSwirl = { idx, from, tgt, fromV, tgtV, show, c, s:0 };
+}
+function stepMaskSwirl(){
+  const sw=maskSwirl, e=easeIO(sw.s);
+  const ang=Math.sin(sw.s*Math.PI)*0.7, ca=Math.cos(ang), sa=Math.sin(ang);
+  for(let j=0;j<sw.idx.length;j++){
+    const i=sw.idx[j];
+    const x=sw.from[j*3]+(sw.tgt[j*3]-sw.from[j*3])*e;
+    const y=sw.from[j*3+1]+(sw.tgt[j*3+1]-sw.from[j*3+1])*e;
+    const z=sw.from[j*3+2]+(sw.tgt[j*3+2]-sw.from[j*3+2])*e;
+    positions[i*3]   = x*ca - z*sa;
+    positions[i*3+1] = y;
+    positions[i*3+2] = x*sa + z*ca;
+    visCur[i] = sw.fromV[j] + (sw.tgtV[j]-sw.fromV[j])*e;
+  }
+  applyFilter();                       // reflect visCur into colour + size
+  geo.attributes.position.needsUpdate=true;
+  sw.s=Math.min(1, sw.s+0.022);        // ~0.75s at 60fps
+  if(sw.s>=1) finishMaskSwirl();
+}
+function finishMaskSwirl(){
+  const sw=maskSwirl; maskSwirl=null;
+  const src = curDim===3 ? pos3 : pos2;
+  for(let j=0;j<sw.idx.length;j++){
+    const i=sw.idx[j];
+    vis[i] = sw.show?1:0; visCur[i]=sw.show?1:0;
+    if(sw.show){ positions[i*3]=src[i*3]; positions[i*3+1]=src[i*3+1]; positions[i*3+2]=src[i*3+2]; }
+  }
+  applyFilter();
+  geo.attributes.position.needsUpdate=true;
+}
+
 // ---- render loop ----
 function tick(){
   requestAnimationFrame(tick);
   if(swirl){ stepSwirl(); }
+  else if(maskSwirl){ stepMaskSwirl(); }
   else if(morph<1){ morph=Math.min(1,morph+0.04);
-    for(let i=0;i<N*3;i++) positions[i]+=(target[i]-positions[i])*0.18;
+    for(let i=0;i<N*3;i++){ if(overlay && visCur[i]<0.001) continue; positions[i]+=(target[i]-positions[i])*0.18; }
     geo.attributes.position.needsUpdate=true; }
   if(camAnim){ camAnim.s=Math.min(1,camAnim.s+0.04); const e=1-Math.pow(1-camAnim.s,3);
     camera.position.lerpVectors(camAnim.p0,camAnim.p1,e); controls.target.lerpVectors(camAnim.t0,camAnim.t1,e);
