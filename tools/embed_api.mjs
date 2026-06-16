@@ -23,8 +23,11 @@ import http from 'node:http';
 import path from 'node:path';
 
 const ROOT = path.dirname(path.dirname(new URL(import.meta.url).pathname));
-const DIR = path.join(ROOT, 'deploy', 'fly', 'www', 'embeddings');
-const PORT = Number(process.argv[2]) || 8088;
+// EMB_DIR lets the container point at the baked-in embeddings (the image copies
+// only this server + www/embeddings, not the repo tree); default is the repo path.
+const DIR = process.env.EMB_DIR || path.join(ROOT, 'deploy', 'fly', 'www', 'embeddings');
+const PORT = Number(process.argv[2]) || Number(process.env.EMB_PORT) || 8088;
+const HOST = process.env.EMB_HOST || '127.0.0.1';   // behind nginx by default
 
 const meta = JSON.parse(fs.readFileSync(path.join(DIR, '_all.emb.json'), 'utf8'));
 const { dim, n, ids, labels, scheme, schemes } = meta;
@@ -69,6 +72,11 @@ const send = (res, code, obj) => {
 http.createServer((req, res) => {
   const url = new URL(req.url, 'http://x');
   const p = url.pathname;
+  if (p === '/api' || p === '/api/') return send(res, 200, {
+    service: 'skosdex embeddings', model: meta.model, dim, n,
+    schemes: Object.keys(schemes).length,
+    endpoints: ['/api/health', '/api/schemes', '/api/concept?id=<IRI>',
+      '/api/similar?id=<IRI>&k=10[&scheme=<slug>][&cross=1]', '/api/search?q=… (501)'] });
   if (p === '/api/health') return send(res, 200, { ok: true, n, dim, schemes: Object.keys(schemes).length });
   if (p === '/api/schemes') return send(res, 200, schemes);
   if (p === '/api/concept') {
@@ -87,4 +95,4 @@ http.createServer((req, res) => {
   }
   if (p === '/api/search') return send(res, 501, { error: 'text search needs the MiniLM model — see EMBEDDINGS-API.md' });
   return send(res, 404, { error: 'not found' });
-}).listen(PORT, () => console.log(`embed-api: http://localhost:${PORT}/api/health`));
+}).listen(PORT, HOST, () => console.log(`embed-api: http://${HOST}:${PORT}/api/health`));

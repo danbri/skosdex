@@ -30,13 +30,17 @@ tools/combine_embeddings.mjs      # all <slug>.emb.* -> _all.emb.{json,f16}
 contiguous `[start, start+count)` range, so a single scheme can be sliced out of
 the combined blob without reloading its file.
 
-## REST API
+## REST API — **live** at `https://skosdex.fly.dev/api/`
 
-`tools/embed_api.mjs` is a dependency-free reference server over `_all.emb.*`. It
-loads the float16 blob once and answers KNN queries; cosine == dot product.
+`tools/embed_api.mjs` is a dependency-free server over `_all.emb.*`. It loads the
+float16 blob once and answers KNN queries; cosine == dot product. It runs **in
+the fly container** (Debian `nodejs`, started by `start.sh`, proxied by nginx at
+`/api/`) and also locally:
 
 ```
-node tools/embed_api.mjs 8088
+node tools/embed_api.mjs 8088                 # reads deploy/fly/www/embeddings/
+EMB_DIR=/path/to/embeddings node tools/embed_api.mjs 8088   # override the data dir
+curl -s https://skosdex.fly.dev/api/health    # {"ok":true,"n":...,"dim":384,"schemes":3}
 ```
 
 | Endpoint | Returns |
@@ -68,21 +72,28 @@ KNN. Two ways to wire it:
 
 The stub returns `501` for `/api/search` until one of these is added.
 
-## Deploying it (when you want the live service)
+## How it's deployed (already wired)
 
-The current fly stack (`deploy/fly/`) is nginx + Oxigraph + Solr; embeddings are
-served as static files and KNN runs in the browser. To expose the API server-side
-(the "full REST service" option):
+The fly stack runs the API alongside nginx + Oxigraph + Solr — all three pieces
+are in the repo, so a normal deploy from `claude/main` ships it:
 
-1. Add a small service running `node tools/embed_api.mjs` (the `_all.emb.*` files
-   ship in the image already, under `www/embeddings/`).
-2. Proxy it in `deploy/fly/nginx.conf`:
-   ```nginx
-   location /api/ { proxy_pass http://127.0.0.1:8088; }
+1. **Dockerfile** installs Debian `nodejs` and copies `tools/embed_api.mjs` to
+   `/opt/skosdex/embed_api.mjs` (the `_all.emb.*` files already ship under
+   `www/embeddings/`).
+2. **start.sh** launches it in the **background** before nginx (it's
+   non-essential and must never gate the serving path):
+   ```sh
+   EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 &
    ```
-3. The browser galaxy/search can then call `/api/similar` instead of (or in
-   addition to) loading `_all.emb.f16` client-side.
+3. **nginx.conf** proxies it (read-only, CORS-open) and also serves
+   `/embeddings/` with CORS so other origins can fetch the raw vectors:
+   ```nginx
+   location /api/        { limit_except GET { deny all; } proxy_pass http://127.0.0.1:8088; add_header Access-Control-Allow-Origin *; }
+   location /embeddings/ { add_header Access-Control-Allow-Origin *; try_files $uri =404; }
+   ```
 
-Memory: `_all.emb.f16` is `n×384×2` bytes (~19 MB for 26k concepts); the server
-expands it to float32 (~38 MB) at startup. Linear KNN over 26k vectors is sub-ms;
+Verify after deploy with `node scripts/check.mjs --api` (or curl `/api/health`).
+
+Memory: `_all.emb.f16` is `n×384×2` bytes (~20 MB for 26k concepts); the server
+expands it to float32 (~40 MB) at startup. Linear KNN over 26k vectors is sub-ms;
 past a few hundred-k concepts, switch to an ANN index (hnswlib).

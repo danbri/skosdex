@@ -280,9 +280,19 @@ fi
 # core meanwhile and converges; output is tee'd to the log + stdout for `fly logs`.
 ( solr_bringup 2>&1 | tee /tmp/solr-seed.log | sed 's/^/[solr-seed] /' ) &
 
+# --- embeddings similarity API (background; non-essential, never gates serving) -
+# KNN over the combined MiniLM space (_all.emb.*). nginx proxies /api/ -> :8088.
+if command -v node >/dev/null 2>&1 && [ -f /opt/skosdex/embed_api.mjs ]; then
+  echo "starting embeddings API on 127.0.0.1:8088"
+  EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 \
+    > /tmp/embed-api.log 2>&1 &
+else
+  echo "WARN: node or embed_api.mjs missing — /api/ similarity disabled"
+fi
+
 # --- nginx front proxy -------------------------------------------------------
 # One public port (8080 -> Fly 443): / entrance page, /query + /sparql/ ->
-# Oxigraph, /solr/skos/select (GET+POST) -> Solr. Oxigraph + Solr stay local.
+# Oxigraph, /solr/skos/select (GET+POST) -> Solr, /api/ -> embeddings KNN.
 echo "starting nginx front proxy on :8080"
 nginx
 

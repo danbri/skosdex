@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // skosdex integrity checks — three sections, run independently or together:
 //
-//   node scripts/check.mjs                 # infra + cookbook + data, vs live
+//   node scripts/check.mjs                 # infra + cookbook + api + data, vs live
 //   node scripts/check.mjs --cookbook      # just the SPARQL guide
+//   node scripts/check.mjs --api           # just the embeddings similarity API
 //   node scripts/check.mjs --infra --data
 //   ENDPOINT=https://skosdex.fly.dev node scripts/check.mjs
 //   node scripts/check.mjs --data          # data checks are mostly offline
@@ -159,6 +160,38 @@ async function checkCookbook() {
   }
 }
 
+// ================================================================ API =========
+// The embeddings similarity API (node KNN over the combined MiniLM space) +
+// the static vector blobs. Soft on a missing sample id (the example concept may
+// not be in a future corpus); hard on the service being down.
+async function checkApi() {
+  head(`EMBEDDINGS API — ${ENDPOINT}/api`);
+  try {
+    const { status, text } = await getText('/api/health');
+    const j = JSON.parse(text);
+    (status === 200 && j.ok && j.n > 0)
+      ? ok(`/api/health → ok, ${j.n.toLocaleString()} vectors, ${j.schemes} scheme(s)`)
+      : bad(`/api/health → ${status} ${text.slice(0, 80)}`);
+  } catch (e) { bad(`/api/health failed: ${e.message}`); }
+
+  try {
+    // GEMET "climate change"; cross=1 → analogues in *other* schemes
+    const id = 'http://www.eionet.europa.eu/gemet/concept/1471';
+    const { status, text } = await getText(`/api/similar?id=${encodeURIComponent(id)}&k=5&cross=1`);
+    if (status !== 200) soft(`/api/similar → ${status} (sample id may not be embedded)`);
+    else {
+      const r = JSON.parse(text).results ?? [];
+      r.length ? ok(`/api/similar (cross-scheme) → ${r.length} hits; top: "${r[0].label}" [${r[0].scheme}] ${r[0].score}`)
+               : soft('/api/similar → 0 results');
+    }
+  } catch (e) { soft(`/api/similar probe: ${e.message}`); }
+
+  try {
+    const { status } = await getText('/embeddings/index.json');
+    status === 200 ? ok('/embeddings/index.json (static vectors) → 200') : bad(`/embeddings/index.json → ${status}`);
+  } catch (e) { bad(`/embeddings/index.json failed: ${e.message}`); }
+}
+
 // ================================================================ DATA ========
 const POINTER_MAGIC = 'version https://git-lfs';
 const GZIP_MAGIC = Buffer.from([0x1f, 0x8b]);
@@ -241,6 +274,7 @@ async function checkData() {
 console.log(`skosdex integrity check — endpoint ${ENDPOINT}`);
 if (want('infra'))    await checkInfra();
 if (want('cookbook')) await checkCookbook();
+if (want('api'))      await checkApi();
 if (want('data'))     await checkData();
 
 console.log(`\n\x1b[1mResult:\x1b[0m \x1b[32m${pass} passed\x1b[0m, ${warn ? `\x1b[33m${warn} warn\x1b[0m, ` : ''}${fail ? `\x1b[31m${fail} failed\x1b[0m` : '0 failed'}`);

@@ -48,10 +48,12 @@ Decode f16 → float32 in JS with a half-float expander (see `half2float` in
 - **Galaxy** (`deploy/fly/www/galaxy.html?scheme=<slug>`): renders `<slug>.layout.json`
   in Three.js; the header dropdown lists every non-`_all` entry of `index.json`.
 
-## REST API (`tools/embed_api.mjs`) — server-side KNN over the combined space
+## REST API (`tools/embed_api.mjs`) — **live** at `https://skosdex.fly.dev/api/`
 
 Dependency-free Node server; loads `_all.emb.*` once (float16 → float32),
-cosine == dot product. `node tools/embed_api.mjs [port]` (default 8088).
+cosine == dot product. Runs in the fly container (background process started by
+`start.sh`, proxied by nginx at `/api/`) and locally: `node tools/embed_api.mjs
+[port]` (default 8088; `EMB_DIR=…` overrides the data dir).
 
 | Endpoint | Returns |
 |----------|---------|
@@ -66,12 +68,14 @@ cosine == dot product. `node tools/embed_api.mjs [port]` (default 8088).
 Example (cross-vocabulary): GEMET *climate change* → `cross=1` →
 `esco:"climate change impact"`, `esco:"carry out meteorological research"`, …
 
-### Deploying it live (not yet wired into the stack)
+### How it's deployed (already wired)
 
-The fly stack serves embeddings as **static files** + does KNN in the browser;
-the REST server is a reference/stub. To expose it server-side: run
-`node tools/embed_api.mjs` as a service in the image and add an nginx route
-`location /api/ { proxy_pass http://127.0.0.1:8088; }` in `deploy/fly/nginx.conf`.
+A deploy from `claude/main` ships the API: the **Dockerfile** installs Debian
+`nodejs` + copies `embed_api.mjs`; **start.sh** runs it in the background
+(`EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 &`)
+before nginx so it never gates serving; **nginx.conf** proxies `/api/` and serves
+`/embeddings/` (both CORS-open). The raw vectors are *also* a static API at
+`/embeddings/*.emb.{json,f16}`. Verify with `node scripts/check.mjs --api`.
 Memory ≈ `n×384×4` bytes float32 (~40 MB for 26k); linear KNN is sub-ms to a few
 hundred-k — past that switch to an ANN index (hnswlib). Full notes:
 `deploy/fly/EMBEDDINGS-API.md`.

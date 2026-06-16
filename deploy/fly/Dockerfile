@@ -13,8 +13,10 @@ FROM solr:9 AS base
 
 USER root
 
+# nodejs runs the small embeddings similarity API (tools/embed_api.mjs); it's a
+# dependency-free stdlib server, so Debian's packaged node is plenty.
 RUN apt-get update \
- && apt-get install -y --no-install-recommends curl ca-certificates gzip nginx \
+ && apt-get install -y --no-install-recommends curl ca-certificates gzip nginx nodejs \
  && rm -rf /var/lib/apt/lists/*
 
 # Oxigraph SPARQL server binary (RocksDB-backed).
@@ -35,6 +37,9 @@ COPY dist/solr-parts/    /seed/solr-parts/
 COPY dist/manifest.json  /seed/manifest.json
 COPY deploy/fly/nginx.conf /etc/nginx/conf.d/skosdex.conf
 COPY deploy/fly/www/ /opt/skosdex/www/
+# Embeddings similarity API server (KNN over the combined _all.emb.* baked above
+# into www/embeddings); start.sh runs it in the background, nginx proxies /api/.
+COPY tools/embed_api.mjs /opt/skosdex/embed_api.mjs
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start
