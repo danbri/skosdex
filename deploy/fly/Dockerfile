@@ -19,7 +19,7 @@ USER root
 # leaner than onnxruntime-node (~16MB wheel vs ~700MB node_modules).
 RUN apt-get update \
  && apt-get install -y --no-install-recommends curl ca-certificates gzip nginx nodejs python3 python3-pip \
- && pip3 install --no-cache-dir --break-system-packages onnxruntime tokenizers numpy \
+ && pip3 install --no-cache-dir onnxruntime tokenizers numpy \
  && rm -rf /var/lib/apt/lists/* /root/.cache/pip
 
 # Oxigraph SPARQL server binary (RocksDB-backed).
