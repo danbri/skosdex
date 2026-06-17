@@ -55,7 +55,11 @@ def load():
     _tok = Tokenizer.from_file(tok_path)
     _tok.enable_truncation(max_length=MAXLEN)
     _tok.enable_padding(pad_id=1, pad_token='<pad>')          # XLM-R pad id
-    _sess = ort.InferenceSession(model_path, providers=['CPUExecutionProvider'])
+    # CPU by default; on a GPU box set SKOSDEX_EMB_PROVIDERS=CUDAExecutionProvider
+    # (needs onnxruntime-gpu) to embed the corpus orders of magnitude faster.
+    providers = [p.strip() for p in os.environ.get(
+        'SKOSDEX_EMB_PROVIDERS', 'CPUExecutionProvider').split(',') if p.strip()]
+    _sess = ort.InferenceSession(model_path, providers=providers)
     _innames = {i.name for i in _sess.get_inputs()}
     d = _sess.get_outputs()[0].shape[-1]
     _dim = d if isinstance(d, int) else 1024
