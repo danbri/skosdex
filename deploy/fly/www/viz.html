@@ -342,14 +342,15 @@ geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
 geo.setDrawRange(0, N);
 
 const mat = new THREE.ShaderMaterial({
-  uniforms:{ tex:{value:sprite}, scale:{value:innerHeight*0.5}, uDim:{value:1.0} },
+  uniforms:{ tex:{value:sprite}, scale:{value:innerHeight*0.5}, uDim:{value:1.0}, uPS:{value:1.0} },
   vertexShader:`attribute float asize; varying vec3 vc;
-    uniform float scale;
+    uniform float scale; uniform float uPS;
     void main(){ vc=color; vec4 mv=modelViewMatrix*vec4(position,1.0);
       // cap the sprite size so a point you've flown up close to stays a crisp
-      // star instead of blooming into a screen-filling blurry glow
-      float ps = (7.0*asize) * (scale/ -mv.z) / 90.0;
-      gl_PointSize = clamp(ps, 1.0, 48.0);
+      // star instead of blooming into a screen-filling blurry glow; uPS shrinks
+      // every point as the cloud gets denser (less overlap area -> less white-out)
+      float ps = (7.0*asize) * (scale/ -mv.z) / 90.0 * uPS;
+      gl_PointSize = clamp(ps, 1.0, 44.0);
       gl_Position = projectionMatrix*mv; }`,
   fragmentShader:`uniform sampler2D tex; uniform float uDim; varying vec3 vc;
     void main(){ vec4 t=texture2D(tex,gl_PointCoord); if(t.a<0.02) discard;
@@ -367,10 +368,19 @@ function applyDensity(){
   const shown = overlay
     ? (function(){ let s=0; for(let i=0;i<N;i++) if(visCur[i]>0.5) s++; return s||N; })()
     : N;
-  const uDim = Math.max(0.14, Math.min(1, Math.sqrt(16000 / Math.max(shown,1))));
+  const d = Math.max(shown, 1);
+  // per-point alpha: strong fade as density grows (dense 100k+ -> ~0.18 so
+  // overlapping additive sprites stop clipping to white); near-1 for sparse.
+  const uDim = Math.max(0.05, Math.min(1, Math.sqrt(5000 / d)));
+  // per-point SIZE: shrink in dense scenes (less overlap area = far less bleach).
+  const uPS  = Math.max(0.42, Math.min(1, Math.sqrt(20000 / d)));
   mat.uniforms.uDim.value = uDim;
-  bloom.strength = 0.22 + 0.33 * uDim;     // 0.22 (dense) … 0.55 (sparse)
-  bloom.threshold = 0.30 - 0.12 * uDim;    // higher threshold when dense (only cores bloom)
+  mat.uniforms.uPS.value  = uPS;
+  // bloom is the main white-out culprit — keep it weak + tight + high-threshold
+  // when dense (only the very hottest cores glow), open it up only when sparse.
+  bloom.strength  = 0.10 + 0.18 * uDim;    // dense ~0.13 … sparse ~0.28
+  bloom.threshold = 0.60 - 0.20 * uDim;    // dense ~0.56 (hottest only) … sparse 0.40
+  bloom.radius    = 0.25 + 0.25 * uDim;    // dense tight … sparse wider halo
 }
 
 // ---- faint starfield backdrop for depth ----
