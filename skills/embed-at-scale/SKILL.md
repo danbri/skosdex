@@ -130,9 +130,13 @@ known. If in doubt, destroy — re-provisioning is cheap, an idle A100 is not.
 
 ## B) CI matrix — incremental, parallel per scheme
 
-For adding a few schemes (EuroVoc, AGROVOC, NALT, …) without a GPU box. One
-workflow, a matrix over slugs, each job embeds + lays out one scheme and commits
-its files; a final job combines. Sketch (`.github/workflows/embed.yml`):
+For adding a few schemes (EuroVoc, AGROVOC, NALT, …) without a GPU box.
+**Implemented as `.github/workflows/embed.yml`** — run it from Actions →
+"embed schemes (ad-hoc)" → Run workflow, with `slugs="eurovoc agrovoc nalt"` and
+`push=true` to deploy (or `false` to just get artifacts). Flow: a `prepare` job
+runs `graphed`+`solr-docs` once and emits the slug matrix; parallel `embed` jobs
+do one scheme each; a `combine` job merges `_all` + the combined layout and
+(optionally) commits. Outline:
 
 ```yaml
 on: { workflow_dispatch: { inputs: { slugs: { description: "space-separated slugs" } } } }

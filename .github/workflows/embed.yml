@@ -1,0 +1,99 @@
+# Ad-hoc CI matrix embedder — build embeddings for a few schemes in parallel,
+# on GitHub runners, no GPU box needed. For the WHOLE corpus ASAP use the GPU
+# batch box instead (see skills/embed-at-scale/SKILL.md); this is the
+# incremental path for adding a handful of schemes (EuroVoc, AGROVOC, NALT, …).
+#
+# Manual only. Run: Actions → "embed schemes (ad-hoc)" → Run workflow, with
+#   slugs = "eurovoc agrovoc nalt"   (space-separated; must already be built,
+#                                     i.e. have third_party/skos/<slug>/canonical.nq.gz)
+#   push  = "true" to commit + deploy the vectors (UI fast path, no blackout),
+#           "false" to just produce downloadable artifacts for review.
+#
+# Flow: prepare (graphed+solr-docs once → solr-cache artifact + slug matrix) →
+#       embed (one parallel job per slug → per-scheme emb/layout artifacts) →
+#       combine (merge → _all + combined layout → optional commit/push).
+name: embed schemes (ad-hoc)
+
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: 'space-separated scheme slugs to embed'
+        required: true
+      push:
+        description: 'commit + push vectors (true) or just upload artifacts (false)'
+        default: 'false'
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true, fetch-depth: 0 }
+      - name: slugs -> JSON matrix
+        id: m
+        env: { SLUGS: ${{ inputs.slugs }} }
+        run: echo "matrix=$(printf '%s' "$SLUGS" | tr ' ' '\n' | grep -v '^$' | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: node scripts/skosdex graphed && node scripts/skosdex solr-docs
+      - uses: actions/upload-artifact@v4
+        with: { name: solr-cache, path: dist/solr-cache, retention-days: 1 }
+
+  embed:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        slug: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: solr-cache, path: dist/solr-cache }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: cache the MiniLM/e5 model (~2.2GB, fetched by embed_model.py)
+        uses: actions/cache@v4
+        with: { path: ~/.cache/skosdex-e5, key: e5-large-instruct-v1 }
+      - run: pip install onnxruntime tokenizers numpy umap-learn scikit-learn
+      - run: python3 tools/embed_scheme.py  "${{ matrix.slug }}"
+      - run: python3 tools/layout_scheme.py "${{ matrix.slug }}"
+      - uses: actions/upload-artifact@v4
+        with: { name: emb-${{ matrix.slug }}, path: 'deploy/fly/www/embeddings/${{ matrix.slug }}.*', retention-days: 1 }
+
+  combine:
+    needs: embed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true }                         # materialize existing *.emb.f16
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'emb-*', path: /tmp/emb, merge-multiple: true }
+      - run: cp -v /tmp/emb/* deploy/fly/www/embeddings/
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install numpy umap-learn scikit-learn
+      - run: node tools/combine_embeddings.mjs && python3 tools/layout_combined.py
+      - name: commit + push (UI fast-path deploy)
+        if: ${{ inputs.push == 'true' }}
+        run: |
+          git config user.name  danbri
+          git config user.email danbri@danbri.org
+          git add deploy/fly/www/embeddings
+          git commit -m "embeddings: ad-hoc CI rebuild (${{ inputs.slugs }})" || { echo "no changes"; exit 0; }
+          git push
+      - name: upload combined (when not pushing)
+        if: ${{ inputs.push != 'true' }}
+        uses: actions/upload-artifact@v4
+        with: { name: embeddings-all, path: 'deploy/fly/www/embeddings/_all.*', retention-days: 3 }
