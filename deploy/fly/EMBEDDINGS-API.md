@@ -23,7 +23,7 @@ tools/combine_embeddings.mjs      # all <slug>.emb.* -> _all.emb.{json,f16}
 |------|------|
 | `<slug>.emb.f16` | `n×1024` float16 (LE) vectors for one scheme |
 | `<slug>.emb.json` | `{model, dim, n, ids, labels}` |
-| `<slug>.layout.json` | UMAP 2D/3D + k-means clusters for the galaxy view |
+| `<slug>.layout.json` | UMAP 2D/3D + k-means clusters for the viz (viz.html) |
 | `_all.emb.f16` | **combined** vectors (all schemes concatenated) |
 | `_all.emb.json` | `{model, dim, n, schemes:{slug:{start,count}}, ids, labels, scheme}` |
 | `index.json` | registry of embedded slugs (`_all` = the combined blob) |

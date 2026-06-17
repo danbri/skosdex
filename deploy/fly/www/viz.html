@@ -1,0 +1,1176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skosdex — a vocabulary in space</title>
+<style>
+  :root{ --fg:#e8eefc; }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;overflow:hidden;background:#05060c;color:var(--fg);
+    font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+  #bg{position:fixed;inset:0;background:radial-gradient(120% 120% at 50% 35%,#0c1330 0%,#070a18 45%,#04050b 100%)}
+  #app{position:fixed;inset:0}
+  canvas{display:block}
+  .panel{position:fixed;background:rgba(10,14,30,.62);border:1px solid rgba(120,140,200,.18);
+    border-radius:12px;backdrop-filter:blur(7px);box-shadow:0 8px 30px rgba(0,0,0,.45)}
+  #head{top:14px;left:14px;padding:.5rem .7rem;max-width:min(60vw,420px)}
+  #head h1{margin:0;font-size:1rem;font-weight:650;letter-spacing:.2px;display:flex;align-items:center;gap:.4rem}
+  #head p{margin:.4rem 0 0;color:#9fb0d8;font-size:.82rem}
+  #head a{color:#8ab4ff;text-decoration:none} #head a:hover{text-decoration:underline}
+  #head .sub{color:#7b88b0;font-size:.8rem;font-weight:400}
+  #about[hidden]{display:none}
+  .ibtn{margin-left:auto;background:transparent;border:0;color:#7b88b0;font-size:.95rem;cursor:pointer;padding:0 .1rem;line-height:1}
+  .ibtn:hover,.ibtn.on{color:#8ab4ff}
+  /* galaxy switcher: an obvious labelled dropdown (caret + pill) so it's clear
+     which vocabulary is loaded and that you can switch it */
+  #scheme{color:var(--fg);font:inherit;font-weight:650;letter-spacing:.2px;cursor:pointer;
+    -webkit-appearance:none;appearance:none;max-width:46vw;
+    border:1px solid rgba(130,150,210,.4);border-radius:8px;padding:.16rem 1.5rem .16rem .55rem;
+    background:rgba(120,140,200,.16) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' fill='none' stroke='%238ab4ff' stroke-width='1.6'><path d='M1 1l4.5 4.5L10 1'/></svg>") no-repeat right .5rem center}
+  #scheme:hover,#scheme:focus{background-color:rgba(120,140,200,.3);border-color:#8ab4ff;outline:none}
+  #scheme option{background:#0a0f22;color:var(--fg);font-weight:500}
+  #head .vlabel{color:#7b88b0;font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;margin-right:.15rem}
+  #ctrl{top:14px;right:14px;padding:.55rem;display:flex;gap:.5rem;align-items:center}
+  #ctrl input{width:150px;background:#0a0f22;border:1px solid #2a3358;border-radius:8px;color:var(--fg);
+    padding:.35rem .55rem;font-size:.84rem}
+  #ctrl input::placeholder{color:#6b78a0}
+  .seg{display:inline-flex;border:1px solid #2a3358;border-radius:8px;overflow:hidden}
+  .seg button{background:#0a0f22;border:0;color:#aeb9da;padding:.35rem .7rem;font-size:.84rem;cursor:pointer}
+  .seg button.on{background:#2f6bff;color:#fff}
+  .btn{background:#0a0f22;border:1px solid #2a3358;border-radius:8px;color:#aeb9da;padding:.35rem .6rem;font-size:.84rem;cursor:pointer}
+  .btn:hover{background:#141b38}
+  #legend{left:14px;bottom:14px;padding:.6rem .7rem;max-height:46vh;overflow:auto;width:240px}
+  #legend.collapsed{overflow:visible}
+  #legend.collapsed #legitems{display:none}
+  #legend h2{margin:0;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#8597c6;font-weight:600;
+    cursor:pointer;user-select:none;display:flex;align-items:center;gap:.4rem}
+  #legend:not(.collapsed) h2{margin-bottom:.45rem}
+  #legend h2 .caret{font-size:.6rem;color:#6b78a0;transition:transform .15s}
+  #legend.collapsed h2 .caret{transform:rotate(-90deg)}
+  .lg{display:flex;align-items:center;gap:.5rem;padding:.16rem .28rem;border-radius:7px;cursor:pointer;font-size:.84rem}
+  .lg:hover{background:rgba(120,140,200,.12)} .lg.off{opacity:.32}
+  .dot{width:11px;height:11px;border-radius:50%;flex:none;box-shadow:0 0 7px currentColor}
+  .lg .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .lg .ct{margin-left:auto;color:#7b88b0;font-size:.74rem}
+  #tip{position:fixed;pointer-events:none;z-index:9;opacity:0;transform:translate(-50%,-140%);
+    background:rgba(8,11,24,.92);border:1px solid rgba(140,160,220,.3);border-radius:9px;padding:.4rem .6rem;
+    font-size:.86rem;max-width:280px;transition:opacity .12s}
+  /* touch: the tip is pinned and interactive so its "open" link is tappable */
+  #tip.pinned{pointer-events:auto;border-color:rgba(140,160,220,.5);box-shadow:0 8px 30px rgba(0,0,0,.55)}
+  #tip b{display:block} #tip span{color:#9fb0d8;font-size:.76rem}
+  #tip .open,#tip .focus{display:inline-block;margin-top:.4rem;color:#8ab4ff;text-decoration:none;font-size:.82rem;
+    border:1px solid rgba(130,150,210,.4);border-radius:7px;padding:.2rem .5rem;background:rgba(120,140,200,.16)}
+  #tip .open:active,#tip .open:hover,#tip .focus:active,#tip .focus:hover{background:rgba(120,140,200,.32);border-color:#8ab4ff}
+  #tip .focus{margin-right:.3rem}
+  #loading{position:fixed;inset:0;display:grid;place-items:center;color:#8597c6;font-size:.95rem}
+  .hint{color:#6b78a0;font-size:.76rem;margin-top:.3rem}
+  /* Mobile: #head (vocabulary switcher, top-left) and #ctrl (top-right) collide
+     on narrow screens and #ctrl painted over the switcher. Stack them: switcher
+     on top, controls just below — both full-width, no overlap. */
+  #head{z-index:6}
+  @media (max-width:640px){
+    #head{left:14px;right:14px;max-width:none}
+    #ctrl{top:64px;left:14px;right:14px;justify-content:flex-start;flex-wrap:wrap}
+    #ctrl input{flex:1 1 120px}
+  }
+
+  /* ===== selection sphere toolbar ===== */
+  .btn.on{background:#2f6bff;color:#fff;border-color:#2f6bff}
+  body.selecting{cursor:crosshair}
+  #selbar{left:50%;transform:translateX(-50%);bottom:14px;padding:.5rem .75rem;
+    display:flex;gap:.6rem;align-items:center;max-width:94vw;z-index:7}
+  #selbar[hidden]{display:none}
+  #selbar .h{color:#9fb0d8;font-size:.78rem;white-space:nowrap}
+  #selbar input[type=range]{width:130px;accent-color:#8fe0ff}
+  #selbar .cnt{color:#8fe0ff;font-weight:700}
+
+  /* ===== top tabs ===== */
+  #tabs{left:50%;transform:translateX(-50%);top:14px;padding:.25rem;display:flex;gap:.2rem;z-index:8}
+  #tabs[hidden]{display:none}
+  #tabs button{background:transparent;border:0;color:#aeb9da;padding:.32rem .85rem;border-radius:8px;
+    font-size:.84rem;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:.4rem}
+  #tabs button.on{background:#2f6bff;color:#fff}
+  .tabbadge{background:#8fe0ff;color:#04132a;border-radius:999px;font-size:.7rem;padding:0 .35rem;
+    font-weight:700;min-width:1.15em;text-align:center}
+  .tabbadge[hidden]{display:none}
+
+  /* ===== node table + split ===== */
+  #app{position:fixed;top:0;left:0;right:0;bottom:auto;height:100%;overflow:hidden}
+  #tablewrap{left:0;right:0;border-radius:0;border-left:0;border-right:0;border-bottom:0;
+    display:flex;flex-direction:column;background:rgba(7,10,22,.95);backdrop-filter:blur(9px);z-index:5}
+  #tablewrap[hidden]{display:none}
+  #tbar{display:flex;align-items:center;gap:.5rem;padding:.5rem .7rem;border-bottom:1px solid rgba(120,140,200,.18)}
+  #tbar .grow{flex:1}
+  #tbar #selinfo{color:#9fb0d8;font-size:.82rem;white-space:nowrap}
+  #tscroll{overflow:auto;flex:1;-webkit-overflow-scrolling:touch}
+  table#seltable{border-collapse:collapse;width:100%;font-size:.82rem}
+  #seltable thead th{position:sticky;top:0;background:#0b1024;color:#8597c6;text-align:left;font-weight:600;
+    font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:.42rem .6rem;
+    border-bottom:1px solid rgba(120,140,200,.22);white-space:nowrap}
+  #seltable tbody td{padding:.34rem .6rem;border-bottom:1px solid rgba(120,140,200,.08);vertical-align:top}
+  #seltable tbody tr:hover{background:rgba(120,140,200,.08)}
+  #seltable .lab{color:#e8eefc;max-width:34ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #seltable .sch{color:#9fb0d8;white-space:nowrap}
+  #seltable .clu{white-space:nowrap;color:#c2cdee}
+  #seltable .clu .dot{width:9px;height:9px;display:inline-block;vertical-align:middle;margin-right:.4rem;
+    border-radius:50%;box-shadow:0 0 6px currentColor}
+  #seltable .dist{font-variant-numeric:tabular-nums;color:#c2cdee;white-space:nowrap}
+  #seltable .distbar{display:inline-block;height:6px;border-radius:3px;vertical-align:middle;margin-left:.45rem;
+    background:linear-gradient(90deg,#8fe0ff,#3f8cff)}
+  #seltable .url{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;white-space:nowrap}
+  #seltable .url a{color:#8ab4ff;text-decoration:none} #seltable .url a:hover{text-decoration:underline}
+  #seltable .url .stem{color:#5b678c}
+  #tempty{padding:1.3rem;color:#7b88b0;text-align:center;line-height:1.7}
+  #tempty b{color:#aeb9da}
+  #grip{position:fixed;left:0;right:0;height:14px;z-index:6;cursor:row-resize;display:flex;align-items:center;justify-content:center;touch-action:none}
+  #grip[hidden]{display:none}
+  #grip::before{content:"";width:48px;height:4px;border-radius:3px;background:rgba(150,170,230,.55);box-shadow:0 0 0 7px rgba(7,10,22,.55)}
+  body.mode-table #head, body.mode-table #ctrl, body.mode-table #legend, body.mode-table #tip, body.mode-table #selbar{display:none!important}
+  body.mode-split #legend{display:none!important}
+
+  /* ===== mixed-scheme "blends" finder ===== */
+  #blends{right:14px;bottom:14px;width:min(92vw,320px);max-height:min(70vh,540px);
+    display:flex;flex-direction:column;padding:.5rem .55rem;z-index:7}
+  #blends[hidden]{display:none}
+  #blends .bh{display:flex;align-items:center;gap:.4rem;margin:0 0 .45rem;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.08em;color:#8597c6;font-weight:600}
+  #blends .bh .x{margin-left:auto;background:transparent;border:0;color:#7b88b0;cursor:pointer;font-size:1rem;line-height:1}
+  #blends .bh .x:hover{color:#8ab4ff}
+  #blendlist{overflow:auto;display:flex;flex-direction:column;gap:.35rem}
+  .blend{display:block;width:100%;text-align:left;background:rgba(120,140,200,.08);
+    border:1px solid rgba(120,140,200,.18);border-radius:9px;padding:.42rem .5rem;color:var(--fg);cursor:pointer;font:inherit}
+  .blend:hover,.blend:focus{background:rgba(120,140,200,.2);border-color:#8ab4ff;outline:none}
+  .blend .chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.28rem}
+  .chip{display:inline-flex;align-items:center;gap:.28rem;font-size:.74rem;font-weight:600;
+    background:rgba(0,0,0,.28);border-radius:999px;padding:.08rem .48rem}
+  .chip .dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor}
+  .blend .samp{color:#9fb0d8;font-size:.76rem;line-height:1.3;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bnone{color:#7b88b0;font-size:.8rem;padding:.4rem;line-height:1.5}
+  @media (max-width:640px){
+    #tabs{top:8px}
+    #head{top:46px}
+    #ctrl{top:96px}
+    #selbar input[type=range]{width:96px}
+    #seltable .lab{max-width:20ch}
+  }
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="app"></div>
+<div id="loading">building the map…</div>
+
+<div id="tabs" class="panel" hidden>
+  <button data-mode="galaxy" class="on">galaxy</button>
+  <button data-mode="split">split</button>
+  <button data-mode="table">table<span id="tabcount" class="tabbadge" hidden>0</span></button>
+</div>
+
+<div id="head" class="panel" hidden>
+  <h1>🌌 <span class="vlabel">vocabulary</span><select id="scheme" title="switch vocabulary / embedding"></select> <span id="count" class="sub"></span>
+      <button id="info" class="ibtn" title="about &amp; controls" aria-label="about">ⓘ</button></h1>
+  <div id="about" hidden>
+    <p>Concepts placed by meaning — UMAP on multilingual e5 embeddings, coloured by theme. <a href="/">← skosdex</a></p>
+    <p class="hint">drag to orbit · scroll to zoom · click to open · double-click to fly in &amp; centre</p>
+    <p class="hint">◎ select: drag the glowing sphere (press <i>on</i> it) to highlight a set — drag <i>outside</i> still orbits/pans · pinch / wheel / slider to size · then read them in the <b>table</b> / <b>split</b> tab</p>
+    <p id="blendhint" class="hint" hidden>✦ blends: auto-finds spheres that mix schemes evenly — to see where vocabularies actually overlap</p>
+    <p id="overlaynote" class="hint" hidden>✦ compare overlay: one shared UMAP across schemes, coloured by source.
+      Local neighbourhoods are roughly faithful; global distances &amp; cluster sizes are not — read it as a sketch, not a map.</p>
+  </div>
+</div>
+
+<div id="ctrl" class="panel" hidden>
+  <input id="q" type="search" placeholder="highlight…" autocomplete="off">
+  <div class="seg"><button id="b3" class="on">3D</button><button id="b2">2D</button></div>
+  <button class="btn" id="sel" title="highlight a set of concepts with a sphere">◎ select</button>
+  <button class="btn" id="blendbtn" hidden title="auto-find spheres that mix schemes">✦ blends</button>
+  <button class="btn" id="spin">⏸</button>
+  <button class="btn" id="reset">reset</button>
+</div>
+
+<div id="legend" class="panel" hidden><h2><span class="caret">▾</span>themes</h2><div id="legitems"></div></div>
+<div id="tip"></div>
+
+<div id="selbar" class="panel" hidden>
+  <span class="h">drag to move · pinch / slider to size</span>
+  <input id="selrad" type="range" min="0" max="1" step="0.001" value="0.62" aria-label="selection radius">
+  <span class="h"><span id="selcnt" class="cnt">0</span> in sphere</span>
+  <button class="btn" id="seldone">done</button>
+</div>
+
+<div id="blends" class="panel" hidden>
+  <div class="bh">mixed-scheme spheres <button class="x" id="blendclose" title="close">✕</button></div>
+  <div id="blendlist"></div>
+</div>
+
+<div id="grip" hidden></div>
+<div id="tablewrap" class="panel" hidden>
+  <div id="tbar">
+    <span id="selinfo">0 nodes selected</span>
+    <span class="grow"></span>
+    <button class="btn" id="copysel">copy</button>
+    <button class="btn" id="savesel">save CSV</button>
+    <button class="btn" id="clearsel">clear</button>
+  </div>
+  <div id="tscroll">
+    <table id="seltable">
+      <thead><tr>
+        <th>label</th><th>scheme</th><th>cluster</th><th>dist ↓</th><th>url</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+    <div id="tempty">No nodes selected yet.<br>Switch to <b>galaxy</b> or <b>split</b>, tap <b>◎ select</b>, then drag the glowing sphere over a cluster.</div>
+  </div>
+</div>
+
+<script>
+  // Never hang silently on "summoning…": surface the real error (module/import
+  // failure, WebGL, bad data, timeout) right in the loader so we can see it.
+  window.__galaxyOK = false;
+  function galaxyFail(msg){
+    var l = document.getElementById('loading'); if (!l) return;
+    l.style.cssText = 'position:fixed;inset:0;display:grid;place-items:center;padding:1.2rem;text-align:center;color:#ff9b9b;font-size:.9rem;white-space:pre-wrap';
+    l.textContent = '⚠ map failed to load\n\n' + msg + '\n\nscheme: ' + (new URLSearchParams(location.search).get('scheme')||'gemet');
+  }
+  addEventListener('error', function(e){ if(!window.__galaxyOK) galaxyFail((e.message||'load error') + (e.filename ? '\n'+e.filename : '')); }, true);
+  addEventListener('unhandledrejection', function(e){ if(!window.__galaxyOK){ var r=e.reason; galaxyFail(String(r&&(r.stack||r.message)||r||'promise rejected')); } });
+  setTimeout(function(){ if(!window.__galaxyOK && document.getElementById('loading')) galaxyFail('timed out after 12s — the 3D engine (three.js CDN / import map) or the layout data did not load'); }, 12000);
+</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+let slug = new URLSearchParams(location.search).get('scheme') || 'gemet';
+let D = await (await fetch(`/embeddings/${slug}.layout.json`)).json();
+let N = D.n, K = D.k;
+const hex = h => new THREE.Color(h);
+let palette = D.colors.map(hex);
+
+// ---- compare / overlay mode -------------------------------------------------
+// When the loaded layout is the combined cross-scheme UMAP, the legend turns
+// into a per-scheme multi-select and points are coloured by SOURCE scheme
+// (D.cluster[i] is the scheme index; D.clusterNames are slugs). `schemeOn`
+// tracks which schemes are drawn; `vis`/`visCur` are a per-point visibility
+// mask (1 visible, 0 hidden) animated so a toggled scheme swirls in/out while
+// the others stay put. In single-scheme mode overlay=false and these are unused.
+let overlay = (slug === '_all' || D.method === 'umap-combined');
+let schemeOn = [];                       // boolean per scheme index
+function resetSchemeOn(d){ schemeOn = (d.clusterNames || []).map(() => true); }
+resetSchemeOn(D);
+
+// ---- scene / camera / renderer ----
+const app = document.getElementById('app');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, 0.01, 100);
+camera.position.set(0, 0, 2.8);
+const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+app.appendChild(renderer.domElement);
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.55, 0.5, 0.2);
+composer.addPass(bloom);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08;
+controls.autoRotate = true; controls.autoRotateSpeed = 0.5;
+controls.minDistance = 0.03; controls.maxDistance = 12;   // let you fly right in to a node
+let spinOn = true;   // desired auto-rotate when not in 2D / not sculpting a selection
+
+// ---- soft round sprite for glowing points ----
+function disc(){
+  const s=64, c=document.createElement('canvas'); c.width=c.height=s;
+  const g=c.getContext('2d'), gr=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2);
+  gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(.35,'rgba(255,255,255,.85)');
+  gr.addColorStop(.7,'rgba(255,255,255,.18)'); gr.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle=gr; g.fillRect(0,0,s,s);
+  const t=new THREE.CanvasTexture(c); t.needsUpdate=true; return t;
+}
+const sprite = disc();
+
+// ---- concept points ----
+// rescale a layout so the bulk (95th pct radius) fills the view — keeps rare
+// outliers from compressing the core into a tiny dense blob. (count-aware so it
+// works for any scheme loaded later by the in-place switcher.)
+function rescale(arr, count, target=1.3){
+  const r=new Array(count); for(let i=0;i<count;i++) r[i]=Math.hypot(arr[i*3],arr[i*3+1],arr[i*3+2]);
+  const p95=[...r].sort((a,b)=>a-b)[Math.floor(count*0.95)]||1, s=target/p95;
+  for(let i=0;i<count*3;i++) arr[i]*=s;
+}
+// Build the per-scheme position/colour/label arrays for layout data `d`.
+function layoutArrays(d){
+  const n=d.n, p3=Float32Array.from(d.coords3), p2=new Float32Array(n*3);
+  for(let i=0;i<n;i++){ p2[i*3]=d.coords2[i*2]; p2[i*3+1]=d.coords2[i*2+1]; p2[i*3+2]=0; }
+  rescale(p3,n); rescale(p2,n);
+  const pal=d.colors.map(hex), bc=new Float32Array(n*3);
+  for(let i=0;i<n;i++){ const c=pal[d.cluster[i]]; bc[i*3]=c.r; bc[i*3+1]=c.g; bc[i*3+2]=c.b; }
+  return { p3, p2, bc, pal };
+}
+let { p3:pos3, p2:pos2, bc:baseCol0 } = layoutArrays(D);
+
+// Geometry buffers are fixed-size, so allocate to a generous capacity and grow
+// (rebuild) only when a bigger scheme arrives. Draw range is clamped to N.
+let cap = Math.max(N, 1);
+const geo = new THREE.BufferGeometry();
+let positions = pos3.slice();           // live (animated) positions, length cap*3
+let colArr = new Float32Array(cap*3);   // live (possibly dimmed) colours
+let baseCol = new Float32Array(cap*3);  // undimmed colours
+let sizes = new Float32Array(cap).fill(1);
+let vis = new Float32Array(cap).fill(1);    // target visibility per point (1/0), overlay only
+let visCur = new Float32Array(cap).fill(1); // animated current visibility (alpha mult)
+// selection-sphere state (see the "Selection sphere + node table" block below)
+let selected = new Uint8Array(cap);         // 1 = inside the highlight sphere
+let selCount = 0;
+let maxR3 = 1, maxR2 = 1;                    // max point radius per dim, for dist-from-centre 0..1
+baseCol.set(baseCol0); colArr.set(baseCol0);
+geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
+geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
+geo.setDrawRange(0, N);
+
+const mat = new THREE.ShaderMaterial({
+  uniforms:{ tex:{value:sprite}, scale:{value:innerHeight*0.5} },
+  vertexShader:`attribute float asize; varying vec3 vc;
+    uniform float scale;
+    void main(){ vc=color; vec4 mv=modelViewMatrix*vec4(position,1.0);
+      // cap the sprite size so a point you've flown up close to stays a crisp
+      // star instead of blooming into a screen-filling blurry glow
+      float ps = (7.0*asize) * (scale/ -mv.z) / 90.0;
+      gl_PointSize = clamp(ps, 1.0, 48.0);
+      gl_Position = projectionMatrix*mv; }`,
+  fragmentShader:`uniform sampler2D tex; varying vec3 vc;
+    void main(){ vec4 t=texture2D(tex,gl_PointCoord); if(t.a<0.02) discard;
+      gl_FragColor = vec4(vc, t.a); }`,
+  vertexColors:true, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false
+});
+const points = new THREE.Points(geo, mat);
+scene.add(points);
+
+// ---- faint starfield backdrop for depth ----
+(()=>{ const m=2200, g=new THREE.BufferGeometry(), p=new Float32Array(m*3);
+  for(let i=0;i<m*3;i++) p[i]=(Math.random()-0.5)*40;
+  g.setAttribute('position', new THREE.BufferAttribute(p,3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0x33406e,size:0.03,transparent:true,opacity:.5})));
+})();
+
+// reveal UI
+window.__galaxyOK = true;   // reached the render path — silence the failure surfacing
+document.getElementById('loading').remove();
+for(const id of ['head','ctrl','legend','tabs']) document.getElementById(id).hidden=false;
+// galaxy switcher: populate from the embeddings registry (skip the combined _all)
+const schemeSel = document.getElementById('scheme');   // NB: not `pick` — a function pick(ev) already exists
+let schemeTitles = {};                                 // slug -> title; filled async, read by the legend/tip (declared early to dodge TDZ)
+const shortTitle = (t, s) => {
+  if (!t) return s.toUpperCase().replace(/-/g, ' ');
+  const head = t.split('—')[0].trim();                 // "GEMET — GEneral…" -> "GEMET"
+  return head.length > 34 ? head.slice(0, 33) + '…' : head;
+};
+const optFor = (s, t) => { const o = document.createElement('option'); o.value = s;
+  o.textContent = shortTitle(t, s); if (s === slug) o.selected = true; return o; };
+Promise.all([
+  fetch('/embeddings/index.json').then(r => r.json()).catch(() => [slug]),
+  fetch('/manifest.json').then(r => r.json())
+    .then(m => Object.fromEntries((m.included || []).map(x => [x.slug, x.title]))).catch(() => ({})),
+]).then(([list, titles]) => {
+  schemeTitles = titles;                 // remembered for the in-place switcher's title update
+  const galaxies = list.filter(x => !x.startsWith('_'));
+  if (slug !== '_all' && !galaxies.includes(slug)) galaxies.push(slug);
+  for (const s of galaxies) schemeSel.appendChild(optFor(s, titles[s]));
+  // explicit combined-overlay entry (value `_all`, kept out of the `_`-filtered list)
+  const allOpt = document.createElement('option');
+  allOpt.value = '_all'; allOpt.textContent = '✦ compare (overlay)';
+  if (slug === '_all') allOpt.selected = true;
+  schemeSel.appendChild(allOpt);
+});
+schemeSel.onchange = () => { if (schemeSel.value && schemeSel.value !== slug) switchScheme(schemeSel.value); };
+const countEl = document.getElementById('count');
+countEl.textContent = N.toLocaleString() + ' concepts';
+
+// ---- declutter: details + controls hint live behind the ⓘ toggle; the theme
+// legend collapses — so by default only the compact title, search, and view
+// controls sit over the galaxy. ----
+const about=document.getElementById('about'), info=document.getElementById('info');
+info.onclick=()=>{ const show=about.hidden; about.hidden=!show; info.classList.toggle('on',show); };
+const legend=document.getElementById('legend');
+legend.querySelector('h2').onclick=()=>legend.classList.toggle('collapsed');
+
+// ---- legend (click to isolate a theme) ----
+const legitems = document.getElementById('legitems');
+let isolated = -1;
+const legendTitle = legend.querySelector('h2');
+// nodes touched by h2 .onclick; rebuild keeps the caret span. The h2 text is
+// "themes" in single-scheme mode, "schemes" in overlay mode.
+function setLegendHeading(txt){
+  const caret = legendTitle.querySelector('.caret');
+  legendTitle.textContent = '';
+  if(caret) legendTitle.appendChild(caret);
+  legendTitle.appendChild(document.createTextNode(txt));
+}
+function buildLegend(){
+  isolated = -1;
+  legitems.innerHTML = '';
+  if(overlay){ buildOverlayLegend(); return; }
+  setLegendHeading('themes');
+  D.clusterNames.forEach((nm,c)=>{
+    const el=document.createElement('div'); el.className='lg'; el.dataset.c=c;
+    el.innerHTML=`<span class="dot" style="color:${D.colors[c]}"></span><span class="nm">${nm}</span><span class="ct">${D.clusterSizes[c]}</span>`;
+    el.onclick=()=>{ isolated = isolated===c? -1 : c; applyFilter();
+      [...legitems.children].forEach(x=>x.classList.toggle('off', isolated>=0 && +x.dataset.c!==isolated)); };
+    legitems.appendChild(el);
+  });
+}
+// overlay legend: one row per SOURCE scheme = colour dot + human title + count;
+// each row toggles that scheme's points in/out (multi-select). Default: all on.
+function buildOverlayLegend(){
+  setLegendHeading('schemes');
+  D.clusterNames.forEach((sName,c)=>{
+    const title = (schemeTitles && schemeTitles[sName]) ? shortTitle(schemeTitles[sName], sName) : sName;
+    const el=document.createElement('div'); el.className='lg'; el.dataset.c=c;
+    el.classList.toggle('off', !schemeOn[c]);
+    el.innerHTML=`<span class="dot" style="color:${D.colors[c]}"></span><span class="nm">${title}</span><span class="ct">${D.clusterSizes[c]}</span>`;
+    el.onclick=()=>{ if(maskSwirl) return;          // ignore taps mid-animation
+      schemeOn[c] = !schemeOn[c];
+      el.classList.toggle('off', !schemeOn[c]);
+      toggleScheme(c, schemeOn[c]); };
+    legitems.appendChild(el);
+  });
+}
+// Sync the per-point visibility mask to `schemeOn` (overlay only). `snap` sets
+// the animated current value instantly; otherwise the render loop eases visCur
+// toward vis. `which` limits the write to a single scheme index (for toggles).
+function syncVis(snap, which){
+  if(!overlay){ for(let i=0;i<N;i++){ vis[i]=1; visCur[i]=1; } return; }
+  for(let i=0;i<N;i++){
+    if(which!=null && D.cluster[i]!==which) continue;
+    vis[i] = schemeOn[D.cluster[i]] ? 1 : 0;
+    if(snap) visCur[i] = vis[i];
+  }
+}
+// reflect overlay mode into the about caveat + initialise the visibility mask
+function applyOverlayMode(){
+  const note=document.getElementById('overlaynote'); if(note) note.hidden=!overlay;
+  // the "blends" finder only makes sense across schemes → overlay only
+  const bb=document.getElementById('blendbtn'); if(bb) bb.hidden=!overlay;
+  const bh=document.getElementById('blendhint'); if(bh) bh.hidden=!overlay;
+  if(!overlay){ const bp=document.getElementById('blends'); if(bp) bp.hidden=true; }
+  syncVis(true);
+  if(typeof applyFilter==='function') applyFilter();
+}
+buildLegend();
+
+// ---- search + theme filter dim the colour buffer ----
+const q = document.getElementById('q');
+function applyFilter(){
+  const term=q.value.trim().toLowerCase();
+  for(let i=0;i<N;i++){
+    // overlay: a point's visibility (its scheme being toggled on) gates
+    // everything — visCur multiplies colour and zeroes size when hidden.
+    const v = overlay ? visCur[i] : 1;
+    // in overlay mode the legend selects schemes, not isolating a theme, so the
+    // theme-isolate filter only applies in single-scheme mode
+    let on = overlay ? true : (isolated<0 || D.cluster[i]===isolated);
+    if(on && term && v>0.001) on = D.labels[i].toLowerCase().includes(term);
+    else if(on && term) on = false;      // hidden point can't be a search hit
+    const dim = term || (!overlay && isolated>=0);
+    const k = (on?1:(dim?0.06:1)) * v;
+    colArr[i*3]=baseCol[i*3]*k; colArr[i*3+1]=baseCol[i*3+1]*k; colArr[i*3+2]=baseCol[i*3+2]*k;
+    sizes[i] = (v>0.001 && on && dim) ? 1.7 : (v>0.001 ? 1 : 0);
+    // highlight the sphere selection: pop bigger + glow toward white
+    if(selCount>0 && selected[i] && on && v>0.001){
+      sizes[i] = 2.6;
+      colArr[i*3]   += (1-colArr[i*3])  *0.55;
+      colArr[i*3+1] += (1-colArr[i*3+1])*0.55;
+      colArr[i*3+2] += (1-colArr[i*3+2])*0.55;
+    }
+  }
+  geo.attributes.color.needsUpdate=true; geo.attributes.asize.needsUpdate=true;
+}
+q.addEventListener('input', applyFilter);
+
+// initial overlay setup (after `q`/`applyFilter` exist): caveat note + mask
+applyOverlayMode();
+
+// ---- 2D / 3D morph ----
+let target = pos3, morph = 1, curDim = 3; // 1 = at target
+function setDim(d){
+  curDim = d;
+  document.getElementById('b3').classList.toggle('on', d===3);
+  document.getElementById('b2').classList.toggle('on', d===2);
+  target = d===3? pos3 : pos2; morph = 0;
+  controls.autoRotate = d===3 && spinOn && !selMode;
+  controls.enableRotate = d===3;
+  // 3D: one finger / left-drag orbits. 2D: it pans (no rotation off-plane).
+  if(d===2){ controls.touches.ONE=THREE.TOUCH.PAN; controls.mouseButtons.LEFT=THREE.MOUSE.PAN;
+    animTo(new THREE.Vector3(0,0,2.6), new THREE.Vector3(0,0,0)); }
+  else { controls.touches.ONE=THREE.TOUCH.ROTATE; controls.mouseButtons.LEFT=THREE.MOUSE.ROTATE; }
+  closeBlends();
+  // re-evaluate which points the sphere now contains once the morph settles
+  if(selMode || selCount>0) setTimeout(()=>{ if(!swirl && !maskSwirl) recomputeSelection(); }, 650);
+}
+document.getElementById('b3').onclick=()=>setDim(3);
+document.getElementById('b2').onclick=()=>setDim(2);
+
+let camAnim=null;
+function animTo(p,t){ camAnim={p0:camera.position.clone(),p1:p,t0:controls.target.clone(),t1:t,s:0}; }
+document.getElementById('reset').onclick=()=>{ animTo(new THREE.Vector3(0,0,2.8), new THREE.Vector3(0,0,0)); };
+const spinBtn=document.getElementById('spin');
+spinBtn.onclick=()=>{ spinOn=!spinOn; controls.autoRotate=spinOn && curDim===3 && !selMode;
+  spinBtn.textContent=spinOn?'⏸':'▶'; };
+
+// ---- hover + tap/click ----
+// Desktop (mouse): hover shows the tip, a click (no drag) opens the concept.
+// Touch: a tap on a star PINS the tip (label + theme + a tappable "open ↗")
+// near it without navigating; tapping empty space / another star moves or
+// dismisses it. The pinned tip is interactive (pointer-events:auto via .pinned).
+const ray=new THREE.Raycaster(); ray.params.Points.threshold=0.025;
+const tip=document.getElementById('tip'); const mouse=new THREE.Vector2(); let hover=-1, downXY=null, pinned=-1;
+// NB: a function pick(ev) already exists below convention — keep this name.
+function pick(ev){ const c=canvasNDC(ev); mouse.x=c[0]; mouse.y=c[1];
+  ray.setFromCamera(mouse,camera); const h=ray.intersectObject(points);
+  // overlay: only hidden-away schemes' points are off-screen — pick the nearest
+  // VISIBLE hit so toggled-off points can't be hovered/opened
+  for(const hit of h){ if(hit.index>=N) continue; if(overlay && visCur[hit.index]<0.5) continue; return hit.index; }
+  return -1; }
+function openConcept(i){ if(i>=0 && i<N) window.open('/#c='+encodeURIComponent(D.ids[i]),'_blank'); }
+// fly the camera in and centre on a node (double-click on desktop, "◎ focus" on touch)
+function focusNode(i){
+  if(i<0 || i>=N) return;
+  const p=new THREE.Vector3(positions[i*3],positions[i*3+1],positions[i*3+2]);
+  let dir=camera.position.clone().sub(controls.target);
+  if(dir.lengthSq()<1e-6) dir.set(0,0,1);
+  dir.normalize();
+  animTo(p.clone().add(dir.multiplyScalar(0.34)), p.clone());   // close, along the current view
+}
+// tip sub-label: theme name in single-scheme mode; source-scheme title in overlay
+function tipSub(i){
+  const nm=D.clusterNames[D.cluster[i]];
+  if(overlay) return (schemeTitles && schemeTitles[nm]) ? shortTitle(schemeTitles[nm], nm) : nm;
+  return nm;
+}
+function showTip(i, x, y, pin){
+  tip.style.left=x+'px'; tip.style.top=y+'px'; tip.style.opacity=1;
+  if(pin){
+    tip.classList.add('pinned');
+    tip.innerHTML=`<b>${D.labels[i]}</b><span>${tipSub(i)}</span>`+
+      `<a class="focus" href="#" role="button">◎ focus</a><a class="open" href="#" role="button">open ↗</a>`;
+    tip.querySelector('.focus').addEventListener('click',e=>{ e.preventDefault(); focusNode(i); });
+    tip.querySelector('.open').addEventListener('click',e=>{ e.preventDefault(); openConcept(i); });
+  } else {
+    tip.classList.remove('pinned');
+    tip.innerHTML=`<b>${D.labels[i]}</b><span>${tipSub(i)}</span>`;
+  }
+}
+function hideTip(){ tip.style.opacity=0; tip.classList.remove('pinned'); pinned=-1; }
+// NDC of a pointer relative to the (possibly partial-height) canvas, not the window
+function canvasNDC(ev){ const r=renderer.domElement.getBoundingClientRect();
+  return [((ev.clientX-r.left)/r.width)*2-1, -(((ev.clientY-r.top)/r.height)*2-1)]; }
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+// Select-mode sculpting. The sphere is GRABBED only when you press ON it (its
+// projected circle + a modest border); presses OUTSIDE fall straight through to
+// OrbitControls, so you can still orbit (3D) or pan (2D) while selecting. Two
+// fingers on the sphere pinch-resize; the wheel / slider also resize.
+const activeP=new Map(); let pinchStart=0, pinchR0=0, grab=false, clickTimer=0;
+function pinchDist(){ const a=[...activeP.values()]; return a.length<2?0:Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]); }
+function moveSphereTo(ev){ const c=canvasNDC(ev); const v=selCenter.clone().project(camera);
+  v.x=c[0]; v.y=c[1]; v.unproject(camera); if(curDim===2) v.z=0; selCenter.copy(v); updateSphere(); }
+// is the pointer over the sphere's screen footprint (+ a modest grab border)?
+function sphereScreenHit(ev){
+  const r=renderer.domElement.getBoundingClientRect();
+  const c=selCenter.clone().project(camera);
+  if(c.z>1) return false;                                   // behind the camera
+  const right=new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld,0);
+  const edge=selCenter.clone().addScaledVector(right,selRadius).project(camera);
+  const cx=(c.x*0.5+0.5)*r.width, cy=(-c.y*0.5+0.5)*r.height;
+  const ex=(edge.x*0.5+0.5)*r.width, ey=(-edge.y*0.5+0.5)*r.height;
+  const rad=Math.hypot(ex-cx,ey-cy);
+  const px=ev.clientX-r.left, py=ev.clientY-r.top;
+  return Math.hypot(px-cx,py-cy) <= rad + Math.max(26, rad*0.2);
+}
+
+// capture phase so we can claim the gesture BEFORE OrbitControls sees it
+renderer.domElement.addEventListener('pointerdown',ev=>{
+  if(!selMode) return;
+  if(grab){ activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
+    if(activeP.size===2){ pinchStart=pinchDist(); pinchR0=selRadius; } ev.stopPropagation(); return; }
+  if(sphereScreenHit(ev)){
+    grab=true; controls.enabled=false; activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
+    try{ renderer.domElement.setPointerCapture(ev.pointerId); }catch(_){}
+    moveSphereTo(ev); recomputeSelection(); ev.stopPropagation();
+  }
+  // else: outside the sphere → let OrbitControls orbit/pan as normal
+}, true);
+renderer.domElement.addEventListener('pointermove',ev=>{
+  if(selMode && grab){
+    if(activeP.has(ev.pointerId)) activeP.set(ev.pointerId,[ev.clientX,ev.clientY]);
+    if(activeP.size>=2){ const d=pinchDist(); if(pinchStart>0) setRadius(pinchR0*d/pinchStart); }
+    else if(activeP.size===1){ moveSphereTo(ev); recomputeSelection(); }
+    ev.stopPropagation(); return;
+  }
+  if(selMode) return;                    // not grabbing: controls handle it, no hover
+  if(ev.pointerType==='touch') return;   // touch uses tap-to-pin, not hover
+  hover=pick(ev);
+  if(hover>=0){ showTip(hover, ev.clientX, ev.clientY, false); document.body.style.cursor='pointer'; }
+  else { if(pinned<0) tip.style.opacity=0; document.body.style.cursor='default'; }
+});
+renderer.domElement.addEventListener('pointerdown',ev=>{ if(selMode) return; downXY=[ev.clientX,ev.clientY,ev.pointerType]; });
+function endPointer(ev){
+  if(selMode){
+    if(grab){ activeP.delete(ev.pointerId); if(activeP.size<2) pinchStart=0;
+      if(activeP.size===0){ grab=false; controls.enabled=true; } scheduleTableRebuild(true); }
+    return;
+  }
+  if(!downXY) return; const moved=Math.hypot(ev.clientX-downXY[0],ev.clientY-downXY[1]);
+  const ptype=downXY[2]; downXY=null;
+  if(moved>6) return;                     // a drag (orbit), not a tap/click
+  const i=pick(ev);
+  if(ptype==='touch'){
+    if(i>=0){ pinned=i; showTip(i, ev.clientX, ev.clientY, true); }   // pin, don't navigate
+    else hideTip();                                                   // tap empty space dismisses
+  } else {
+    // mouse: single click opens (delayed so a double-click can cancel it and
+    // focus instead); double-click flies in and centres on the node
+    if(i>=0){ clearTimeout(clickTimer); clickTimer=setTimeout(()=>openConcept(i),240); }
+  }
+}
+renderer.domElement.addEventListener('pointerup',endPointer);
+renderer.domElement.addEventListener('pointercancel',endPointer);
+renderer.domElement.addEventListener('dblclick',ev=>{ clearTimeout(clickTimer); if(selMode) return;
+  const i=pick(ev); if(i>=0) focusNode(i); });
+// in select mode the wheel resizes the sphere (capture + stop so it doesn't also zoom)
+renderer.domElement.addEventListener('wheel',ev=>{ if(!selMode) return;
+  ev.preventDefault(); ev.stopPropagation(); setRadius(selRadius*(1-ev.deltaY*0.0015)); },
+  {passive:false, capture:true});
+
+addEventListener('resize',()=>relayout());
+
+// ---- in-place animated scheme switch (no page reload) ----
+// Reuse the particles on screen: ease shared particles from current -> new
+// target positions+colours, swirl the extras in/out, and rotate everything
+// about the centre by an angle that eases up then back to 0 so it reads as a
+// swirl. On any failure, fall back to a clean reload so it can't brick.
+let swirl = null;            // active transition state (null when idle)
+const easeIO = t => t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
+
+function applySchemeData(nd){
+  // commit a freshly-loaded layout `nd` as the live dataset
+  D = nd; N = nd.n; K = nd.k; palette = nd.colors.map(hex);
+  overlay = (slug === '_all' || nd.method === 'umap-combined');
+  resetSchemeOn(nd);
+  const a = layoutArrays(nd);
+  pos3 = a.p3; pos2 = a.p2; baseCol0 = a.bc;
+  // grow buffers if needed (rebuild attributes); else reuse and clamp draw range
+  if(N > cap){
+    cap = N;
+    positions = new Float32Array(cap*3);
+    colArr = new Float32Array(cap*3);
+    baseCol = new Float32Array(cap*3);
+    sizes = new Float32Array(cap).fill(1);
+    vis = new Float32Array(cap).fill(1);
+    visCur = new Float32Array(cap).fill(1);
+    selected = new Uint8Array(cap);
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
+    geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
+  }
+  baseCol.set(baseCol0.subarray(0, N*3));
+  for(let i=N;i<cap;i++){ sizes[i]=1; vis[i]=1; visCur[i]=1; }
+  syncVis(true);          // all schemes visible by default in overlay
+  geo.setDrawRange(0, N);
+  computeMaxR();          // refresh dist-from-centre scale for the new dataset
+}
+
+function refreshSchemeUI(nd, title){
+  setTitleText(title, slug);
+  countEl.textContent = N.toLocaleString() + ' concepts';
+  buildLegend();
+  applyOverlayMode();
+  q.value = '';
+  if(schemeSel.value !== slug) schemeSel.value = slug;
+  history.replaceState(null, '', '?scheme=' + encodeURIComponent(slug));
+  applyFilter();
+}
+
+async function switchScheme(next){
+  if(!next || next===slug || swirl || maskSwirl) return;
+  let nd;
+  try {
+    const res = await fetch(`/embeddings/${next}.layout.json`);
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    nd = await res.json();
+    if(!nd || !nd.n) throw new Error('empty layout');
+  } catch(e){
+    // couldn't load in-place. For the combined overlay, a hard reload would just
+    // hit the same missing file and brick the loader, so revert the dropdown to
+    // the current scheme instead. For a normal scheme, a clean hard load is fine.
+    if(next === '_all' || next.startsWith('_')){
+      schemeSel.value = slug;
+      return;
+    }
+    location.search = '?scheme=' + encodeURIComponent(next);
+    return;
+  }
+  try {
+    startSwirl(next, nd);
+  } catch(e){
+    // transition blew up — do a clean hard load of the new scheme
+    location.search = '?scheme=' + encodeURIComponent(next);
+  }
+}
+
+function setTitleText(title, s){
+  if(s === '_all') return;          // keep the fixed "✦ compare (overlay)" label
+  // reflect into the dropdown's selected option label (the visible title)
+  const opt = [...schemeSel.options].find(o=>o.value===s);
+  if(opt) opt.textContent = shortTitle(title, s);
+}
+
+function startSwirl(next, nd){
+  const oldN = N;
+  const oldDim = curDim;
+  // snapshot current live positions & colours of every reused particle
+  const newArrs = layoutArrays(nd);
+  const newN = nd.n;
+  const newCap = Math.max(cap, newN);
+  // start (current screen) state, padded to newCap
+  const from = new Float32Array(newCap*3);
+  from.set(positions.subarray(0, Math.min(positions.length, newCap*3)));
+  const fromCol = new Float32Array(newCap*3);
+  fromCol.set(baseCol.subarray(0, Math.min(baseCol.length, newCap*3)));
+  // target (new scheme) positions for the current dim, + new colours
+  const tgtPos = oldDim===3 ? newArrs.p3 : newArrs.p2;
+  const tgt = new Float32Array(newCap*3);
+  tgt.set(tgtPos.subarray(0, newN*3));
+  const tgtCol = new Float32Array(newCap*3);
+  tgtCol.set(newArrs.bc.subarray(0, newN*3));
+  // extras that swirl in (newN>oldN): seed from a random/spiral offset so they
+  // fly in from around the centre toward their target
+  for(let i=oldN;i<newN;i++){
+    const ang=i*2.399963, rad=2.2+Math.random()*1.5;   // golden-angle spiral
+    from[i*3]   = Math.cos(ang)*rad;
+    from[i*3+1] = (Math.random()-0.5)*0.6;
+    from[i*3+2] = Math.sin(ang)*rad;
+    fromCol[i*3]=tgtCol[i*3]; fromCol[i*3+1]=tgtCol[i*3+1]; fromCol[i*3+2]=tgtCol[i*3+2];
+  }
+  // extras that swirl out (oldN>newN): push their target outward + fade to black
+  for(let i=newN;i<oldN;i++){
+    const ang=i*2.399963, rad=3.2+Math.random()*1.5;
+    tgt[i*3]   = Math.cos(ang)*rad;
+    tgt[i*3+1] = (Math.random()-0.5)*0.8;
+    tgt[i*3+2] = Math.sin(ang)*rad;
+    tgtCol[i*3]=0; tgtCol[i*3+1]=0; tgtCol[i*3+2]=0;
+  }
+  // ensure live buffers are big enough to animate newCap particles
+  if(newCap > cap){
+    cap = newCap;
+    const np=new Float32Array(cap*3); np.set(positions); positions=np;
+    const nc=new Float32Array(cap*3); nc.set(colArr); colArr=nc;
+    const nb=new Float32Array(cap*3); nb.set(baseCol); baseCol=nb;
+    const ns=new Float32Array(cap).fill(1); ns.set(sizes); sizes=ns;
+    const nv=new Float32Array(cap).fill(1); nv.set(vis); vis=nv;
+    const nvc=new Float32Array(cap).fill(1); nvc.set(visCur); visCur=nvc;
+    const nse=new Uint8Array(cap); nse.set(selected); selected=nse;
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
+    geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
+  }
+  // draw the union of old+new during the transition so nothing pops
+  geo.setDrawRange(0, Math.max(oldN, newN));
+  hideTip();
+  swirl = { from, tgt, fromCol, tgtCol, max:Math.max(oldN,newN), s:0,
+            next, nd, newN, oldDim };
+}
+
+function stepSwirl(){
+  const sw=swirl, e=easeIO(sw.s);
+  const ang = Math.sin(sw.s*Math.PI) * 0.9;   // up then back to 0 -> a swirl
+  const ca=Math.cos(ang), sa=Math.sin(ang);
+  const n=sw.max;
+  for(let i=0;i<n;i++){
+    const x=sw.from[i*3]+(sw.tgt[i*3]-sw.from[i*3])*e;
+    const y=sw.from[i*3+1]+(sw.tgt[i*3+1]-sw.from[i*3+1])*e;
+    const z=sw.from[i*3+2]+(sw.tgt[i*3+2]-sw.from[i*3+2])*e;
+    // rotate about the centre in the XZ plane (3D) for the swirl read
+    positions[i*3]   = x*ca - z*sa;
+    positions[i*3+1] = y;
+    positions[i*3+2] = x*sa + z*ca;
+    colArr[i*3]   = sw.fromCol[i*3]   + (sw.tgtCol[i*3]  -sw.fromCol[i*3])  *e;
+    colArr[i*3+1] = sw.fromCol[i*3+1] + (sw.tgtCol[i*3+1]-sw.fromCol[i*3+1])*e;
+    colArr[i*3+2] = sw.fromCol[i*3+2] + (sw.tgtCol[i*3+2]-sw.fromCol[i*3+2])*e;
+  }
+  geo.attributes.position.needsUpdate=true;
+  geo.attributes.color.needsUpdate=true;
+  sw.s = Math.min(1, sw.s + 0.013);   // ~1.3s at 60fps
+  if(sw.s>=1) finishSwirl();
+}
+
+function finishSwirl(){
+  const sw=swirl; swirl=null;
+  slug = sw.next;
+  applySchemeData(sw.nd);
+  // snap live positions exactly to the new scheme for the current dim
+  const src = curDim===3 ? pos3 : pos2;
+  positions.set(src.subarray(0, N*3));
+  colArr.set(baseCol.subarray(0, N*3));
+  target = curDim===3 ? pos3 : pos2; morph = 1;
+  geo.attributes.position.needsUpdate=true;
+  geo.attributes.color.needsUpdate=true;
+  // resolve and apply the title shown in the header
+  const title = schemeTitles[slug];
+  refreshSchemeUI(sw.nd, title);
+  clearSelection();   // selection indices belong to the old scheme — drop them
+  closeBlends();      // any candidate spheres were for the old dataset
+}
+
+// ---- overlay: add/remove ONE scheme with a swirl, others stay put ----------
+// Animate only the toggled scheme's points: hidden -> spiral out + fade; shown
+// -> spiral in from the same ring to their `_all` layout positions. Per-point
+// visibility (visCur) eases alongside so colour/size follow via applyFilter.
+let maskSwirl = null;
+function toggleScheme(c, show){
+  if(!overlay) return;
+  const idx=[]; for(let i=0;i<N;i++) if(D.cluster[i]===c) idx.push(i);
+  if(!idx.length){ vis[c]=show?1:0; return; }
+  const src = curDim===3 ? pos3 : pos2;     // canonical layout for the live dim
+  const from=new Float32Array(idx.length*3), tgt=new Float32Array(idx.length*3);
+  const fromV=new Float32Array(idx.length),  tgtV=new Float32Array(idx.length);
+  for(let j=0;j<idx.length;j++){
+    const i=idx[j];
+    const ang=i*2.399963, rad=2.6+ (i%7)*0.22;   // golden-angle spiral ring
+    const sx=Math.cos(ang)*rad, sy=(((i*131)%100)/100-0.5)*0.8, sz=Math.sin(ang)*rad;
+    const lx=src[i*3], ly=src[i*3+1], lz=src[i*3+2];
+    if(show){ from[j*3]=sx; from[j*3+1]=sy; from[j*3+2]=sz; tgt[j*3]=lx; tgt[j*3+1]=ly; tgt[j*3+2]=lz; fromV[j]=0; tgtV[j]=1; }
+    else    { from[j*3]=lx; from[j*3+1]=ly; from[j*3+2]=lz; tgt[j*3]=sx; tgt[j*3+1]=sy; tgt[j*3+2]=sz; fromV[j]=1; tgtV[j]=0; }
+  }
+  hideTip();
+  maskSwirl = { idx, from, tgt, fromV, tgtV, show, c, s:0 };
+}
+function stepMaskSwirl(){
+  const sw=maskSwirl, e=easeIO(sw.s);
+  const ang=Math.sin(sw.s*Math.PI)*0.7, ca=Math.cos(ang), sa=Math.sin(ang);
+  for(let j=0;j<sw.idx.length;j++){
+    const i=sw.idx[j];
+    const x=sw.from[j*3]+(sw.tgt[j*3]-sw.from[j*3])*e;
+    const y=sw.from[j*3+1]+(sw.tgt[j*3+1]-sw.from[j*3+1])*e;
+    const z=sw.from[j*3+2]+(sw.tgt[j*3+2]-sw.from[j*3+2])*e;
+    positions[i*3]   = x*ca - z*sa;
+    positions[i*3+1] = y;
+    positions[i*3+2] = x*sa + z*ca;
+    visCur[i] = sw.fromV[j] + (sw.tgtV[j]-sw.fromV[j])*e;
+  }
+  applyFilter();                       // reflect visCur into colour + size
+  geo.attributes.position.needsUpdate=true;
+  sw.s=Math.min(1, sw.s+0.022);        // ~0.75s at 60fps
+  if(sw.s>=1) finishMaskSwirl();
+}
+function finishMaskSwirl(){
+  const sw=maskSwirl; maskSwirl=null;
+  const src = curDim===3 ? pos3 : pos2;
+  for(let j=0;j<sw.idx.length;j++){
+    const i=sw.idx[j];
+    vis[i] = sw.show?1:0; visCur[i]=sw.show?1:0;
+    if(sw.show){ positions[i*3]=src[i*3]; positions[i*3+1]=src[i*3+1]; positions[i*3+2]=src[i*3+2]; }
+  }
+  applyFilter();
+  geo.attributes.position.needsUpdate=true;
+}
+
+// ===========================================================================
+//  Selection sphere + node table + tabs/split  (touch-first)
+// ===========================================================================
+// A shimmering, pulsing sphere you drag over the cloud to HIGHLIGHT a set of
+// concepts; the set drives a table (label · scheme · cluster · distance from
+// centre 0–1 · url) shown in its own tab or split below the galaxy.
+
+// --- distance-from-centre, scaled 0..1 over the current dim ---
+function computeMaxR(){
+  maxR3=1e-6; maxR2=1e-6;
+  for(let i=0;i<N;i++){
+    const r3=Math.hypot(pos3[i*3],pos3[i*3+1],pos3[i*3+2]); if(r3>maxR3)maxR3=r3;
+    const r2=Math.hypot(pos2[i*3],pos2[i*3+1]);             if(r2>maxR2)maxR2=r2;
+  }
+}
+function distNorm(i){
+  return curDim===2 ? Math.min(1, Math.hypot(pos2[i*3],pos2[i*3+1])/maxR2)
+                    : Math.min(1, Math.hypot(pos3[i*3],pos3[i*3+1],pos3[i*3+2])/maxR3);
+}
+computeMaxR();
+
+// --- the shimmer/pulse selection bubble ---
+const sphMat=new THREE.ShaderMaterial({
+  uniforms:{ uTime:{value:0}, uColor:{value:new THREE.Color('#8fe0ff')} },
+  transparent:true, depthWrite:false, side:THREE.DoubleSide, blending:THREE.AdditiveBlending,
+  vertexShader:`varying vec3 vN; varying vec3 vV;
+    void main(){ vN=normalize(normalMatrix*normal);
+      vec4 mv=modelViewMatrix*vec4(position,1.0); vV=normalize(-mv.xyz);
+      gl_Position=projectionMatrix*mv; }`,
+  fragmentShader:`uniform float uTime; uniform vec3 uColor; varying vec3 vN; varying vec3 vV;
+    void main(){ float fres=pow(1.0-abs(dot(vN,vV)),2.2);
+      float pulse=0.62+0.38*sin(uTime*3.0);
+      float shim=0.82+0.18*sin(uTime*7.0+vN.x*9.0+vN.y*7.0+vN.z*5.0);
+      float a=(0.05+fres*0.85)*pulse*shim;
+      gl_FragColor=vec4(uColor*(0.5+0.9*fres), a); }`
+});
+const sphMesh=new THREE.Mesh(new THREE.SphereGeometry(1,48,32), sphMat);
+sphMesh.visible=false; scene.add(sphMesh);
+const selCenter=new THREE.Vector3(0,0,0); let selRadius=0.55, selMode=false;
+const R_MIN=0.03, R_MAX=1.4;   // useful sphere sizes; the cloud spans roughly ±1.3
+function updateSphere(){ sphMesh.position.copy(selCenter); sphMesh.scale.setScalar(selRadius); }
+// radius slider uses a quadratic curve so the low end (precise, small spheres)
+// gets most of the travel instead of being wasted on huge radii
+function setRadius(r){ selRadius=clamp(r,R_MIN,R_MAX); updateSphere(); syncRadiusSlider(); recomputeSelection(); }
+
+const selRadEl=document.getElementById('selrad');
+const selBtn=document.getElementById('sel'), selBar=document.getElementById('selbar');
+const selcnt=document.getElementById('selcnt');
+function syncRadiusSlider(){ selRadEl.value=Math.sqrt(Math.max(0,(selRadius-R_MIN)/(R_MAX-R_MIN))); }
+function setSelMode(on){
+  selMode=on; selBtn.classList.toggle('on',on); sphMesh.visible=on; selBar.hidden=!on;
+  document.body.classList.toggle('selecting',on);
+  if(!on){ grab=false; controls.enabled=true; }   // controls stay live; only an
+  controls.autoRotate=(!on && spinOn && curDim===3); // active grab disables them
+  if(on){ if(selCount===0) selCenter.copy(controls.target);
+    updateSphere(); syncRadiusSlider(); recomputeSelection(); }
+}
+selBtn.onclick=()=>setSelMode(!selMode);
+document.getElementById('seldone').onclick=()=>setSelMode(false);
+selRadEl.oninput=()=>{ const t=parseFloat(selRadEl.value)||0; setRadius(R_MIN+(R_MAX-R_MIN)*t*t); };
+
+// --- which points fall inside the bubble (visible ones only, in overlay) ---
+function recomputeSelection(){
+  const r2=selRadius*selRadius; selCount=0;
+  for(let i=0;i<N;i++){
+    let inside=0;
+    if(!overlay || visCur[i]>0.5){
+      const dx=positions[i*3]-selCenter.x, dy=positions[i*3+1]-selCenter.y, dz=positions[i*3+2]-selCenter.z;
+      if(dx*dx+dy*dy+dz*dz<=r2) inside=1;
+    }
+    selected[i]=inside; if(inside) selCount++;
+  }
+  updateSelCount(); applyFilter(); scheduleTableRebuild(false);
+}
+function clearSelection(){ selected.fill(0); selCount=0; updateSelCount(); applyFilter(); rebuildTable(); }
+
+// --- table column values ---
+// scheme  = source scheme (overlay) or the loaded scheme (single)
+// cluster = clusterNames[cluster[i]] (a theme in single mode, the scheme in overlay)
+function schemeNameOf(i){
+  if(overlay){ const nm=D.clusterNames[D.cluster[i]]; return (schemeTitles&&schemeTitles[nm])?shortTitle(schemeTitles[nm],nm):nm; }
+  return (schemeTitles&&schemeTitles[slug])?shortTitle(schemeTitles[slug],slug):slug;
+}
+function clusterNameOf(i){ return D.clusterNames[D.cluster[i]]; }
+
+// --- tabs + split layout ---
+const tabs=document.getElementById('tabs'), tablewrap=document.getElementById('tablewrap'), grip=document.getElementById('grip');
+const tabcount=document.getElementById('tabcount'), selinfo=document.getElementById('selinfo');
+let mode='galaxy', splitFrac=0.55, galaxyVisible=true;
+function resizeRenderer(w,h){ camera.aspect=w/Math.max(1,h); camera.updateProjectionMatrix();
+  renderer.setSize(w,h); composer.setSize(w,h); mat.uniforms.scale.value=h*0.5; }
+function relayout(){
+  const H=innerHeight, W=innerWidth;
+  const gpx = mode==='galaxy' ? H : mode==='table' ? 0 : Math.round(H*splitFrac);
+  app.style.top='0px'; app.style.height=gpx+'px';
+  const ttop = mode==='table' ? 0 : gpx;
+  tablewrap.hidden=(mode==='galaxy'); tablewrap.style.top=ttop+'px'; tablewrap.style.height=(H-ttop)+'px';
+  grip.hidden=(mode!=='split'); if(mode==='split') grip.style.top=(gpx-7)+'px';
+  galaxyVisible = gpx>0;
+  if(gpx>0) resizeRenderer(W,gpx);
+}
+function setMode(m){ mode=m;
+  document.body.classList.remove('mode-galaxy','mode-split','mode-table'); document.body.classList.add('mode-'+m);
+  [...tabs.children].forEach(b=>b.classList.toggle('on',b.dataset.mode===m));
+  relayout(); if(m!=='galaxy') rebuildTable();
+}
+tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+
+// grip drag (the split divider) — a row-resize handle, touch + mouse
+let gripDrag=false;
+grip.addEventListener('pointerdown',e=>{ gripDrag=true; try{grip.setPointerCapture(e.pointerId);}catch(_){} e.preventDefault(); });
+addEventListener('pointermove',e=>{ if(!gripDrag) return; splitFrac=Math.min(0.85,Math.max(0.15,e.clientY/innerHeight)); relayout(); });
+addEventListener('pointerup',()=>{ if(gripDrag){ gripDrag=false; } });
+
+// --- the node table ---
+const seltable=document.getElementById('seltable'), tempty=document.getElementById('tempty');
+function escHtml(s){ return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function escAttr(s){ return escHtml(s).replace(/"/g,'&quot;'); }
+function updateSelCount(){ selcnt.textContent=selCount;
+  tabcount.textContent=selCount>999?'999+':selCount; tabcount.hidden=selCount===0;
+  selinfo.textContent=selCount.toLocaleString()+' nodes selected'; }
+function selRows(){ const r=[]; for(let i=0;i<N;i++) if(selected[i]) r.push(i);
+  r.sort((a,b)=>distNorm(a)-distNorm(b)); return r; }   // nearest the centre first
+// Smart URL trim: elide the prefix common to the WHOLE selection (back off to the
+// last /, # or :) so the table shows only the varying tails, not the shared stem.
+function commonPrefixLen(strs){
+  if(strs.length<2) return 0; let p=strs[0];
+  for(const s of strs){ let i=0; const m=Math.min(p.length,s.length); while(i<m&&p[i]===s[i])i++; p=p.slice(0,i); if(!p)break; }
+  const cut=Math.max(p.lastIndexOf('/'),p.lastIndexOf('#'),p.lastIndexOf(':'));
+  return cut>0?cut+1:0;
+}
+let tableTimer=0;
+function scheduleTableRebuild(now){ if(mode==='galaxy') return; clearTimeout(tableTimer); tableTimer=setTimeout(rebuildTable, now?0:140); }
+function rebuildTable(){
+  const rows=selRows(); updateSelCount();
+  tempty.style.display=rows.length?'none':'block';
+  seltable.style.display=rows.length?'':'none';
+  if(mode==='galaxy') return;            // don't build DOM when the table isn't shown
+  const ids=rows.map(i=>D.ids[i]); const cut=commonPrefixLen(ids);
+  const CAP=800, show=rows.slice(0,CAP); let html='';
+  for(const i of show){
+    const id=D.ids[i], tail=id.slice(cut), dn=distNorm(i), col=D.colors[D.cluster[i]];
+    html+=`<tr><td class="lab" title="${escAttr(D.labels[i])}">${escHtml(D.labels[i])}</td>`
+        +`<td class="sch">${escHtml(schemeNameOf(i))}</td>`
+        +`<td class="clu"><span class="dot" style="color:${col}"></span>${escHtml(clusterNameOf(i))}</td>`
+        +`<td class="dist">${dn.toFixed(2)}<span class="distbar" style="width:${Math.round(dn*44)}px"></span></td>`
+        +`<td class="url"><a href="/#c=${encodeURIComponent(id)}" target="_blank" rel="noopener" title="${escAttr(id)}">`
+        +`${cut>0?'<span class="stem">…</span>':''}${escHtml(tail)}</a></td></tr>`;
+  }
+  if(rows.length>CAP) html+=`<tr><td colspan="5" style="color:#7b88b0;padding:.6rem">…and ${(rows.length-CAP).toLocaleString()} more (copy / save exports all)</td></tr>`;
+  seltable.tBodies[0].innerHTML=html;
+}
+function rowsCSV(){
+  const esc=v=>{ v=String(v); return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; };
+  const lines=[['label','scheme','cluster','distance_0_1','url'].join(',')];
+  for(const i of selRows()) lines.push([D.labels[i],schemeNameOf(i),clusterNameOf(i),distNorm(i).toFixed(4),D.ids[i]].map(esc).join(','));
+  return lines.join('\n');
+}
+function flash(btn,txt){ const o=btn.textContent; btn.textContent=txt; setTimeout(()=>{ btn.textContent=o; },1100); }
+document.getElementById('copysel').onclick=function(){ const t=rowsCSV(); const b=this;
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>flash(b,'copied ✓')).catch(()=>flash(b,'copy failed'));
+  else flash(b,'copy unavailable'); };
+document.getElementById('savesel').onclick=()=>{ const blob=new Blob([rowsCSV()],{type:'text/csv'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(slug||'selection')+'-nodes.csv';
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+document.getElementById('clearsel').onclick=()=>clearSelection();
+
+// ===========================================================================
+//  "Blends" finder — auto-pick spheres that MIX schemes  (overlay only)
+// ===========================================================================
+// Scans candidate centres for a sphere of ~25 nodes whose membership splits
+// evenly across 2 (≈50/50) or 3 (≈⅓ each) of the visible schemes — i.e. the
+// places where schemes actually mingle. Lists them with coloured scheme chips +
+// sample labels, draws every candidate as a ghost sphere, and on click drops the
+// real selection sphere there. Only visible (toggled-on) schemes are considered.
+const ghostGeo=new THREE.SphereGeometry(1,24,16);
+const ghostGroup=new THREE.Group(); scene.add(ghostGroup);
+let blendCands=[], blendOpen=false;
+const blendBtn=document.getElementById('blendbtn'), blendPanel=document.getElementById('blends'), blendList=document.getElementById('blendlist');
+
+// the K nearest points to (cx,cy,cz), kept without a full per-seed sort
+function nearestK(src,dim3,cx,cy,cz,K){
+  const best=[]; let worst=Infinity;
+  for(let i=0;i<N;i++){ if(overlay && visCur[i]<0.5) continue;
+    const dx=src[i*3]-cx, dy=src[i*3+1]-cy, dz=(dim3?src[i*3+2]:0)-cz;
+    const d=dx*dx+dy*dy+dz*dz;
+    if(best.length<K){ best.push([d,i]); if(best.length===K){ best.sort((a,b)=>a[0]-b[0]); worst=best[K-1][0]; } }
+    else if(d<worst){ best[K-1]=[d,i]; let j=K-1; while(j>0 && best[j][0]<best[j-1][0]){ const t=best[j];best[j]=best[j-1];best[j-1]=t;j--; } worst=best[K-1][0]; }
+  }
+  if(best.length<K) best.sort((a,b)=>a[0]-b[0]);
+  return best;
+}
+function findBlends(){
+  const dim3=curDim===3, src=dim3?pos3:pos2, want=25;
+  const seeds=[]; const step=Math.max(1,Math.floor(N/500));
+  for(let i=0;i<N;i++){ if(i%step===0 && (!overlay||visCur[i]>0.5)) seeds.push(i); }
+  const out=[];
+  for(const s of seeds){
+    const cx=src[s*3], cy=src[s*3+1], cz=dim3?src[s*3+2]:0;
+    const nn=nearestK(src,dim3,cx,cy,cz,want);
+    if(nn.length<want) continue;
+    const cnt={}; for(const [,i] of nn){ const c=D.cluster[i]; cnt[c]=(cnt[c]||0)+1; }
+    const schemes=Object.keys(cnt).map(Number);
+    if(schemes.length<2) continue;                 // need an actual mix
+    const ideal=want/schemes.length; let dev=0; for(const c of schemes) dev+=Math.abs(cnt[c]-ideal);
+    const balance=1-dev/(2*want);                  // 1 = perfectly even split
+    const radius=Math.sqrt(nn[nn.length-1][0])*1.08;
+    out.push({ cx,cy,cz,radius,cnt,schemes,balance, ids:nn.map(x=>x[1]),
+      score: balance*2 + (schemes.length===2||schemes.length===3?0.5:0) });
+  }
+  out.sort((a,b)=>b.score-a.score);
+  const picked=[];                                 // spatially diverse top picks
+  for(const c of out){
+    if(picked.some(p=>Math.hypot(p.cx-c.cx,p.cy-c.cy,p.cz-c.cz) < Math.max(p.radius,c.radius)*0.85)) continue;
+    picked.push(c); if(picked.length>=6) break;
+  }
+  return picked;
+}
+function clearGhosts(){ while(ghostGroup.children.length){ const m=ghostGroup.children.pop(); m.material.dispose(); } }
+function renderGhosts(hi){
+  clearGhosts();
+  blendCands.forEach((c,k)=>{ const on=k===hi;
+    const m=new THREE.Mesh(ghostGeo, new THREE.MeshBasicMaterial({ color:on?0x8fe0ff:0xffffff,
+      wireframe:true, transparent:true, opacity:on?0.6:0.16, depthWrite:false }));
+    m.position.set(c.cx,c.cy,c.cz); m.scale.setScalar(c.radius); ghostGroup.add(m);
+  });
+}
+function chipFor(c, n){
+  const nm=D.clusterNames[c]; const title=(schemeTitles&&schemeTitles[nm])?shortTitle(schemeTitles[nm],nm):nm;
+  return `<span class="chip" style="color:${D.colors[c]}"><span class="dot" style="color:${D.colors[c]}"></span>${escHtml(title)} ${n}</span>`;
+}
+function openBlends(){
+  blendCands=findBlends(); blendOpen=true; blendPanel.hidden=false;
+  if(!blendCands.length){
+    blendList.innerHTML='<div class="bnone">No clearly mixed spheres in the current view. Toggle more schemes on (legend) and try again, or switch 2D/3D.</div>';
+    renderGhosts(-1); return;
+  }
+  let html='';
+  blendCands.forEach((c,k)=>{
+    const chips=c.schemes.slice().sort((a,b)=>c.cnt[b]-c.cnt[a]).map(s=>chipFor(s,c.cnt[s])).join('');
+    const labs=c.ids.slice(0,4).map(i=>escHtml(D.labels[i])).join(' · ');
+    html+=`<button class="blend" data-k="${k}"><div class="chips">${chips}</div><div class="samp">${labs} …</div></button>`;
+  });
+  blendList.innerHTML=html;
+  blendList.querySelectorAll('.blend').forEach(el=>{ const k=+el.dataset.k;
+    el.addEventListener('pointerenter',()=>renderGhosts(k));
+    el.addEventListener('focus',()=>renderGhosts(k));
+    el.addEventListener('click',()=>applyCandidate(k));
+  });
+  renderGhosts(-1);
+}
+function closeBlends(){ if(!blendOpen) return; blendOpen=false; if(blendPanel) blendPanel.hidden=true; clearGhosts(); }
+function applyCandidate(k){
+  const c=blendCands[k]; if(!c) return;
+  if(!selMode) setSelMode(true);
+  selCenter.set(c.cx,c.cy,c.cz); setRadius(c.radius);   // setRadius updates + reselects
+  closeBlends();
+  if(mode==='galaxy') setMode('split'); else rebuildTable();   // reveal the resulting table
+}
+if(blendBtn) blendBtn.onclick=()=>{ if(blendOpen){ closeBlends(); return; }
+  blendBtn.textContent='scanning…'; blendBtn.disabled=true;
+  setTimeout(()=>{ try{ openBlends(); } finally { blendBtn.textContent='✦ blends'; blendBtn.disabled=false; } }, 30); };
+document.getElementById('blendclose').onclick=closeBlends;
+
+setMode('galaxy');
+
+// ---- render loop ----
+function tick(){
+  requestAnimationFrame(tick);
+  let moved=false;
+  if(swirl){ stepSwirl(); moved=true; }
+  else if(maskSwirl){ stepMaskSwirl(); moved=true; }
+  else if(morph<1){ morph=Math.min(1,morph+0.04);
+    for(let i=0;i<N*3;i++){ if(overlay && visCur[i]<0.001) continue; positions[i]+=(target[i]-positions[i])*0.18; }
+    geo.attributes.position.needsUpdate=true; moved=true; }
+  // keep the highlight following the cloud during a 2D/3D morph or overlay toggle
+  if(moved && !swirl && (selMode || selCount>0)) recomputeSelection();
+  if(camAnim){ camAnim.s=Math.min(1,camAnim.s+0.04); const e=1-Math.pow(1-camAnim.s,3);
+    camera.position.lerpVectors(camAnim.p0,camAnim.p1,e); controls.target.lerpVectors(camAnim.t0,camAnim.t1,e);
+    if(camAnim.s>=1) camAnim=null; }
+  if(sphMesh.visible) sphMat.uniforms.uTime.value = performance.now()/1000;
+  controls.update();
+  if(galaxyVisible) composer.render();
+}
+tick();
+</script>
+</body>
+</html>

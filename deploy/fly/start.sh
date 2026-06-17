@@ -283,20 +283,26 @@ fi
 # --- embeddings APIs (background; non-essential, never gate serving) ---------
 # query-embed sidecar (Python, same model as the corpus) powers /api/search text
 # search; the node KNN server answers /api/similar etc. and calls the sidecar.
+# Both run in a restart loop and log to stdout (fly logs) so a crash — e.g. an
+# OOM during the boot RAM peak while the big e5 model loads — self-heals once
+# memory frees, and the actual error is visible (not hidden in a /tmp file).
 if command -v python3 >/dev/null 2>&1 && [ -f /opt/skosdex/embed_query.py ]; then
   echo "starting query-embed sidecar on 127.0.0.1:8089"
-  SKOSDEX_MODEL_DIR=/opt/skosdex/models EMB_QUERY_PORT=8089 \
-    python3 /opt/skosdex/embed_query.py > /tmp/embed-query.log 2>&1 &
+  ( while true; do
+      SKOSDEX_MODEL_DIR=/opt/skosdex/models EMB_QUERY_PORT=8089 \
+        python3 /opt/skosdex/embed_query.py 2>&1 | sed 's/^/[embed-query] /'
+      echo "[embed-query] exited ($?) — restarting in 10s"; sleep 10
+    done ) &
 else
   echo "WARN: python3 or embed_query.py missing — /api/search text search disabled"
 fi
-# KNN over the combined MiniLM space (_all.emb.*). nginx proxies /api/ -> :8088.
+# KNN over the combined e5 space (_all.emb.*). nginx proxies /api/ -> :8088.
 if command -v node >/dev/null 2>&1 && [ -f /opt/skosdex/embed_api.mjs ]; then
   echo "starting embeddings API on 127.0.0.1:8088"
-  EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 \
-    > /tmp/embed-api.log 2>&1 &
-else
-  echo "WARN: node or embed_api.mjs missing — /api/ similarity disabled"
+  ( while true; do
+      EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 2>&1 | sed 's/^/[embed-api] /'
+      echo "[embed-api] exited ($?) — restarting in 10s"; sleep 10
+    done ) &
 fi
 
 # --- nginx front proxy -------------------------------------------------------

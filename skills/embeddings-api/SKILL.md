@@ -1,13 +1,13 @@
 ---
 name: embeddings-api
-description: Use when working with skosdex concept embeddings — the per-scheme and combined vectors, their JSON formats, the in-browser "similar by meaning" / galaxy consumers, or the server-side similarity REST API (tools/embed_api.mjs). Covers how to build, combine, query, and extend them.
+description: Use when working with skosdex concept embeddings — the per-scheme and combined vectors, their JSON formats, the in-browser "similar by meaning" / viz consumers, or the server-side similarity REST API (tools/embed_api.mjs). Covers how to build, combine, query, and extend them.
 license: Apache-2.0
 ---
 
 # skosdex embeddings: vectors, JSON formats, and the REST API
 
 Every concept can be embedded into one shared semantic space and queried for
-nearest neighbours (cross-scheme), browsed as a 3D "galaxy", or served over a
+nearest neighbours (cross-scheme), browsed as a 3D map (viz.html), or served over a
 small REST API. All schemes use the **same** multilingual model
 (`multilingual-e5-large-instruct`, Microsoft, MIT, ONNX), 1024-dim,
 **L2-normalised** via the shared `tools/embed_model.py` — so vectors are directly
@@ -49,7 +49,7 @@ Decode f16 → float32 in JS with a half-float expander (see `half2float` in
   current concept's scheme `<slug>.emb.*`, does cosine-KNN client-side
   (`embSimilar`), keyed off `index.json`. New embedded schemes light up
   automatically — no code change.
-- **Galaxy** (`deploy/fly/www/galaxy.html?scheme=<slug>`): renders `<slug>.layout.json`
+- **Viz** (`deploy/fly/www/viz.html?scheme=<slug>`): renders `<slug>.layout.json`
   in Three.js; the header dropdown lists every non-`_all` entry of `index.json`.
 
 ## REST API (`tools/embed_api.mjs`) — **live** at `https://skosdex.fly.dev/api/`

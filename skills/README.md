@@ -16,7 +16,7 @@ instructions stay out of the way until they're relevant.
 | [`build-data-bundle`](build-data-bundle/SKILL.md) | Producing the shippable `dist/` dataset and Solr docs. |
 | [`run-endpoints`](run-endpoints/SKILL.md) | Bringing up the SPARQL + Solr + web containers. |
 | [`deploy-fly`](deploy-fly/SKILL.md) | Redeploying the live stack on Fly.io (direct vs cutover); debugging the box + Solr/seed gotchas. |
-| [`embeddings-api`](embeddings-api/SKILL.md) | Concept embeddings: vectors, JSON formats, in-browser KNN/galaxy, and the similarity REST API. |
+| [`embeddings-api`](embeddings-api/SKILL.md) | Concept embeddings: vectors, JSON formats, in-browser KNN/viz, and the similarity REST API. |
 
 These skills are usable both by humans reading them and by agents (drop the
 `skills/` folder where your agent tooling looks for skills, or point it here).

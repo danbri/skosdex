@@ -54,9 +54,12 @@ ENV SKOSDEX_MODEL_DIR=/opt/skosdex/models
 # with the same model, so query and document vectors are comparable.
 RUN mkdir -p /opt/skosdex/models \
  && B=https://huggingface.co/intfloat/multilingual-e5-large-instruct/resolve/main/onnx \
- && curl -fsSL -o /opt/skosdex/models/model.onnx      "$B/model.onnx" \
- && curl -fsSL -o /opt/skosdex/models/model.onnx_data "$B/model.onnx_data" \
- && curl -fsSL -o /opt/skosdex/models/tokenizer.json  "$B/tokenizer.json"
+ && curl -fsSL --retry 4 --retry-delay 5 -o /opt/skosdex/models/model.onnx      "$B/model.onnx" \
+ && curl -fsSL --retry 4 --retry-delay 5 -o /opt/skosdex/models/model.onnx_data "$B/model.onnx_data" \
+ && curl -fsSL --retry 4 --retry-delay 5 -o /opt/skosdex/models/tokenizer.json  "$B/tokenizer.json"
+# Verify the baked model actually loads (catches a truncated 2.2GB download —
+# curl -f only checks HTTP status, not a mid-stream drop — at build, not runtime).
+RUN python3 -c "import os,onnxruntime as o; d='/opt/skosdex/models'; s=os.path.getsize(d+'/model.onnx_data'); assert s>2_000_000_000,'model.onnx_data truncated: %d'%s; o.InferenceSession(d+'/model.onnx',providers=['CPUExecutionProvider']); print('e5 model verified: loads OK, data %d MB'%(s//1024//1024))"
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start

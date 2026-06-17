@@ -67,7 +67,7 @@ docker compose up --build  # SPARQL + Solr + web, dataset baked in
 - SPARQL query → http://localhost:7878/query
 - Solr admin → http://localhost:8983/solr
 
-## Live service: SPARQL, Solr, galaxy + embeddings API
+## Live service: SPARQL, Solr, viz + embeddings API
 
 The hosted stack is **https://skosdex.fly.dev** (Oxigraph + Solr + nginx, one box):
 
@@ -75,7 +75,7 @@ The hosted stack is **https://skosdex.fly.dev** (Oxigraph + Solr + nginx, one bo
 |------|------|
 | `POST /query` | SPARQL (Oxigraph) |
 | `GET /solr/skos/select` | Solr search (read-only) + `/autocomplete?q=` |
-| `GET /galaxy.html?scheme=<slug>` | 3D/2D embedding "galaxy" (`_all` = all schemes overlaid) |
+| `GET /viz.html?scheme=<slug>` | 3D/2D embedding map (`_all` = all schemes overlaid; `/galaxy.html` redirects here) |
 | `GET /api/…` | **embeddings similarity API** (below) |
 | `GET /embeddings/…` | raw vectors + UMAP layouts (CORS-open static files) |
 
@@ -118,13 +118,13 @@ Run it locally with `node tools/embed_api.mjs 8088` (reads `deploy/fly/www/embed
 
 **2. Raw vectors as static files** (`/embeddings/`, CORS-open) — fetch the
 `n×1024` float16 blob + `{ids, labels, scheme}` and run your own KNN client-side
-(this is what the galaxy does):
+(this is what the viz does):
 
 ```
 /embeddings/index.json          # registry of embedded slugs (_all = combined)
 /embeddings/_all.emb.f16        # n×1024 float16 (LE) vectors, all schemes
 /embeddings/_all.emb.json       # {model, dim, n, schemes, ids, labels, scheme}
-/embeddings/<slug>.layout.json  # UMAP 2D/3D + clusters for the galaxy
+/embeddings/<slug>.layout.json  # UMAP 2D/3D + clusters for the viz
 ```
 
 *Text search* (`/api/search?q=…`) embeds your query at request time with the same

@@ -134,6 +134,13 @@ jobs:
           ls -la dist/graphed/ dist/solr-docs.json
           echo "quads: $(zcat dist/graphed/*.nq.gz | wc -l)"
 
+      # The UI fast path checks out with lfs:false; the embeddings under www/ are
+      # LFS-tracked, so pull just those objects or Dockerfile.ui bakes pointer files.
+      # (The full-build path's `git lfs pull` above already fetches them.)
+      - name: Fetch embeddings LFS (UI fast path)
+        if: steps.scope.outputs.ui_only == 'true'
+        run: git lfs pull --include="deploy/fly/www/embeddings/**"
+
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
