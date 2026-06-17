@@ -43,13 +43,20 @@ COPY deploy/fly/www/ /opt/skosdex/www/
 # Embeddings similarity API server (KNN over the combined _all.emb.* baked above
 # into www/embeddings); start.sh runs it in the background, nginx proxies /api/.
 COPY tools/embed_api.mjs /opt/skosdex/embed_api.mjs
-# Query-embed sidecar (/api/search text search) + its MiniLM model baked at build
-# time (CI has network) so the box never fetches from HuggingFace at runtime.
+# Query-embed sidecar (/api/search) + shared model module; the MiniLM-class query
+# model is baked at build time so the box never fetches from HuggingFace at runtime.
 COPY tools/embed_query.py /opt/skosdex/embed_query.py
+COPY tools/embed_model.py /opt/skosdex/embed_model.py
 ENV SKOSDEX_MODEL_DIR=/opt/skosdex/models
+# Bake the query-embed model: multilingual-e5-large-instruct (Microsoft; MIT),
+# fp32 ONNX (~2.2GB) — NOT quantized: the 16GB box has RAM headroom and fp32 keeps
+# full quality + a simpler build. The corpus vectors in www/embeddings are built
+# with the same model, so query and document vectors are comparable.
 RUN mkdir -p /opt/skosdex/models \
- && curl -fsSL -o /opt/skosdex/models/model_quantized.onnx https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx \
- && curl -fsSL -o /opt/skosdex/models/tokenizer.json       https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json
+ && B=https://huggingface.co/intfloat/multilingual-e5-large-instruct/resolve/main/onnx \
+ && curl -fsSL -o /opt/skosdex/models/model.onnx      "$B/model.onnx" \
+ && curl -fsSL -o /opt/skosdex/models/model.onnx_data "$B/model.onnx_data" \
+ && curl -fsSL -o /opt/skosdex/models/tokenizer.json  "$B/tokenizer.json"
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start

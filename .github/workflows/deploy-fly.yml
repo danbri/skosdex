@@ -26,9 +26,10 @@ on:
       - 'third_party/skos/**/canonical.nq.gz'
       - 'scripts/skosdex'
       - 'deploy/fly/**'
-      # baked into the image (embeddings API server + query-embed sidecar)
+      # baked into the image (embeddings API server + query-embed sidecar + model)
       - 'tools/embed_api.mjs'
       - 'tools/embed_query.py'
+      - 'tools/embed_model.py'
       - '.github/workflows/deploy-fly.yml'
 
 concurrency:

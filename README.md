@@ -81,10 +81,14 @@ The hosted stack is **https://skosdex.fly.dev** (Oxigraph + Solr + nginx, one bo
 
 ### Embeddings & similarity API
 
-Every concept is embedded with one shared model — **`all-MiniLM-L6-v2`** (ONNX,
-Apache-2.0, 384-dim, L2-normalised) — so vectors are directly comparable *across*
-schemes: cosine similarity is a plain dot product and nearest-neighbour search
-crosses vocabulary boundaries. The combined space (`_all.emb.*`) is served two ways.
+Every concept is embedded with one shared **multilingual** model —
+**`multilingual-e5-large-instruct`** (Microsoft; MIT; ONNX, 1024-dim,
+L2-normalised) — so vectors are directly comparable *across* schemes **and across
+languages** (e.g. "climate change" ≈ "changement climatique" ≈ "Klimawandel" ≈
+"ilmastonmuutos"): cosine is a plain dot product and nearest-neighbour search
+crosses both vocabulary and language boundaries. Documents (concept labels) are
+embedded verbatim; free-text queries get the e5 instruct prompt. The combined
+space (`_all.emb.*`) is served two ways.
 
 **1. JSON REST API** (`tools/embed_api.mjs`, KNN in-process; cosine == dot):
 
@@ -107,25 +111,25 @@ curl -s 'https://skosdex.fly.dev/api/search?q=global%20warming%20policy&k=5'
 curl -s 'https://skosdex.fly.dev/api/similar?id=http://www.eionet.europa.eu/gemet/concept/1471&cross=1&k=5'
 # → esco:"climate change impact" (0.41), esco:"carry out meteorological research" (0.40), …
 
-curl -s https://skosdex.fly.dev/api/health      # {"ok":true,"n":26360,"dim":384,"schemes":3}
+curl -s https://skosdex.fly.dev/api/health      # {"ok":true,"n":26360,"dim":1024,"schemes":3}
 ```
 
 Run it locally with `node tools/embed_api.mjs 8088` (reads `deploy/fly/www/embeddings/`).
 
 **2. Raw vectors as static files** (`/embeddings/`, CORS-open) — fetch the
-`n×384` float16 blob + `{ids, labels, scheme}` and run your own KNN client-side
+`n×1024` float16 blob + `{ids, labels, scheme}` and run your own KNN client-side
 (this is what the galaxy does):
 
 ```
 /embeddings/index.json          # registry of embedded slugs (_all = combined)
-/embeddings/_all.emb.f16        # n×384 float16 (LE) vectors, all schemes
+/embeddings/_all.emb.f16        # n×1024 float16 (LE) vectors, all schemes
 /embeddings/_all.emb.json       # {model, dim, n, schemes, ids, labels, scheme}
 /embeddings/<slug>.layout.json  # UMAP 2D/3D + clusters for the galaxy
 ```
 
 *Text search* (`/api/search?q=…`) embeds your query at request time with the same
 model (a small Python sidecar, `tools/embed_query.py`, sharing the corpus's ONNX
-MiniLM + pooling), then runs the same KNN — so a web page or query string maps
+model + pooling), then runs the same KNN — so a web page or query string maps
 straight onto skosdex concepts. Concept-to-concept `/api/similar` needs no model.
 
 Full reference: [`deploy/fly/EMBEDDINGS-API.md`](deploy/fly/EMBEDDINGS-API.md) and
@@ -145,7 +149,7 @@ humans and agents alike:
 | [`normalize-skos`](skills/normalize-skos/SKILL.md) | fetch / normalize / canonicalize |
 | [`build-data-bundle`](skills/build-data-bundle/SKILL.md) | produce the shippable `dist/` dataset |
 | [`run-endpoints`](skills/run-endpoints/SKILL.md) | bring up SPARQL + Solr + web |
-| [`embeddings-api`](skills/embeddings-api/SKILL.md) | the MiniLM embedding space + `/api/` similarity service |
+| [`embeddings-api`](skills/embeddings-api/SKILL.md) | the multilingual embedding space + `/api/` similarity service |
 | [`deploy-fly`](skills/deploy-fly/SKILL.md) | (re)deploy the live skosdex.fly.dev stack |
 
 ## Repository layout

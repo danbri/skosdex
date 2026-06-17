@@ -8,9 +8,13 @@ license: Apache-2.0
 
 Every concept can be embedded into one shared semantic space and queried for
 nearest neighbours (cross-scheme), browsed as a 3D "galaxy", or served over a
-small REST API. All schemes use the **same** model (`all-MiniLM-L6-v2`, ONNX,
-Apache-2.0), 384-dim, **L2-normalised** — so vectors are directly comparable and
-cosine similarity == dot product, across scheme boundaries.
+small REST API. All schemes use the **same** multilingual model
+(`multilingual-e5-large-instruct`, Microsoft, MIT, ONNX), 1024-dim,
+**L2-normalised** via the shared `tools/embed_model.py` — so vectors are directly
+comparable and cosine == dot product, across **scheme and language** boundaries.
+Concept labels are embedded as documents; free-text queries get the e5 instruct
+prompt. (Note: e5 cosines sit in a high, compressed band — only *relative*
+ranking is meaningful, so use top-k, not absolute thresholds.)
 
 ## Build pipeline
 
@@ -30,11 +34,11 @@ and ship in the image (served as static files).
 | File | Shape |
 |------|-------|
 | `index.json` | `["esco","gemet","uk-parliament-thesaurus","_all"]` — registry of embedded slugs (`_all` = combined) |
-| `<slug>.emb.json` | `{ "model","dim":384,"n", "ids":[…], "labels":[…] }` |
-| `<slug>.emb.f16` | raw `n×384` **float16 little-endian** vectors (row i ↔ ids[i]) |
+| `<slug>.emb.json` | `{ "model","dim":1024,"n", "ids":[…], "labels":[…] }` |
+| `<slug>.emb.f16` | raw `n×1024` **float16 little-endian** vectors (row i ↔ ids[i]) |
 | `<slug>.layout.json` | `{ slug,n,k, ids,labels, coords3[n*3], coords2[n*2], cluster[n], clusterNames[k], clusterSizes[k], colors[k] }` |
 | `_all.emb.json` | `{ model,dim,n, schemes:{slug:{start,count}}, ids,labels, scheme[] }` — `scheme[i]` is row i's slug; `schemes[slug]` is its contiguous `[start,start+count)` range |
-| `_all.emb.f16` | combined `n×384` float16 (all schemes concatenated, same order as `_all.emb.json`) |
+| `_all.emb.f16` | combined `n×1024` float16 (all schemes concatenated, same order as `_all.emb.json`) |
 
 Decode f16 → float32 in JS with a half-float expander (see `half2float` in
 `deploy/fly/www/index.html`); browsers can also use `Float16Array`.
@@ -72,14 +76,14 @@ Example (cross-vocabulary): GEMET *climate change* → `cross=1` →
 
 A deploy from `claude/main` ships the API. The **Dockerfile** installs Debian
 `nodejs` (KNN server) + `python3`/`onnxruntime`/`tokenizers` (query-embed sidecar)
-and bakes the MiniLM model into `/opt/skosdex/models`. **start.sh** runs both in
+and bakes the e5-large-instruct fp32 ONNX (~2.2GB) into `/opt/skosdex/models`. **start.sh** runs both in
 the background before nginx so they never gate serving:
 `embed_query.py` (`:8089`, text→vector, same model as the corpus) and
 `embed_api.mjs` (`:8088`, KNN; calls the sidecar for `/api/search`). **nginx.conf**
 proxies `/api/` and serves `/embeddings/` (both CORS-open). The raw vectors are
 *also* a static API at `/embeddings/*.emb.{json,f16}`. Text search degrades to
 `501` if the sidecar is down. Verify with `node scripts/check.mjs --api`.
-Memory ≈ `n×384×4` bytes float32 (~40 MB for 26k); linear KNN is sub-ms to a few
+Memory ≈ `n×1024×4` bytes float32 (~108 MB for 26k); linear KNN is sub-ms to a few
 hundred-k — past that switch to an ANN index (hnswlib). Full notes:
 `deploy/fly/EMBEDDINGS-API.md`.
 

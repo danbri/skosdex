@@ -2,8 +2,10 @@
 
 ## One space for all terms
 
-Every scheme is embedded with the **same** model — `all-MiniLM-L6-v2` (ONNX,
-Apache-2.0), 384 dimensions, vectors **L2-normalised** by `tools/embed_scheme.py`.
+Every scheme is embedded with the **same** multilingual model —
+`multilingual-e5-large-instruct` (Microsoft; MIT; ONNX), 1024 dimensions, vectors
+**L2-normalised** by `tools/embed_scheme.py` via the shared `tools/embed_model.py`
+(concept labels embedded as documents; queries get the e5 instruct prompt).
 Because the model and normalisation are identical across schemes, the vectors are
 directly comparable: cosine similarity is a plain dot product, and
 nearest-neighbour search works *across* scheme boundaries. So "one space for all
@@ -19,7 +21,7 @@ tools/combine_embeddings.mjs      # all <slug>.emb.* -> _all.emb.{json,f16}
 
 | File | What |
 |------|------|
-| `<slug>.emb.f16` | `n×384` float16 (LE) vectors for one scheme |
+| `<slug>.emb.f16` | `n×1024` float16 (LE) vectors for one scheme |
 | `<slug>.emb.json` | `{model, dim, n, ids, labels}` |
 | `<slug>.layout.json` | UMAP 2D/3D + k-means clusters for the galaxy view |
 | `_all.emb.f16` | **combined** vectors (all schemes concatenated) |
@@ -40,7 +42,7 @@ the fly container** (Debian `nodejs`, started by `start.sh`, proxied by nginx at
 ```
 node tools/embed_api.mjs 8088                 # reads deploy/fly/www/embeddings/
 EMB_DIR=/path/to/embeddings node tools/embed_api.mjs 8088   # override the data dir
-curl -s https://skosdex.fly.dev/api/health    # {"ok":true,"n":...,"dim":384,"schemes":3}
+curl -s https://skosdex.fly.dev/api/health    # {"ok":true,"n":...,"dim":1024,"schemes":3}
 ```
 
 | Endpoint | Returns |
@@ -70,7 +72,7 @@ string at request time with the **same** model the corpus used, then runs the sa
 KNN — so a web page or arbitrary text maps straight onto skosdex concepts.
 
 The embedding is done by a tiny Python sidecar, **`tools/embed_query.py`**, which
-loads the same `model_quantized.onnx` + `tokenizer.json` and the identical
+loads the same fp32 `model.onnx` + `tokenizer.json` and the identical
 masked-mean-pool + L2-norm as `embed_scheme.py` (verified: `embed(label)` vs the
 stored vector cosines ≈ 0.99, the residual being float16 storage). The node API
 calls it over localhost (`EMB_QUERY_URL`, default `http://127.0.0.1:8089`) and
@@ -78,12 +80,14 @@ degrades to `501` if the sidecar is down (e.g. running `embed_api.mjs` alone
 locally). Run it locally with:
 
 ```
-SKOSDEX_MODEL_DIR=~/.cache/skosdex-embed python3 tools/embed_query.py   # :8089
+SKOSDEX_MODEL_DIR=~/.cache/skosdex-e5 python3 tools/embed_query.py     # :8089
 node tools/embed_api.mjs 8088                                           # /api/search now works
 ```
 
 A pure-JS alternative (onnxruntime-node in `embed_api.mjs`, no Python) works too
 but its `node_modules` is ~700 MB vs the Python wheel's ~16 MB, so the sidecar wins.
+The model is shipped fp32 (not quantized): the 16GB box has RAM headroom and fp32
+keeps full quality. `embed_model.py` auto-uses a `model_int8.onnx` if one is added.
 
 The sidecar **warms the model at boot** (the first inference pays ONNX arena init,
 ~hundreds of ms; done once at startup so real requests don't) and keeps an **LRU
@@ -113,6 +117,6 @@ are in the repo, so a normal deploy from `claude/main` ships it:
 
 Verify after deploy with `node scripts/check.mjs --api` (or curl `/api/health`).
 
-Memory: `_all.emb.f16` is `n×384×2` bytes (~20 MB for 26k concepts); the server
-expands it to float32 (~40 MB) at startup. Linear KNN over 26k vectors is sub-ms;
+Memory: `_all.emb.f16` is `n×1024×2` bytes (~53 MB for 26k concepts); the server
+expands it to float32 (~108 MB) at startup. Linear KNN over 26k vectors is sub-ms;
 past a few hundred-k concepts, switch to an ANN index (hnswlib).

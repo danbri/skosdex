@@ -1,65 +1,27 @@
 #!/usr/bin/env python3
-# Tiny query-embedding sidecar for the embeddings API's text search.
-#
-# It embeds a query STRING with the *exact same* model + pooling the corpus was
-# built with (Xenova/all-MiniLM-L6-v2 ONNX quantized, masked mean-pool, then
-# L2-normalise — see tools/embed_scheme.py), so the query vector lands in the
-# same space as deploy/fly/www/embeddings/_all.emb.f16. tools/embed_api.mjs calls
-# it to answer `GET /api/search?q=…`; keeping the model in Python (onnxruntime +
-# tokenizers) mirrors the build path and stays far leaner than onnxruntime-node.
-#
-#   GET /health        -> {"ok":true,"dim":384}
-#   GET /embed?q=text  -> {"dim":384,"vec":[… 384 floats …]}
-#
-# Model files load from SKOSDEX_MODEL_DIR (default ~/.cache/skosdex-embed); if a
-# file is missing it is fetched once (the fly image bakes them at build time).
-import os, json, urllib.parse, urllib.request, numpy as np, onnxruntime as ort
+# Query-embedding sidecar for the embeddings API's text search (/api/search).
+# Embeds a query STRING with the shared model (tools/embed_model.py —
+# multilingual-e5-large-instruct) so the vector lands in the same space as the
+# corpus embeddings (which embed_scheme.py built as DOCUMENTS). Queries get the
+# e5-instruct prompt, documents don't — that asymmetry lives in embed_model.
+#   GET /health        -> {ok, dim, model, cache:{hits,misses,size,max}}
+#   GET /embed?q=text  -> {dim, vec:[…]}
+import os, sys, json, time, urllib.parse
 from functools import lru_cache
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from tokenizers import Tokenizer
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import embed_model as em
 
-CACHE = os.environ.get('SKOSDEX_MODEL_DIR', os.path.expanduser('~/.cache/skosdex-embed'))
 HOST = os.environ.get('EMB_QUERY_HOST', '127.0.0.1')
 PORT = int(os.environ.get('EMB_QUERY_PORT', '8089'))
 CACHE_SIZE = int(os.environ.get('EMB_CACHE_SIZE', '4096'))   # LRU of recent queries
-FILES = {  # identical to embed_scheme.py — same model => comparable vectors
-    'model_quantized.onnx': 'https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/onnx/model_quantized.onnx',
-    'tokenizer.json':       'https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/main/tokenizer.json',
-}
 
 
-def ensure_model():
-    os.makedirs(CACHE, exist_ok=True)
-    for name, url in FILES.items():
-        p = os.path.join(CACHE, name)
-        if not os.path.exists(p) or os.path.getsize(p) < 1000:
-            print(f'  embed-query: fetching {name} …', flush=True)
-            urllib.request.urlretrieve(url, p)
-    return os.path.join(CACHE, 'model_quantized.onnx'), os.path.join(CACHE, 'tokenizer.json')
-
-
-MODEL_PATH, TOK_PATH = ensure_model()
-tok = Tokenizer.from_file(TOK_PATH)
-tok.enable_truncation(max_length=128)
-sess = ort.InferenceSession(MODEL_PATH, providers=['CPUExecutionProvider'])
-INNAMES = {i.name for i in sess.get_inputs()}
-
-
-# LRU-cached: repeat queries (common for popular pages / re-runs) skip inference
-# entirely. The returned array is treated as read-only (callers only .tolist() it).
+# LRU-cached: repeat queries skip inference entirely. Returned array is read-only
+# (callers only .tolist() it).
 @lru_cache(maxsize=CACHE_SIZE)
-def embed(text):
-    enc = tok.encode(text)
-    ii = np.array([enc.ids], dtype=np.int64)
-    mm = np.array([enc.attention_mask], dtype=np.int64)
-    feed = {'input_ids': ii, 'attention_mask': mm}
-    if 'token_type_ids' in INNAMES:
-        feed['token_type_ids'] = np.zeros_like(ii)
-    out = sess.run(None, feed)[0]
-    m = mm[:, :, None].astype(np.float32)
-    v = (out * m).sum(1) / np.clip(m.sum(1), 1e-9, None)   # masked mean pool
-    v /= np.clip(np.linalg.norm(v, axis=1, keepdims=True), 1e-9, None)  # L2
-    return v[0].astype(np.float32)
+def embed_query(text):
+    return em.embed([text], is_query=True)[0]
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -77,25 +39,24 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         u = urllib.parse.urlparse(self.path)
         if u.path == '/health':
-            ci = embed.cache_info()
-            return self._send(200, {'ok': True, 'dim': 384,
-                                    'cache': {'hits': ci.hits, 'misses': ci.misses, 'size': ci.currsize, 'max': ci.maxsize}})
+            ci = embed_query.cache_info()
+            return self._send(200, {'ok': True, 'dim': em.dim(), 'model': em.MODEL,
+                                    'cache': {'hits': ci.hits, 'misses': ci.misses,
+                                              'size': ci.currsize, 'max': ci.maxsize}})
         if u.path == '/embed':
             q = urllib.parse.parse_qs(u.query).get('q', [''])[0]
             if not q:
                 return self._send(400, {'error': 'missing q'})
-            v = embed(q)
+            v = embed_query(q)
             return self._send(200, {'dim': int(v.shape[0]), 'vec': v.tolist()})
         return self._send(404, {'error': 'not found'})
 
 
 if __name__ == '__main__':
-    # warm up: the first inference pays ONNX arena/graph init; do it at boot so
-    # the first real /embed request is fast, not a multi-100ms cold start.
-    import time
+    # warm the model at boot so the first real /embed isn't a cold start
     _t = time.perf_counter()
-    embed('warm up')
-    embed.cache_clear()   # don't let the warmup string occupy a cache slot
-    print(f'  embed-query: warmed in {(time.perf_counter()-_t)*1000:.0f} ms', flush=True)
-    print(f'embed-query: http://{HOST}:{PORT}/embed  (model {MODEL_PATH}, cache {CACHE_SIZE})', flush=True)
+    em.load()
+    embed_query('warm up'); embed_query.cache_clear()
+    print(f'  embed-query: model {em.MODEL} dim {em.dim()} warmed in {time.perf_counter()-_t:.1f}s', flush=True)
+    print(f'embed-query: http://{HOST}:{PORT}/embed  (cache {CACHE_SIZE})', flush=True)
     ThreadingHTTPServer((HOST, PORT), Handler).serve_forever()
