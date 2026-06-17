@@ -58,17 +58,26 @@ mid(){ flyctl machines list --app "$APP" --json 2>/dev/null \
 # clean any stale indexer from a previous run
 OLD=$(mid); [ -n "$OLD" ] && flyctl machine destroy "$OLD" --app "$APP" --force >/dev/null 2>&1 || true
 say "starting temporary indexer machine '$IDX_NAME' on the staged volume (SEED_AND_EXIT)…"
+# NB: a slow image pull (the corpus image is multi-GB) can make `machine run`
+# exceed its internal start-wait and return non-zero EVEN WHEN the machine then
+# comes up fine. Don't let set -e abort on that — verify the machine exists and
+# let the state-poll below be the real gate.
 flyctl machine run "$IMAGE" \
   --app "$APP" --name "$IDX_NAME" --region "$REGION" --vm-size "$VM_SIZE" \
-  --volume "$STAGE_VOL:/data" --env SEED_AND_EXIT=1 --restart no --detach
-sleep 5
+  --volume "$STAGE_VOL:/data" --env SEED_AND_EXIT=1 --restart no --detach \
+  || say "note: 'machine run' returned non-zero (often just a slow image pull past the start-wait) — verifying the machine came up anyway…"
+sleep 10
 IDX_MACHINE=$(mid)
+[ -n "$IDX_MACHINE" ] || { echo "indexer machine was never created — aborting, prod untouched"; cleanup_stage; exit 1; }
 say "indexer machine=$IDX_MACHINE — waiting for it to finish seeding (stopped state)…"
+gone=0
 for i in $(seq 1 180); do   # up to 90 min
   st=$(mstate)
   echo "  indexer state: $st ($((i*30))s)"
   [ "$st" = "stopped" ] && { say "indexer finished seeding+optimizing the fork."; break; }
   [ "$st" = "failed" ] && { echo "indexer FAILED — aborting, prod untouched"; flyctl machine destroy "$IDX_MACHINE" --app "$APP" --force >/dev/null 2>&1; cleanup_stage; exit 1; }
+  # 'none' = machine vanished unexpectedly; tolerate a couple of transient polls
+  if [ "$st" = "none" ]; then gone=$((gone+1)); [ "$gone" -ge 3 ] && { echo "indexer disappeared — aborting, prod untouched"; cleanup_stage; exit 1; }; else gone=0; fi
   sleep 30
 done
 
