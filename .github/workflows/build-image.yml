@@ -6,6 +6,8 @@ name: Build fly image to GHCR
 # Deploy the result with:
 #   flyctl deploy --image ghcr.io/danbri/skosdex-fly:latest --app skosdex
 # (make the GHCR package public once, or give Fly pull credentials).
+#
+# Rebuild trigger: full 141,822-term Parliament corpus + re-embedded/typed maps.
 
 on:
   workflow_dispatch:
