@@ -30,12 +30,39 @@ print('  umap 2d…', flush=True); c2 = reduce(2)
 print('  kmeans (on layout)…', flush=True)
 km = KMeans(n_clusters=K, n_init=10, random_state=42).fit(c3)
 cl = km.labels_
-# name each spatial cluster by the concept nearest its centroid in MEANING space
+# Name each cluster by its most DISTINCTIVE words (tf-idf across clusters) so the
+# legend reads as themes ("energy · oil · nuclear") instead of one random member
+# concept ("Holborn, Paul") — important for entity-heavy schemes like Parliament.
+print('  labelling clusters (tf-idf keywords)…', flush=True)
+import re
+from collections import Counter
+STOP = set(("the of and to in a for on with by at as is are be an or from new uk "
+            "british national committee commission group ltd plc co inc trust limited "
+            "council association society department office service services act bill "
+            "amendment lord baron sir dame mr mrs ms dr rt hon and de la el").split())
+def toks(s):
+    return [w for w in re.findall(r"[a-z][a-z'\-]{2,}", s.lower()) if w not in STOP]
+clus_wc, docfreq = [], Counter()
+for c in range(K):
+    idx = np.where(cl == c)[0]
+    wc = Counter()
+    for i in idx:
+        wc.update(set(toks(meta['labels'][i])))   # presence per label
+    clus_wc.append(wc)
+    for w in wc:
+        docfreq[w] += 1
 names = []
 for c in range(K):
     idx = np.where(cl == c)[0]
-    cen = V[idx].mean(0); cen /= (np.linalg.norm(cen) + 1e-9)
-    names.append(meta['labels'][idx[int(np.argmax(V[idx] @ cen))]])
+    floor = max(3, len(idx) // 40)                 # ignore one-off words
+    scored = [(w, cnt * np.log((K + 1) / docfreq[w])) for w, cnt in clus_wc[c].items() if cnt >= floor]
+    scored.sort(key=lambda x: -x[1])
+    top = [w.title() for w, _ in scored[:3]]
+    # fallback: most central concept if no distinctive words (rare/tiny cluster)
+    if not top:
+        cen = V[idx].mean(0); cen /= (np.linalg.norm(cen) + 1e-9)
+        top = [meta['labels'][idx[int(np.argmax(V[idx] @ cen))]]]
+    names.append(' · '.join(top))
 
 # a vivid-on-dark categorical palette (distinct hues, good saturation/lightness)
 PALETTE = ['#ff5d73','#ffa24b','#ffd24b','#7bd650','#36c98a','#33c5d6','#3f8cff',

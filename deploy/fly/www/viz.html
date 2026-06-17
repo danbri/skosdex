@@ -342,7 +342,7 @@ geo.setAttribute('asize', new THREE.BufferAttribute(sizes, 1));
 geo.setDrawRange(0, N);
 
 const mat = new THREE.ShaderMaterial({
-  uniforms:{ tex:{value:sprite}, scale:{value:innerHeight*0.5} },
+  uniforms:{ tex:{value:sprite}, scale:{value:innerHeight*0.5}, uDim:{value:1.0} },
   vertexShader:`attribute float asize; varying vec3 vc;
     uniform float scale;
     void main(){ vc=color; vec4 mv=modelViewMatrix*vec4(position,1.0);
@@ -351,13 +351,27 @@ const mat = new THREE.ShaderMaterial({
       float ps = (7.0*asize) * (scale/ -mv.z) / 90.0;
       gl_PointSize = clamp(ps, 1.0, 48.0);
       gl_Position = projectionMatrix*mv; }`,
-  fragmentShader:`uniform sampler2D tex; varying vec3 vc;
+  fragmentShader:`uniform sampler2D tex; uniform float uDim; varying vec3 vc;
     void main(){ vec4 t=texture2D(tex,gl_PointCoord); if(t.a<0.02) discard;
-      gl_FragColor = vec4(vc, t.a); }`,
+      // uDim fades each point as the cloud gets denser, so 100k+ points read as
+      // structure instead of a bleached-white blob under additive blending
+      gl_FragColor = vec4(vc, t.a * uDim); }`,
   vertexColors:true, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false
 });
 const points = new THREE.Points(geo, mat);
 scene.add(points);
+// Density-adaptive exposure: dim per-point alpha + tame bloom as N grows, so a
+// dense scheme (Parliament 130k) doesn't saturate to white. Called on load and
+// whenever the scheme/overlay visibility changes.
+function applyDensity(){
+  const shown = overlay
+    ? (function(){ let s=0; for(let i=0;i<N;i++) if(visCur[i]>0.5) s++; return s||N; })()
+    : N;
+  const uDim = Math.max(0.14, Math.min(1, Math.sqrt(16000 / Math.max(shown,1))));
+  mat.uniforms.uDim.value = uDim;
+  bloom.strength = 0.22 + 0.33 * uDim;     // 0.22 (dense) … 0.55 (sparse)
+  bloom.threshold = 0.30 - 0.12 * uDim;    // higher threshold when dense (only cores bloom)
+}
 
 // ---- faint starfield backdrop for depth ----
 (()=>{ const m=2200, g=new THREE.BufferGeometry(), p=new Float32Array(m*3);
@@ -468,6 +482,7 @@ function applyOverlayMode(){
   if(!overlay){ const bp=document.getElementById('blends'); if(bp) bp.hidden=true; }
   syncVis(true);
   if(typeof applyFilter==='function') applyFilter();
+  applyDensity();          // re-expose for the new scheme/overlay density
 }
 buildLegend();
 
@@ -884,6 +899,7 @@ function finishMaskSwirl(){
     if(sw.show){ positions[i*3]=src[i*3]; positions[i*3+1]=src[i*3+1]; positions[i*3+2]=src[i*3+2]; }
   }
   applyFilter();
+  applyDensity();          // toggling a scheme on/off changes the visible density
   geo.attributes.position.needsUpdate=true;
 }
 
