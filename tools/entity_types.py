@@ -37,13 +37,24 @@ def load_cfg(slug=None):
     return cfg
 
 
+def _topic_anchors(cfg):
+    """Topic = the NON-coding bucket. Several decoy phrases (chemical substance,
+    organism/species, device, process, …) give the model better-matching targets
+    than the entity anchors, so non-entities (e.g. chemistry terms) don't fall to
+    'Person' for lack of anywhere better. A concept/cluster is 'topic' iff its
+    best ENTITY anchor doesn't beat the best of these by the margin."""
+    t = cfg['topic']
+    return t if isinstance(t, list) else [t]
+
+
 def _anchors(cfg):
     import sys
     sys.path.insert(0, HERE)
     import embed_model as em
-    keys = list(cfg['anchors'])
-    A = em.embed([cfg['anchors'][k] for k in keys] + [cfg['topic']], is_query=False)
-    return A, keys + ['Topic'], len(keys)
+    keys = list(cfg['anchors'])                       # coding anchors (Person, Org, …)
+    topics = _topic_anchors(cfg)                      # non-coding decoy anchors
+    A = em.embed([cfg['anchors'][k] for k in keys] + topics, is_query=False)
+    return A, keys, len(keys)                         # nC coding columns, then topics
 
 
 def keyword_names(labels, cl, K, cluster_types, cfg, V):
@@ -88,37 +99,56 @@ def compute(V, cl, labels, cfg=None, slug=None):
     """
     if cfg is None:
         cfg = load_cfg(slug)
-    A, tcodes, TI = _anchors(cfg)
+    A, codes, nC = _anchors(cfg)                  # codes = entity anchor names; cols nC.. = topics
     reliable = set(cfg['reliable'])
-    rel_mask = np.array([c in reliable for c in tcodes])
+    rel_codes = np.array([c in reliable for c in codes])
     gT, g2 = cfg['gap_topic'], cfg['gap_second']
+    minf = cfg.get('cluster_min_frac', {'reliable': 0.0, 'strict': 0.0})
     n = len(V)
     rng = np.random.RandomState(0)
     off = (V[rng.choice(n, min(8000, n), replace=False)] @ A.T).mean(0)   # de-bias anchors
     K = int(cl.max()) + 1
 
-    # per-CLUSTER code (robust: centroids cancel per-concept noise)
+    def decide(s):
+        """s: anchor scores (nC codes + topics). Return code idx in 0..nC-1, or -1
+        for topic/none. Coded iff best ENTITY anchor beats the best TOPIC anchor by
+        gap_topic AND the 2nd-best entity anchor by gap_second (margins per code)."""
+        code_s = s[:nC]; topic = float(s[nC:].max())
+        w = int(np.argmax(code_s))
+        second = float(np.sort(code_s)[-2]) if nC > 1 else -1e9
+        rc = bool(rel_codes[w])
+        if (code_s[w] - topic) >= (gT['reliable'] if rc else gT['strict']) \
+           and (code_s[w] - second) >= (g2['reliable'] if rc else g2['strict']):
+            return w
+        return -1
+
+    # per-CONCEPT code (advisory: foaf:focus / Wikidata / map+timeline) — also
+    # feeds the cluster consistency gate below.
+    Sc = V @ A.T - off
+    codeS = Sc[:, :nC]; topicS = Sc[:, nC:].max(1)
+    ar = np.arange(n); win = codeS.argmax(1)
+    second = np.sort(codeS, axis=1)[:, -2] if nC > 1 else np.full(n, -1e9)
+    rel = rel_codes[win]
+    ok = ((codeS[ar, win] - topicS) >= np.where(rel, gT['reliable'], gT['strict'])) \
+       & ((codeS[ar, win] - second) >= np.where(rel, g2['reliable'], g2['strict']))
+    entity_codes = np.where(ok, win, -1)          # int code idx per concept (-1 = none)
+    entity_types = [codes[win[i]] if ok[i] else None for i in range(n)]
+
+    # per-CLUSTER code (centroid direction). Optional CONSISTENCY GATE: keep the
+    # code only if >= min_frac of members individually carry it (catches centroid-
+    # only leans). Default floors are 0 — the decoy anchors do the heavy lifting;
+    # raise per-scheme in entity_anchors.json if a centroid-only artefact appears.
     cluster_types = []
     for c in range(K):
         idx = np.where(cl == c)[0]
         cen = V[idx].mean(0); cen /= (np.linalg.norm(cen) + 1e-9)
-        s = cen @ A.T - off; o = np.argsort(-s); win, sec = o[0], o[1]
-        rel = bool(rel_mask[win])
-        code = tcodes[win] if (win != TI
-                               and (s[win] - s[TI]) >= (gT['reliable'] if rel else gT['strict'])
-                               and (s[win] - s[sec]) >= (g2['reliable'] if rel else g2['strict'])) else None
+        w = decide(cen @ A.T - off)
+        code = None
+        if w >= 0:
+            rc = bool(rel_codes[w])
+            if float(np.mean(entity_codes[idx] == w)) >= (minf['reliable'] if rc else minf['strict']):
+                code = codes[w]
         cluster_types.append(code)
-
-    # per-CONCEPT code (advisory: candidates for foaf:focus / Wikidata / map+timeline)
-    Sc = V @ A.T - off
-    cs = np.argsort(-Sc, axis=1); ar = np.arange(n)
-    win = cs[:, 0]; sec = cs[:, 1]; rel = rel_mask[win]
-    g_t = Sc[ar, win] - Sc[:, TI]
-    g_2 = Sc[ar, win] - Sc[ar, sec]
-    ok = (win != TI) \
-        & (g_t >= np.where(rel, gT['reliable'], gT['strict'])) \
-        & (g_2 >= np.where(rel, g2['reliable'], g2['strict']))
-    entity_types = [tcodes[win[i]] if ok[i] else None for i in range(n)]
 
     names = keyword_names(labels, cl, K, cluster_types, cfg, V)
     return {'clusterTypes': cluster_types, 'entityTypes': entity_types, 'clusterNames': names}

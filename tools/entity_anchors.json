@@ -9,10 +9,19 @@
     "Event":   "a named event: a war, battle, conference, disaster or historical occurrence",
     "Period":  "a span of time: a year, date, decade, century or historical era"
   },
-  "topic": "a general subject, topic, theme, policy area or abstract concept",
+  "topic": [
+    "a general subject, topic, theme, policy area or abstract concept",
+    "a chemical substance, element, compound, drug or material",
+    "a plant, animal, organism, micro-organism or biological species",
+    "a physical object, device, tool, machine or piece of equipment",
+    "a process, method, activity, measurement or condition",
+    "a disease, disorder, syndrome or medical condition",
+    "a document, law, regulation, scheme or publication"
+  ],
   "reliable": ["Person", "Org"],
-  "gap_topic":  {"reliable": 0.010, "strict": 0.035},
-  "gap_second": {"reliable": 0.008, "strict": 0.018},
+  "gap_topic":  {"reliable": 0.004, "strict": 0.030},
+  "gap_second": {"reliable": 0.004, "strict": 0.018},
+  "cluster_min_frac": {"reliable": 0.0, "strict": 0.0},
   "stopwords": "the of and to in a for on with by at as is are be an or from new uk british national committee commission group ltd plc co inc trust limited council association society department office service services act bill amendment lord baron sir dame mr mrs ms dr rt hon de la el",
   "overrides": {}
 }
