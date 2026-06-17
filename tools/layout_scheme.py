@@ -120,7 +120,7 @@ for c in range(K):
 names = []
 for c in range(K):
     idx = np.where(cl == c)[0]
-    floor = max(3, len(idx) // 40)                 # ignore one-off words
+    floor = max(3, min(len(idx) // 200, 8))        # ignore one-offs; cap so big
     scored = [(w, cnt * np.log((K + 1) / docfreq[w])) for w, cnt in clus_wc[c].items() if cnt >= floor]
     scored.sort(key=lambda x: -x[1])
     top = [w.title() for w, _ in scored[:3]]
