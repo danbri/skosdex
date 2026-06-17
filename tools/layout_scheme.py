@@ -33,107 +33,21 @@ print('  kmeans (on layout)…', flush=True)
 km = KMeans(n_clusters=K, n_init=10, random_state=42).fit(c3)
 cl = km.labels_
 
-# --- entity vs topic typing (zero-shot, via the SAME e5 model) --------------
-# Controlled vocabularies mix true SUBJECT/topical concepts with Name & Place
-# Authority entries that merely STAND FOR an individual thing — a person, place,
-# city, country, organisation, event or period. We tag each cluster (and each
-# concept) by cosine to a few natural-language TYPE ANCHORS embedded with the
-# same model, de-biased by each anchor's average similarity over the scheme.
-# Person/Org separate cleanly so they're coded on a small margin; geographic /
-# event / period codes need a much wider margin (so a medical-TOPIC cluster is
-# never mislabelled "Place"); everything else stays a topic ("let topics be
-# topics"). Purely semantic — no character-level clues, so it works across
-# languages/scripts. These high-level codes are candidates for foaf:focus,
-# Wikidata alignment, map/timeline views, dedicated aggregations, or filtering.
-print('  typing (entity vs topic, e5 anchors)…', flush=True)
+# Type each cluster + concept (entity vs topic) and name each cluster, via the
+# shared, config-driven module (tools/entity_types.py + entity_anchors.json).
+# Same algorithm/params as the post-embedding re-typer (tools/retype.py), so a
+# tweak to the anchors/thresholds applies to fresh layouts and re-typed ones
+# alike. Returns codes/names in cl's index order; reordered by size below.
+print('  typing + naming (entity vs topic, e5 anchors)…', flush=True)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import embed_model as em
-TYPE_ANCHORS = {
-    'Person':  'a person; an individual human being; a personal name of someone',
-    'Org':     'an organisation, company, institution, agency, committee or political party',
-    'Place':   'a place or geographic feature: a region, area, sea, river or territory',
-    'City':    'a named city, town or settlement',
-    'Country': 'a country, nation or sovereign state',
-    'Event':   'a named event: a war, battle, conference, disaster or historical occurrence',
-    'Period':  'a span of time: a year, date, decade, century or historical era',
-}
-TOPIC_ANCHOR = 'a general subject, topic, theme, policy area or abstract concept'
-RELIABLE = {'Person', 'Org'}                  # separate cleanly -> small margin ok
-GAP_T = {True: 0.010, False: 0.035}           # winner over 'topic'   (reliable / strict)
-GAP_2 = {True: 0.008, False: 0.018}           # winner over 2nd type  (reliable / strict)
-tkeys = list(TYPE_ANCHORS); tcodes = tkeys + ['Topic']; TI = len(tkeys)
-A = em.embed([TYPE_ANCHORS[k] for k in tkeys] + [TOPIC_ANCHOR], is_query=False)
-rng = np.random.RandomState(0)
-off = (V[rng.choice(n, min(8000, n), replace=False)] @ A.T).mean(0)   # de-bias anchors
-rel_mask = np.array([c in RELIABLE for c in tcodes])
-
-def _accept(win, second, s):
-    if win == TI:
-        return None
-    rel = bool(rel_mask[win])
-    if (s[win] - s[TI]) >= GAP_T[rel] and (s[win] - s[second]) >= GAP_2[rel]:
-        return tcodes[win]
-    return None
-
-# per-CLUSTER code (robust: centroids cancel per-concept noise)
-cluster_types = []
-for c in range(K):
-    idx = np.where(cl == c)[0]
-    cen = V[idx].mean(0); cen /= (np.linalg.norm(cen) + 1e-9)
-    s = cen @ A.T - off; o = np.argsort(-s)
-    cluster_types.append(_accept(o[0], o[1], s))
-# per-CONCEPT code (advisory: candidates for foaf:focus / Wikidata / map+timeline)
-Sc = V @ A.T - off
-csort = np.argsort(-Sc, axis=1)
-ar = np.arange(n)
-win = csort[:, 0]; sec = csort[:, 1]
-rel = rel_mask[win]
-g_t = Sc[ar, win] - Sc[:, TI]
-g_2 = Sc[ar, win] - Sc[ar, sec]
-ok = (win != TI) & (g_t >= np.where(rel, GAP_T[True], GAP_T[False])) \
-                  & (g_2 >= np.where(rel, GAP_2[True], GAP_2[False]))
-entity_types = [tcodes[win[i]] if ok[i] else None for i in range(n)]
+import entity_types as et
+typed = et.compute(V, cl, meta['labels'], slug=slug)
+cluster_types = typed['clusterTypes']
+entity_types = typed['entityTypes']
+names = typed['clusterNames']
 from collections import Counter as _C
 print('    cluster codes:', dict(_C(t for t in cluster_types if t)), flush=True)
 print('    concept codes:', dict(_C(t for t in entity_types if t).most_common()), flush=True)
-# Name each cluster by its most DISTINCTIVE words (tf-idf across clusters) so the
-# legend reads as themes ("energy · oil · nuclear") instead of one random member
-# concept ("Holborn, Paul") — important for entity-heavy schemes like Parliament.
-print('  labelling clusters (tf-idf keywords)…', flush=True)
-import re
-from collections import Counter
-STOP = set(("the of and to in a for on with by at as is are be an or from new uk "
-            "british national committee commission group ltd plc co inc trust limited "
-            "council association society department office service services act bill "
-            "amendment lord baron sir dame mr mrs ms dr rt hon and de la el").split())
-def toks(s):
-    return [w for w in re.findall(r"[a-z][a-z'\-]{2,}", s.lower()) if w not in STOP]
-clus_wc, docfreq = [], Counter()
-for c in range(K):
-    idx = np.where(cl == c)[0]
-    wc = Counter()
-    for i in idx:
-        wc.update(set(toks(meta['labels'][i])))   # presence per label
-    clus_wc.append(wc)
-    for w in wc:
-        docfreq[w] += 1
-names = []
-for c in range(K):
-    idx = np.where(cl == c)[0]
-    floor = max(3, min(len(idx) // 200, 8))        # ignore one-offs; cap so big
-    scored = [(w, cnt * np.log((K + 1) / docfreq[w])) for w, cnt in clus_wc[c].items() if cnt >= floor]
-    scored.sort(key=lambda x: -x[1])
-    top = [w.title() for w, _ in scored[:3]]
-    # fallback: most central concept if no distinctive words (rare/tiny cluster)
-    if not top:
-        cen = V[idx].mean(0); cen /= (np.linalg.norm(cen) + 1e-9)
-        top = [meta['labels'][idx[int(np.argmax(V[idx] @ cen))]]]
-    label = ' · '.join(top)
-    # prefix a high-level entity CODE for Name/Place-Authority clusters, keeping
-    # the keywords so the legend reads e.g. "PERSON · john · david · michael".
-    if cluster_types[c]:
-        label = cluster_types[c].upper() + (' · ' + label if label else '')
-    names.append(label)
 
 # a vivid-on-dark categorical palette (distinct hues, good saturation/lightness)
 PALETTE = ['#ff5d73','#ffa24b','#ffd24b','#7bd650','#36c98a','#33c5d6','#3f8cff',

@@ -1,0 +1,18 @@
+{
+  "_doc": "Tweakable params for entity-vs-topic typing (tools/entity_types.py). Edit this, then re-run `python3 tools/retype.py --all` to re-derive cluster/concept type codes + legend names from EXISTING embeddings — no re-embedding, no UMAP. Anchors are natural-language descriptions embedded with the same e5 model; a cluster/concept is typed by cosine to them (de-biased per anchor). Person/Org separate cleanly ('reliable' -> small margin); geographic/event/period need the wider 'strict' margin so topical clusters aren't mislabelled. Per-scheme tweaks go under 'overrides' (shallow-merged; 'anchors' merges key-by-key).",
+  "anchors": {
+    "Person":  "a person; an individual human being; a personal name of someone",
+    "Org":     "an organisation, company, institution, agency, committee or political party",
+    "Place":   "a place or geographic feature: a region, area, sea, river or territory",
+    "City":    "a named city, town or settlement",
+    "Country": "a country, nation or sovereign state",
+    "Event":   "a named event: a war, battle, conference, disaster or historical occurrence",
+    "Period":  "a span of time: a year, date, decade, century or historical era"
+  },
+  "topic": "a general subject, topic, theme, policy area or abstract concept",
+  "reliable": ["Person", "Org"],
+  "gap_topic":  {"reliable": 0.010, "strict": 0.035},
+  "gap_second": {"reliable": 0.008, "strict": 0.018},
+  "stopwords": "the of and to in a for on with by at as is are be an or from new uk british national committee commission group ltd plc co inc trust limited council association society department office service services act bill amendment lord baron sir dame mr mrs ms dr rt hon de la el",
+  "overrides": {}
+}
