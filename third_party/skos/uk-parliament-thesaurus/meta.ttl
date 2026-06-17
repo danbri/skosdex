@@ -8,17 +8,14 @@
 # allowed, NO share-alike — equivalent in spirit to the Open Government Licence)
 # -> licenseClass "open", bundleable.
 #
-# ⚠ STOPGAP / STILL PARTIAL (2026-06-17): imported the much larger ad-hoc
-# release from the upstream resumable crawl (danbri/forgetmenot
-# `thesaurus-crawl.yml`, every 4h) — 132,944 concepts / ~951k quads (was 1,724).
-# Labels ~92% complete, full records (notation/hierarchy/altLabels) ~76%; terms
-# past the crawl frontier are missing or prefLabel-only stubs. RE-IMPORT when the
-# crawl COMPLETES (it promotes the full graph to the same URL).
+# FULL CRAWL (2026-06-17): imported the COMPLETED upstream resumable crawl
+# (danbri/forgetmenot `thesaurus-crawl.yml`, every 4h) — 141,822 concepts /
+# 1,202,660 quads (was 1,724 at first import; 130,178 at the mid-crawl stopgap).
 # Language: upstream tags every label @en; policy is default-English, mixed→English.
-# A diacritic/non-ASCII scan of all 130,178 labels (581 flagged, ~all accented
-# proper nouns → stay @en) is recorded for review in `lang-review.md` (committed,
-# linking each flagged term to the Parliament LD server). Genuinely non-English
-# *phrases* go in LANG_OVERRIDE in tools/parliament-lda-type.mjs.
+# A diacritic/non-ASCII scan of all labels (581 flagged at the stopgap, ~all
+# accented proper nouns → stay @en) is recorded for review in `lang-review.md`
+# (committed, linking each flagged term to the Parliament LD server). Genuinely
+# non-English *phrases* go in LANG_OVERRIDE in tools/parliament-lda-type.mjs.
 #
 # The upstream Turtle carries SKOS *properties* (prefLabel/broader/narrower/
 # related/exactMatch/notation) but declares no rdf:type and no ConceptScheme.
@@ -33,7 +30,7 @@
 #   node scripts/skosdex normalize uk-parliament-thesaurus
 #   node scripts/skosdex canonicalize uk-parliament-thesaurus
 <#scheme> a skosdex:Scheme ;
-    dcterms:title "UK Parliament Thesaurus (Commons Library, partial ~92%)" ;
+    dcterms:title "UK Parliament Thesaurus (Commons Library)" ;
     dcterms:publisher <https://www.parliament.uk/> ;
     skosdex:conceptSchemeURI <http://data.parliament.uk/terms/> ;
     skosdex:sourceFile "source/parliament-lda-terms.typed.ttl" ;
