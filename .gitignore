@@ -35,3 +35,7 @@ docs/solr-docs.json
 # `node scripts/skosdex demo`; the live endpoint serves the real corpus.
 docs/index.html
 tools/__pycache__/
+
+# Parliament thesaurus typed source is ~35MB and regenerable (see scheme meta.ttl);
+# canonical.nq.gz (LFS) is the committed artifact.
+third_party/skos/uk-parliament-thesaurus/source/parliament-lda-terms.typed.ttl
