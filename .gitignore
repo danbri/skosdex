@@ -34,3 +34,4 @@ docs/solr-docs.json
 # Generated standalone demo (4MB+ of embedded JSON) — regenerate with
 # `node scripts/skosdex demo`; the live endpoint serves the real corpus.
 docs/index.html
+tools/__pycache__/
