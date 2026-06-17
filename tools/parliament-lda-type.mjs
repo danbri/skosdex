@@ -15,6 +15,7 @@
 //
 // Usage: node tools/parliament-lda-type.mjs <in.ttl> <out.ttl> [schemeIRI]
 import fs from 'node:fs';
+import path from 'node:path';
 import N3 from 'n3';
 
 const { Parser, Writer, DataFactory } = N3;
@@ -33,16 +34,20 @@ const SKOS = 'http://www.w3.org/2004/02/skos/core#';
 const RDFS_LABEL = 'http://www.w3.org/2000/01/rdf-schema#label';
 const XSD_STRING = 'http://www.w3.org/2001/XMLSchema#string';
 
-// Curatorial language tagging (owner-authorised, 2026-06-15). The upstream
-// labels are plain literals with no @lang, which would bucket as 'und' in Solr.
-// A subagent scan of all 1724 labels found them 99.94% English; we therefore tag
-// every label @en EXCEPT the single confirmed non-English one. This is a
-// deliberate per-scheme enrichment recorded here (not a silent pipeline change).
+// Curatorial language handling (owner-authorised). Upstream now tags labels @en,
+// which we keep as the default. We also (1) strip stray zero-width / BOM chars —
+// an upstream data bug where 6+ labels carry a leading U+FEFF (issue #5) — and
+// (2) retag confirmed non-English labels from lang-overrides.json (term IRI ->
+// BCP-47 lang), built from a lingua language-detection scan (Welsh/Irish at
+// >=0.90 confidence; see lang-review-detected.md). Per-scheme enrichment,
+// recorded here, not a silent pipeline change.
 const DEFAULT_LANG = 'en';
-const LANG_OVERRIDE = {
-  // "Aciéries réunies de Burbach-Eich-Dudelange" — French (Luxembourg steelmaker)
-  'http://data.parliament.uk/terms/436521': 'fr',
-};
+const ZW = /[\uFEFF\u200B\u200C\u200D\u2060]/g;   // BOM + zero-width characters
+const OVERRIDE_PATH = process.env.LANG_OVERRIDES
+  || path.join(path.dirname(outPath), '..', 'lang-overrides.json');
+let LANG_OVERRIDE = {};
+try { LANG_OVERRIDE = JSON.parse(fs.readFileSync(OVERRIDE_PATH, 'utf8')); }
+catch { /* no overrides file — everything defaults to @en */ }
 
 const text = fs.readFileSync(inPath, 'utf8');
 const quads = new Parser().parse(text);
@@ -70,14 +75,17 @@ const writer = new Writer({
 // Concept scheme node.
 writer.addQuad(quad(namedNode(schemeIRI), namedNode(RDF_TYPE), namedNode(SKOS + 'ConceptScheme')));
 
-// Original triples — with plain-literal labels language-tagged (see above).
-let tagged = 0;
+// Original triples — strip stray zero-width/BOM chars from EVERY label literal,
+// then language-tag it: explicit override (lang-overrides.json) > upstream @lang
+// (e.g. @en) > default. Applies to plain and already-@en-tagged labels alike.
+let tagged = 0, stripped = 0;
 for (const q of quads) {
-  if (q.object.termType === 'Literal' && LABEL_PREDS.has(q.predicate.value)
-      && q.object.language === '' && q.object.datatype.value === XSD_STRING) {
-    const lang = LANG_OVERRIDE[q.subject.value] || DEFAULT_LANG;
-    writer.addQuad(quad(q.subject, q.predicate, literal(q.object.value, lang)));
-    tagged++;
+  if (q.object.termType === 'Literal' && LABEL_PREDS.has(q.predicate.value)) {
+    const clean = q.object.value.replace(ZW, '');
+    if (clean !== q.object.value) stripped++;
+    const ov = LANG_OVERRIDE[q.subject.value];
+    if (ov) tagged++;
+    writer.addQuad(quad(q.subject, q.predicate, literal(clean, ov || q.object.language || DEFAULT_LANG)));
   } else {
     writer.addQuad(q);
   }
@@ -92,5 +100,5 @@ for (const c of [...concepts].sort()) {
 writer.end((err, result) => {
   if (err) { console.error(err); process.exit(1); }
   fs.writeFileSync(outPath, result);
-  console.log(`  typed ${concepts.size} concepts, language-tagged ${tagged} labels (default @${DEFAULT_LANG}, ${Object.keys(LANG_OVERRIDE).length} override) -> ${outPath} (scheme <${schemeIRI}>)`);
+  console.log(`  typed ${concepts.size} concepts; ${tagged} labels overridden (${Object.keys(LANG_OVERRIDE).length} in map), ${stripped} zero-width-stripped, rest @${DEFAULT_LANG} -> ${outPath}`);
 });
