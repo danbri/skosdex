@@ -287,9 +287,12 @@ fi
 # OOM during the boot RAM peak while the big e5 model loads — self-heals once
 # memory frees, and the actual error is visible (not hidden in a /tmp file).
 if command -v python3 >/dev/null 2>&1 && [ -f /opt/skosdex/embed_query.py ]; then
-  echo "starting query-embed sidecar on 127.0.0.1:8089"
+  # model lives on the mounted volume (not the image); fetched once from HF into
+  # /data/models on first start (embed_model.py), cached across reboots.
+  mkdir -p /data/models
+  echo "starting query-embed sidecar on 127.0.0.1:8089 (model dir /data/models)"
   ( while true; do
-      SKOSDEX_MODEL_DIR=/opt/skosdex/models EMB_QUERY_PORT=8089 \
+      SKOSDEX_MODEL_DIR=/data/models EMB_QUERY_PORT=8089 \
         python3 /opt/skosdex/embed_query.py 2>&1 | sed 's/^/[embed-query] /'
       echo "[embed-query] exited ($?) — restarting in 10s"; sleep 10
     done ) &

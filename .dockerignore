@@ -8,3 +8,7 @@ third_party/skos/*/normalized.nq.gz
 docs
 _site
 *.log
+# precomputed similarity is staged for the /api/similar-static + KG-graph wiring
+# (cutover); not consumed by the image yet, and large — keep it out of the build.
+deploy/fly/www/embeddings/similar
+deploy/fly/www/embeddings/similar.nq.gz

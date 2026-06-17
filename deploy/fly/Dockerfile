@@ -43,23 +43,13 @@ COPY deploy/fly/www/ /opt/skosdex/www/
 # Embeddings similarity API server (KNN over the combined _all.emb.* baked above
 # into www/embeddings); start.sh runs it in the background, nginx proxies /api/.
 COPY tools/embed_api.mjs /opt/skosdex/embed_api.mjs
-# Query-embed sidecar (/api/search) + shared model module; the MiniLM-class query
-# model is baked at build time so the box never fetches from HuggingFace at runtime.
+# Query-embed sidecar (/api/search) + shared model module. The e5 model is NOT
+# baked — model + corpus + embeddings together exceed Fly's 8 GB uncompressed
+# image limit. Instead the sidecar fetches it once from HuggingFace into the
+# MOUNTED VOLUME at /data/models (persists across reboots; see start.sh).
 COPY tools/embed_query.py /opt/skosdex/embed_query.py
 COPY tools/embed_model.py /opt/skosdex/embed_model.py
-ENV SKOSDEX_MODEL_DIR=/opt/skosdex/models
-# Bake the query-embed model: multilingual-e5-large-instruct (Microsoft; MIT),
-# fp32 ONNX (~2.2GB) — NOT quantized: the 16GB box has RAM headroom and fp32 keeps
-# full quality + a simpler build. The corpus vectors in www/embeddings are built
-# with the same model, so query and document vectors are comparable.
-RUN mkdir -p /opt/skosdex/models \
- && B=https://huggingface.co/intfloat/multilingual-e5-large-instruct/resolve/main/onnx \
- && curl -fsSL --retry 4 --retry-delay 5 -o /opt/skosdex/models/model.onnx      "$B/model.onnx" \
- && curl -fsSL --retry 4 --retry-delay 5 -o /opt/skosdex/models/model.onnx_data "$B/model.onnx_data" \
- && curl -fsSL --retry 4 --retry-delay 5 -o /opt/skosdex/models/tokenizer.json  "$B/tokenizer.json"
-# Verify the baked model actually loads (catches a truncated 2.2GB download —
-# curl -f only checks HTTP status, not a mid-stream drop — at build, not runtime).
-RUN python3 -c "import os,onnxruntime as o; d='/opt/skosdex/models'; s=os.path.getsize(d+'/model.onnx_data'); assert s>2_000_000_000,'model.onnx_data truncated: %d'%s; o.InferenceSession(d+'/model.onnx',providers=['CPUExecutionProvider']); print('e5 model verified: loads OK, data %d MB'%(s//1024//1024))"
+ENV SKOSDEX_MODEL_DIR=/data/models
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
 RUN chmod +x /usr/local/bin/skosdex-start
