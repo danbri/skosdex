@@ -7,26 +7,29 @@
 # renderable. Commits with [skip ci] (NO deploy — vectors exceed the 8GB image;
 # the live box's start.sh syncs them from LFS at boot).
 #
-# Dispatch: Actions ▸ "embed giants" ▸ Run, or via MCP actions_run_trigger.
+# Trigger: PUSH to this file (MCP can't dispatch) → runs with the env defaults
+# below; or Actions ▸ "embed giants" ▸ Run to override the inputs.
 name: embed giants
 on:
   workflow_dispatch:
     inputs:
-      slugs:
-        description: 'space-separated giant slugs'
-        default: 'lcsh getty-ulan gnd-subjects rameau'
-      chunk:
-        description: 'concepts per CI job (smaller = safer under the 6h limit)'
-        default: '50000'
-      layout_max:
-        description: 'sample size for the galaxy layout (full vectors are kept regardless)'
-        default: '80000'
-      push:
-        description: 'commit vectors to LFS (true) or upload an artifact (false)'
-        default: 'true'
+      slugs:      { description: 'space-separated giant slugs', default: 'lcsh getty-ulan gnd-subjects rameau' }
+      chunk:      { description: 'concepts per CI job (smaller = safer under 6h)', default: '50000' }
+      layout_max: { description: 'sample size for the galaxy layout (full vectors kept regardless)', default: '80000' }
+      push:       { description: 'commit vectors to LFS (true) or upload artifact (false)', default: 'true' }
+  push:
+    branches: [claude/main]
+    paths: ['.github/workflows/embed-giants.yml']   # pushing this file (re)triggers the run
 
 permissions:
   contents: write
+
+# inputs.* are empty on a push trigger, so fall back to the defaults here
+env:
+  SLUGS:      ${{ inputs.slugs      || 'lcsh getty-ulan gnd-subjects rameau' }}
+  CHUNK:      ${{ inputs.chunk      || '50000' }}
+  LAYOUT_MAX: ${{ inputs.layout_max || '80000' }}
+  PUSHV:      ${{ inputs.push       || 'true' }}
 
 jobs:
   prepare:
@@ -43,15 +46,13 @@ jobs:
       - run: node scripts/skosdex graphed && node scripts/skosdex solr-docs
       - name: build row-range matrix (one job per chunk of valid concepts)
         id: m
-        env: { SLUGS: '${{ inputs.slugs }}', CHUNK: '${{ inputs.chunk }}' }
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
           chunk = int(os.environ['CHUNK']); tuples = []
           for slug in os.environ['SLUGS'].split():
               nd = f'dist/solr-cache/{slug}.ndjson'
-              # count VALID concepts (those embed_scheme will actually emit)
-              v = 0
+              v = 0                                  # count VALID concepts (what embed_scheme emits)
               for line in open(nd, encoding='utf-8'):
                   line = line.strip()
                   if not line: continue
@@ -109,13 +110,13 @@ jobs:
         with: { pattern: 'part-*', path: /tmp/parts, merge-multiple: true }
       - run: cp -v /tmp/parts/* deploy/fly/www/embeddings/ && ls deploy/fly/www/embeddings/*.part-* | wc -l
       - name: stitch parts + lay out a sampled galaxy per giant
-        env: { SKOSDEX_LAYOUT_MAX: '${{ inputs.layout_max }}' }
         run: |
-          for s in ${{ inputs.slugs }}; do
+          export SKOSDEX_LAYOUT_MAX="$LAYOUT_MAX"
+          for s in $SLUGS; do
             node tools/merge_parts.mjs "$s" && python3 tools/layout_scheme.py "$s" || echo "::warning::$s failed"
           done
       - name: commit to LFS (NO deploy — giants exceed the 8GB image)
-        if: ${{ inputs.push != 'false' }}
+        if: ${{ env.PUSHV != 'false' }}
         run: |
           git config user.name danbri
           git config user.email danbri@danbri.org
@@ -123,6 +124,6 @@ jobs:
           git commit -m "embeddings: the 4 giants (lcsh/getty-ulan/gnd-subjects/rameau), range-chunked [skip ci]" || { echo "no changes"; exit 0; }
           git push
       - name: upload (when not pushing)
-        if: ${{ inputs.push == 'false' }}
+        if: ${{ env.PUSHV == 'false' }}
         uses: actions/upload-artifact@v4
         with: { name: giants-embeddings, path: 'deploy/fly/www/embeddings/*', retention-days: 3 }
