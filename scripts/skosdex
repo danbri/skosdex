@@ -435,8 +435,9 @@ function appendSchemeToBundle(meta, canon, rawOut) {
 // invalidate every per-scheme cache at once.
 const GRAPHED_CACHE_VER = 'v1';
 
-async function graphedAll() {
-  const metas = listSlugs().map(readMeta);
+async function graphedAll(only) {
+  const sel = (only && only.length) ? new Set(only) : null;   // optional slug filter (giants run)
+  const metas = listSlugs().map(readMeta).filter((m) => !sel || sel.has(m.slug));
   const manifest = { generated: new Date().toISOString(), included: [], excluded: [] };
   const outDir = path.join(DIST_DIR, 'graphed');
   // Incremental: keep prior outputs and reuse any scheme whose canonical (and
@@ -888,7 +889,7 @@ async function main() {
       await bundleAll();
       break;
     case 'graphed':
-      await graphedAll();
+      await graphedAll(process.argv.slice(3));   // `graphed [slug…]` limits to those schemes
       break;
     case 'solr-docs':
       await solrDocs();
