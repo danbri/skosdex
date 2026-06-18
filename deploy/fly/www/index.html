@@ -7,7 +7,9 @@
 <style>
  *{box-sizing:border-box} body{font:15px/1.55 system-ui,sans-serif;margin:0;color:#1a1a1a;background:#fafafa}
  header{background:#1f2933;color:#fff;padding:1.1rem 1.4rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
- header h1{margin:0;font-size:1.35rem} header p{margin:.3rem 0 0;color:#9aa5b1;font-size:.9rem}
+ header>div{min-width:0;flex:1 1 auto}   /* shrink so the intro/links wrap instead of overflowing off-screen (mobile) */
+ header h1{margin:0;font-size:1.35rem} header p{margin:.3rem 0 0;color:#9aa5b1;font-size:.9rem;overflow-wrap:break-word}
+ #galaxypick{max-width:100%}
  header a{color:#7cc4fa;text-decoration:none}
  #galaxypick{background:#2b3744;color:#7cc4fa;border:1px solid #3e4c59;border-radius:6px;font:inherit;font-size:.9rem;padding:.04rem .3rem;cursor:pointer}
  #galaxypick option{background:#1f2933;color:#e6edf3}
@@ -96,6 +98,17 @@
  .btnrow button{flex:1;padding:.5rem;border:1px solid #cbd2d9;border-radius:6px;background:#f5f7fa;cursor:pointer;font:inherit}
  .btnrow button.primary{background:#2563eb;color:#fff;border-color:#2563eb}
  code{background:#f0f4f8;padding:.05rem .3rem;border-radius:4px;font-size:.82rem}
+ /* phones: tighter chrome, no horizontal overflow, comfortable tap targets */
+ @media (max-width:600px){
+   header{padding:.9rem 1rem;gap:.6rem}
+   header h1{font-size:1.2rem}
+   header p{font-size:.86rem}
+   .gear{padding:.3rem .5rem;font-size:1rem}
+   .wrap{padding:1rem}
+   .qbar{flex-wrap:wrap}
+   #go{flex:1 1 100%}
+   #schemes{grid-template-columns:1fr}
+ }
 </style>
 </head>
 <body>
