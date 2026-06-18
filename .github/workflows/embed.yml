@@ -1,99 +1,148 @@
-# Ad-hoc CI matrix embedder — build embeddings for a few schemes in parallel,
-# on GitHub runners, no GPU box needed. For the WHOLE corpus ASAP use the GPU
-# batch box instead (see skills/embed-at-scale/SKILL.md); this is the
-# incremental path for adding a handful of schemes (EuroVoc, AGROVOC, NALT, …).
+# CI matrix embedder — embed schemes in parallel on GitHub runners (no GPU box;
+# the org isn't GPU-enabled). Two modes:
+#  - workflow_dispatch with `slugs="a b c"` → embed exactly those.
+#  - push to THIS file (MCP can't dispatch) → embed-everything: every scheme that
+#    has a canonical but no embedding yet, up to MAXC concepts, balanced into
+#    chunks. Commits vectors + per-scheme galaxies to LFS with [skip ci] (NO
+#    deploy — full-corpus vectors exceed Fly's 8GB image; serving them is a
+#    separate "embeddings out of the image" task). The 4 giants (lcsh/getty-ulan/
+#    gnd/rameau > MAXC) are left for a dedicated run.
 #
-# Manual only. Run: Actions → "embed schemes (ad-hoc)" → Run workflow, with
-#   slugs = "eurovoc agrovoc nalt"   (space-separated; must already be built,
-#                                     i.e. have third_party/skos/<slug>/canonical.nq.gz)
-#   push  = "true" to commit + deploy the vectors (UI fast path, no blackout),
-#           "false" to just produce downloadable artifacts for review.
-#
-# Flow: prepare (graphed+solr-docs once → solr-cache artifact + slug matrix) →
-#       embed (one parallel job per slug → per-scheme emb/layout artifacts) →
-#       combine (merge → _all + combined layout → optional commit/push).
-name: embed schemes (ad-hoc)
+# Flow: prepare (graphed+solr-docs once → solr-cache artifact + balanced chunk
+#       matrix) → embed (one parallel job per CHUNK; embeds + lays out each slug)
+#       → collect (merge artifacts, rebuild index.json, commit to LFS [skip ci]).
+name: embed schemes (CI matrix)
 
 on:
   workflow_dispatch:
     inputs:
       slugs:
-        description: 'space-separated scheme slugs to embed'
-        required: true
+        description: 'space-separated scheme slugs (empty = all not-yet-embedded <= MAXC)'
+        required: false
       push:
-        description: 'commit + push vectors (true) or just upload artifacts (false)'
-        default: 'false'
+        description: 'commit vectors to LFS (true) or upload artifacts (false)'
+        default: 'true'
+  push:
+    branches: [claude/main]
+    paths:
+      - '.github/workflows/embed.yml'   # pushing this file (re)triggers embed-everything
 
 permissions:
   contents: write
+
+env:
+  MAXC: '150000'      # per-scheme concept cap (skip giants; they get a dedicated run)
+  CHUNKS: '48'        # matrix jobs (<=256); schemes greedily balanced by size across them
 
 jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.m.outputs.matrix }}
+      count: ${{ steps.m.outputs.count }}
     steps:
       - uses: actions/checkout@v4
         with: { lfs: true, fetch-depth: 0 }
-      - name: slugs -> JSON matrix
-        id: m
-        env: { SLUGS: ${{ inputs.slugs }} }
-        run: echo "matrix=$(printf '%s' "$SLUGS" | tr ' ' '\n' | grep -v '^$' | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+      - run: git lfs pull
       - uses: actions/setup-node@v4
         with: { node-version: 20, cache: npm }
       - run: npm ci
       - run: node scripts/skosdex graphed && node scripts/skosdex solr-docs
+      - name: build balanced chunk matrix
+        id: m
+        env:
+          SLUGS: ${{ inputs.slugs }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, glob
+          maxc = int(os.environ['MAXC']); CH = int(os.environ['CHUNKS'])
+          sel = os.environ.get('SLUGS','').split()
+          emb = set(json.load(open('deploy/fly/www/embeddings/index.json'))) \
+                if os.path.exists('deploy/fly/www/embeddings/index.json') else set()
+          rows = []
+          for nd in glob.glob('dist/solr-cache/*.ndjson'):
+              slug = os.path.basename(nd)[:-7]
+              if sel:
+                  if slug not in sel: continue
+              else:
+                  if slug in emb: continue
+              n = sum(1 for _ in open(nd))
+              if sel or 0 < n <= maxc:
+                  rows.append((slug, n))
+          rows.sort(key=lambda r: -r[1])
+          chunks = [[] for _ in range(CH)]; load = [0]*CH
+          for slug, n in rows:                      # greedy: add to lightest chunk
+              i = load.index(min(load)); chunks[i].append(slug); load[i] += n
+          chunks = [' '.join(c) for c in chunks if c]
+          print('matrix=' + json.dumps(chunks))
+          print('count=%d' % len(rows))
+          PY
+      - run: echo "embedding ${{ steps.m.outputs.count }} schemes across chunks"
       - uses: actions/upload-artifact@v4
         with: { name: solr-cache, path: dist/solr-cache, retention-days: 1 }
 
   embed:
     needs: prepare
+    if: ${{ needs.prepare.outputs.count != '0' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 8
+      max-parallel: 20
       matrix:
-        slug: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+        chunk: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4           # no LFS: existing emb.f16 stay pointers
       - uses: actions/download-artifact@v4
         with: { name: solr-cache, path: dist/solr-cache }
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
-      - name: cache the MiniLM/e5 model (~2.2GB, fetched by embed_model.py)
+      - name: cache the e5 model (~2.2GB, fetched by embed_model.py)
         uses: actions/cache@v4
         with: { path: ~/.cache/skosdex-e5, key: e5-large-instruct-v1 }
       - run: pip install onnxruntime tokenizers numpy umap-learn scikit-learn
-      - run: python3 tools/embed_scheme.py  "${{ matrix.slug }}"
-      - run: python3 tools/layout_scheme.py "${{ matrix.slug }}"
+      - name: embed + lay out each slug in the chunk
+        run: |
+          mkdir -p /tmp/out
+          for s in ${{ matrix.chunk }}; do
+            echo "::group::$s"
+            python3 tools/embed_scheme.py  "$s" && python3 tools/layout_scheme.py "$s" \
+              && cp -v deploy/fly/www/embeddings/"$s".emb.f16 \
+                       deploy/fly/www/embeddings/"$s".emb.json \
+                       deploy/fly/www/embeddings/"$s".layout.json /tmp/out/ \
+              || echo "::warning::$s failed"
+            echo "::endgroup::"
+          done
       - uses: actions/upload-artifact@v4
-        with: { name: emb-${{ matrix.slug }}, path: 'deploy/fly/www/embeddings/${{ matrix.slug }}.*', retention-days: 1 }
+        with: { name: emb-${{ strategy.job-index }}, path: /tmp/out, retention-days: 2 }
 
-  combine:
+  collect:
     needs: embed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with: { lfs: true }                         # materialize existing *.emb.f16
+        with: { lfs: true }
       - uses: actions/download-artifact@v4
         with: { pattern: 'emb-*', path: /tmp/emb, merge-multiple: true }
-      - run: cp -v /tmp/emb/* deploy/fly/www/embeddings/
-      - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
-      - run: npm ci
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: pip install numpy umap-learn scikit-learn
-      - run: node tools/combine_embeddings.mjs && python3 tools/layout_combined.py
-      - name: commit + push (UI fast-path deploy)
-        if: ${{ inputs.push == 'true' }}
+      - run: cp -v /tmp/emb/* deploy/fly/www/embeddings/ 2>/dev/null; ls deploy/fly/www/embeddings/*.emb.f16 | wc -l
+      - name: rebuild index.json registry from present vectors
+        run: |
+          python3 - <<'PY'
+          import json, glob, os
+          d = 'deploy/fly/www/embeddings'
+          have = sorted(os.path.basename(p)[:-9] for p in glob.glob(f'{d}/*.emb.json'))
+          json.dump(have, open(f'{d}/index.json','w'))
+          print('index.json:', len(have), 'schemes')
+          PY
+      - name: commit to LFS (NO deploy — embeddings exceed the 8GB image)
+        if: ${{ inputs.push != 'false' }}
         run: |
           git config user.name  danbri
           git config user.email danbri@danbri.org
           git add deploy/fly/www/embeddings
-          git commit -m "embeddings: ad-hoc CI rebuild (${{ inputs.slugs }})" || { echo "no changes"; exit 0; }
+          git commit -m "embeddings: CI matrix batch (not-yet-embedded schemes) [skip ci]" \
+            || { echo "no changes"; exit 0; }
           git push
-      - name: upload combined (when not pushing)
-        if: ${{ inputs.push != 'true' }}
+      - name: upload bundle (when not pushing)
+        if: ${{ inputs.push == 'false' }}
         uses: actions/upload-artifact@v4
-        with: { name: embeddings-all, path: 'deploy/fly/www/embeddings/_all.*', retention-days: 3 }
+        with: { name: embeddings-batch, path: 'deploy/fly/www/embeddings/*', retention-days: 3 }
