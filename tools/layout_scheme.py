@@ -15,11 +15,37 @@ base = f'{ROOT}/deploy/fly/www/embeddings/{slug}'
 meta = json.load(open(f'{base}.emb.json'))
 n, dim = meta['n'], meta['dim']
 V = np.fromfile(f'{base}.emb.f16', dtype='<f2').astype(np.float32).reshape(n, dim)
+K = max(1, min(K, n))                          # can't have more clusters than concepts
 
 import umap
+def _fallback(d):
+    # too few points for a meaningful UMAP manifold: PCA (SVD) when we can,
+    # else a deterministic spread (circle in xy, line in z) so tiny schemes
+    # still render a stable galaxy instead of crashing the whole run.
+    if n > d:
+        X = V - V.mean(0)
+        U, S, _ = np.linalg.svd(X, full_matrices=False)
+        return (U[:, :d] * S[:d]).astype(np.float32)
+    ang = np.linspace(0, 2 * np.pi, n, endpoint=False)
+    c = np.zeros((n, d), dtype=np.float32)
+    if d >= 1: c[:, 0] = np.cos(ang)
+    if d >= 2: c[:, 1] = np.sin(ang)
+    if d >= 3: c[:, 2] = np.linspace(-1, 1, n)
+    return c
+
 def reduce(d):
-    c = umap.UMAP(n_components=d, n_neighbors=15, min_dist=0.12,
-                  metric='cosine', random_state=42).fit_transform(V)
+    if n < 10 or n <= d + 1:                    # UMAP is meaningless/unstable here
+        c = _fallback(d)
+    else:
+        nn = min(15, n - 1)
+        init = 'random' if n < 60 else 'spectral'   # spectral eigsh fails for small N
+        try:
+            c = umap.UMAP(n_components=d, n_neighbors=nn, min_dist=0.12, metric='cosine',
+                          random_state=42, init=init).fit_transform(V)
+        except Exception as e:
+            print(f'  umap {d}d failed ({e}); using PCA/fallback', flush=True)
+            c = _fallback(d)
+    c = np.asarray(c, dtype=np.float32)
     c = c - c.mean(0)
     c = c / (np.abs(c).max() + 1e-9)           # fit into [-1,1]
     return np.round(c, 4)

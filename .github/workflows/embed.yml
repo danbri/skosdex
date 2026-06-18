@@ -32,7 +32,8 @@ permissions:
 
 env:
   MAXC: '150000'      # per-scheme concept cap (skip giants; they get a dedicated run)
-  CHUNKS: '48'        # matrix jobs (<=256); schemes greedily balanced by size across them
+  CHUNKS: '40'        # matrix jobs (<=256); schemes greedily balanced by size across them
+                      # re-run picks up only not-yet-indexed schemes (small-scheme layout fix)
 
 jobs:
   prepare:
