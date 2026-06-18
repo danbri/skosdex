@@ -113,7 +113,10 @@ jobs:
             echo "::endgroup::"
           done
       - uses: actions/upload-artifact@v4
-        with: { name: emb-${{ strategy.job-index }}, path: /tmp/out, retention-days: 2 }
+        with:
+          name: emb-${{ strategy.job-index }}
+          path: /tmp/out
+          retention-days: 2
 
   collect:
     needs: embed
