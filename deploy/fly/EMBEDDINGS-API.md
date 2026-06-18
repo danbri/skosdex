@@ -98,24 +98,40 @@ query skips inference entirely (~32 ms → ~2 ms locally). `GET /health` reports
 ## How it's deployed (already wired)
 
 The fly stack runs the API alongside nginx + Oxigraph + Solr — all three pieces
-are in the repo, so a normal deploy from `claude/main` ships it:
+are in the repo, so a normal deploy from `claude/main` ships it.
 
-1. **Dockerfile** installs Debian `nodejs` and copies `tools/embed_api.mjs` to
-   `/opt/skosdex/embed_api.mjs` (the `_all.emb.*` files already ship under
-   `www/embeddings/`).
-2. **start.sh** launches it in the **background** before nginx (it's
-   non-essential and must never gate the serving path):
+**Vectors live on the volume, not in the image.** Across the full corpus the
+`.emb.f16` blobs total ~4–7 GB, which would blow Fly's 8 GB image limit (the same
+reason the e5 model is fetched to `/data`, not baked). So:
+
+1. **Dockerfile** installs Debian `nodejs`, copies `tools/embed_api.mjs`, and bakes
+   only the *small* embedding files under `www/embeddings/` — `index.json`, the
+   `*.layout.json` galaxies, and the `*.emb.json` metas. The big `*.emb.f16` are
+   excluded by `.dockerignore`. It bakes `EMB_REF` (the deploy commit SHA, passed
+   as `--build-arg GIT_SHA`) so the box knows which ref to pull vectors from.
+2. **start.sh** syncs the vectors onto `/data/embeddings` at boot, in the
+   **background**, fetching only what's missing from the repo's public LFS
+   (`media.githubusercontent.com/media/<owner>/<repo>/<EMB_REF>/…`). Re-deploys and
+   cutover volume-forks skip what's already on the volume. It then launches the
+   KNN API (also background; non-essential, never gates serving) pointed at the
+   volume dir, which already holds the baked `_all.emb.json` (copied in) + the
+   synced `_all.emb.f16`:
    ```sh
-   EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 &
+   EMB_DIR=/data/embeddings node /opt/skosdex/embed_api.mjs 8088 &
    ```
-3. **nginx.conf** proxies it (read-only, CORS-open) and also serves
-   `/embeddings/` with CORS so other origins can fetch the raw vectors:
+3. **nginx.conf** proxies the API (read-only, CORS-open) and serves `/embeddings/`
+   **volume-first with an image fallback** — so galaxies (baked layouts) render
+   instantly and the KNN/"similar" vectors light up as they arrive; a not-yet-synced
+   vector simply `404`s, which the front-end handles gracefully:
    ```nginx
    location /api/        { limit_except GET { deny all; } proxy_pass http://127.0.0.1:8088; add_header Access-Control-Allow-Origin *; }
-   location /embeddings/ { add_header Access-Control-Allow-Origin *; try_files $uri =404; }
+   location /embeddings/ { add_header Access-Control-Allow-Origin *; root /data; try_files $uri @emb_baked; }
+   location @emb_baked   { add_header Access-Control-Allow-Origin *; root /opt/skosdex/www; try_files $uri =404; }
    ```
 
 Verify after deploy with `node scripts/check.mjs --api` (or curl `/api/health`).
+After a fresh deploy the vectors stream in over a few minutes — watch
+`fly logs -a skosdex | grep '\[emb-sync\]'`.
 
 Memory: `_all.emb.f16` is `n×1024×2` bytes (~53 MB for 26k concepts); the server
 expands it to float32 (~108 MB) at startup. Linear KNN over 26k vectors is sub-ms;
