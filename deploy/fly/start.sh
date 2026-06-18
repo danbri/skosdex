@@ -312,6 +312,10 @@ mkdir -p "$EMB_VOL"
 # embed_api.mjs reads _all.emb.json (baked, small) + _all.emb.f16 (synced) from
 # ONE dir — stage the metadata next to where its vector lands.
 cp -f "$EMB_IMG/_all.emb.json" "$EMB_VOL/" 2>/dev/null || true
+# per-scheme vectors are immutable, but the combined _all blob CHANGES whenever the
+# compare set is re-curated — drop the volume copy so the sync re-fetches it (the
+# "skip if present" below would otherwise serve a stale _all to /api).
+rm -f "$EMB_VOL/_all.emb.f16"
 if [ -f "$EMB_IMG/index.json" ]; then
   ( ref="${EMB_REF:-claude/main}"
     base="https://media.githubusercontent.com/media/danbri/skosdex/$ref/deploy/fly/www/embeddings"
