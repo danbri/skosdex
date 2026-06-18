@@ -239,7 +239,7 @@ function groupSchemes(list){
   for(const s of list) if(!used.has(s)) singles.push(s);
   return {groups, singles};
 }
-const FAMILY_LABEL={iptc:'IPTC NewsCodes', eu:'EU authority tables', lc:'Library of Congress', getty:'Getty vocabularies', finto:'Finto (Finnish vocabularies)'};
+const FAMILY_LABEL={iptc:'IPTC NewsCodes', eu:'EU authority tables', lc:'Library of Congress', getty:'Getty vocabularies', finto:'Finto (Finnish vocabularies)', rva:'Research Vocabularies Australia', loterre:'Loterre'};
 const famName=f=>FAMILY_LABEL[f]||f;
 
 fetch('/manifest.json').then(r=>r.json()).then(m=>{
@@ -249,15 +249,27 @@ fetch('/manifest.json').then(r=>r.json()).then(m=>{
   cfg.schemes ??= {};
   for(const s of SCHEMES) cfg.schemes[s.graph] ??= {on:true,prio:0};
   saveCfg();
-  // galaxy picker: list schemes that have embeddings (from index.json), with
-  // human titles from the manifest; selecting one opens its galaxy.
+  // galaxy picker: list schemes that have embeddings (from index.json). Tiny
+  // sibling code-lists (218 IPTC NewsCodes etc.) are folded into one FAMILY
+  // galaxy built by tools/combine_family.mjs: a bare slug F (no '-') with >=2
+  // embedded "F-*" members. Show the family, hide its members; everything else
+  // is listed individually with its human title from the manifest.
   embSet().then(emb=>{
     const sel=document.getElementById('galaxypick'); if(!sel)return;
     const titleOf={}; for(const s of SCHEMES) titleOf[s.slug]=s.title;
-    [...emb].filter(x=>!x.startsWith('_')).sort().forEach(slug=>{
-      const o=document.createElement('option'); o.value=slug;
-      o.textContent='🌌 '+(titleOf[slug]||slug); sel.appendChild(o);
-    });
+    const all=[...emb].filter(x=>!x.startsWith('_'));
+    const membersOf=f=>all.filter(s=>s.startsWith(f+'-'));
+    const families=all.filter(f=>!f.includes('-') && membersOf(f).length>=2);
+    const covered=new Set();
+    for(const f of families) for(const s of membersOf(f)) covered.add(s);
+    const opts=[];
+    for(const f of families){ const n=membersOf(f).length;
+      opts.push({v:f, t:`🌌 ${famName(f)} — all ${n} schemes`}); }
+    for(const s of all){ if(covered.has(s)||families.includes(s)) continue;
+      opts.push({v:s, t:'🌌 '+(titleOf[s]||s)}); }
+    opts.sort((a,b)=>a.t.localeCompare(b.t));
+    for(const o of opts){ const e=document.createElement('option');
+      e.value=o.v; e.textContent=o.t; sel.appendChild(e); }
   }).catch(()=>{});
   // scheme cards: one card per family (with count) + one per standalone scheme
   const {groups, singles}=groupSchemes(SCHEMES);
