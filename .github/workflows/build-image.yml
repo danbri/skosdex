@@ -8,6 +8,7 @@ name: Build fly image to GHCR
 # (make the GHCR package public once, or give Fly pull credentials).
 #
 # Rebuild trigger: full 141,822-term Parliament corpus + re-embedded/typed maps.
+# Rebuild trigger: strong viz de-bleach + corrected Parliament title (manifest).
 
 on:
   workflow_dispatch:
