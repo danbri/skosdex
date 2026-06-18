@@ -14,9 +14,20 @@ n, dim = meta['n'], meta['dim']
 V = np.fromfile(f'{base}.emb.f16', dtype='<f2').astype(np.float32).reshape(n, dim)
 
 import umap
+# The compare overlay carries every scheme IN FULL (UK Parliament alone is ~140k),
+# so a plain fit_transform over all points is slow/chokes. Past SAMPLE points, FIT
+# the manifold on a random sample then TRANSFORM all points onto it — every concept
+# still gets a coordinate (nothing dropped), the projection just learns its shape
+# from a subset. Deterministic (seeded) so 3D/2D stay consistent.
+SAMPLE = 40000
 def reduce(d):
-    c = umap.UMAP(n_components=d, n_neighbors=15, min_dist=0.12,
-                  metric='cosine', random_state=42).fit_transform(V)
+    r = umap.UMAP(n_components=d, n_neighbors=15, min_dist=0.12, metric='cosine', random_state=42)
+    if n > SAMPLE:
+        idx = np.random.RandomState(42).choice(n, SAMPLE, replace=False)
+        print(f'  fit on {SAMPLE} sample, transform {n}…', flush=True)
+        c = r.fit(V[idx]).transform(V)
+    else:
+        c = r.fit_transform(V)
     c = c - c.mean(0)
     c = c / (np.abs(c).max() + 1e-9)        # fit into [-1,1], same as per-scheme
     return np.round(c, 4)

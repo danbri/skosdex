@@ -41,18 +41,24 @@
   .seg button.on{background:#2f6bff;color:#fff}
   .btn{background:#0a0f22;border:1px solid #2a3358;border-radius:8px;color:#aeb9da;padding:.35rem .6rem;font-size:.84rem;cursor:pointer}
   .btn:hover{background:#141b38}
-  #legend{left:14px;bottom:14px;padding:.6rem .7rem;max-height:46vh;overflow:auto;width:240px}
+  #legend{left:14px;bottom:14px;padding:.7rem .8rem;max-height:62vh;overflow:auto;width:300px}
   #legend.collapsed{overflow:visible}
   #legend.collapsed #legitems{display:none}
-  #legend h2{margin:0;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#8597c6;font-weight:600;
+  #legend h2{margin:0;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:#8597c6;font-weight:600;
     cursor:pointer;user-select:none;display:flex;align-items:center;gap:.4rem}
-  #legend:not(.collapsed) h2{margin-bottom:.45rem}
-  #legend h2 .caret{font-size:.6rem;color:#6b78a0;transition:transform .15s}
+  #legend:not(.collapsed) h2{margin-bottom:.5rem}
+  #legend h2 .caret{font-size:.68rem;color:#6b78a0;transition:transform .15s}
   #legend.collapsed h2 .caret{transform:rotate(-90deg)}
-  .lg{display:flex;align-items:center;gap:.5rem;padding:.16rem .28rem;border-radius:7px;cursor:pointer;font-size:.84rem}
+  .lg{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;padding:.22rem .3rem;border-radius:7px;cursor:pointer;font-size:.95rem}
   .lg:hover{background:rgba(120,140,200,.12)} .lg.off{opacity:.32}
-  .dot{width:11px;height:11px;border-radius:50%;flex:none;box-shadow:0 0 7px currentColor}
-  .lg .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .lg .ct{margin-left:auto;color:#7b88b0;font-size:.74rem}
+  .dot{width:13px;height:13px;border-radius:50%;flex:none;box-shadow:0 0 7px currentColor}
+  .lg .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1} .lg .ct{margin-left:auto;color:#7b88b0;font-size:.82rem}
+  /* overlay rows: per-scheme controls (◉ all · ◐ dim · ⊘ hide) — bigger tap targets for iOS */
+  .lg .ctrls{display:flex;gap:.3rem;width:100%;margin-left:21px}
+  .ob{flex:1;min-height:30px;background:#0a0f22;border:1px solid #2a3358;border-radius:7px;color:#aeb9da;
+    font-size:.98rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.12rem}
+  .ob:hover{background:#141b38} .ob.act{border-color:#5a6db0;color:#dfe6ff;background:#172149}
+  .ob i{font-style:normal;font-size:.72rem;color:#9aa6cf}
   #tip{position:fixed;pointer-events:none;z-index:9;opacity:0;transform:translate(-50%,-140%);
     background:rgba(8,11,24,.92);border:1px solid rgba(140,160,220,.3);border-radius:9px;padding:.4rem .6rem;
     font-size:.86rem;max-width:280px;transition:opacity .12s}
@@ -265,9 +271,17 @@ let palette = D.colors.map(hex);
 // mask (1 visible, 0 hidden) animated so a toggled scheme swirls in/out while
 // the others stay put. In single-scheme mode overlay=false and these are unused.
 let overlay = (slug === '_all' || D.method === 'umap-combined');
-let schemeOn = [];                       // boolean per scheme index
-function resetSchemeOn(d){ schemeOn = (d.clusterNames || []).map(() => true); }
+let schemeOn = [];                       // boolean per scheme index (drawn or not)
+let dimLvl = [];                         // 0..4 per scheme: brightness level (0 = full)
+let hideLvl = [];                        // 0..4 per scheme: random-hide density (0 = none)
+function resetSchemeOn(d){ const k = (d.clusterNames || []).length;
+  schemeOn = Array(k).fill(true); dimLvl = Array(k).fill(0); hideLvl = Array(k).fill(0); }
 resetSchemeOn(D);
+// per-scheme brightness (◐) and random-hide (⊘) levels for the overlay controls.
+// Hide is a STABLE per-point decimation (rnd[i] vs a fraction) so it's reversible
+// and never drops a concept from search/selection — unlike pre-sampling the data.
+const DIM_LV  = [1, 0.5, 0.27, 0.14, 0.06];
+const HIDE_LV = [0, 0.4, 0.65, 0.82, 0.93];
 
 // ---- scene / camera / renderer ----
 const app = document.getElementById('app');
@@ -331,6 +345,9 @@ let baseCol = new Float32Array(cap*3);  // undimmed colours
 let sizes = new Float32Array(cap).fill(1);
 let vis = new Float32Array(cap).fill(1);    // target visibility per point (1/0), overlay only
 let visCur = new Float32Array(cap).fill(1); // animated current visibility (alpha mult)
+let rnd = new Float32Array(cap);            // stable per-point random [0,1) for the ⊘ hide control
+function fillRnd(n){ for(let i=0;i<n;i++){ const x=Math.sin((i+1)*12.9898)*43758.5453; rnd[i]=x-Math.floor(x); } }
+fillRnd(N);
 // selection-sphere state (see the "Selection sphere + node table" block below)
 let selected = new Uint8Array(cap);         // 1 = inside the highlight sphere
 let selCount = 0;
@@ -472,13 +489,30 @@ function buildOverlayLegend(){
   setLegendHeading('schemes');
   D.clusterNames.forEach((sName,c)=>{
     const title = (schemeTitles && schemeTitles[sName]) ? shortTitle(schemeTitles[sName], sName) : sName;
-    const el=document.createElement('div'); el.className='lg'; el.dataset.c=c;
+    const el=document.createElement('div'); el.className='lg ov'; el.dataset.c=c;
     el.classList.toggle('off', !schemeOn[c]);
-    el.innerHTML=`<span class="dot" style="color:${D.colors[c]}"></span><span class="nm">${title}</span><span class="ct">${D.clusterSizes[c]}</span>`;
-    el.onclick=()=>{ if(maskSwirl) return;          // ignore taps mid-animation
-      schemeOn[c] = !schemeOn[c];
-      el.classList.toggle('off', !schemeOn[c]);
-      toggleScheme(c, schemeOn[c]); };
+    el.innerHTML=`<span class="dot" style="color:${D.colors[c]}"></span>`
+      +`<span class="nm" title="${title}">${title}</span><span class="ct">${(D.clusterSizes[c]||0).toLocaleString()}</span>`
+      +`<span class="ctrls">`
+      +`<button class="ob all" title="show every particle (reset dim + hide)">◉ all</button>`
+      +`<button class="ob dim" title="dim — tap to cycle 5 levels">◐<i>0</i></button>`
+      +`<button class="ob hide" title="randomly hide — tap to cycle 5 levels">⊘<i>0</i></button>`
+      +`</span>`;
+    const dim=el.querySelector('.dim'), hide=el.querySelector('.hide');
+    const dimI=dim.querySelector('i'), hideI=hide.querySelector('i');
+    // tap the colour/name (not the buttons) to draw/undraw the whole scheme
+    [el.querySelector('.dot'), el.querySelector('.nm'), el.querySelector('.ct')].forEach(x=>{
+      x.onclick=()=>{ if(maskSwirl) return;
+        schemeOn[c]=!schemeOn[c]; el.classList.toggle('off',!schemeOn[c]); toggleScheme(c, schemeOn[c]); }; });
+    el.querySelector('.all').onclick=(e)=>{ e.stopPropagation();
+      dimLvl[c]=0; hideLvl[c]=0; dimI.textContent='0'; hideI.textContent='0';
+      dim.classList.remove('act'); hide.classList.remove('act');
+      if(!schemeOn[c]){ schemeOn[c]=true; el.classList.remove('off'); toggleScheme(c, true); }
+      applyFilter(); applyDensity(); };
+    dim.onclick=(e)=>{ e.stopPropagation(); dimLvl[c]=(dimLvl[c]+1)%5; dimI.textContent=dimLvl[c];
+      dim.classList.toggle('act', dimLvl[c]>0); applyFilter(); };
+    hide.onclick=(e)=>{ e.stopPropagation(); hideLvl[c]=(hideLvl[c]+1)%5; hideI.textContent=hideLvl[c];
+      hide.classList.toggle('act', hideLvl[c]>0); applyFilter(); applyDensity(); };
     legitems.appendChild(el);
   });
 }
@@ -511,16 +545,21 @@ const q = document.getElementById('q');
 function applyFilter(){
   const term=q.value.trim().toLowerCase();
   for(let i=0;i<N;i++){
-    // overlay: a point's visibility (its scheme being toggled on) gates
+    const c = overlay ? D.cluster[i] : 0;
+    // ⊘ random-hide: stable per-point decimation for this scheme (reversible —
+    // the point still exists for search/selection, it's just not drawn).
+    const hidden = overlay && hideLvl[c] && rnd[i] < HIDE_LV[hideLvl[c]];
+    // overlay: a point's visibility (its scheme toggled on, and not hidden) gates
     // everything — visCur multiplies colour and zeroes size when hidden.
-    const v = overlay ? visCur[i] : 1;
+    const v = (overlay ? visCur[i] : 1) * (hidden ? 0 : 1);
     // in overlay mode the legend selects schemes, not isolating a theme, so the
     // theme-isolate filter only applies in single-scheme mode
     let on = overlay ? true : (isolated<0 || D.cluster[i]===isolated);
     if(on && term && v>0.001) on = D.labels[i].toLowerCase().includes(term);
     else if(on && term) on = false;      // hidden point can't be a search hit
     const dim = term || (!overlay && isolated>=0);
-    const k = (on?1:(dim?0.06:1)) * v;
+    const dm = overlay ? DIM_LV[dimLvl[c]] : 1;        // ◐ per-scheme brightness
+    const k = (on?1:(dim?0.06:1)) * v * dm;
     colArr[i*3]=baseCol[i*3]*k; colArr[i*3+1]=baseCol[i*3+1]*k; colArr[i*3+2]=baseCol[i*3+2]*k;
     sizes[i] = (v>0.001 && on && dim) ? 1.7 : (v>0.001 ? 1 : 0);
     // highlight the sphere selection: pop bigger + glow toward white
@@ -715,6 +754,7 @@ function applySchemeData(nd){
     sizes = new Float32Array(cap).fill(1);
     vis = new Float32Array(cap).fill(1);
     visCur = new Float32Array(cap).fill(1);
+    rnd = new Float32Array(cap);
     selected = new Uint8Array(cap);
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geo.setAttribute('color', new THREE.BufferAttribute(colArr, 3));
@@ -722,6 +762,7 @@ function applySchemeData(nd){
   }
   baseCol.set(baseCol0.subarray(0, N*3));
   for(let i=N;i<cap;i++){ sizes[i]=1; vis[i]=1; visCur[i]=1; }
+  fillRnd(N);             // stable per-point random for the ⊘ hide control
   syncVis(true);          // all schemes visible by default in overlay
   geo.setDrawRange(0, N);
   computeMaxR();          // refresh dist-from-centre scale for the new dataset

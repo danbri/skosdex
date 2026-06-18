@@ -1,0 +1,20 @@
+{
+  "_comment": "Curated cross-scheme COMPARE overlay (viz.html '✦ compare'), chosen to complement the demo's focus — the UK Parliament Thesaurus — across general classification, social science, politics/government/law, science, skills, culture/heritage. Every scheme is included IN FULL (no pre-sampling): pre-sampling would distort the shared layout and silently drop concepts from search/selection. Density is instead a per-scheme VIEW control in the overlay legend (◐ dim, ⊘ random-hide). `cap` is only a safety ceiling — set above the largest member so nothing is sampled. The largest peripheral aggregators (nalt, finto-koko, finto-yso, getty-aat, agrovoc) are left out to keep the total renderable on phones; add them here if desired. Built by tools/combine_curated.mjs -> _all.emb.{json,f16}, then tools/layout_combined.py -> _all.layout.json.",
+  "cap": 200000,
+  "schemes": [
+    "uk-parliament-thesaurus",
+    "esco",
+    "gacs",
+    "periodo",
+    "iptc",
+    "eurovoc",
+    "unbis",
+    "gemet",
+    "unesco-thesaurus",
+    "homosaurus",
+    "cessda-elsst",
+    "lcgft",
+    "lcdgt",
+    "udc-summary"
+  ]
+}
