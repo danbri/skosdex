@@ -15,6 +15,17 @@ base = f'{ROOT}/deploy/fly/www/embeddings/{slug}'
 meta = json.load(open(f'{base}.emb.json'))
 n, dim = meta['n'], meta['dim']
 V = np.fromfile(f'{base}.emb.f16', dtype='<f2').astype(np.float32).reshape(n, dim)
+# Giants (lcsh 512k, getty-ulan 402k, …): a full UMAP chokes and the layout.json
+# would be ~100MB / unrenderable on a phone. Lay out a representative SAMPLE for
+# the galaxy view (the full vectors stay in .emb.f16 for server-side /api KNN).
+LAYOUT_MAX = int(os.environ.get('SKOSDEX_LAYOUT_MAX', '0'))
+if LAYOUT_MAX and n > LAYOUT_MAX:
+    sel = np.sort(np.random.RandomState(42).choice(n, LAYOUT_MAX, replace=False))
+    V = V[sel]
+    meta['ids'] = [meta['ids'][i] for i in sel]
+    if meta.get('labels'): meta['labels'] = [meta['labels'][i] for i in sel]
+    n = LAYOUT_MAX
+    print(f'  layout: sampled {LAYOUT_MAX} of {meta["n"]} for a renderable giant galaxy', flush=True)
 K = max(1, min(K, n))                          # can't have more clusters than concepts
 
 import umap

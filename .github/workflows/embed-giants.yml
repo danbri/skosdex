@@ -1,0 +1,128 @@
+# Dedicated embedder for the GIANTS (lcsh 512k, getty-ulan 402k, gnd-subjects
+# 207k, rameau 204k) — too big for one CI job under the 6h limit, so each scheme
+# is split into row-RANGE chunks (one job each, via embed_scheme.py --range),
+# then stitched back together by tools/merge_parts.mjs. Full float16 vectors land
+# in LFS (for the server-side /api KNN + cross-scheme see-also); the per-scheme
+# galaxy is laid out from a representative SAMPLE (SKOSDEX_LAYOUT_MAX) so it stays
+# renderable. Commits with [skip ci] (NO deploy — vectors exceed the 8GB image;
+# the live box's start.sh syncs them from LFS at boot).
+#
+# Dispatch: Actions ▸ "embed giants" ▸ Run, or via MCP actions_run_trigger.
+name: embed giants
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: 'space-separated giant slugs'
+        default: 'lcsh getty-ulan gnd-subjects rameau'
+      chunk:
+        description: 'concepts per CI job (smaller = safer under the 6h limit)'
+        default: '50000'
+      layout_max:
+        description: 'sample size for the galaxy layout (full vectors are kept regardless)'
+        default: '80000'
+      push:
+        description: 'commit vectors to LFS (true) or upload an artifact (false)'
+        default: 'true'
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true, fetch-depth: 0 }
+      - run: git lfs pull
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: node scripts/skosdex graphed && node scripts/skosdex solr-docs
+      - name: build row-range matrix (one job per chunk of valid concepts)
+        id: m
+        env: { SLUGS: '${{ inputs.slugs }}', CHUNK: '${{ inputs.chunk }}' }
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          chunk = int(os.environ['CHUNK']); tuples = []
+          for slug in os.environ['SLUGS'].split():
+              nd = f'dist/solr-cache/{slug}.ndjson'
+              # count VALID concepts (those embed_scheme will actually emit)
+              v = 0
+              for line in open(nd, encoding='utf-8'):
+                  line = line.strip()
+                  if not line: continue
+                  d = json.loads(line)
+                  if d.get('exactLabel') or (d.get('prefLabel') or [None])[0]: v += 1
+              for s in range(0, v, chunk):
+                  tuples.append({'slug': slug, 'start': s, 'end': min(s + chunk, v)})
+          print('matrix=' + json.dumps({'tuple': tuples}))
+          PY
+      - run: echo 'matrix → ${{ steps.m.outputs.matrix }}'
+      - uses: actions/upload-artifact@v4
+        with: { name: giant-cache, path: dist/solr-cache, retention-days: 1 }
+
+  embed:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4            # no LFS — we only write new part files
+      - uses: actions/download-artifact@v4
+        with: { name: giant-cache, path: dist/solr-cache }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/skosdex-e5, key: e5-large-instruct-v1 }
+      - run: pip install onnxruntime tokenizers numpy
+      - name: embed range
+        run: |
+          python3 tools/embed_scheme.py "${{ matrix.tuple.slug }}" --range ${{ matrix.tuple.start }} ${{ matrix.tuple.end }}
+          mkdir -p /tmp/out && cp -v deploy/fly/www/embeddings/${{ matrix.tuple.slug }}.part-*.emb.* /tmp/out/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.tuple.slug }}-${{ matrix.tuple.start }}
+          path: /tmp/out
+          retention-days: 2
+
+  collect:
+    needs: embed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/skosdex-e5, key: e5-large-instruct-v1 }
+      - run: pip install onnxruntime tokenizers numpy umap-learn scikit-learn
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'part-*', path: /tmp/parts, merge-multiple: true }
+      - run: cp -v /tmp/parts/* deploy/fly/www/embeddings/ && ls deploy/fly/www/embeddings/*.part-* | wc -l
+      - name: stitch parts + lay out a sampled galaxy per giant
+        env: { SKOSDEX_LAYOUT_MAX: '${{ inputs.layout_max }}' }
+        run: |
+          for s in ${{ inputs.slugs }}; do
+            node tools/merge_parts.mjs "$s" && python3 tools/layout_scheme.py "$s" || echo "::warning::$s failed"
+          done
+      - name: commit to LFS (NO deploy — giants exceed the 8GB image)
+        if: ${{ inputs.push != 'false' }}
+        run: |
+          git config user.name danbri
+          git config user.email danbri@danbri.org
+          git add deploy/fly/www/embeddings
+          git commit -m "embeddings: the 4 giants (lcsh/getty-ulan/gnd-subjects/rameau), range-chunked [skip ci]" || { echo "no changes"; exit 0; }
+          git push
+      - name: upload (when not pushing)
+        if: ${{ inputs.push == 'false' }}
+        uses: actions/upload-artifact@v4
+        with: { name: giants-embeddings, path: 'deploy/fly/www/embeddings/*', retention-days: 3 }

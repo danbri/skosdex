@@ -17,12 +17,20 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def main():
     slug = sys.argv[1]
-    cap = int(sys.argv[2]) if len(sys.argv) > 2 else 0
+    # Range mode (`--range START END`) embeds only valid concepts [START,END) and
+    # writes a PARTIAL `<slug>.part-<START>.emb.{f16,json}` (no index.json touch) —
+    # lets the giants (lcsh/getty-ulan/gnd/rameau) be split across CI jobs under the
+    # 6h limit, then stitched by tools/merge_parts.mjs. Otherwise: whole scheme.
+    rng = None
+    if '--range' in sys.argv:
+        i = sys.argv.index('--range'); rng = (int(sys.argv[i + 1]), int(sys.argv[i + 2]))
+    cap = int(sys.argv[2]) if len(sys.argv) > 2 and rng is None else 0
     nd = os.path.join(ROOT, 'dist', 'solr-cache', f'{slug}.ndjson')
     if not os.path.exists(nd):
         sys.exit(f'no {nd} — run `skosdex graphed && skosdex solr-docs` first')
 
     ids, labels, texts = [], [], []
+    vi = 0                                  # index over VALID concepts (those with a label)
     for line in open(nd, encoding='utf-8'):
         line = line.strip()
         if not line:
@@ -31,6 +39,13 @@ def main():
         lbl = d.get('exactLabel') or (d.get('prefLabel') or [None])[0]
         if not lbl:
             continue
+        if rng is not None:
+            if vi >= rng[1]:
+                break
+            if vi < rng[0]:
+                vi += 1
+                continue
+        vi += 1
         defi = (d.get('definition') or [''])[0]
         ids.append(d['id'])
         labels.append(lbl)
@@ -47,6 +62,14 @@ def main():
 
     outdir = os.path.join(ROOT, 'deploy', 'fly', 'www', 'embeddings')
     os.makedirs(outdir, exist_ok=True)
+    if rng is not None:
+        # partial: zero-padded start so merge_parts.mjs can sort lexically
+        base = f'{slug}.part-{rng[0]:09d}'
+        vecs.astype('<f2').tofile(os.path.join(outdir, f'{base}.emb.f16'))
+        json.dump({'model': em.MODEL, 'dim': int(d), 'n': len(ids), 'start': rng[0], 'ids': ids, 'labels': labels},
+                  open(os.path.join(outdir, f'{base}.emb.json'), 'w'))
+        print(f'  embed {slug}: wrote PARTIAL {base}.emb.f16 ({len(ids)} concepts)', flush=True)
+        return
     vecs.astype('<f2').tofile(os.path.join(outdir, f'{slug}.emb.f16'))     # float16 LE
     json.dump({'model': em.MODEL, 'dim': int(d), 'n': len(ids), 'ids': ids, 'labels': labels},
               open(os.path.join(outdir, f'{slug}.emb.json'), 'w'))
