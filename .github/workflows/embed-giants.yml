@@ -37,13 +37,17 @@ jobs:
     outputs:
       matrix: ${{ steps.m.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
-        with: { lfs: true, fetch-depth: 0 }
-      - run: git lfs pull
+      - uses: actions/checkout@v4            # no lfs: true — that would pull the WHOLE corpus
+      - name: pull only the giants' canonical from LFS
+        run: |
+          inc=$(for s in $SLUGS; do printf 'third_party/skos/%s/canonical.nq.gz,' "$s"; done)
+          echo "lfs include: ${inc%,}"
+          git lfs pull --include="${inc%,}"
       - uses: actions/setup-node@v4
         with: { node-version: 20, cache: npm }
       - run: npm ci
-      - run: node scripts/skosdex graphed && node scripts/skosdex solr-docs
+      # graph + doc-extract ONLY the giants (full-corpus graphed OOM'd/filled disk)
+      - run: node scripts/skosdex graphed $SLUGS && node scripts/skosdex solr-docs
       - name: build row-range matrix (one job per chunk of valid concepts)
         id: m
         run: |
