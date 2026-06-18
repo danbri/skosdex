@@ -410,8 +410,18 @@ Promise.all([
     .then(m => Object.fromEntries((m.included || []).map(x => [x.slug, x.title]))).catch(() => ({})),
 ]).then(([list, titles]) => {
   schemeTitles = titles;                 // remembered for the in-place switcher's title update
-  const galaxies = list.filter(x => !x.startsWith('_'));
+  // Family galaxies (built by combine_family/embed_family): a bare slug F with
+  // >=2 embedded "F-*" members. Show the family (nice title), hide its members.
+  const FAM_LABEL = {iptc:'IPTC NewsCodes', eu:'EU authority tables', rva:'Research Vocabularies Australia', loterre:'Loterre', lc:'Library of Congress'};
+  let galaxies = list.filter(x => !x.startsWith('_'));
+  const membersOf = f => galaxies.filter(s => s.startsWith(f + '-'));
+  const fams = galaxies.filter(f => !f.includes('-') && membersOf(f).length >= 2);
+  const covered = new Set();
+  for (const f of fams) { for (const s of membersOf(f)) covered.add(s);
+    titles[f] = titles[f] || `${FAM_LABEL[f] || f.toUpperCase()} — all ${membersOf(f).length} schemes`; }
+  galaxies = galaxies.filter(s => !covered.has(s));     // fold members under the family
   if (slug !== '_all' && !galaxies.includes(slug)) galaxies.push(slug);
+  galaxies.sort((a, b) => shortTitle(titles[a], a).localeCompare(shortTitle(titles[b], b)));
   for (const s of galaxies) schemeSel.appendChild(optFor(s, titles[s]));
   // explicit combined-overlay entry (value `_all`, kept out of the `_`-filtered list)
   const allOpt = document.createElement('option');
