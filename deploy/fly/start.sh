@@ -299,11 +299,42 @@ if command -v python3 >/dev/null 2>&1 && [ -f /opt/skosdex/embed_query.py ]; the
 else
   echo "WARN: python3 or embed_query.py missing — /api/search text search disabled"
 fi
+# Embedding VECTORS (.emb.f16) live on the volume, not in the image: they total
+# ~4-7 GB across the corpus, over Fly's 8 GB image limit (same reason the e5 model
+# is on /data). Sync them onto /data/embeddings at boot, in the BACKGROUND,
+# fetching only what's missing — so re-deploys and cutover volume-forks skip what's
+# already there. nginx serves /embeddings/ volume-first with an image fallback, so
+# galaxies (baked layouts) render instantly and KNN/"similar" light up as vectors
+# arrive. Never gates serving.
+EMB_VOL=/data/embeddings
+EMB_IMG=/opt/skosdex/www/embeddings
+mkdir -p "$EMB_VOL"
+# embed_api.mjs reads _all.emb.json (baked, small) + _all.emb.f16 (synced) from
+# ONE dir — stage the metadata next to where its vector lands.
+cp -f "$EMB_IMG/_all.emb.json" "$EMB_VOL/" 2>/dev/null || true
+if [ -f "$EMB_IMG/index.json" ]; then
+  ( ref="${EMB_REF:-claude/main}"
+    base="https://media.githubusercontent.com/media/danbri/skosdex/$ref/deploy/fly/www/embeddings"
+    echo "[emb-sync] syncing .emb.f16 vectors to $EMB_VOL (ref $ref)"
+    python3 -c 'import json,sys; [print(s) for s in json.load(open(sys.argv[1]))]' "$EMB_IMG/index.json" \
+    | while IFS= read -r slug; do
+        [ -n "$slug" ] || continue
+        f="$slug.emb.f16"
+        if [ -s "$EMB_VOL/$f" ]; then continue; fi
+        if curl -fsSL --retry 3 "$base/$f" -o "$EMB_VOL/.tmp.$f"; then
+          mv -f "$EMB_VOL/.tmp.$f" "$EMB_VOL/$f" || true
+        else
+          rm -f "$EMB_VOL/.tmp.$f"; echo "[emb-sync] miss $f"
+        fi
+      done
+    echo "[emb-sync] done: $(ls "$EMB_VOL"/*.emb.f16 2>/dev/null | wc -l) vectors on volume" ) &
+fi
+
 # KNN over the combined e5 space (_all.emb.*). nginx proxies /api/ -> :8088.
 if command -v node >/dev/null 2>&1 && [ -f /opt/skosdex/embed_api.mjs ]; then
   echo "starting embeddings API on 127.0.0.1:8088"
   ( while true; do
-      EMB_DIR=/opt/skosdex/www/embeddings node /opt/skosdex/embed_api.mjs 8088 2>&1 | sed 's/^/[embed-api] /'
+      EMB_DIR="$EMB_VOL" node /opt/skosdex/embed_api.mjs 8088 2>&1 | sed 's/^/[embed-api] /'
       echo "[embed-api] exited ($?) — restarting in 10s"; sleep 10
     done ) &
 fi

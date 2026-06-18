@@ -156,6 +156,7 @@ jobs:
             # Thin image: new www layered onto the last full image (corpus intact).
             docker pull "$IMG:latest"
             docker build -f deploy/fly/Dockerfile.ui --build-arg BASE="$IMG:latest" \
+              --build-arg GIT_SHA=${{ github.sha }} \
               -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
           else
             # The image bakes only dist/solr-parts + dist/graphed — drop the ~2 GB
@@ -163,6 +164,7 @@ jobs:
             # build context / eat runner disk.
             rm -f dist/solr-docs.json
             docker build -f deploy/fly/Dockerfile \
+              --build-arg GIT_SHA=${{ github.sha }} \
               -t "$IMG:latest" -t "$IMG:${{ github.sha }}" .
           fi
           docker push "$IMG:latest"

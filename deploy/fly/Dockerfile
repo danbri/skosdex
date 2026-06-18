@@ -39,7 +39,15 @@ COPY dist/solr-parts/    /seed/solr-parts/
 # licensing declared and no semantic changes — N-Quads formatting only).
 COPY dist/manifest.json  /seed/manifest.json
 COPY deploy/fly/nginx.conf /etc/nginx/conf.d/skosdex.conf
+# www carries the UI + the SMALL embedding files (index.json, *.layout.json for
+# the galaxies, *.emb.json metas). The big *.emb.f16 vectors are excluded by
+# .dockerignore — start.sh syncs them onto the volume at boot (see below), so the
+# image stays well under Fly's 8 GB limit.
 COPY deploy/fly/www/ /opt/skosdex/www/
+# Git ref the running box pulls the LFS .emb.f16 vectors from (media.github...).
+# CI passes the exact commit SHA; defaults to the working branch for manual builds.
+ARG GIT_SHA=claude/main
+ENV EMB_REF=${GIT_SHA}
 # Embeddings similarity API server (KNN over the combined _all.emb.* baked above
 # into www/embeddings); start.sh runs it in the background, nginx proxies /api/.
 COPY tools/embed_api.mjs /opt/skosdex/embed_api.mjs

@@ -12,3 +12,8 @@ _site
 # (cutover); not consumed by the image yet, and large — keep it out of the build.
 deploy/fly/www/embeddings/similar
 deploy/fly/www/embeddings/similar.nq.gz
+# The float16 vectors (~4-7 GB across the corpus) would blow Fly's 8 GB image
+# limit, so they are NOT baked — start.sh syncs them onto the mounted volume at
+# boot (from the repo's public LFS), same as the e5 model. The small layouts/
+# metas/index ARE baked, so galaxies render with no download. See start.sh.
+deploy/fly/www/embeddings/*.emb.f16

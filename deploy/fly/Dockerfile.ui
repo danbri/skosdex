@@ -10,4 +10,9 @@
 ARG BASE=ghcr.io/danbri/skosdex-fly:latest
 FROM ${BASE}
 
+# Small embedding files (layouts/metas/index) ship in www; the big *.emb.f16 are
+# excluded by .dockerignore and synced to the volume at boot. Refresh the ref so
+# the box pulls any newly-added schemes' vectors (see start.sh).
 COPY deploy/fly/www/ /opt/skosdex/www/
+ARG GIT_SHA=claude/main
+ENV EMB_REF=${GIT_SHA}
