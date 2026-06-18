@@ -196,6 +196,7 @@ const $=id=>document.getElementById(id);
 const SKOS='http://www.w3.org/2004/02/skos/core#';
 const schemeNames={};
 const SLUG_BY_GRAPH={};   // conceptScheme graph URI -> scheme slug (for embeddings lookup)
+const TITLE_BY_SLUG={};   // scheme slug -> human title (for cross-scheme see-also tags)
 let SCHEMES=[];           // [{slug,title,graph,quads,licenseClass,containerOnly}]
 const DEFAULTS={rows:25,limit:400,exactBoost:20,lang:'auto'};
 // cfg.schemes[graph] = {on:bool, prio:0|+1|-1}
@@ -257,7 +258,7 @@ const famName=f=>FAMILY_LABEL[f]||f;
 
 fetch('/manifest.json').then(r=>r.json()).then(m=>{
   let tot=0;
-  SCHEMES=m.included.filter(s=>s.graph).map(s=>{ schemeNames[s.graph]=s.title; SLUG_BY_GRAPH[s.graph]=s.slug; tot+=s.quads; return s; });
+  SCHEMES=m.included.filter(s=>s.graph).map(s=>{ schemeNames[s.graph]=s.title; SLUG_BY_GRAPH[s.graph]=s.slug; TITLE_BY_SLUG[s.slug]=s.title; tot+=s.quads; return s; });
   cfg.rows ??= DEFAULTS.rows; cfg.limit ??= DEFAULTS.limit; cfg.exactBoost ??= DEFAULTS.exactBoost;
   cfg.schemes ??= {};
   for(const s of SCHEMES) cfg.schemes[s.graph] ??= {on:true,prio:0};
@@ -497,6 +498,29 @@ function renderSimilar(){
   el.innerHTML=`<div class="reln"><b>similar by meaning <span class="ct">embeddings · experimental</span> ${seg}</b><br>${body}</div>`;
 }
 function setSim(v){ cfg.simAll=!!v; saveCfg(); renderSimilar(); }
+// ---- cross-scheme see-also: semantic neighbours in OTHER vocabularies --------
+// Served by the embeddings API (server-side KNN over the combined _all space;
+// cross=1 excludes same-scheme hits). The combined index is too big to ship to
+// the browser, so this is the one see-also that goes through /api. Only concepts
+// in the compare set (_all) return hits — everything else 404s and the section
+// stays hidden. Each hit is tagged with its source vocabulary, so you can see a
+// UK Parliament term's nearest ESCO skill / EuroVoc / LCSH analogue, etc.
+async function loadCrossSimilar(uri){
+  const el=$('xsim'); if(!el) return; el.innerHTML='';
+  try{
+    const r=await fetch('/api/similar?cross=1&k=8&id='+encodeURIComponent(uri));
+    if(!r.ok) return;                       // 404 = concept not in the cross-scheme index
+    const d=await r.json();
+    const hits=(d.results||[]).filter(h=>!SHOWN.has(h.id)).slice(0,8);
+    if(!hits.length) return;
+    const body=hits.map(h=>{
+      const full=TITLE_BY_SLUG[h.scheme]||famName(h.scheme)||h.scheme;
+      const tag=(s=>s.length>22?s.slice(0,21)+'…':s)(full.split('—')[0].trim());
+      return `<a onclick="show('${esc(h.id)}')" title="cosine ${(h.score||0).toFixed(2)} · ${esc(full)}">${esc(h.label||h.id)}<span class="scheme-tag">${esc(tag)}</span></a>`;
+    }).join('');
+    el.innerHTML=`<div class="reln"><b>similar across vocabularies <span class="ct">embeddings · cross-scheme · experimental</span></b><br>${body}</div>`;
+  }catch{}
+}
 
 async function sparql(query){
   const r=await fetch('/query',{method:'POST',headers:{'Content-Type':'application/sparql-query','Accept':'application/sparql-results+json'},body:query});
@@ -567,6 +591,7 @@ async function show(uri){
     ${def?`<div class="def">${esc(def.value)}</div>`:''}
     ${relHtml('broader')}<div id="sibs"></div>${relHtml('narrower')}${relHtml('related')}
     <div id="similar"></div>
+    <div id="xsim"></div>
     ${mapHtml('exactMatch')}${mapHtml('closeMatch')}${mapHtml('broadMatch')}${mapHtml('narrowMatch')}${mapHtml('relatedMatch')}${mapHtml('sameAs')}${mapHtml('focus')}`;
   renderSchemeTags();
   // track every URI already linked on the panel, so "similar by meaning"'s
@@ -576,7 +601,7 @@ async function show(uri){
   Object.values(map).forEach(a=>a.forEach(u=>SHOWN.add(u)));
   // fill ancestor breadcrumb + siblings, THEN the embeddings "similar" panel
   // (so siblings are already in SHOWN and won't be repeated).
-  loadHierarchyNav(uri, rel.broader.map(x=>x.u)).then(()=>loadSimilar(uri, scheme));
+  loadHierarchyNav(uri, rel.broader.map(x=>x.u)).then(()=>{ loadSimilar(uri, scheme); loadCrossSimilar(uri); });
 }
 
 // Ancestor breadcrumb (root › … › parent › this) and siblings (concepts sharing
