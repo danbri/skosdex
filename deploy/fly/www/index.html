@@ -480,6 +480,11 @@ async function loadSimilar(uri,scheme){
   try{
     const slug=SLUG_BY_GRAPH[scheme]; if(!slug)return;
     if(!(await embSet()).has(slug))return;
+    // Giants (lcsh, getty-ulan, gnd-subjects, rameau) have ~0.4–1GB vector files —
+    // pulling one into the browser for in-browser KNN would hang the page. Skip via
+    // a cheap HEAD size check (their "similar" is server-side / API-only).
+    const head=await fetch(`/embeddings/${slug}.emb.f16`,{method:'HEAD'}).catch(()=>null);
+    if(head&&head.ok&&+(head.headers.get('content-length')||0) > 250*1024*1024) return;
     const E=await embLoad(slug); const hits=embSimilar(E,uri,14);
     if(!hits.length)return;
     SIM={hits}; renderSimilar();
