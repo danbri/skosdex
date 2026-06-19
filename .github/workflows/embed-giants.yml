@@ -24,6 +24,11 @@ on:
 permissions:
   contents: write
 
+# a new run supersedes an in-flight one (frees runners; avoids duplicate work)
+concurrency:
+  group: embed-giants
+  cancel-in-progress: true
+
 # inputs.* are empty on a push trigger, so fall back to the defaults here
 env:
   SLUGS:      ${{ inputs.slugs      || 'lcsh getty-ulan gnd-subjects rameau' }}
@@ -86,9 +91,14 @@ jobs:
       - uses: actions/cache@v4
         with: { path: ~/.cache/skosdex-e5, key: e5-large-instruct-v1 }
       - run: pip install onnxruntime tokenizers numpy
-      - name: embed range
+      - name: embed range (retry transient model-download 429s)
         run: |
-          python3 tools/embed_scheme.py "${{ matrix.tuple.slug }}" --range ${{ matrix.tuple.start }} ${{ matrix.tuple.end }}
+          ok=
+          for a in 1 2 3 4; do
+            if python3 tools/embed_scheme.py "${{ matrix.tuple.slug }}" --range ${{ matrix.tuple.start }} ${{ matrix.tuple.end }}; then ok=1; break; fi
+            echo "::warning::embed attempt $a failed (likely HuggingFace 429) — backing off"; sleep $((45 * a))
+          done
+          [ -n "$ok" ] || { echo "::error::embed failed after retries"; exit 1; }
           mkdir -p /tmp/out && cp -v deploy/fly/www/embeddings/${{ matrix.tuple.slug }}.part-*.emb.* /tmp/out/
       - uses: actions/upload-artifact@v4
         with:
