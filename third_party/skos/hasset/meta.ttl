@@ -1,0 +1,35 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# HASSET — Humanities and Social Science Electronic Thesaurus (UK Data
+# Service / UK Data Archive, University of Essex). ~4,770 concepts, English.
+# The leading British-English social-science thesaurus, 1970s–2021; RETIRED
+# by UKDS (announced 2025-01) in favour of the multilingual ELSST (which we
+# hold as cessda-elsst — HASSET was ELSST's ancestor/source vocabulary).
+#
+# This is the FINAL public release, HASSET_20210819 (2021-08-19), from the
+# 2021 Skosmos platform (announced
+# https://ukdataservice.ac.uk/2021/09/10/hasset-thesaurus-moves-to-new-platform/
+# — "Creative Commons Attribution-ShareAlike 4.0 ... the same licence used by
+# ELSST"). License verified 2026-08-21 on the archived Skosmos landing page
+# (capture 2021-09-23: "License (CC-BY-SA 4.0)" linking to
+# creativecommons.org/licenses/by-sa/4.0/), contemporaneous with the dump.
+# The live hosts (hasset/vocabularies.ukdataservice.ac.uk) now only point at
+# CESSDA ELSST; the dump survives solely as this Wayback Machine capture
+# (sole capture, 2022-04-02, 4.9 MB zip: ttl/nt/rdf/jsonld). SKOS-HASSET
+# project background:
+# https://www.data-archive.ac.uk/about/grants-and-projects/metadata-and-data-discovery/skos-hasset/
+# CC BY-SA => copyleft => container-only (never in static artifacts).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "HASSET — Humanities and Social Science Electronic Thesaurus (final 2021 release)" ;
+    dcterms:publisher <https://ukdataservice.ac.uk/> ;
+    skosdex:conceptSchemeURI <https://hasset.ukdataservice.ac.uk/> ;
+    skosdex:sourceURL <https://web.archive.org/web/20220402140021if_/https://vocabularies.ukdataservice.ac.uk/downloads/HASSET_20210819.zip> ;
+    skosdex:sourceFormat "text/turtle" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "HASSET_20210819.ttl" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .

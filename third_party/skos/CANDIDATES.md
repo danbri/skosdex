@@ -273,7 +273,7 @@ Ranked candidates found missing from the corpus. ✔ = download URL verified liv
 | Brinkman thesaurus | KB Netherlands | ~12k | CC0 | public-domain | data.bibliotheken.nl (dump + SPARQL) |
 | PSH subject headings | NTK Prague | ~13.9k cs/en | CC BY 3.0 CZ | open | techlib.cz — old zip 404s; get current link / email psh@techlib.cz |
 | RVK classification | UB Regensburg | huge | CC0 | public-domain | MARC21-XML only — needs mc2skos conversion |
-| HASSET | UK Data Service | ~4k | CC BY-SA 4.0 | copyleft (container-only) | click-through download at hasset.ukdataservice.ac.uk |
+| ~~HASSET~~ | UK Data Service | 4,770 concepts | CC BY-SA 4.0 | copyleft (container-only) | **onboarded 2026-08-21** — `hasset/` (43,627 quads). HASSET was RETIRED by UKDS (announced 2025-01) in favour of ELSST (already held as `cessda-elsst` — HASSET is ELSST's British-English ancestor). The live hosts now just point to CESSDA; the final public dump (`HASSET_20210819.zip`, from the CC-BY-SA-4.0 2021 Skosmos platform) survives ONLY as a single Wayback Machine capture (2022-04-02) — rescued from there. Project background: <https://www.data-archive.ac.uk/about/grants-and-projects/metadata-and-data-discovery/skos-hasset/> (the CC BY-NC-SA badge on that legacy 2012 project page predates the 2021 relicensing). |
 | DDI Controlled Vocabularies | DDI Alliance | ~20 small CVs | CC BY-SA 3.0 | copyleft (container-only) | github linked-statistics/DDI-controlled-vocabularies |
 | IVOA vocabularies | IVOA | ~30–40 small | CC0 | public-domain | <http://www.ivoa.net/rdf/> (conneg per vocab) |
 | Tesauros Patrimonio Cultural España (9) | Ministerio de Cultura | tens of k | open-data (verify exact) | open (verify) | tesauros.cultura.gob.es/tesauros/descarga (RDF/XML) |
