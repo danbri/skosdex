@@ -78,6 +78,19 @@ gh workflow run deploy-fly.yml --ref claude/main -f cutover=1
 `dry` runs the cutover but skips the destructive swap (seeds a fork for
 inspection) — good for a first run on a big new scheme.
 
+
+## ⚠ The follow-up-push trap (cost a corpus deploy, 2026-08-21)
+
+`cancel-in-progress: true` + the UI fast path make an innocent-looking
+sequence destructive: push a full-build commit, then minutes later push a
+small `deploy/fly/www/**`-only cleanup — the second push CANCELS the running
+full build and is itself classified UI-only, so it layers new www onto the
+STALE `:latest` corpus image. Symptom: UI artifacts serve but new graphs are
+absent and boot is suspiciously fast. Rules: www-only commits go FIRST (the
+skill's ordering note), never as an afterthought; if it happens, recover with
+`gh workflow run deploy-fly.yml --ref claude/main` — manual dispatch always
+forces a full build (by design, see "Classify change scope").
+
 ## Monitor
 
 ```bash
