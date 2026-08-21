@@ -32,9 +32,25 @@ const HOST = process.env.EMB_HOST || '127.0.0.1';   // behind nginx by default
 const meta = JSON.parse(fs.readFileSync(path.join(DIR, '_all.emb.json'), 'utf8'));
 const { dim, n, ids, labels, scheme, schemes } = meta;
 
+// The vectors blob is synced onto the volume in the background at boot. Wait
+// for a blob whose byte length matches this index exactly (the mover is
+// atomic, so a correct size means a complete, matching file) instead of
+// crashing into a restart loop that 502s /api — and NEVER load a mismatched
+// blob (that was the 2026-07 desync: stale vectors under a newer index made
+// every row past 166k read as zeros).
+const blobPath = path.join(DIR, '_all.emb.f16');
+const expectedBytes = n * dim * 2;
+for (;;) {
+  let size = 0;
+  try { size = fs.statSync(blobPath).size; } catch {}
+  if (size === expectedBytes) break;
+  console.log(`embed-api: waiting for ${blobPath}: have ${size} bytes, index needs ${expectedBytes}`);
+  await new Promise((r) => setTimeout(r, 15000));
+}
+
 // Decode the float16 blob into a Float32Array once (browsers get Float16Array;
 // Node doesn't yet, so expand here for fast dot products).
-const raw = fs.readFileSync(path.join(DIR, '_all.emb.f16'));
+const raw = fs.readFileSync(blobPath);
 const u16 = new Uint16Array(raw.buffer, raw.byteOffset, raw.byteLength / 2);
 const V = new Float32Array(n * dim);
 for (let i = 0; i < V.length; i++) V[i] = f16to32(u16[i]);

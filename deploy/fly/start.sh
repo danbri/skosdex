@@ -312,10 +312,17 @@ mkdir -p "$EMB_VOL"
 # embed_api.mjs reads _all.emb.json (baked, small) + _all.emb.f16 (synced) from
 # ONE dir — stage the metadata next to where its vector lands.
 cp -f "$EMB_IMG/_all.emb.json" "$EMB_VOL/" 2>/dev/null || true
-# per-scheme vectors are immutable, but the combined _all blob CHANGES whenever the
-# compare set is re-curated — drop the volume copy so the sync re-fetches it (the
-# "skip if present" below would otherwise serve a stale _all to /api).
-rm -f "$EMB_VOL/_all.emb.f16"
+# per-scheme vectors are immutable, but the combined _all blob CHANGES whenever
+# the compare set is re-curated. Do NOT unconditionally delete it: that left
+# /api dead in a crash-loop whenever the one-shot 478MB re-fetch missed (the
+# 2026-07 "vectors/index desync" outage class). Instead VERIFY the volume copy
+# against the baked index (n*dim*2 bytes) and drop it only when wrong.
+EXP_ALL=$(python3 -c 'import json,sys; j=json.load(open(sys.argv[1])); print(j["n"]*j["dim"]*2)' "$EMB_IMG/_all.emb.json" 2>/dev/null || echo 0)
+ACT_ALL=$(stat -c%s "$EMB_VOL/_all.emb.f16" 2>/dev/null || echo 0)
+if [ "$EXP_ALL" = 0 ] || [ "$EXP_ALL" != "$ACT_ALL" ]; then
+  echo "[emb-sync] volume _all.emb.f16 is $ACT_ALL bytes, index expects $EXP_ALL — dropping for re-fetch"
+  rm -f "$EMB_VOL/_all.emb.f16"
+fi
 if [ -f "$EMB_IMG/index.json" ]; then
   ( ref="${EMB_REF:-claude/main}"
     base="https://media.githubusercontent.com/media/danbri/skosdex/$ref/deploy/fly/www/embeddings"
@@ -331,6 +338,22 @@ if [ -f "$EMB_IMG/index.json" ]; then
           rm -f "$EMB_VOL/.tmp.$f"; echo "[emb-sync] miss $f"
         fi
       done
+    # _all is what /api lives on: the loop above tries it once like any slug, but
+    # a single miss must not strand the API until the next boot — keep retrying
+    # (with size verification; mv is atomic so size==expected means complete).
+    tries=0
+    while [ "$(stat -c%s "$EMB_VOL/_all.emb.f16" 2>/dev/null || echo 0)" != "$EXP_ALL" ] && [ "$EXP_ALL" != 0 ] && [ $tries -lt 60 ]; do
+      tries=$((tries+1))
+      if curl -fsSL --retry 3 "$base/_all.emb.f16" -o "$EMB_VOL/.tmp._all.emb.f16" \
+         && [ "$(stat -c%s "$EMB_VOL/.tmp._all.emb.f16" 2>/dev/null || echo 0)" = "$EXP_ALL" ]; then
+        mv -f "$EMB_VOL/.tmp._all.emb.f16" "$EMB_VOL/_all.emb.f16"
+        echo "[emb-sync] _all.emb.f16 landed on retry $tries"
+      else
+        rm -f "$EMB_VOL/.tmp._all.emb.f16"
+        echo "[emb-sync] _all.emb.f16 retry $tries failed — again in 30s"
+        sleep 30
+      fi
+    done
     echo "[emb-sync] done: $(ls "$EMB_VOL"/*.emb.f16 2>/dev/null | wc -l) vectors on volume" ) &
 fi
 
