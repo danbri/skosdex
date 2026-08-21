@@ -38,3 +38,4 @@ tools/__pycache__/
 # Parliament thesaurus typed source is ~35MB and regenerable (see scheme meta.ttl);
 # canonical.nq.gz (LFS) is the committed artifact.
 third_party/skos/uk-parliament-thesaurus/source/parliament-lda-terms.typed.ttl
+deploy/fly/www/embeddings/similar/

@@ -84,41 +84,63 @@ print(f'pass1 done ({time.time()-t0:.0f}s); mean r={r.mean():.3f}', flush=True)
 
 # Pass 2: per concept — overall top-K (JSON), stratified per-scheme cross top-K
 # ranked by CSLS, floored at TAU on RAW cosine (scores stay interpretable).
+# Vectorized per (batch × target-scheme): the per-row/per-scheme version did
+# ~1e12 numpy element-ops in Python loops and would have run for hours.
 per_scheme = {s: {} for s in schemes}
 os.makedirs(f'{EMB}/similar', exist_ok=True)
 gz = gzip.open(f'{EMB}/similar.nq.gz', 'wt')
+# Self-describing provenance: derived facts (URI pairs + cosine scores), CC0.
+DCT = 'http://purl.org/dc/terms/'
+gz.write(f'<{GRAPH}> <{DCT}license> <https://creativecommons.org/publicdomain/zero/1.0/> <{GRAPH}> .\n')
+gz.write(f'<{GRAPH}> <{DCT}description> "Cross-scheme embedding-similarity edges derived by skosdex tools/precompute_similar.py: per-concept top-{KX} per other scheme, CSLS hub-corrected, cosine floor {TAU}, multilingual-e5-large-instruct vectors. Scores are raw cosine, annotated via RDF-star."@en <{GRAPH}> .\n')
 nq = edges = 0
+scheme_cols = {t: np.where(sidx == t)[0] for t in range(len(schemes))}
 t0 = time.time()
 for s0 in range(0, n, BATCH):
     s1 = min(s0 + BATCH, n)
+    b = s1 - s0
     S = V[s0:s1] @ V.T
-    for row_i in range(s1 - s0):
-        i = s0 + row_i
-        row = S[row_i]; row[i] = -2.0
-        top = np.argpartition(-row, KW)[:KW]
-        top = top[np.argsort(-row[top])]
-        sim = [[ids[j], round(float(row[j]), 4)] for j in top]
-        csls = 2.0 * row - r[i] - r          # rank by hub-corrected score
-        x = []
+    S[np.arange(b), np.arange(s0, s1)] = -2.0          # exclude self
+    # overall top-K (vectorized argpartition, then per-row sort of K items)
+    topk = np.argpartition(-S, KW, axis=1)[:, :KW]
+    topv = np.take_along_axis(S, topk, axis=1)
+    ordk = np.argsort(-topv, axis=1)
+    topk = np.take_along_axis(topk, ordk, axis=1)
+    topv = np.take_along_axis(topv, ordk, axis=1)
+    # cross edges: for each target scheme, top-KX by CSLS over that scheme's cols
+    xs = [[] for _ in range(b)]                        # per row: (csls, raw, j)
+    r_rows = r[s0:s1]
+    for t, cols in scheme_cols.items():
+        nt = len(cols)
+        if nt == 0:
+            continue
+        Ssub = S[:, cols]                              # (b, nt)
+        csls = 2.0 * Ssub - r[cols][None, :] - r_rows[:, None]
+        csls[Ssub < TAU] = -1e9                        # cosine floor
+        own = (sidx[s0:s1] == t)                       # rows of this scheme: no self-scheme edges
+        if own.any():
+            csls[own, :] = -1e9
+        k = min(KX, nt)
+        idx = np.argpartition(-csls, k - 1, axis=1)[:, :k]
+        cv = np.take_along_axis(csls, idx, axis=1)
+        rawv = np.take_along_axis(Ssub, idx, axis=1)
+        jj = cols[idx]
+        for ri in range(b):
+            for m in range(k):
+                if cv[ri, m] <= -1e8:
+                    continue
+                xs[ri].append((float(cv[ri, m]), float(rawv[ri, m]), int(jj[ri, m]), t))
+    for ri in range(b):
+        i = s0 + ri
         a = ids[i]
-        for tgt in range(len(schemes)):
-            if tgt == sidx[i]:
-                continue
-            mask = (sidx == tgt) & (row >= TAU)
-            cnt = int(mask.sum())
-            if cnt == 0:
-                continue
-            cand = np.where(mask)[0]
-            k = min(KX, cnt)
-            pick = cand[np.argpartition(-csls[cand], k - 1)[:k]]
-            pick = pick[np.argsort(-csls[pick])]
-            for j in pick:
-                x.append([ids[j], round(float(row[j]), 4), schemes[tgt]])
-                b = ids[j]; sc = f'{row[j]:.4f}'
-                gz.write(f'<{a}> <{SK}crossSchemeMatch> <{b}> <{GRAPH}> .\n')
-                gz.write(f'<< <{a}> <{SK}crossSchemeMatch> <{b}> >> <{SK}score> "{sc}"^^<{XSD_DEC}> <{GRAPH}> .\n')
-                nq += 2; edges += 1
-        x.sort(key=lambda e: -e[1])
+        sim = [[ids[int(topk[ri, m])], round(float(topv[ri, m]), 4)] for m in range(KW)]
+        x = []
+        for _, raw, j, t in sorted(xs[ri], key=lambda e: -e[0]):
+            x.append([ids[j], round(raw, 4), schemes[t]])
+            sc = f'{raw:.4f}'
+            gz.write(f'<{a}> <{SK}crossSchemeMatch> <{ids[j]}> <{GRAPH}> .\n')
+            gz.write(f'<< <{a}> <{SK}crossSchemeMatch> <{ids[j]}> >> <{SK}score> "{sc}"^^<{XSD_DEC}> <{GRAPH}> .\n')
+            nq += 2; edges += 1
         per_scheme[scheme[i]][a] = {'sim': sim, 'x': x}
     if s0 % (BATCH * 40) == 0:
         print(f'  pass2 {s1}/{n} ({time.time()-t0:.0f}s, {edges} edges)', flush=True)

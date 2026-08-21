@@ -94,3 +94,41 @@ hundred-k — past that switch to an ANN index (hnswlib). Full notes:
 - **Autocomplete**: `GET /autocomplete?q=<term>` → Solr-shaped JSON (`response.docs[]`).
 - **SPARQL**: `POST /query` (Oxigraph), JSON results; cookbook in
   `deploy/fly/www/queries.html`.
+
+## The materialized similarity graph (route 1, 2026-08-21)
+
+`tools/precompute_similar.py` turns the combined space into RDF the container
+serves: per concept, top-`SIM_KX` (default 3) neighbours **per other scheme**
+(never same-scheme — SKOS structure and browser KNN cover that; a flat global
+top-K lets a rich scheme crowd out all slots), ranked by **CSLS**
+(hub-corrected: `2cos − r(a) − r(b)`), floored at raw cosine `SIM_TAU` (0.75).
+Note the tension with the "cosines sit in a high compressed band" caveat
+above: TAU is a coarse junk gate, the *ranking* is what matters — revisit TAU
+against real data rather than trusting it.
+
+Outputs: `embeddings/similar/<slug>.json` (static lookups) and
+`embeddings/similar.nq.gz` — RDF-star quads in graph
+`<https://danbri.org/ns/skosdex#embedding-similarity>`:
+`<A> skosdex:crossSchemeMatch <B>` + `<< <A> … <B> >> skosdex:score "0.83"`.
+The Dockerfile bakes the .nq.gz into `/seed/graphed/emb-similarity.nq.gz`, so
+the standard stage-1 loader ships it; ONLY Oxigraph ever parses it (RDF-star
+never passes through n3.js). Grow the pool with
+`EXTRA_SLUGS="stw hasset …"` (appends per-scheme vectors to `_all` without
+re-curating the compare set). Oxigraph supports **LATERAL**, so per-row top-N
+works: see the "Embedding similarity as a graph" cookbook section. The
+concept card falls back to SPARQL over this graph when `/api` is down, and
+shows a visible "unavailable" state if both paths fail.
+
+## UMAP ensemble "wobble mode" (2026-08-21)
+
+`tools/layout_ensemble.py <slug>` computes 10 layouts (canonical params +
+seed jitter + n_neighbors 5/30/50 sweep), **Procrustes-aligns** them to the
+canonical frame (without alignment, interpolation mostly shows UMAP's
+arbitrary rotation/reflection and overstates instability), and writes
+`<slug>.layout-ens.bin` (f16 frames, LFS) + `.layout-ens.json` (params +
+per-concept stability = mean post-alignment displacement, p95-normalised).
+viz.html auto-detects the files: `〰 wobble` morphs among frames (what holds
+still is trustworthy; what swims is projection artifact), `σ stability`
+colours cyan→magenta by placement noise. Deliberately NOT AlignedUMAP (it
+suppresses the disagreement being displayed). Frame 0 reproduces
+layout.json's cloud. Rolled out per scheme — run the tool, commit, deploy.

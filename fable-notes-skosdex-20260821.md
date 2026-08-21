@@ -121,6 +121,18 @@ Persistent memory also exists at ~/.claude/projects/-Users-danbri-working-skosde
    cloud routine; offered to create a monthly re-fetch + license-resweep
    agent).
 6. Federation outage; embeddings/similar static rollout still 3/313.
+6b. **UMAP ensemble "wobble mode"** (danbri's idea, design agreed 2026-08-21):
+   communicate UMAP's local-faithful/globally-unreliable nature by computing
+   ~10 layouts per scheme (6 seeds + n_neighbors sweep 5/15/50),
+   **Procrustes-aligning them** (critical — raw layouts differ by arbitrary
+   rotation/reflection; without alignment the animation overstates
+   instability), then continuously interpolating in viz.html. Plus a
+   per-concept stability score (mean post-alignment displacement) as
+   color/alpha. Deliberately NOT AlignedUMAP (it suppresses the disagreement
+   signal). `layout_scheme.py --ensemble N` → `<slug>.layout-ens.bin` (f16
+   frames) + stability in layout.json; ~600KB per 10k concepts; flagship
+   schemes first, giants excluded. UI footnote: intermediate frames are
+   blends, not embeddings.
 7. Blocked-but-reachable: TheSoz dump (license fine, no public bulk), ESCO
    (URL cracked, 173MB — onboard), Getty TGN/ULAN/FAST rebuild story, SAO
    (CC0 but KBV-not-SKOS), EMBNE (bot-blocked), Bibbi (email for dump).

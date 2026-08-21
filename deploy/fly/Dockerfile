@@ -29,6 +29,11 @@ COPY --from=oxigraph /usr/local/bin/oxigraph /usr/local/bin/oxigraph
 # Solr docs ship as part files (<=50k docs each): one ~180MB POST kills Solr's
 # default heap, so start.sh posts the parts sequentially.
 COPY dist/graphed/       /seed/graphed/
+# The precomputed cross-scheme embedding-similarity graph (RDF-star scored
+# edges; tools/precompute_similar.py) rides the same stage-1 loader as any
+# scheme — quads already carry their named graph, oxigraph is the only parser
+# that ever reads this file. ~tens of MB, LFS-tracked, CC0 derived data.
+COPY deploy/fly/www/embeddings/similar.nq.gz /seed/graphed/emb-similarity.nq.gz
 # Build-time fingerprint of the whole graphed set (md5 of all per-scheme md5s).
 # start.sh compares it to the volume's last-loaded fingerprint to skip the
 # ~650-file boot hash when nothing changed — so code/UI redeploys boot in seconds.

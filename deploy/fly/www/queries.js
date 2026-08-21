@@ -156,6 +156,53 @@ SELECT ?wdTerm ?label ?schemaOrg WHERE {
     FILTER(STRSTARTS(STR(?schemaOrg),"https://schema.org/"))
   }
 } LIMIT 25`},
+{sec:'Embedding similarity as a graph — precomputed cross-scheme edges'},
+{title:'Semantic neighbours in other vocabularies, with scores',
+ why:'tools/precompute_similar.py materializes cross-scheme embedding similarity as RDF: per concept, the top few hub-corrected neighbours in each OTHER vocabulary (cosine ≥ 0.75), scores annotated via RDF-star. Same-scheme similarity is deliberately excluded — SKOS structure and the in-browser KNN already cover it; this graph is reserved for the cross-vocabulary hops. Swap in any concept URI from a compare-set scheme.',
+ q:`PREFIX skosdex: <https://danbri.org/ns/skosdex#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?neighbour ?score ?label WHERE {
+  GRAPH <https://danbri.org/ns/skosdex#embedding-similarity> {
+    ?c skosdex:crossSchemeMatch ?neighbour .
+    << ?c skosdex:crossSchemeMatch ?neighbour >> skosdex:score ?score .
+  }
+  VALUES ?c { <http://www.eionet.europa.eu/gemet/concept/1471> }
+  OPTIONAL { GRAPH ?g { ?neighbour skos:prefLabel ?label }
+             FILTER(LANG(?label) = "en") }
+} ORDER BY DESC(?score)`},
+{title:'Top-3 per concept with LATERAL (per-row LIMIT)',
+ why:'Plain SPARQL cannot express "the best 3 PER concept" — a subquery LIMIT is global. Oxigraph implements the LATERAL extension (headed for SPARQL 1.2): the right side re-evaluates once per left binding, so ORDER BY/LIMIT become per-row. Here: each GEMET concept about water, with its top 3 cross-vocabulary analogues.',
+ q:`PREFIX skosdex: <https://danbri.org/ns/skosdex#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?c ?cl ?best ?score WHERE {
+  GRAPH <http://www.eionet.europa.eu/gemet/> {
+    ?c skos:prefLabel ?cl .
+    FILTER(LANG(?cl)="en" && CONTAINS(LCASE(?cl),"water"))
+  }
+  LATERAL {
+    SELECT ?best ?score WHERE {
+      GRAPH <https://danbri.org/ns/skosdex#embedding-similarity> {
+        ?c skosdex:crossSchemeMatch ?best .
+        << ?c skosdex:crossSchemeMatch ?best >> skosdex:score ?score .
+      }
+    } ORDER BY DESC(?score) LIMIT 3
+  }
+} LIMIT 60`},
+{title:'Mapping-candidate mining — similar but not yet mapped',
+ why:'The serendipity query: pairs that embedding space says are near-identical (cosine ≥ 0.9) but that no skos mapping connects — automatic candidates for new exactMatch links, ranked. This is the materialized graph paying rent: it re-discovers hand-made mappings and proposes the missing ones.',
+ q:`PREFIX skosdex: <https://danbri.org/ns/skosdex#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT ?a ?al ?b ?bl ?score WHERE {
+  GRAPH <https://danbri.org/ns/skosdex#embedding-similarity> {
+    ?a skosdex:crossSchemeMatch ?b .
+    << ?a skosdex:crossSchemeMatch ?b >> skosdex:score ?score .
+  }
+  FILTER(?score >= 0.9)
+  FILTER NOT EXISTS { ?a skos:exactMatch|skos:closeMatch ?b }
+  FILTER NOT EXISTS { ?b skos:exactMatch|skos:closeMatch ?a }
+  OPTIONAL { GRAPH ?g1 { ?a skos:prefLabel ?al } FILTER(LANG(?al)="en") }
+  OPTIONAL { GRAPH ?g2 { ?b skos:prefLabel ?bl } FILTER(LANG(?bl)="en") }
+} ORDER BY DESC(?score) LIMIT 40`},
 {sec:'Federation (SERVICE) — no local clone of the hubs'},
 {title:'Enrich Wikidata ids with live labels (WDQS)',
  federation:true,

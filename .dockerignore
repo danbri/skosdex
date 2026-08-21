@@ -11,9 +11,13 @@ _site
 # precomputed similarity is staged for the /api/similar-static + KG-graph wiring
 # (cutover); not consumed by the image yet, and large — keep it out of the build.
 deploy/fly/www/embeddings/similar
-deploy/fly/www/embeddings/similar.nq.gz
 # The float16 vectors (~4-7 GB across the corpus) would blow Fly's 8 GB image
 # limit, so they are NOT baked — start.sh syncs them onto the mounted volume at
 # boot (from the repo's public LFS), same as the e5 model. The small layouts/
 # metas/index ARE baked, so galaxies render with no download. See start.sh.
 deploy/fly/www/embeddings/*.emb.f16
+# EXCEPT the combined _all blob (478MB): /api lives on it, and fetching it at
+# boot from GitHub LFS media proved unreliable from Fly egress (2026-08-21:
+# 40+ min of failed sync = /api down all day). Baked, it ships from the SAME
+# commit as _all.emb.json — the vectors/index desync class dies here.
+!deploy/fly/www/embeddings/_all.emb.f16

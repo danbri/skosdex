@@ -512,19 +512,53 @@ function setSim(v){ cfg.simAll=!!v; saveCfg(); renderSimilar(); }
 // UK Parliament term's nearest ESCO skill / EuroVoc / LCSH analogue, etc.
 async function loadCrossSimilar(uri){
   const el=$('xsim'); if(!el) return; el.innerHTML='';
+  const render=(hits,src)=>{
+    hits=hits.filter(h=>!SHOWN.has(h.id)).slice(0,8);
+    if(!hits.length) return false;
+    const body=hits.map(h=>{
+      const full=TITLE_BY_SLUG[h.scheme]||famName(h.scheme)||h.scheme||'';
+      const tag=(s=>s.length>22?s.slice(0,21)+'…':s)((full||'').split('—')[0].trim());
+      return `<a onclick="show('${esc(h.id)}')" title="cosine ${(h.score||0).toFixed(2)}${full?' · '+esc(full):''}">${esc(h.label||h.id)}${tag?`<span class="scheme-tag">${esc(tag)}</span>`:''}</a>`;
+    }).join('');
+    el.innerHTML=`<div class="reln"><b>similar across vocabularies <span class="ct">embeddings · cross-scheme${src?' · '+src:''}</span></b><br>${body}</div>`;
+    return true;
+  };
+  // 1) Live KNN via /api (full combined space). 404 = concept not in the index
+  //    → legitimately nothing to show; other failures fall through.
+  let apiDown=false;
   try{
     const r=await fetch('/api/similar?cross=1&k=8&id='+encodeURIComponent(uri));
-    if(!r.ok) return;                       // 404 = concept not in the cross-scheme index
+    if(r.status===404) return;
+    if(!r.ok) throw 0;
     const d=await r.json();
-    const hits=(d.results||[]).filter(h=>!SHOWN.has(h.id)).slice(0,8);
-    if(!hits.length) return;
-    const body=hits.map(h=>{
-      const full=TITLE_BY_SLUG[h.scheme]||famName(h.scheme)||h.scheme;
-      const tag=(s=>s.length>22?s.slice(0,21)+'…':s)(full.split('—')[0].trim());
-      return `<a onclick="show('${esc(h.id)}')" title="cosine ${(h.score||0).toFixed(2)} · ${esc(full)}">${esc(h.label||h.id)}<span class="scheme-tag">${esc(tag)}</span></a>`;
-    }).join('');
-    el.innerHTML=`<div class="reln"><b>similar across vocabularies <span class="ct">embeddings · cross-scheme · experimental</span></b><br>${body}</div>`;
+    render((d.results||[]),'');
+    return;
+  }catch{ apiDown=true; }
+  // 2) Fallback: the precomputed similarity graph in Oxigraph (RDF-star scored
+  //    cross-scheme edges from tools/precompute_similar.py). Same box, plain SPARQL.
+  try{
+    const SK='https://danbri.org/ns/skosdex#';
+    const rows=await sparql(`
+      SELECT ?b ?s ?lbl ?g WHERE {
+        GRAPH <${SK}embedding-similarity> {
+          <${uri}> <${SK}crossSchemeMatch> ?b .
+          << <${uri}> <${SK}crossSchemeMatch> ?b >> <${SK}score> ?s .
+        }
+        OPTIONAL { GRAPH ?g { ?b <${SKOS}prefLabel> ?lbl } }
+      } ORDER BY DESC(?s) LIMIT 24`);
+    const seen=new Map();
+    for(const r of rows){
+      const id=r.b.value;
+      if(!seen.has(id)) seen.set(id,{id,score:Number(r.s?.value||0),
+        label:r.lbl?.value, scheme:SLUG_BY_GRAPH[r.g?.value]});
+      else if(r.lbl && !seen.get(id).label){ const e=seen.get(id); e.label=r.lbl.value; e.scheme=e.scheme||SLUG_BY_GRAPH[r.g?.value]; }
+    }
+    if(render([...seen.values()],'precomputed')) return;
+    if(!seen.size && !apiDown) return;
   }catch{}
+  // 3) Both paths down: say so instead of silently vanishing (an invisible
+  //    outage here went unnoticed for weeks once).
+  if(apiDown) el.innerHTML=`<div class="reln"><b>similar across vocabularies <span class="ct">embeddings</span></b><br><span class="muted">temporarily unavailable (similarity service down)</span></div>`;
 }
 
 async function sparql(query){

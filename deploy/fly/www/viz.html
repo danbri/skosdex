@@ -83,6 +83,8 @@
 
   /* ===== selection sphere toolbar ===== */
   .btn.on{background:#2f6bff;color:#fff;border-color:#2f6bff}
+  @keyframes wobpulse{0%,100%{box-shadow:0 0 0 0 rgba(110,231,255,0)}50%{box-shadow:0 0 10px 2px rgba(110,231,255,.55);border-color:#6ee7ff}}
+  .btn.attn{animation:wobpulse 2.2s ease-in-out infinite}
   body.selecting{cursor:crosshair}
   #selbar{left:50%;transform:translateX(-50%);bottom:14px;padding:.5rem .75rem;
     display:flex;gap:.6rem;align-items:center;max-width:94vw;z-index:7}
@@ -179,7 +181,7 @@
       <button id="info" class="ibtn" title="about &amp; controls" aria-label="about">ⓘ</button></h1>
   <div id="about" hidden>
     <p>Concepts placed by meaning — UMAP on multilingual e5 embeddings, coloured by theme. <a href="/">← skosdex</a></p>
-    <p class="hint">drag to orbit · scroll to zoom · click to open · double-click to fly in &amp; centre</p>
+    <p class="hint">drag to orbit · scroll to zoom · click to open · double-click to fly in &amp; centre<span id="wobhint" hidden> · <b>〰 wobble</b>: this map is one of many UMAP could draw — morph among 10 re-runs; what holds still is real structure, what swims is projection artifact</span></p>
     <p class="hint">◎ select: drag the glowing sphere (press <i>on</i> it) to highlight a set — drag <i>outside</i> still orbits/pans · pinch / wheel / slider to size · then read them in the <b>table</b> / <b>split</b> tab</p>
     <p id="blendhint" class="hint" hidden>✦ blends: auto-finds spheres that mix schemes evenly — to see where vocabularies actually overlap</p>
     <p id="overlaynote" class="hint" hidden>✦ compare overlay: one shared UMAP across schemes, coloured by source.
@@ -193,6 +195,8 @@
   <button class="btn" id="sel" title="highlight a set of concepts with a sphere">◎ select</button>
   <button class="btn" id="blendbtn" hidden title="auto-find spheres that mix schemes">✦ blends</button>
   <button class="btn" id="spin">⏸</button>
+  <button class="btn" id="wob" hidden title="UMAP honesty mode: morph among 10 re-computed layouts (Procrustes-aligned) — what holds still is trustworthy structure, what swims is projection artifact. Intermediate frames are blends, not embeddings.">〰 wobble</button>
+  <button class="btn" id="stab" hidden title="colour by placement stability across the 10 layouts — cyan = position is reproducible, magenta = position is noise">σ stability</button>
   <button class="btn" id="reset">reset</button>
 </div>
 
@@ -574,6 +578,105 @@ function applyFilter(){
 }
 q.addEventListener('input', applyFilter);
 
+// ---- UMAP ensemble "wobble mode" (tools/layout_ensemble.py) -----------------
+// UMAP is locally faithful, globally unreliable. Show it: morph the cloud
+// among N Procrustes-aligned re-runs (seed jitter + n_neighbors sweep). The
+// motion that survives alignment is genuine disagreement; the still parts are
+// the invariants. σ mode colours each point by its across-run displacement.
+const WOB = { avail:false, ens:null, frames:[], stab:null, on:false,
+              fa:0, fb:1, t:1, speed:0.008 };
+const wobBtn = document.getElementById('wob'), stabBtn = document.getElementById('stab');
+function f16ToF32(u16buf){
+  const u = new Uint16Array(u16buf), out = new Float32Array(u.length);
+  for(let i=0;i<u.length;i++){
+    const h=u[i], s=(h&0x8000)?-1:1, e=(h>>10)&0x1f, f=h&0x3ff;
+    out[i] = e===0 ? s*f*Math.pow(2,-24) : e===31 ? (f?NaN:s*Infinity)
+           : s*(1+f/1024)*Math.pow(2,e-15);
+  }
+  return out;
+}
+async function wobProbe(){
+  WOB.avail=false; WOB.ens=null; WOB.frames=[]; WOB.stab=null; WOB.rank=null;
+  WOB.on=false; WOB.stabOn=false;
+  wobBtn.classList.remove('on'); stabBtn.classList.remove('on');
+  wobBtn.hidden = stabBtn.hidden = true;
+  try{
+    const r = await fetch(`/embeddings/${slug}.layout-ens.json`);
+    if(!r.ok) return;
+    const j = await r.json();
+    if(j && j.frames>1 && j.n===N){
+      WOB.ens=j; WOB.avail=true; wobBtn.hidden=stabBtn.hidden=false;
+      wobBtn.classList.add('attn');                    // pulse until first try
+      const wh=document.getElementById('wobhint'); if(wh) wh.hidden=false;
+    }
+  }catch{}
+}
+async function wobLoad(){
+  if(WOB.frames.length) return true;
+  try{
+    const r = await fetch(`/embeddings/${slug}.layout-ens.bin`);
+    if(!r.ok) throw 0;
+    const all = f16ToF32(await r.arrayBuffer());
+    const per = WOB.ens.n*3;
+    for(let f=0; f<WOB.ens.frames; f++){
+      const fr = all.slice(f*per,(f+1)*per);
+      rescale(fr, WOB.ens.n);            // same scene scaling as pos3
+      WOB.frames.push(fr);
+    }
+    WOB.stab = Float32Array.from(WOB.ens.stability);
+    return true;
+  }catch{ return false; }
+}
+function wobStop(){
+  WOB.on=false; wobBtn.classList.remove('on');
+  target = curDim===3 ? pos3 : pos2; morph = 0;   // ease home (σ mode persists)
+}
+async function wobToggle(){
+  wobBtn.classList.remove('attn');
+  if(WOB.on) return wobStop();
+  if(!(await wobLoad())) return;
+  if(curDim!==3) return;                           // 3D view only
+  WOB.on=true; WOB.fa=0; WOB.fb=1+((Math.random()*(WOB.frames.length-1))|0); WOB.t=0;
+  wobBtn.classList.add('on');
+}
+function stepWobble(){
+  WOB.t = Math.min(1, WOB.t + WOB.speed);
+  const e = easeIO(WOB.t), A=WOB.frames[WOB.fa], B=WOB.frames[WOB.fb];
+  for(let i=0;i<N*3;i++) positions[i] = A[i]+(B[i]-A[i])*e;
+  geo.attributes.position.needsUpdate = true;
+  if(WOB.t>=1){
+    WOB.fa=WOB.fb; WOB.t=0;
+    let nx; do { nx=(Math.random()*WOB.frames.length)|0; } while(nx===WOB.fa);
+    WOB.fb=nx;
+  }
+}
+async function wobStab(){
+  if(WOB.stabOn){                       // restore theme colours
+    WOB.stabOn=false; stabBtn.classList.remove('on');
+    baseCol.set(baseCol0.subarray(0,N*3)); applyFilter(); return;
+  }
+  if(!(await wobLoad())) return;
+  WOB.stabOn=true; stabBtn.classList.add('on');
+  // Rank-based (percentile) ramp: raw stability bunches around the median and
+  // reads as one washed-out hue under additive bloom; ranking guarantees the
+  // full cyan (most reproducible) -> magenta (noisiest) spread.
+  if(!WOB.rank){
+    const idx=Array.from({length:N},(_,i)=>i).sort((a,b)=>(WOB.stab[a]||0)-(WOB.stab[b]||0));
+    WOB.rank=new Float32Array(N);
+    for(let k=0;k<N;k++) WOB.rank[idx[k]] = k/(N-1||1);
+  }
+  for(let i=0;i<N;i++){
+    const s = WOB.rank[i];
+    baseCol[i*3]   = 0.25 + 0.75*s;      // r
+    baseCol[i*3+1] = 0.80 - 0.72*s;      // g
+    baseCol[i*3+2] = 1.0  - 0.45*s;      // b
+  }
+  applyFilter();
+}
+wobBtn.addEventListener('click', wobToggle);
+stabBtn.addEventListener('click', wobStab);
+wobProbe();
+
 // initial overlay setup (after `q`/`applyFilter` exist): caveat note + mask
 applyOverlayMode();
 
@@ -581,6 +684,7 @@ applyOverlayMode();
 let target = pos3, morph = 1, curDim = 3; // 1 = at target
 function setDim(d){
   curDim = d;
+  if(d===2 && WOB.on){ WOB.on=false; wobBtn.classList.remove('on'); }
   document.getElementById('b3').classList.toggle('on', d===3);
   document.getElementById('b2').classList.toggle('on', d===2);
   target = d===3? pos3 : pos2; morph = 0;
@@ -766,6 +870,7 @@ function applySchemeData(nd){
   syncVis(true);          // all schemes visible by default in overlay
   geo.setDrawRange(0, N);
   computeMaxR();          // refresh dist-from-centre scale for the new dataset
+  wobProbe();             // reset + re-detect a layout ensemble for this scheme
 }
 
 function refreshSchemeUI(nd, title){
@@ -1239,6 +1344,7 @@ function tick(){
   else if(morph<1){ morph=Math.min(1,morph+0.04);
     for(let i=0;i<N*3;i++){ if(overlay && visCur[i]<0.001) continue; positions[i]+=(target[i]-positions[i])*0.18; }
     geo.attributes.position.needsUpdate=true; moved=true; }
+  else if(WOB.on && curDim===3){ stepWobble(); moved=true; }
   // keep the highlight following the cloud during a 2D/3D morph or overlay toggle
   if(moved && !swirl && (selMode || selCount>0)) recomputeSelection();
   if(camAnim){ camAnim.s=Math.min(1,camAnim.s+0.04); const e=1-Math.pow(1-camAnim.s,3);

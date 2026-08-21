@@ -320,8 +320,15 @@ cp -f "$EMB_IMG/_all.emb.json" "$EMB_VOL/" 2>/dev/null || true
 EXP_ALL=$(python3 -c 'import json,sys; j=json.load(open(sys.argv[1])); print(j["n"]*j["dim"]*2)' "$EMB_IMG/_all.emb.json" 2>/dev/null || echo 0)
 ACT_ALL=$(stat -c%s "$EMB_VOL/_all.emb.f16" 2>/dev/null || echo 0)
 if [ "$EXP_ALL" = 0 ] || [ "$EXP_ALL" != "$ACT_ALL" ]; then
-  echo "[emb-sync] volume _all.emb.f16 is $ACT_ALL bytes, index expects $EXP_ALL — dropping for re-fetch"
+  echo "[emb-sync] volume _all.emb.f16 is $ACT_ALL bytes, index expects $EXP_ALL — replacing"
   rm -f "$EMB_VOL/_all.emb.f16"
+  # Preferred source: the IMAGE copy (baked from the same commit as the index;
+  # see .dockerignore exception). Network fetch below is only the fallback.
+  IMG_ALL=$(stat -c%s "$EMB_IMG/_all.emb.f16" 2>/dev/null || echo 0)
+  if [ "$IMG_ALL" = "$EXP_ALL" ]; then
+    cp "$EMB_IMG/_all.emb.f16" "$EMB_VOL/_all.emb.f16" \
+      && echo "[emb-sync] _all.emb.f16 staged from image ($IMG_ALL bytes)"
+  fi
 fi
 if [ -f "$EMB_IMG/index.json" ]; then
   ( ref="${EMB_REF:-claude/main}"
@@ -330,13 +337,16 @@ if [ -f "$EMB_IMG/index.json" ]; then
     python3 -c 'import json,sys; [print(s) for s in json.load(open(sys.argv[1]))]' "$EMB_IMG/index.json" \
     | while IFS= read -r slug; do
         [ -n "$slug" ] || continue
-        f="$slug.emb.f16"
-        if [ -s "$EMB_VOL/$f" ]; then continue; fi
-        if curl -fsSL --retry 3 "$base/$f" -o "$EMB_VOL/.tmp.$f"; then
-          mv -f "$EMB_VOL/.tmp.$f" "$EMB_VOL/$f" || true
-        else
-          rm -f "$EMB_VOL/.tmp.$f"; echo "[emb-sync] miss $f"
-        fi
+        for f in "$slug.emb.f16" "similar/$slug.json"; do
+          if [ -s "$EMB_VOL/$f" ]; then continue; fi
+          mkdir -p "$EMB_VOL/similar"
+          tmp="$EMB_VOL/.tmp.${f##*/}"
+          if curl -fsSL --retry 3 "$base/$f" -o "$tmp"; then
+            mv -f "$tmp" "$EMB_VOL/$f" || true
+          else
+            rm -f "$tmp"; echo "[emb-sync] miss $f"
+          fi
+        done
       done
     # _all is what /api lives on: the loop above tries it once like any slug, but
     # a single miss must not strand the API until the next boot — keep retrying
