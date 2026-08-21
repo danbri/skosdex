@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# ILO Thesaurus
+# License verified 2026-08-21: ILO org-wide: "As of 3 May 2023, databases and datasets ... are covered by the Creative Commons CC BY 4.0 licence" (ilo.org/rights-and-permissions); no in-data triple. PoolParty SPARQL CONSTRUCT is the only bulk route.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "ILO Thesaurus" ;
+    dcterms:publisher <https://www.ilo.org/> ;
+    skosdex:conceptSchemeURI <https://metadata.ilo.org/thesaurus/> ;
+    skosdex:sourceURL <https://metadata.ilo.org/PoolParty/sparql/thesaurus?query=CONSTRUCT%20%7B%3Fs%20%3Fp%20%3Fo%7D%20WHERE%20%7B%20GRAPH%20%3Chttps%3A%2F%2Fmetadata.ilo.org%2Fthesaurus%2Fthesaurus%3E%20%7B%3Fs%20%3Fp%20%3Fo%7D%20%7D> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

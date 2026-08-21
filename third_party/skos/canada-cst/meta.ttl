@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Core Subject Thesaurus (Library and Archives Canada)
+# License verified 2026-08-21: Open Government Licence - Canada per open.canada.ca dataset record.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Core Subject Thesaurus (Library and Archives Canada)" ;
+    dcterms:publisher <https://library-archives.canada.ca/> ;
+    skosdex:conceptSchemeURI <https://canada.multites.net/cst/> ;
+    skosdex:sourceURL <https://canada.multites.net/cst/EAEAD1E6-D689-441A-AE4B-A3391A29C9DE/CST20250610.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://open.canada.ca/en/open-government-licence-canada> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

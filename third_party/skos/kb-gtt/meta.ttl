@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# GTT - GOO trefwoordenthesaurus (KB)
+# License verified 2026-08-21: Same portal CC0 statement as kb-brinkman; ~1.1M statements.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "GTT - GOO trefwoordenthesaurus (KB)" ;
+    dcterms:publisher <https://www.kb.nl/> ;
+    skosdex:conceptSchemeURI <http://data.bibliotheken.nl/gtt> ;
+    skosdex:sourceURL <https://data.bibliotheken.nl/_api/datasets/KB/Production/download.trig.gz?graph=http%3A%2F%2Fdata.bibliotheken.nl%2Fgtt> ;
+    skosdex:sourceFormat "application/trig" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

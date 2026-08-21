@@ -1,0 +1,18 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Tesauro Geografico (Patrimonio Cultural de Espana)
+# License verified 2026-08-21: Same bespoke open terms as es-cultura-materias.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Tesauro Geografico (Patrimonio Cultural de Espana)" ;
+    dcterms:publisher <https://www.cultura.gob.es/> ;
+    skosdex:conceptSchemeURI <https://tesauros.cultura.gob.es/tesauros/geografico> ;
+    skosdex:sourceURL <https://tesauros.cultura.gob.es/tesauros/descarga/skos-geografico.zip> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "skos-geografico.rdf" ;
+    dcterms:license <https://tesauros.cultura.gob.es/tesauros/condiciones-de-uso> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
+# note: RDFC forced to fallback (pathological bnode structure, >50 CPU-min); sorted-normalized output, stable labels from upstream dump

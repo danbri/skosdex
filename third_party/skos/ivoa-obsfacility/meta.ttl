@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# IVOA Observation Facilities
+# License verified 2026-08-21: ivoa.net/rdf: "IVOA vocabularies and their metadata are made available under CC-0".
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "IVOA Observation Facilities" ;
+    dcterms:publisher <https://www.ivoa.net/> ;
+    skosdex:conceptSchemeURI <http://www.ivoa.net/rdf/obsfacility> ;
+    skosdex:sourceURL <https://www.ivoa.net/rdf/obsfacility> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

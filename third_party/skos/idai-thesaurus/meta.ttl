@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# iDAI.world Thesaurus (German Archaeological Institute)
+# License verified 2026-08-21: In-TTL dct:rights CC BY 4.0.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "iDAI.world Thesaurus (German Archaeological Institute)" ;
+    dcterms:publisher <https://www.dainst.org/> ;
+    skosdex:conceptSchemeURI <https://vocabs.acdh.oeaw.ac.at/DAI/> ;
+    skosdex:sourceURL <https://vocabs.acdh.oeaw.ac.at/rest/v1/DAI/data?format=text/turtle> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

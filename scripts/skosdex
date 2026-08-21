@@ -354,8 +354,11 @@ async function canonicalizeScheme(meta) {
   //    44+ min CPU on a 373k-quad graph). Past a few thousand bnodes, ship the
   //    sorted-normalized form instead — labels are stable from a single
   //    deterministic upstream dump, same rationale as the size guard.
-  const RDFC_MAX_BYTES = 256 * 1024 * 1024;
-  const RDFC_MAX_BNODES = 5000;
+  // Env-overridable: RDFC_MAX_BNODES=0 forces the sorted-normalized fallback
+  // for graphs whose bnode structure is pathological despite a low count
+  // (es-cultura-geografico: 433k quads, <5000 bnodes, >50 CPU-min of RDFC).
+  const RDFC_MAX_BYTES = Number(process.env.RDFC_MAX_BYTES ?? 256 * 1024 * 1024);
+  const RDFC_MAX_BNODES = Number(process.env.RDFC_MAX_BNODES ?? 5000);
   let decompressedBytes = 0;
   let bnodeIds = new Set();
   await new Promise((resolve, reject) => {

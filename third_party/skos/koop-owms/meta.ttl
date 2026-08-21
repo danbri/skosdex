@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# OWMS 4.0 waardelijsten (KOOP)
+# License verified 2026-08-21: CC BY-SA - container-only.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "OWMS 4.0 waardelijsten (KOOP)" ;
+    dcterms:publisher <https://www.koopoverheid.nl/> ;
+    skosdex:conceptSchemeURI <http://standaarden.overheid.nl/owms/terms> ;
+    skosdex:sourceURL <https://api.linkeddata.cultureelerfgoed.nl/datasets/koop/owms/download.trig.gz> ;
+    skosdex:sourceFormat "application/trig" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .

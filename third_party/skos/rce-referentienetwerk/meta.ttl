@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# RCE Referentienetwerk
+# License verified 2026-08-21: Dataset API license "CC0 1.0".
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "RCE Referentienetwerk" ;
+    dcterms:publisher <https://www.cultureelerfgoed.nl/> ;
+    skosdex:conceptSchemeURI <https://linkeddata.cultureelerfgoed.nl/thesauri/referentienetwerk> ;
+    skosdex:sourceURL <https://linkeddata.cultureelerfgoed.nl/_api/datasets/thesauri/referentienetwerk/download.trig.gz> ;
+    skosdex:sourceFormat "application/trig" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

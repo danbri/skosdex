@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# WO2 Oorlogsbronnen thesaurus (RCE mirror)
+# License verified 2026-08-21: Dataset API license "CC0 1.0" (the NIOD original is CC BY 3.0 per BARTOC - this CC0 RCE dataset preferred).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "WO2 Oorlogsbronnen thesaurus (RCE mirror)" ;
+    dcterms:publisher <https://www.cultureelerfgoed.nl/> ;
+    skosdex:conceptSchemeURI <https://linkeddata.cultureelerfgoed.nl/thesauri/oorlogsbronnen> ;
+    skosdex:sourceURL <https://linkeddata.cultureelerfgoed.nl/_api/datasets/thesauri/oorlogsbronnen/download.trig.gz> ;
+    skosdex:sourceFormat "application/trig" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

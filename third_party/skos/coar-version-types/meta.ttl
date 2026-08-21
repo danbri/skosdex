@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# COAR Version Types
+# License verified 2026-08-21: CC0 per repo LICENSE + site footer.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "COAR Version Types" ;
+    dcterms:publisher <https://coar-repositories.org/> ;
+    skosdex:conceptSchemeURI <http://purl.org/coar/version> ;
+    skosdex:sourceURL <https://vocabularies.coar-repositories.org/version_types/version_types.nt> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

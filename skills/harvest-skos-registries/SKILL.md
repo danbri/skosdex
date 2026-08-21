@@ -70,6 +70,48 @@ vocab. Related: coli-conc concordances (JSKOS NDJSON) at
 `https://coli-conc.gbv.de/api/` — cross-scheme mappings, convertible to SKOS
 mapping triples.
 
+## TriplyDB portals (KB Netherlands, RCE heritage) — verified 2026-08-21
+
+Per-graph gzipped TriG dumps, no auth:
+`https://<host>/_api/datasets/<org>/<dataset>/download.trig.gz?graph=<url-encoded graph>`
+- KB: `data.bibliotheken.nl/_api/datasets/KB/Production/download.trig.gz?graph=http%3A%2F%2Fdata.bibliotheken.nl%2F{brinkman,gtt}` (portal CC0; ignore the in-data `"n.v.t."` license literal).
+- RCE: `linkeddata.cultureelerfgoed.nl/_api/datasets/thesauri/{cht,referentienetwerk,archeologischbasisregister,oorlogsbronnen}/download.trig.gz` (dataset API says CC0 — trust it over the stale in-data CC-BY VoID triple; AVOID the legacy `Cultuurhistorische-Thesaurus-CHT` dataset, that one is ODC-By).
+- KOOP OWMS via `api.linkeddata.cultureelerfgoed.nl/datasets/koop/owms/download.trig.gz` (CC BY-SA → container-only).
+
+## IVOA (17 small astronomy vocabularies) — verified 2026-08-21
+
+`Accept: text/turtle` on `https://www.ivoa.net/rdf/<name>` → 303 to a dated
+`.ttl`. All CC0 per the `<p id="license">` on ivoa.net/rdf — EXCEPT `uat`,
+which is AAS-owned CC BY-SA 3.0 (held separately as `uat/`, container-only).
+
+## PoolParty instances (ILO) — verified 2026-08-21
+
+No Skosmos REST, no dump page. Bulk route is SPARQL CONSTRUCT on the
+project endpoint: `https://metadata.ilo.org/PoolParty/sparql/thesaurus` with
+`query=CONSTRUCT {?s ?p ?o} WHERE { GRAPH <…/thesaurus/thesaurus> {?s ?p ?o} }`
+and `Accept: text/turtle`.
+
+## Misc verified single-source recipes (2026-08-21)
+
+- **CESSDA vocabularies**: `Accept: application/rdf+xml` conneg on the
+  versioned REST URL (`/v2/vocabularies/<id>/<ver>?languageVersion=en-<ver>`);
+  the `/download?type=SKOS` path returns the SPA shell.
+- **NASA GCMD KMS** (~15 schemes): `gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/<name>?format=rdf`.
+- **Heritage Data / FISH** (~16 UK heritage schemes, CC BY 3.0 in-RDF): files
+  under `heritagedata.org/live/…`; index at heritagedata.org/blog/vocabularies-provided/.
+- **Opentheso (huma-num)**: `opentheso.huma-num.fr/api/all/theso?id=th<N>&format=rdf`
+  (French Culture Ministry thesauri, Licence ouverte).
+- **semantics.gr (EKT Greece)**: append `/n-triples` to the vocabulary URL.
+- **NERC NVS**: per-collection conneg `vocab.nerc.ac.uk/collection/<ID>/current/`
+  + `Accept: application/rdf+xml`; the `/downloads` page is 403 — no bulk dump.
+- **UN SDG**: direct TTL on S3 `unbis-thesaurus.s3.amazonaws.com/sdg-<date>.ttl`
+  (linked from research.un.org/en/thesaurus/downloads; Skosmos REST is dead).
+- **skosmos.bartoc.org** mirrors ~250 vocabs but every `/data` is a 404 stub —
+  scouting index only, never a source.
+- **DANTE reality (2026-08)**: ~500 vocabs, 262 CC0, but only ~60 have
+  configured exports and the CC0 tail is tiny museum code lists; the substance
+  is BK, ETIRAS (JSKOS-only), Hornbostel-Sachs, IxTheo, ISIL.
+
 ## EU Publications Office (EuroVoc, NALs, EuroSciVoc…) — onboarded 2026-06
 
 `https://op.europa.eu/o/opportal-service/euvoc-download-handler?cellarURI=<uri>&fileName=<file>`;

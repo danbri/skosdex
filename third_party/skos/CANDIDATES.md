@@ -294,6 +294,79 @@ candidate), Polish DBN (MARC API), RVK (MARC — see table). **Genuine gaps
 needing outreach, not downloads:** Danish, Korean, Hebrew, Arabic, Indian,
 Ukrainian, mainland-Chinese national schemes.
 
+
+## ✅ Wave onboarded 2026-08-21 (51 schemes, from the two research sweeps)
+
+ilo-thesaurus, coar-{resource-types,access-rights,version-types},
+cessda-topics, kb-{brinkman,gtt}, rce-{cht,referentienetwerk,abr,
+oorlogsbronnen}, un-sdg, usgs-thesaurus, norway-los, acdh-{dyas,oefos},
+idai-thesaurus, ekt-{general-terms(BY-SA→container-only),thematic-tags,
+professions}, heritagedata-monument-types, gcmd-sciencekeywords,
+culture-fr-{objets-mobiliers,oeuvres-architecturales}, anzsrc-2020-for,
+koop-owms(BY-SA→container-only), es-cultura-×9 (geografico canonicalized via
+forced RDFC fallback — pathological bnode structure), ivoa-×16 (the four
+VOResource sub-vocabs live under rdf/voresource/<name>; datalink under
+rdf/datalink/core). **Deferred:** glottolog (dump has undefined lexvo: prefix
+— needs a patch step), canada-cst (multites GUID URL is session-ephemeral —
+need a stable link or archived copy).
+
+## 📊 Statistics & geo sweep (researched 2026-08-21, URLs verified live)
+
+| Scheme | Publisher | Size | License | Class | Access |
+|--------|-----------|------|---------|-------|--------|
+| **Eurostat classification family** (~50+ schemes: NACE 2/2.1, CPA, CN2017–2026, PRODCOM, ECOICOP, COFOG, GEONOM, ESA2010, TERCET…) | Eurostat/OP | NACE 2.1 alone 201k triples | CC BY 4.0 + Dec 2011/833/EU (eurostat copyright-notice) | open | CONSTRUCT per graph from Cellar SPARQL, e.g. `GRAPH <http://data.europa.eu/ux2/nace2.1/nace2.1>`; full 170-graph list captured |
+| **FAO/UNSD Caliper** (CPC 2.0/2.1, ISIC rev4, COICOP, M49, ICATUS, FCL…, 14 graphs, ~13.8k concepts) | FAO+UNSD | ~250k triples | ⚠ NO explicit license found — confirm with UNSD/FAO before bundling | unknown | SPARQL `caliper.integratedmodelling.org/caliper/sparql` (verified) |
+| **INSEE nomenclatures** (NAF rev.2, PCS 2003, CJ) | INSEE | small | "Licence Ouverte / Open Licence" (rdf.insee.fr) | open | `rdf.insee.fr/codes/{nafr2,pcs2003,cj}.ttl.zip` ✔ |
+| **Pleiades vocabularies** (place-types, time-periods) | ISAW | small; dump refreshed 2026-08 | CC BY 3.0 US (in-file header) | open | `atlantides.org/downloads/pleiades/rdf/place-types.ttl` ✔ |
+| **Istat ATECO 2007** | Istat | 195 KB | CC BY 4.0 (istat.it legal notice) | open | ✔ zip (Turtle SKOS) |
+| **Marine Regions** (~65k MRGIDs) | VLIZ | per-ID ttl + LDES feed | CC BY since 2019 (disclaimer) | open | per-ID `marineregions.org/mrgid/<id>.ttl` ✔; bulk = LDES harvest; labels via skos:prefLabel but typed mr:MRGeoObject not skos:Concept — semi-SKOS |
+| **Swiss LINDAS i14y code lists** ⭐ sleeper | Swiss FSO | **454,946 skos:Concepts / 16.2M triples** in graph `https://lindas.admin.ch/fso/i14y` | per-code-list; EMBAG open-by-default expected — verify | verify | `lindas.admin.ch/query` (needs paged CONSTRUCT; dedicated session) |
+| **INSPIRE code lists** | EU | 333 codelists, ~7k values | EU reuse 2011/833 (confirm at OP page) | open | register RDF ✔; values need per-item crawl |
+| **CBS Netherlands Skosmos** (SBI 2008, SOI, geo areas) | CBS | 14 vocabs | verify (CC BY expected) | verify | Skosmos /data disabled — per-concept crawl or ask CBS |
+
+**Dead ends (don't re-search):** ONS statistics.data.gov.uk decommissioned
+2025-02 (no RDF replacement); SDMX registry (no RDF); UN/CEFACT vocabulary —
+RECHECKED, now confirmed RESTRICTIVE ("personal, non-commercial use … without
+any right to resell or redistribute") → excluded; UNSD registry CSV-only (RDF
+route = Caliper); StatCan/ABS/StatsNZ/DESTATIS no RDF; World Bank/IMF/OECD
+retired their linked-data; WHO ATC restrictive; OS Linked Data retired;
+GeoNames full dump alive (CC BY, 742MB, stale 2020) but gn:Feature not SKOS;
+Kadaster/IGN/GNIS/WHG/OpenHistoricalMap not SKOS; i14y REST is CSV/JSON-only
+(the SKOS lives in LINDAS).
+
+## 🐙 GitHub / wiki / tagging sweep (researched 2026-08-21, URLs verified live)
+
+**Ready:** NERC NVS (~350 collections, P01 ~50k concepts, CC BY 4.0,
+per-collection conneg + SPARQL); W3C DPV 2.3 + extensions (~1k+ concepts,
+W3C doc license, native SKOS since 2.x); BGS vocabularies (OGL-UK-3.0);
+Geological Survey of Queensland (127 ttl, CC BY 4.0); Geoscience Australia
+ga-vocabs (46 files, CC BY 4.0); OpenActive activity-list (768 concepts,
+CC BY 4.0, JSON-LD SKOS); Oak National curriculum ontology (OGL); dini-ag-kim
+cluster (hcrt/schulfaecher/schularten…, CC0, in-data license); voc4cat
+(NFDI4Cat, ~600 concepts, CC0); CSIRO igsn/crs-th (CC BY); rhdunn/pos-tags
+(MIT); eudat-b2find-skos (CC0); bartoc-vocabularies (CC0).
+**Container-only:** DBpedia skos_categories (per-language, en=52.7MB bz2,
+CC BY-SA, databus 2022.12.01); GeoSphere Austria thesauri (CC BY-SA 3.0 AT,
+Tethys DOIs); KDSF-FFK (BY-SA); anzsic-taxonomy (BY-SA).
+**Policy question for owner:** SAGE Social Science Thesaurus (~60k concepts,
+Skosmos live) is **CC BY-NC-SA** — a class policy v2 has NOT granted (grants
+are BY-SA and BY-NC-ND). Decide before touching.
+**Conversion candidates:** GitHub Topics (github/explore, CC BY 4.0, YAML→SKOS,
+low effort); StackExchange tags+synonyms (use the HISTORICAL archive.org dump —
+CC BY-SA; post-2024 dumps carry non-CC anti-LLM terms; container-only);
+Active Inference Ontology (CC BY, 429 terms); emoji-skos (MIT, build step);
+Wikidata per-domain P279 extractions (CC0, medium effort/domain).
+**Iconclass wrinkle:** github.com/iconclass/data is **CC0** with a
+make_skos.py build step — a possible route around the site's ODbL question;
+verify carefully before acting (the ODbL exclusion decision stands for the
+site dumps).
+**No license → excluded:** entsoe energy-reference-data, datagov-cz ciselniky,
+europarl/skos-ep, CLAVAS, dini-ag-kim hochschulfaechersystematik (in-data
+"other-closed"). **Nothing there:** SCOT/MOAT folksonomies (dead),
+Zotero/Pinboard/Raindrop (no SKOS), Open Library subjects (flat strings),
+ROR (CC0 but not SKOS), Zenodo/Figshare (ride ANZSRC), tibonto/UB-Mannheim/
+w3c-beyond-DPV/americanartcollaborative (no SKOS data).
+
 ## 🌾 AgroPortal SKOS ontologies — licence-verification pending
 
 AgroPortal's SKOS filter (`ontologies_filter?format=SKOS`, found via headless

@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# OeFOS 2012 (Austrian Fields of Science)
+# License verified 2026-08-21: In-TTL dct:license CC BY 4.0, rightsHolder Statistik Austria.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "OeFOS 2012 (Austrian Fields of Science)" ;
+    dcterms:publisher <https://www.statistik.at/> ;
+    skosdex:conceptSchemeURI <https://vocabs.acdh.oeaw.ac.at/oefos/> ;
+    skosdex:sourceURL <https://vocabs.acdh.oeaw.ac.at/rest/v1/oefos/data?format=text/turtle> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

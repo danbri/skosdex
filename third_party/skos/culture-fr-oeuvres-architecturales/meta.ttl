@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Thesaurus des oeuvres architecturales (Ministere de la Culture)
+# License verified 2026-08-21: Licence ouverte Etalab per culture.gouv.fr SMF vocabularies page.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Thesaurus des oeuvres architecturales (Ministere de la Culture)" ;
+    dcterms:publisher <https://www.culture.gouv.fr/> ;
+    skosdex:conceptSchemeURI <https://opentheso.huma-num.fr/theso/th366> ;
+    skosdex:sourceURL <https://opentheso.huma-num.fr/api/all/theso?id=th366&format=rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://www.etalab.gouv.fr/licence-ouverte-open-licence/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# FISH Monument Types Thesaurus (Historic England)
+# License verified 2026-08-21: In-RDF dct:license CC BY 3.0; exemplar of ~16 heritagedata.org FISH schemes (rest TODO in CANDIDATES).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "FISH Monument Types Thesaurus (Historic England)" ;
+    dcterms:publisher <https://historicengland.org.uk/> ;
+    skosdex:conceptSchemeURI <http://purl.org/heritagedata/schemes/eh_tmt2> ;
+    skosdex:sourceURL <https://heritagedata.org/live/FISH_Monument_Type_20200731.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/3.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

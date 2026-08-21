@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Los (Norwegian public-service terminology)
+# License verified 2026-08-21: CC0 per data.norge.no dataset record.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Los (Norwegian public-service terminology)" ;
+    dcterms:publisher <https://www.digdir.no/> ;
+    skosdex:conceptSchemeURI <https://psi.norge.no/los/> ;
+    skosdex:sourceURL <https://psi.norge.no/los/all.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

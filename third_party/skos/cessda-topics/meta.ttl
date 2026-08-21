@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# CESSDA Topic Classification (v4.2.3)
+# License verified 2026-08-21: In-data dcterms:license CC BY 4.0; fetch via Accept conneg on the versioned REST URL (the /download path returns the SPA shell).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "CESSDA Topic Classification (v4.2.3)" ;
+    dcterms:publisher <https://www.cessda.eu/> ;
+    skosdex:conceptSchemeURI <https://vocabularies.cessda.eu/vocabulary/TopicClassification> ;
+    skosdex:sourceURL <https://vocabularies.cessda.eu/v2/vocabularies/TopicClassification/4.2.3?languageVersion=en-4.2.3> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

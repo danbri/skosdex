@@ -1,0 +1,17 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Tesauro de Ceramica (Espana)
+# License verified 2026-08-21: Same bespoke open terms.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Tesauro de Ceramica (Espana)" ;
+    dcterms:publisher <https://www.cultura.gob.es/> ;
+    skosdex:conceptSchemeURI <https://tesauros.cultura.gob.es/tesauros/ceramica> ;
+    skosdex:sourceURL <https://tesauros.cultura.gob.es/tesauros/descarga/skos-ceramica.zip> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "skos-ceramica.rdf" ;
+    dcterms:license <https://tesauros.cultura.gob.es/tesauros/condiciones-de-uso> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# UN SDG Knowledge Organization System
+# License verified 2026-08-21: Custom UN terms: "made available free of charge and may be copied freely, duplicated and further distributed with the following citation: (c) United Nations, 2023" - citation-required, no NC clause (unlike the UNBIS thesaurus on the same page).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "UN SDG Knowledge Organization System" ;
+    dcterms:publisher <https://www.un.org/> ;
+    skosdex:conceptSchemeURI <http://metadata.un.org/sdg> ;
+    skosdex:sourceURL <https://unbis-thesaurus.s3.amazonaws.com/sdg-20230317.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://research.un.org/en/thesaurus/downloads> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

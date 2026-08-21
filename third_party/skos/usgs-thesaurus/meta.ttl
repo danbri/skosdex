@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# USGS Thesaurus
+# License verified 2026-08-21: In-RDF dc:rights "Public domain"; US-gov work.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "USGS Thesaurus" ;
+    dcterms:publisher <https://www.usgs.gov/> ;
+    skosdex:conceptSchemeURI <https://apps.usgs.gov/thesaurus/> ;
+    skosdex:sourceURL <https://apps.usgs.gov/thesaurus/download/USGSThesaurus.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://www.usa.gov/government-copyright> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

@@ -1,0 +1,16 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Cultuurhistorische Thesaurus (RCE)
+# License verified 2026-08-21: Dataset page/API: license "CC0 1.0" (authoritative); NOTE in-data VoID still says CC BY 4.0 and a LEGACY dataset is ODC-By - use only this cht dataset.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Cultuurhistorische Thesaurus (RCE)" ;
+    dcterms:publisher <https://www.cultureelerfgoed.nl/> ;
+    skosdex:conceptSchemeURI <https://linkeddata.cultureelerfgoed.nl/thesauri/cht> ;
+    skosdex:sourceURL <https://linkeddata.cultureelerfgoed.nl/_api/datasets/thesauri/cht/download.trig.gz> ;
+    skosdex:sourceFormat "application/trig" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

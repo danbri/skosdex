@@ -1,0 +1,15 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EKT Thematic Tags (Greek)
+# License verified 2026-08-21: CC BY 4.0 per vocab page.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "EKT Thematic Tags (Greek)" ;
+    dcterms:publisher <https://www.ekt.gr/> ;
+    skosdex:conceptSchemeURI <https://www.semantics.gr/authorities/vocabularies/thematic_tags> ;
+    skosdex:sourceURL <https://www.semantics.gr/authorities/vocabularies/thematic_tags/n-triples> ;
+    skosdex:sourceFormat "application/n-triples" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
