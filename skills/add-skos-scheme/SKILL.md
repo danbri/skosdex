@@ -35,6 +35,16 @@ per-scheme code for the normal case.
    committed output is a **gzipped, Git LFS-tracked** `canonical.nq.gz` — ensure
    `git lfs` is installed (the SessionStart hook handles this; see `CLAUDE.md`).
 
+## Mapping sets
+
+A published cross-scheme mapping dump (skos:exactMatch/closeMatch/… triples)
+is onboarded exactly like a scheme: its own `third_party/skos/<slug>/meta.ttl`
+with a distinct `skosdex:conceptSchemeURI` used as its named graph. Convention:
+slug `<scheme>-mapping-<target>` and graph `<schemeURI>/mapping/<target>`
+(see `stw-mapping-gnd` et al.). Verify the mapping's OWN license page — it
+often differs from the scheme's (STW mappings are CC0; STW is CC BY 4.0).
+Prefer Turtle serializations when the publisher offers a choice.
+
 ## License policy (important)
 
 The repository only carries openly-licensed data. Anything with a viral

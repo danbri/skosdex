@@ -5,13 +5,20 @@ the triage list; a scheme "graduates" by getting its own
 `third_party/skos/<slug>/meta.ttl` (see the `add-skos-scheme` and
 `curate-vocabularies` skills).
 
-**License gates bundling** (see [README.md](README.md)): only `public-domain`
-and `open` (permissive, commercial-OK, non-share-alike) data is committed and
-bundled. `copyleft` (viral / share-alike), `noncommercial`, and `proprietary`
-schemes stay **metadata-only** — their record lets others fetch them under their
-own terms.
+**License gates bundling** (policy v2, 2026-06-10 — see [README.md](README.md)
+and the `curate-vocabularies` skill): `public-domain` and `open` data is
+committed, bundled, and may appear in static artifacts; `copyleft` (share-alike)
+and `noncommercial` data is bundleable **container-only** (explicit license in
+meta.ttl + manifest, N-Quads formatting only, never in static artifacts);
+`proprietary`/`unknown` (and ODbL, which has not been granted — owner
+decision reaffirmed 2026-08-21) stay **metadata-only** — their record lets
+others fetch them under their own terms.
 
-Licenses change; re-verify before onboarding. Last reviewed: **2026-06**.
+Licenses change; re-verify before onboarding **and periodically re-sweep the
+blocked lists** — exclusion is self-sealing (see the STW case study in the
+`curate-vocabularies` skill: recorded ODbL in 2026-05 from stale commented-out
+`rel="license"` markup, but actually CC BY 4.0 since 2021; caught 2026-08).
+Last reviewed: **2026-08-21**.
 
 ## 📦 Corpus built so far (committed via Git LFS)
 
@@ -33,8 +40,10 @@ Licenses change; re-verify before onboarding. Last reviewed: **2026-06**.
 Eleven SKOS schemes, **66.5M quads**, gzipped (small in-repo, large via Git
 LFS), live at <https://skosdex.fly.dev/> (Oxigraph; Solr on-box, see issue #1).
 Container-only = policy v2: explicit license in meta.ttl + manifest, N-Quads
-formatting only, never in static artifacts. Metadata-only: GTAA, Iconclass,
-STW (ODbL — not granted), DDC (proprietary).
+formatting only, never in static artifacts. Metadata-only: GTAA, Iconclass
+(ODbL — not granted), DDC (proprietary). (This table is the 2026-06-10
+snapshot; the corpus has since grown to ~600 schemes — `dist/manifest.json`
+from a fresh bundle is the authoritative list.)
 
 
 ## 📰 IPTC NewsCodes — complete set (218 CVs)
@@ -206,20 +215,30 @@ name-authorities** (not concept schemes, huge): `finaf` (KANTO, ~175 MB), `cn`
 (corporate names). (`kassu`/`lajisto` plant/species names were *kept* — they
 carry 112k/56k real `skos:Concept`, not just taxa.)
 
-## 🌐 Frontier — open SKOS veins to mine next (2026-06)
+## 🌐 Frontier — open SKOS veins to mine next (updated 2026-08-21)
 
-- **Loterre** (INIST-CNRS) — 74 French scientific terminologies, CC BY 4.0, listed
-  at `loterre.istex.fr/rest/v1/vocabularies`. BUT the Skosmos `/data` export is
-  disabled (63-byte stub) and the `data.loterre.fr/ark:/67375/<id>` ARK returns
-  HTML; needs the real per-thesaurus download URL or correct SPARQL path. **TODO:
-  find bulk-download endpoint** (worth it — 74 open SKOS schemes).
-- **Research Vocabularies Australia** (`vocabs.ardc.edu.au`) — 493 vocabs, 257
-  open-licensed (CC-BY/CC0/ODC-By) + 24 CC-BY-SA. BUT the registry API
-  (`/registry/api/resource/vocabularies/<id>?includeAccessPoints=true`) exposes
-  mostly metadata-only records (web-page links); the actual RDF lives behind a
-  PoolParty/sesame download path that didn't resolve programmatically here.
-  **TODO: crack the `/api/resource/downloads/<apId>/<file>.rdf` pattern** (the
-  apId↔vocab mapping wasn't in the API view). High value (~250 open SKOS) if cracked.
+The four stalled access problems below were **CRACKED 2026-08-21**; the full
+verified recipes (URL patterns, gotchas) live in the
+**`harvest-skos-registries` skill** — headline pointers here:
+
+- **Loterre** — CRACKED: bulk RDF/XML is in ORTOLANG,
+  `repository.ortolang.fr/api/content/<id-lc>/latest/<ID>.xml` (60/74 resolve;
+  14 have no workspace, mostly third-party-derived). The `loterre-*` schemes
+  already held came via this route.
+- **Research Vocabularies Australia** — CRACKED: the apId↔vocab mapping is on
+  the per-vocabulary endpoint (`?includeVersions=true&includeAccessPoints=true`
+  — the LIST endpoint silently ignores those params); `sesameDownload` and
+  `file` access points yield direct RDF.
+- **AgroPortal** — CRACKED: `data.agroportal.eu/submissions?apikey=…&display=hasLicense,…`
+  returns all licenses in one call. 2026-08 sweep: CC-BY/CC0 = INRAETHES, AFO,
+  ASCOPAIN-T, DATA4CPLUS, VOCGEO, AGFOOD, BIODIVTHES, MEAT-T, SHKG, X-RISKS,
+  CVO (CC0), MILKOLIGO (Etalab-2.0) — onboardable; hasLicense **null** = CLC,
+  FPCD, GACS*, ICC, THESAGRO, FOODEX2, THESAE, WCACROPS, HVDC, T-SITA, FPOSOFT
+  (blocked by explicit-license gate; *GACS already held via its own CC BY page).
+  NOTE: `/ontologies/<ACR>/download` now REQUIRES an apikey (was key-free).
+- **ESCO** — CRACKED: direct stable URL, no email form —
+  `ec.europa.eu/esco/download/ESCO%20dataset%20-%20v1.2.1%20-%20classification%20-%20%20-%20ttl.zip`
+  (~173 MB multilingual Turtle, CC BY 4.0). Ready to onboard.
 - **CESSDA ELSST** — onboarded (`cessda-elsst/`, CC BY-SA → container-only).
 - **BARTOC Skosmos** (~250 vocabs) — REGISTRY only; `/data` returns 0 bytes (it
   points to external sources, doesn't host triples). Not a bulk-download vein.
@@ -232,6 +251,48 @@ carry 112k/56k real `skos:Concept`, not just taxa.)
   10.5 GB uncompressed / host-blocked); need a bigger build box.
 - **GND** (DNB, CC0), **Wikidata** (CC0, needs scoping) — large, deferred.
 
+
+## 🌍 Gap survey 2026-08-21 — "all the SKOS" sweep (licenses spot-verified at publishers; re-verify on onboarding)
+
+Ranked candidates found missing from the corpus. ✔ = download URL verified live.
+
+| Scheme | Publisher | ~Size | License | Class | Source |
+|--------|-----------|-------|---------|-------|--------|
+| ~~STW Thesaurus for Economics~~ | ZBW | 6k descriptors | CC BY 4.0 (since v9.12/2021) | open | **onboarded 2026-08-21** — `stw/` + 8 `stw-mapping-*` (5 CC0) |
+| NASA Thesaurus | NASA STI | ~18k terms | US gov public use | public-domain | ✔ <https://sti.nasa.gov/docs/thesaurus/thesaurus-SKOS.xml> (33 MB RDF/XML) |
+| Unified Astronomy Thesaurus | AAS/IVOA/ADS | ~2.6k | CC BY-SA 3.0 | copyleft (container-only) | ✔ <https://raw.githubusercontent.com/astrothesaurus/UAT/master/UAT.rdf> |
+| Basisklassifikation (BK) | VZG/GBV | ~2.1k | CC0 | public-domain | ✔ `api.dante.gbv.de/export/download/bk/default/` (Turtle) |
+| Humord | UiO Library | ~13k (no) | CC0 | public-domain | ✔ <https://data.ub.uio.no/dumps/humord.complete.ttl> |
+| Realfagstermer | UiO+NTNU | ~10–14k | CC0 | public-domain | ✔ <https://data.ub.uio.no/dumps/realfagstermer.complete.ttl> (+ mapping .nt files) |
+| PhySH (Physics Subject Headings) | APS | ~3.7k | CC0 | public-domain | ✔ github physh-org/PhySH `physh.ttl` + `physh_skos_compat.ttl` |
+| ILO Thesaurus | ILO | 4.8k, multilingual | CC BY 4.0 (since 2023) | open | Skosmos `metadata.ilo.org/thesaurus/` REST data export |
+| COAR vocabularies (3) | COAR | ~100 total, 14 langs | CC BY 4.0 | open | github coar-repositories/vocabularies |
+| CESSDA Topic Classification | CESSDA | ~90 | CC BY | open | vocabularies.cessda.eu per-version SKOS export |
+| Svenska ämnesord (SAO) | KB Sweden | ~36k | CC0 | public-domain | id.kb.se — no simple dump; harvest via Libris XL API/OAI-PMH |
+| EMBNE subject headings | BNE Spain | large | CC0 | public-domain | datos.bne.es dumps (bot-blocked; fetch manually) |
+| Brinkman thesaurus | KB Netherlands | ~12k | CC0 | public-domain | data.bibliotheken.nl (dump + SPARQL) |
+| PSH subject headings | NTK Prague | ~13.9k cs/en | CC BY 3.0 CZ | open | techlib.cz — old zip 404s; get current link / email psh@techlib.cz |
+| RVK classification | UB Regensburg | huge | CC0 | public-domain | MARC21-XML only — needs mc2skos conversion |
+| HASSET | UK Data Service | ~4k | CC BY-SA 4.0 | copyleft (container-only) | click-through download at hasset.ukdataservice.ac.uk |
+| DDI Controlled Vocabularies | DDI Alliance | ~20 small CVs | CC BY-SA 3.0 | copyleft (container-only) | github linked-statistics/DDI-controlled-vocabularies |
+| IVOA vocabularies | IVOA | ~30–40 small | CC0 | public-domain | <http://www.ivoa.net/rdf/> (conneg per vocab) |
+| Tesauros Patrimonio Cultural España (9) | Ministerio de Cultura | tens of k | open-data (verify exact) | open (verify) | tesauros.cultura.gob.es/tesauros/descarga (RDF/XML) |
+| RCE Erfgoedthesauri (NL heritage) | RCE | ~15k+ | CC0 | public-domain | linkeddata.cultureelerfgoed.nl (+ SPARQL) |
+| coli-conc concordances | VZG | tens of k mappings | CC0 (verify per set) | public-domain (verify) | coli-conc.gbv.de/api/ (JSKOS NDJSON → convert) |
+| UN SDG taxonomy | UN DHL | ~700, 6 langs | UN terms, no CC | unknown (like unbis) | TTL via research.un.org/en/thesaurus/downloads |
+| NB Norway vocabs (~10) | Nasjonalbiblioteket | small–few k | verify per vocab (likely CC0) | unknown | Skosmos nb.no/nbvok |
+| MIMO instruments + Hornbostel-Sachs | MIMO Intl | ~2.5k | unstated — ask | unknown | vocabulary.mimo-international.com; H-S also on DANTE |
+| ESCO v1.2.1 | EU DG EMPL | ~6.5M triples | CC BY 4.0 | open | ✔ direct URL — see frontier section (access now CRACKED) |
+
+**Blocked (license):** Iconclass (ODbL+DbCL), GTAA (ODbL), PACTOLS (~62k
+concepts — GitHub says ODbL but some pages say CC BY-SA; conflicting, worth an
+email: the biggest blocked prize), DeCS (signed agreement), ICD-11 (CC BY-ND),
+Thema (bespoke terms), DDC/SNOMED (proprietary), JEL scheme (AEA
+scholarly-use-only; the CC0 STW→JEL *mapping* is onboarded). **Not native
+SKOS:** ERIC (XML/API), OpenAlex topics (CSV/JSON, CC0 — conversion
+candidate), Polish DBN (MARC API), RVK (MARC — see table). **Genuine gaps
+needing outreach, not downloads:** Danish, Korean, Hebrew, Arabic, Indian,
+Ukrainian, mainland-Chinese national schemes.
 
 ## 🌾 AgroPortal SKOS ontologies — licence-verification pending
 
@@ -254,9 +315,14 @@ Never bundle the data; keep a `meta.ttl` record so others can fetch it.
 | Scheme | Publisher | License | Class | Source |
 |--------|-----------|---------|-------|--------|
 | UNESCO Thesaurus | UNESCO | CC BY-SA 3.0 IGO | copyleft | already onboarded — `unesco-thesaurus/` |
-| STW Thesaurus for Economics | ZBW | ODbL 1.0 (share-alike) | copyleft | <https://zbw.eu/stw/version/latest/download/about.en.html> |
 | Homosaurus | Digital Transgender Archive | CC BY-NC-ND 4.0 | noncommercial | <https://homosaurus.org/> |
-| TheSoz (Thesaurus for the Social Sciences) | GESIS | CC BY-NC-ND | noncommercial | <https://lod.gesis.org/thesoz/> |
+
+~~STW Thesaurus for Economics~~ — **GRADUATED 2026-08-21** (`stw/` +
+`stw-mapping-{gnd,wikidata,dbpedia,eurovoc,thesoz,agrovoc,jel,sdmx}/`): the
+2026-05 "ODbL 1.0" record was stale — CC BY 4.0 since v9.12 (2021-10-15), and
+five of the eight mappings are CC0. ~~TheSoz~~ — license likewise now CC BY 4.0
+(verified 2026-06-10, see `thesoz/meta.ttl`); held metadata-only ONLY because
+GESIS offers no public bulk dump, not for license reasons.
 | Dewey Decimal Classification (DDC) | OCLC | proprietary | proprietary | <https://www.oclc.org/en/dewey.html> |
 
 ## 🔍 To investigate (license/format unconfirmed)

@@ -1,0 +1,23 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# STW <-> AGROVOC mapping, published by ZBW alongside the STW
+# Thesaurus for Economics (skos:exactMatch / closeMatch etc. triples).
+# License: CC BY 4.0, verified 2026-08-21 at
+# https://zbw.eu/stw/version/latest/download/about.en.html (same page and
+# license as the STW thesaurus itself; see ../stw/meta.ttl).
+# Note: unlike the GND/Wikidata/DBpedia/JEL/SDMX mappings (which have their
+# own CC0 statements), this mapping has no per-mapping license page; the
+# CC BY 4.0 statement on the official download page offering the file is
+# taken as governing. Downgrade to metadata-only if ZBW clarifies otherwise.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "STW mapping: AGROVOC" ;
+    dcterms:publisher <https://www.zbw.eu/> ;
+    skosdex:conceptSchemeURI <http://zbw.eu/stw/mapping/agrovoc> ;
+    skosdex:sourceURL <https://zbw.eu/stw/version/latest/download/stw_agrovoc_mapping.ttl.zip> ;
+    skosdex:sourceFormat "text/turtle" ;
+    skosdex:compression "zip" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .

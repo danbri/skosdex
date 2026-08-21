@@ -34,6 +34,42 @@ skill keeps it accurate and decides what may be onboarded.
 5. **Onboard** (graduate) by creating `third_party/skos/<slug>/meta.ttl` via the
    `add-skos-scheme` skill. For large dumps, start with `skosdex:bundle false`.
 
+## Licenses rot — re-verify before trusting our own records
+
+A recorded license classification is a snapshot, not a fact. Case in point:
+STW Thesaurus for Economics sat excluded as "ODbL (not granted)" in our
+2026-06 records, but ZBW had relicensed it **CC BY 4.0 back in 2021** (v9.12)
+— five years stale, and it cost us a flagship scheme plus its mappings.
+TheSoz similarly moved CC BY-NC-ND → CC BY 4.0. So:
+
+- Before excluding (or leaving excluded) any scheme on license grounds,
+  check the publisher's **current** terms AND their version-history /
+  "what's new" page (e.g. `zbw.eu/stw/version/changes/`) — relicensing is
+  usually announced there even when old badge markup lingers in the HTML.
+- **Do not trust `rel="license"` / RDFa markup over the visible prose.** The
+  STW download page still carries the old ODbL `<a rel="license">` + BY-NC-SA
+  badge *inside an HTML comment*, ten lines above the real "licensed under
+  CC BY 4.0" sentence. A scraper (or model reading raw HTML) that keys on the
+  machine-readable annotation gets the 2015-era answer. Read the rendered,
+  human-visible statement, and quote it verbatim in the record.
+- Exclusion is self-sealing: a scheme classed unbundleable never enters the
+  onboarding flow whose verify step would catch the error (that is exactly
+  how STW stayed wrongly excluded while TheSoz — onboarded — was caught).
+  Hence the periodic re-sweep of blocked lists below.
+- Record the verification **date** and the exact page URL in `meta.ttl` /
+  `CANDIDATES.md` so staleness is visible later.
+- Periodically re-sweep the "metadata-only / blocked" lists — they are the
+  highest-yield place for license changes.
+
+## Mappings are first-class candidates (and often better-licensed)
+
+Cross-scheme mapping dumps (skos:exactMatch etc.) are onboarded as their own
+scheme dirs (see `stw-mapping-*`: one dir per target, graph URI per mapping,
+`bundle true`). Check the **per-mapping** license page, not just the scheme's:
+ZBW's STW→GND/Wikidata/DBpedia/JEL/SDMX mappings are **CC0** even though STW
+itself is CC BY 4.0. A mapping can be bundleable even when its target scheme
+is not (the CC0 STW→JEL mapping is in; AEA's JEL scheme itself is not).
+
 ## Rules
 
 - Licensing is non-negotiable: every bundled scheme carries an explicit

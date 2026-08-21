@@ -1,0 +1,20 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# STW <-> GND (German National Library authority file) mapping, published by ZBW alongside the STW
+# Thesaurus for Economics (skos:exactMatch / closeMatch etc. triples).
+# License: CC0 1.0, verified 2026-08-21 at the per-mapping page
+# https://zbw.eu/stw/version/latest/mapping/gnd/about.en.html: "The CC0
+# license has been applied to the mapping for broad and easy re-use
+# without legal restrictions."
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "STW mapping: GND (German National Library authority file)" ;
+    dcterms:publisher <https://www.zbw.eu/> ;
+    skosdex:conceptSchemeURI <http://zbw.eu/stw/mapping/gnd> ;
+    skosdex:sourceURL <https://zbw.eu/stw/version/latest/download/stw_gnd_mapping.ttl.zip> ;
+    skosdex:sourceFormat "text/turtle" ;
+    skosdex:compression "zip" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

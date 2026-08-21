@@ -1,0 +1,26 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# STW Thesaurus for Economics (ZBW — Leibniz Information Centre for Economics).
+# ~6,000 standardized subject headings + ~20,000 entry terms, de/en, SKOS +
+# skos-xl + zbw-extensions; v9.20 (2025-12-16).
+#
+# License: CC BY 4.0, verified 2026-08-21 at the publisher's own download page
+# (https://zbw.eu/stw/version/latest/download/about.en.html): "The STW
+# Thesaurus for Economics is licensed under CC BY 4.0." Earlier skosdex
+# records (2026-06) classified STW as ODbL/copyleft — stale: ZBW's own
+# version history (https://zbw.eu/stw/version/changes/about.en.html) shows
+# "The STW is now published under a CC-BY 4.0 licence" since v9.12
+# (2021-10-15); ODbL applied only to v8.14–v9.11. Mappings (GND, Wikidata, DBpedia, EuroVoc,
+# TheSoz, AGROVOC, JEL, SDMX) are onboarded as stw-mapping-* siblings.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "STW Thesaurus for Economics" ;
+    dcterms:publisher <https://www.zbw.eu/> ;
+    skosdex:conceptSchemeURI <http://zbw.eu/stw> ;
+    skosdex:sourceURL <https://zbw.eu/stw/version/latest/download/stw.ttl.zip> ;
+    skosdex:sourceFormat "text/turtle" ;
+    skosdex:compression "zip" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skosdex:licenseClass "open" ;
+    skosdex:bundle true .
