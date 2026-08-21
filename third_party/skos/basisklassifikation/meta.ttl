@@ -1,0 +1,21 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Basisklassifikation (BK) — the K10plus library-network classification
+# (Verbundzentrale des GBV, Göttingen; based on the Dutch Nederlandse
+# Basisclassificatie). ~2.1k classes with notations, de/en labels.
+# License: CC0 1.0, verified 2026-08-21 at BARTOC (bartoc.org/en/node/18785,
+# operated by the same publisher VZG): license
+# http://creativecommons.org/publicdomain/zero/1.0/. Fetched from VZG's own
+# DANTE export service (see the harvest-skos-registries skill).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Basisklassifikation (BK)" ;
+    dcterms:publisher <https://www.gbv.de/> ;
+    skosdex:conceptSchemeURI <http://uri.gbv.de/terminology/bk/> ;
+    skosdex:sourceURL <https://api.dante.gbv.de/export/download/bk/default/bk__default.turtle.ttl.gz> ;
+    skosdex:sourceFormat "text/turtle" ;
+    skosdex:compression "gzip" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

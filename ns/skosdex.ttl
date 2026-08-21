@@ -48,6 +48,11 @@ skosdex:compression a rdf:Property ;
     rdfs:comment "How the fetched source is compressed: 'none' (default), 'gzip', or 'zip'. The fetch step decompresses accordingly before parsing." ;
     rdfs:range xsd:string .
 
+skosdex:baseURI a rdf:Property ;
+    rdfs:label "baseURI" ;
+    rdfs:comment "Base URI for resolving relative URIs in the source (passed to the RDF/XML converter). Needed when a dump uses relative rdf:about with no xml:base (e.g. the NASA Thesaurus)." ;
+    rdfs:domain skosdex:Scheme .
+
 skosdex:sourceEntry a rdf:Property ;
     rdfs:label "source entry" ;
     rdfs:comment "For compression 'zip' with multiple members, the name of the archive entry to extract. Defaults to the first entry." ;

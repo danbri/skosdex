@@ -1,0 +1,19 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Unified Astronomy Thesaurus (American Astronomical Society, with IVOA/IAU/
+# IOP/AIP contributions). ~2.6k concepts, English.
+# License: CC BY-SA 3.0 Unported, verified 2026-08-21 in the publisher's
+# GitHub README (github.com/astrothesaurus/UAT): "The Unified Astronomy
+# Thesaurus is licensed under a Creative Commons Attribution-ShareAlike 3.0
+# Unported License." => copyleft => container-only (never static artifacts).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Unified Astronomy Thesaurus (UAT)" ;
+    dcterms:publisher <https://astrothesaurus.org/> ;
+    skosdex:conceptSchemeURI <http://astrothesaurus.org/uat/> ;
+    skosdex:sourceURL <https://raw.githubusercontent.com/astrothesaurus/UAT/master/UAT.rdf> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/3.0/> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .

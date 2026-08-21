@@ -1,0 +1,23 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# NASA Thesaurus (NASA STI Program). ~18k terms, aerospace/engineering/space
+# science; SKOS RDF/XML export (Synaptica/Zthes flavoured), English.
+# License: work of the US federal government => public domain (17 U.S.C. §105),
+# same basis as LCSH/MeSH here. Publisher page (verified 2026-08-21,
+# https://sti.nasa.gov/nasa-thesaurus/) states no copyright terms, only:
+# "Please cite the NASA STI Program in your work if you incorporate/use the
+# NASA Thesaurus."
+# The dump uses RELATIVE rdf:about="#<id>" URIs with no xml:base — hence
+# skosdex:baseURI below (concepts become https://sti.nasa.gov/thesaurus/#<id>).
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "NASA Thesaurus" ;
+    dcterms:publisher <https://sti.nasa.gov/> ;
+    skosdex:conceptSchemeURI <https://sti.nasa.gov/thesaurus/> ;
+    skosdex:sourceURL <https://sti.nasa.gov/docs/thesaurus/thesaurus-SKOS.xml> ;
+    skosdex:sourceFormat "application/rdf+xml" ;
+    skosdex:baseURI "https://sti.nasa.gov/thesaurus/" ;
+    dcterms:license <https://www.usa.gov/government-copyright> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

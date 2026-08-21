@@ -259,12 +259,12 @@ Ranked candidates found missing from the corpus. ✔ = download URL verified liv
 | Scheme | Publisher | ~Size | License | Class | Source |
 |--------|-----------|-------|---------|-------|--------|
 | ~~STW Thesaurus for Economics~~ | ZBW | 6k descriptors | CC BY 4.0 (since v9.12/2021) | open | **onboarded 2026-08-21** — `stw/` + 8 `stw-mapping-*` (5 CC0) |
-| NASA Thesaurus | NASA STI | ~18k terms | US gov public use | public-domain | ✔ <https://sti.nasa.gov/docs/thesaurus/thesaurus-SKOS.xml> (33 MB RDF/XML) |
-| Unified Astronomy Thesaurus | AAS/IVOA/ADS | ~2.6k | CC BY-SA 3.0 | copyleft (container-only) | ✔ <https://raw.githubusercontent.com/astrothesaurus/UAT/master/UAT.rdf> |
-| Basisklassifikation (BK) | VZG/GBV | ~2.1k | CC0 | public-domain | ✔ `api.dante.gbv.de/export/download/bk/default/` (Turtle) |
-| Humord | UiO Library | ~13k (no) | CC0 | public-domain | ✔ <https://data.ub.uio.no/dumps/humord.complete.ttl> |
-| Realfagstermer | UiO+NTNU | ~10–14k | CC0 | public-domain | ✔ <https://data.ub.uio.no/dumps/realfagstermer.complete.ttl> (+ mapping .nt files) |
-| PhySH (Physics Subject Headings) | APS | ~3.7k | CC0 | public-domain | ✔ github physh-org/PhySH `physh.ttl` + `physh_skos_compat.ttl` |
+| ~~NASA Thesaurus~~ | NASA STI | ~18k terms | US gov public use | public-domain | **onboarded 2026-08-21** — `nasa-thesaurus/` (1,137,769 quads; relative-URI dump handled via new `skosdex:baseURI`) |
+| ~~Unified Astronomy Thesaurus~~ | AAS/IVOA/ADS | ~2.6k | CC BY-SA 3.0 | copyleft (container-only) | **onboarded 2026-08-21** — `uat/` (25,174 quads) |
+| ~~Basisklassifikation (BK)~~ | VZG/GBV | ~2.1k | CC0 | public-domain | **onboarded 2026-08-21** — `basisklassifikation/` (89,755 quads, via DANTE) |
+| ~~Humord~~ | UiO Library | ~13k (no) | CC0 | public-domain | **onboarded 2026-08-21** — `humord/` (608,800 quads) + `humord-mapping-realfagstermer/` (3,215) |
+| ~~Realfagstermer~~ | UiO+NTNU | ~10–14k | CC0 | public-domain | **onboarded 2026-08-21** — `realfagstermer/` (226,693 quads); more UiO mapping files (DDC, MSC, ccmapper) at data.ub.uio.no/dumps/ to triage |
+| ~~PhySH (Physics Subject Headings)~~ | APS | ~3.7k | CC0 | public-domain | **onboarded 2026-08-21** — `physh/` (23,863 quads; main ttl has native skos:prefLabel, compat file not needed) |
 | ILO Thesaurus | ILO | 4.8k, multilingual | CC BY 4.0 (since 2023) | open | Skosmos `metadata.ilo.org/thesaurus/` REST data export |
 | COAR vocabularies (3) | COAR | ~100 total, 14 langs | CC BY 4.0 | open | github coar-repositories/vocabularies |
 | CESSDA Topic Classification | CESSDA | ~90 | CC BY | open | vocabularies.cessda.eu per-version SKOS export |

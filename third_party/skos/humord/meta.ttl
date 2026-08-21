@@ -1,0 +1,18 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Humord — humanities/social-science thesaurus of the University of Oslo
+# Library (Norwegian, ~13k concepts, mapped to Realfagstermer and DDC).
+# License: CC0 1.0, asserted IN-BAND (verified 2026-08-21): the dump carries
+# cc:license/dct:license <http://creativecommons.org/publicdomain/zero/1.0/>
+# on the dataset/scheme node; also stated in github.com/scriptotek/humord.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Humord (University of Oslo Library)" ;
+    dcterms:publisher <https://www.ub.uio.no/> ;
+    skosdex:conceptSchemeURI <http://data.ub.uio.no/humord/> ;
+    skosdex:sourceURL <https://data.ub.uio.no/dumps/humord.complete.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

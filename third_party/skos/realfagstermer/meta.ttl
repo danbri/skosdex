@@ -1,0 +1,18 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Realfagstermer — sciences thesaurus of the University of Oslo Library +
+# NTNU (Norwegian Bokmål/Nynorsk + English labels, ~10-14k concepts).
+# License: CC0 1.0, asserted IN-BAND (verified 2026-08-21): cc:license /
+# dcterms:license <http://creativecommons.org/publicdomain/zero/1.0/> on the
+# dataset node; also the realfagstermer GitHub README CC0 badge.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "Realfagstermer (UiO/NTNU)" ;
+    dcterms:publisher <https://www.ub.uio.no/> ;
+    skosdex:conceptSchemeURI <http://data.ub.uio.no/realfagstermer/> ;
+    skosdex:sourceURL <https://data.ub.uio.no/dumps/realfagstermer.complete.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

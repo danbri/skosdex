@@ -1,0 +1,20 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# PhySH — Physics Subject Headings (American Physical Society). ~3.7k
+# concepts (7.8k labels incl. physh_rdf duplicates), English; native
+# skos:prefLabel present in the main dump (the separate _skos_compat file is
+# not needed).
+# License: CC0 1.0, verified 2026-08-21 at https://physh.org/licensing:
+# "The American Physical Society (APS) provides PhySH under the public
+# domain Creative Commons CC-0 1.0 license".
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "PhySH — Physics Subject Headings" ;
+    dcterms:publisher <https://www.aps.org/> ;
+    skosdex:conceptSchemeURI <https://doi.org/10.29172/780edcc1-705f-432b-9121-76105d540fe1> ;
+    skosdex:sourceURL <https://raw.githubusercontent.com/physh-org/PhySH/master/physh.ttl> ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    skosdex:licenseClass "public-domain" ;
+    skosdex:bundle true .

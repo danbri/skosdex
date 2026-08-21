@@ -103,6 +103,7 @@ function readMeta(slug) {
     sourceFormat: one(s, 'skosdex', 'sourceFormat') || 'text/turtle',
     compression: (one(s, 'skosdex', 'compression') || 'none').toLowerCase(),
     sourceEntry: one(s, 'skosdex', 'sourceEntry'),
+    baseURI: one(s, 'skosdex', 'baseURI'),
     license: one(s, 'dcterms', 'license'),
     licenseClass: (one(s, 'skosdex', 'licenseClass') || 'unknown').toLowerCase(),
     bundle: one(s, 'skosdex', 'bundle') !== 'false',
@@ -247,7 +248,12 @@ async function normalizeScheme(meta) {
     const converted = path.join(meta.dir, 'cache', '_converted.nt');
     const fd = fs.openSync(converted, 'w');
     try {
-      execFileSync('rapper', ['-i', 'rdfxml', '-o', 'ntriples', src],
+      // skosdex:baseURI resolves relative rdf:about="#123" URIs (e.g. the
+      // NASA Thesaurus dump has no xml:base); without it rapper would mint
+      // file:/// URIs from the local cache path.
+      const args = ['-i', 'rdfxml', '-o', 'ntriples', src];
+      if (meta.baseURI) args.push(meta.baseURI);
+      execFileSync('rapper', args,
         { stdio: ['ignore', fd, 'pipe'], maxBuffer: Infinity });
     } finally {
       fs.closeSync(fd);
