@@ -31,9 +31,8 @@ docs/solr-docs.json
 # Subagent worktrees (ephemeral)
 .claude/worktrees/
 
-# Generated standalone demo (4MB+ of embedded JSON) — regenerate with
-# `node scripts/skosdex demo`; the live endpoint serves the real corpus.
-docs/index.html
+# (docs/index.html is an AUTHORED landing page and IS committed; the generated
+# 4MB standalone demo no longer lands there — see buildSite in scripts/skosdex.)
 tools/__pycache__/
 
 # Parliament thesaurus typed source is ~35MB and regenerable (see scheme meta.ttl);

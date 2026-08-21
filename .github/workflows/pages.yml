@@ -1,15 +1,19 @@
 name: Deploy demo to GitHub Pages
 
-# Builds the SKOS bundle and publishes the self-contained demo browser to
-# GitHub Pages. dist/ is gitignored (generated artifact), so we regenerate it
-# here at deploy time rather than committing it.
+# Publishes the COMMITTED docs/ directory to GitHub Pages (Pages source is
+# "GitHub Actions" for this repo, so this workflow is the only publish path).
 #
-# One-time setup: repo Settings -> Pages -> Build and deployment -> Source:
-# "GitHub Actions". Then every push to claude/main republishes the site.
+# docs/ carries only small authored/derived files (landing page, manifest,
+# background notes) — the full corpus and interactive demo are served by the
+# fly.io deployment. Nothing here needs npm, Git LFS, or the data pipeline:
+# an earlier version rebuilt the bundle in CI and broke permanently once the
+# corpus moved to LFS (zcat on LFS pointer files). Refresh docs/ locally with
+# `npm run site` and commit.
 
 on:
   push:
     branches: [claude/main]
+    paths: [docs/**, .github/workflows/pages.yml]
   workflow_dispatch:
 
 permissions:
@@ -23,53 +27,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # Provision the Pages site if it isn't already enabled, so the deploy job
-      # has a target. Without this, deploy-pages fails fast on a missing site
-      # (the symptom: build green, deploy fails in ~2s, GET /pages -> 404).
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-
-      # Bundle from the COMMITTED canonical.nq files — no live fetch, so the
-      # deploy can't break when an upstream source is slow or blocks CI. Only
-      # open-licensed bundle:true schemes have committed data (example-colors,
-      # iptc-media-topics). To refresh that data, run `skosdex build` locally
-      # and commit the updated canonical.nq.
-      - run: node scripts/skosdex bundle
-      - run: node scripts/skosdex solr-docs
-      - run: node scripts/skosdex demo
-
-      # Assemble the published site under ./_site.
-      - name: Assemble site
-        run: |
-          mkdir -p _site
-          cp dist/demo.html _site/index.html
-          cp dist/bundle.nq _site/bundle.nq
-          cp dist/solr-docs.json _site/solr-docs.json
-          cp dist/manifest.json _site/manifest.json
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-  deploy:
-    needs: build
+  publish:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      # Provision the Pages site if it isn't already enabled, so the deploy
+      # step has a target (symptom otherwise: deploy fails fast, GET /pages 404).
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
       - id: deployment
         uses: actions/deploy-pages@v4
