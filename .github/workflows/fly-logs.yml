@@ -1,0 +1,35 @@
+name: Fly logs (read-only peek)
+
+# The laptop has no flyctl auth (FLY_API_TOKEN lives only in GitHub secrets),
+# but boot-time behavior — corpus load, [solr-seed], [emb-sync], [embed-api] —
+# only shows in `fly logs`. This dispatch-only workflow prints recent machine
+# state + logs into the run output. Read-only; touches nothing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: 'optional pattern to filter log lines (extended regex)'
+        required: false
+        default: ''
+
+jobs:
+  peek:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install flyctl
+        run: curl -L https://fly.io/install.sh | sh
+      - name: machines + recent logs
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          PAT: ${{ github.event.inputs.grep }}
+        run: |
+          export PATH="$HOME/.fly/bin:$PATH"
+          flyctl machines list -a skosdex
+          echo "===================== logs ====================="
+          # --no-tail exits after printing the recent buffer.
+          if [ -n "$PAT" ]; then
+            flyctl logs -a skosdex --no-tail | grep -E "$PAT" | tail -400
+          else
+            flyctl logs -a skosdex --no-tail | tail -400
+          fi
