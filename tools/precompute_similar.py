@@ -13,13 +13,11 @@
 #   * CSLS hub correction (Conneau et al.): rank by 2*cos - r(a) - r(b) where
 #     r(x) = mean cosine of x's SIM_CSLS_R nearest pool neighbours. Demotes
 #     promiscuous hub concepts that would otherwise appear in everyone's top-K.
-#   * RDF-star scores: edges carry raw cosine so SPARQL decides cutoffs at
-#     query time; per-row top-N via LATERAL (supported by our Oxigraph):
-#       ?c ... LATERAL { SELECT ?b ?s WHERE {
-#         GRAPH <...#embedding-similarity> {
-#           ?c skosdex:crossSchemeMatch ?b .
-#           << ?c skosdex:crossSchemeMatch ?b >> skosdex:score ?s } }
-#         ORDER BY DESC(?s) LIMIT 3 }
+#   * Scored edges: raw cosine rides plain reification edge nodes
+#     (?e rdf:subject A; rdf:object B; skosdex:score S) so SPARQL decides
+#     cutoffs at query time; per-row top-N via LATERAL (supported by our
+#     Oxigraph). NOT RDF-star: Oxigraph 0.5 (RDF 1.2) rejects quoted triples
+#     in subject position — 9.1M such lines crash-looped prod on 2026-08-22.
 #
 # Outputs:
 #   1) deploy/fly/www/embeddings/similar/<slug>.json — per scheme:
@@ -29,7 +27,7 @@
 #   2) deploy/fly/www/embeddings/similar.nq.gz — the KG layer (loaded into
 #      Oxigraph by start.sh as its own named graph):
 #        <A> skosdex:crossSchemeMatch <B> <G> .
-#        << <A> skosdex:crossSchemeMatch <B> >> skosdex:score "0.83"^^xsd:decimal <G> .
+#        <e> rdf:subject <A> ; rdf:object <B> ; skosdex:score "0.83"^^xsd:decimal <G> .
 #
 # Pool = the curated _all space, plus EXTRA_SLUGS (space-separated scheme slugs
 # whose per-scheme .emb.{json,f16} are appended — the way new schemes like stw
@@ -45,6 +43,7 @@ EMB = os.path.join(ROOT, 'deploy', 'fly', 'www', 'embeddings')
 SK = 'https://danbri.org/ns/skosdex#'
 GRAPH = 'https://danbri.org/ns/skosdex#embedding-similarity'
 XSD_DEC = 'http://www.w3.org/2001/XMLSchema#decimal'
+RDFNS = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
 KW = int(os.environ.get('SIM_K', '15'))          # top-K overall (JSON only)
 KX = int(os.environ.get('SIM_KX', '3'))          # top-K per OTHER scheme
 TAU = float(os.environ.get('SIM_TAU', '0.75'))   # absolute cosine floor for cross edges
@@ -92,7 +91,7 @@ gz = gzip.open(f'{EMB}/similar.nq.gz', 'wt')
 # Self-describing provenance: derived facts (URI pairs + cosine scores), CC0.
 DCT = 'http://purl.org/dc/terms/'
 gz.write(f'<{GRAPH}> <{DCT}license> <https://creativecommons.org/publicdomain/zero/1.0/> <{GRAPH}> .\n')
-gz.write(f'<{GRAPH}> <{DCT}description> "Cross-scheme embedding-similarity edges derived by skosdex tools/precompute_similar.py: per-concept top-{KX} per other scheme, CSLS hub-corrected, cosine floor {TAU}, multilingual-e5-large-instruct vectors. Scores are raw cosine, annotated via RDF-star."@en <{GRAPH}> .\n')
+gz.write(f'<{GRAPH}> <{DCT}description> "Cross-scheme embedding-similarity edges derived by skosdex tools/precompute_similar.py: per-concept top-{KX} per other scheme, CSLS hub-corrected, cosine floor {TAU}, multilingual-e5-large-instruct vectors. Scores are raw cosine on reification edge nodes (rdf:subject/rdf:object/skosdex:score)."@en <{GRAPH}> .\n')
 nq = edges = 0
 scheme_cols = {t: np.where(sidx == t)[0] for t in range(len(schemes))}
 t0 = time.time()
@@ -138,9 +137,19 @@ for s0 in range(0, n, BATCH):
         for _, raw, j, t in sorted(xs[ri], key=lambda e: -e[0]):
             x.append([ids[j], round(raw, 4), schemes[t]])
             sc = f'{raw:.4f}'
+            # PRODUCTION LESSON (2026-08-22): do NOT emit RDF-star annotation
+            # syntax here. Oxigraph 0.5's RDF 1.2 parser rejects quoted triples
+            # in SUBJECT position ("The subject of a triple must be an IRI or a
+            # blank node") — 9.1M such lines crash-looped the prod boot. Scores
+            # ride plain reification edge nodes instead: SPARQL-1.1-safe on any
+            # store, and LATERAL/top-k works the same over ?e skosdex:score.
+            edges += 1
+            e = f'https://danbri.org/ns/skosdex/sim/e{edges}'
             gz.write(f'<{a}> <{SK}crossSchemeMatch> <{ids[j]}> <{GRAPH}> .\n')
-            gz.write(f'<< <{a}> <{SK}crossSchemeMatch> <{ids[j]}> >> <{SK}score> "{sc}"^^<{XSD_DEC}> <{GRAPH}> .\n')
-            nq += 2; edges += 1
+            gz.write(f'<{e}> <{RDFNS}subject> <{a}> <{GRAPH}> .\n')
+            gz.write(f'<{e}> <{RDFNS}object> <{ids[j]}> <{GRAPH}> .\n')
+            gz.write(f'<{e}> <{SK}score> "{sc}"^^<{XSD_DEC}> <{GRAPH}> .\n')
+            nq += 4
         per_scheme[scheme[i]][a] = {'sim': sim, 'x': x}
     if s0 % (BATCH * 40) == 0:
         print(f'  pass2 {s1}/{n} ({time.time()-t0:.0f}s, {edges} edges)', flush=True)

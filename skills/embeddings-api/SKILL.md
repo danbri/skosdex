@@ -107,12 +107,14 @@ above: TAU is a coarse junk gate, the *ranking* is what matters — revisit TAU
 against real data rather than trusting it.
 
 Outputs: `embeddings/similar/<slug>.json` (static lookups) and
-`embeddings/similar.nq.gz` — RDF-star quads in graph
+`embeddings/similar.nq.gz` — quads in graph
 `<https://danbri.org/ns/skosdex#embedding-similarity>`:
-`<A> skosdex:crossSchemeMatch <B>` + `<< <A> … <B> >> skosdex:score "0.83"`.
+`<A> skosdex:crossSchemeMatch <B>` + scores on reification edge nodes
+(`?e rdf:subject A; rdf:object B; skosdex:score S`). ⚠ NOT RDF-star: Oxigraph
+0.5 (RDF 1.2) rejects quoted triples in SUBJECT position — 9.1M annotation
+lines crash-looped the prod boot 2026-08-22; annotation syntax is dead here.
 The Dockerfile bakes the .nq.gz into `/seed/graphed/emb-similarity.nq.gz`, so
-the standard stage-1 loader ships it; ONLY Oxigraph ever parses it (RDF-star
-never passes through n3.js). Grow the pool with
+the standard stage-1 loader ships it; ONLY Oxigraph ever parses it. Grow the pool with
 `EXTRA_SLUGS="stw hasset …"` (appends per-scheme vectors to `_all` without
 re-curating the compare set). Oxigraph supports **LATERAL**, so per-row top-N
 works: see the "Embedding similarity as a graph" cookbook section. The

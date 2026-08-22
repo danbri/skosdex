@@ -538,11 +538,12 @@ async function loadCrossSimilar(uri){
   //    cross-scheme edges from tools/precompute_similar.py). Same box, plain SPARQL.
   try{
     const SK='https://danbri.org/ns/skosdex#';
+    const RDFNS='http://www.w3.org/1999/02/22-rdf-syntax-ns#';
     const rows=await sparql(`
       SELECT ?b ?s ?lbl ?g WHERE {
         GRAPH <${SK}embedding-similarity> {
           <${uri}> <${SK}crossSchemeMatch> ?b .
-          << <${uri}> <${SK}crossSchemeMatch> ?b >> <${SK}score> ?s .
+          ?e <${RDFNS}subject> <${uri}> ; <${RDFNS}object> ?b ; <${SK}score> ?s .
         }
         OPTIONAL { GRAPH ?g { ?b <${SKOS}prefLabel> ?lbl } }
       } ORDER BY DESC(?s) LIMIT 24`);
