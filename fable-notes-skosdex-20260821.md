@@ -106,6 +106,34 @@ instead. The interactive shell is zsh: `for s in $VAR` does NOT word-split
 (run loops via `bash script.sh`), and `echo ====` breaks on `=`-expansion.
 Persistent memory also exists at ~/.claude/projects/-Users-danbri-working-skosdex/memory/.
 
+## 4b. FINAL STATE (2026-08-22 ~16:40 UTC) — everything landed and verified live
+
+- /api HEALED end-to-end (first time since before the July notes): sensible
+  cross-vocab results, e.g. gemet climate-change -> iptc 0.86 / elsst 0.85.
+  The outage was FOUR layered bugs, each masking the next — write-up matters:
+  (1) RDF-star annotation syntax: Oxigraph 0.5 / RDF 1.2 rejects quoted
+      triples as SUBJECTS -> 9.1M parse errors -> crash loop. Fix: plain edge
+      nodes skosdex:fromConcept/toConcept/score (danbri: "no 1.2 annotations
+      or reification, model it normally"); terms defined in ns/skosdex.ttl.
+  (2) TriG-sourced canonicals kept their source graph term -> 5-term lines
+      after graph injection -> crash at kb-brinkman. Fix: normalize projects
+      quads to triples (both paths); 7 schemes rebuilt.
+  (3) start.sh set -e is inherited by the ( while true ) & sidecar restart
+      loops -> first crash killed the loop SILENTLY, forever. Fix: set +e in
+      both runner subshells.
+  (4) The box's Node is v14-era: NO top-level await -> embed_api.mjs was
+      unparseable since the first fix commit. Fix: Atomics.wait sync sleep.
+  Changing an already-loaded scheme's bytes (the similarity remodel) forced a
+  FULL store rebuild: ~2h45m blackout, ~250M quads. NEXT TIME: force
+  CUTOVER=1 for any content-changed redeploy of a loaded graph.
+- Similarity graph live: 36,398,989 quads, 9.1M edges; cookbook section incl.
+  LATERAL top-3-per-concept + mapping-candidate mining, all verified.
+- Wobble live on stw/gemet/eurovoc/unesco-thesaurus (pulsing button + hint).
+- 321 embedding sets live incl. all 8 new schemes (7 rescued from CI
+  artifacts by gh run download after collect's rerun-pins-old-SHA trap;
+  embed.yml push now rebases+retries).
+- Solr 3,065,492 docs; Pages live; fly-logs workflow proved itself 4x.
+
 ## 5. Open threads (ranked)
 
 1. Verify /api recovery end-to-end after reseed; add visible unavailable
