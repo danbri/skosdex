@@ -286,12 +286,15 @@ fi
 # Both run in a restart loop and log to stdout (fly logs) so a crash — e.g. an
 # OOM during the boot RAM peak while the big e5 model loads — self-heals once
 # memory frees, and the actual error is visible (not hidden in a /tmp file).
+# The loops run under `set +e`: the script-level `set -e` is inherited by
+# subshells and silently KILLED the whole restart loop on the first crash
+# (found 2026-08-22 — /api dead all day with zero log lines).
 if command -v python3 >/dev/null 2>&1 && [ -f /opt/skosdex/embed_query.py ]; then
   # model lives on the mounted volume (not the image); fetched once from HF into
   # /data/models on first start (embed_model.py), cached across reboots.
   mkdir -p /data/models
   echo "starting query-embed sidecar on 127.0.0.1:8089 (model dir /data/models)"
-  ( while true; do
+  ( set +e; while true; do
       SKOSDEX_MODEL_DIR=/data/models EMB_QUERY_PORT=8089 \
         python3 /opt/skosdex/embed_query.py 2>&1 | sed 's/^/[embed-query] /'
       echo "[embed-query] exited ($?) — restarting in 10s"; sleep 10
@@ -370,7 +373,7 @@ fi
 # KNN over the combined e5 space (_all.emb.*). nginx proxies /api/ -> :8088.
 if command -v node >/dev/null 2>&1 && [ -f /opt/skosdex/embed_api.mjs ]; then
   echo "starting embeddings API on 127.0.0.1:8088"
-  ( while true; do
+  ( set +e; while true; do
       EMB_DIR="$EMB_VOL" node /opt/skosdex/embed_api.mjs 8088 2>&1 | sed 's/^/[embed-api] /'
       echo "[embed-api] exited ($?) — restarting in 10s"; sleep 10
     done ) &
