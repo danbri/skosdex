@@ -109,8 +109,8 @@ against real data rather than trusting it.
 Outputs: `embeddings/similar/<slug>.json` (static lookups) and
 `embeddings/similar.nq.gz` — quads in graph
 `<https://danbri.org/ns/skosdex#embedding-similarity>`:
-`<A> skosdex:crossSchemeMatch <B>` + scores on reification edge nodes
-(`?e rdf:subject A; rdf:object B; skosdex:score S`). ⚠ NOT RDF-star: Oxigraph
+`<A> skosdex:crossSchemeMatch <B>` + scores on plain edge nodes
+(`?e skosdex:fromConcept A; skosdex:toConcept B; skosdex:score S`). ⚠ NOT RDF-star: Oxigraph
 0.5 (RDF 1.2) rejects quoted triples in SUBJECT position — 9.1M annotation
 lines crash-looped the prod boot 2026-08-22; annotation syntax is dead here.
 The Dockerfile bakes the .nq.gz into `/seed/graphed/emb-similarity.nq.gz`, so

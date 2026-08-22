@@ -57,3 +57,24 @@ skosdex:sourceEntry a rdf:Property ;
     rdfs:label "source entry" ;
     rdfs:comment "For compression 'zip' with multiple members, the name of the archive entry to extract. Defaults to the first entry." ;
     rdfs:range xsd:string .
+
+skosdex:crossSchemeMatch a rdf:Property ;
+    rdfs:label "cross-scheme match" ;
+    rdfs:comment "Embedding-derived similarity link between concepts in different schemes (top-k per target scheme, CSLS hub-corrected, cosine-floored). Derived data — see the embedding-similarity named graph; scores on the accompanying edge node." .
+
+skosdex:SimilarityEdge a rdfs:Class ;
+    rdfs:label "similarity edge" ;
+    rdfs:comment "A scored cross-scheme similarity edge node: skosdex:fromConcept, skosdex:toConcept, skosdex:score." .
+
+skosdex:fromConcept a rdf:Property ;
+    rdfs:label "from concept" ;
+    rdfs:domain skosdex:SimilarityEdge .
+
+skosdex:toConcept a rdf:Property ;
+    rdfs:label "to concept" ;
+    rdfs:domain skosdex:SimilarityEdge .
+
+skosdex:score a rdf:Property ;
+    rdfs:label "score" ;
+    rdfs:comment "Raw cosine similarity in the shared multilingual-e5 space (relative ranking is meaningful; absolute values sit in e5's compressed high band)." ;
+    rdfs:domain skosdex:SimilarityEdge .

@@ -146,8 +146,8 @@ for s0 in range(0, n, BATCH):
             edges += 1
             e = f'https://danbri.org/ns/skosdex/sim/e{edges}'
             gz.write(f'<{a}> <{SK}crossSchemeMatch> <{ids[j]}> <{GRAPH}> .\n')
-            gz.write(f'<{e}> <{RDFNS}subject> <{a}> <{GRAPH}> .\n')
-            gz.write(f'<{e}> <{RDFNS}object> <{ids[j]}> <{GRAPH}> .\n')
+            gz.write(f'<{e}> <{SK}fromConcept> <{a}> <{GRAPH}> .\n')
+            gz.write(f'<{e}> <{SK}toConcept> <{ids[j]}> <{GRAPH}> .\n')
             gz.write(f'<{e}> <{SK}score> "{sc}"^^<{XSD_DEC}> <{GRAPH}> .\n')
             nq += 4
         per_scheme[scheme[i]][a] = {'sim': sim, 'x': x}

@@ -145,6 +145,14 @@ jobs:
           git add deploy/fly/www/embeddings
           git commit -m "embeddings: CI matrix batch (not-yet-embedded schemes) [skip ci]" \
             || { echo "no changes"; exit 0; }
+          # The branch moves during multi-hour embed runs (a 2h run lost its
+          # whole commit to a non-fast-forward reject on 2026-08-21) — rebase
+          # and retry. Vectors are per-scheme files; conflicts are unexpected.
+          for i in 1 2 3; do
+            git push && exit 0
+            echo "push rejected (attempt $i) — rebasing onto latest"
+            git pull --rebase origin "${GITHUB_REF_NAME:-claude/main}"
+          done
           git push
       - name: upload bundle (when not pushing)
         if: ${{ inputs.push == 'false' }}

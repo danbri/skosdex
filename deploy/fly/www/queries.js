@@ -165,7 +165,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?neighbour ?score ?label WHERE {
   GRAPH <https://danbri.org/ns/skosdex#embedding-similarity> {
     ?c skosdex:crossSchemeMatch ?neighbour .
-    ?e rdf:subject ?c ; rdf:object ?neighbour ; skosdex:score ?score .
+    ?e skosdex:fromConcept ?c ; skosdex:toConcept ?neighbour ; skosdex:score ?score .
   }
   VALUES ?c { <http://www.eionet.europa.eu/gemet/concept/1471> }
   OPTIONAL { GRAPH ?g { ?neighbour skos:prefLabel ?label }
@@ -184,7 +184,7 @@ SELECT ?c ?cl ?best ?score WHERE {
   LATERAL {
     SELECT ?best ?score WHERE {
       GRAPH <https://danbri.org/ns/skosdex#embedding-similarity> {
-        ?e rdf:subject ?c ; rdf:object ?best ; skosdex:score ?score .
+        ?e skosdex:fromConcept ?c ; skosdex:toConcept ?best ; skosdex:score ?score .
       }
     } ORDER BY DESC(?score) LIMIT 3
   }
@@ -196,7 +196,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT ?a ?al ?b ?bl ?score WHERE {
   GRAPH <https://danbri.org/ns/skosdex#embedding-similarity> {
-    ?e rdf:subject ?a ; rdf:object ?b ; skosdex:score ?score .
+    ?e skosdex:fromConcept ?a ; skosdex:toConcept ?b ; skosdex:score ?score .
   }
   FILTER(?score >= 0.9)
   FILTER NOT EXISTS { ?a skos:exactMatch|skos:closeMatch ?b }

@@ -543,7 +543,7 @@ async function loadCrossSimilar(uri){
       SELECT ?b ?s ?lbl ?g WHERE {
         GRAPH <${SK}embedding-similarity> {
           <${uri}> <${SK}crossSchemeMatch> ?b .
-          ?e <${RDFNS}subject> <${uri}> ; <${RDFNS}object> ?b ; <${SK}score> ?s .
+          ?e <fromConcept> <> ; <toConcept> ?b ; <score> ?s .
         }
         OPTIONAL { GRAPH ?g { ?b <${SKOS}prefLabel> ?lbl } }
       } ORDER BY DESC(?s) LIMIT 24`);
