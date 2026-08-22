@@ -40,12 +40,16 @@ const { dim, n, ids, labels, scheme, schemes } = meta;
 // every row past 166k read as zeros).
 const blobPath = path.join(DIR, '_all.emb.f16');
 const expectedBytes = n * dim * 2;
+// Synchronous wait: the box's Node predates top-level await (a top-level
+// `await` here made the module UNPARSEABLE and /api exit-looped for a day —
+// 2026-08-22). Atomics.wait gives a blocking sleep without async context.
+const _sleepBuf = new Int32Array(new SharedArrayBuffer(4));
 for (;;) {
   let size = 0;
-  try { size = fs.statSync(blobPath).size; } catch {}
+  try { size = fs.statSync(blobPath).size; } catch (e) {}
   if (size === expectedBytes) break;
   console.log(`embed-api: waiting for ${blobPath}: have ${size} bytes, index needs ${expectedBytes}`);
-  await new Promise((r) => setTimeout(r, 15000));
+  Atomics.wait(_sleepBuf, 0, 0, 15000);
 }
 
 // Decode the float16 blob into a Float32Array once (browsers get Float16Array;
