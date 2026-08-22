@@ -22,7 +22,7 @@ import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import readline from 'node:readline';
-import { Readable } from 'node:stream';
+import { Readable, Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import N3 from 'n3';
@@ -296,7 +296,12 @@ async function lineNormalizeToNQuads(src, format, outFile) {
     try {
       const quads = new Parser({ format }).parse(t.endsWith('.') ? t : t + ' .');
       for (const q of quads) {
-        if (!out.write(writer.quadToString(q.subject, q.predicate, q.object, q.graph))) {
+        // Project quads to TRIPLES: canonical.nq.gz must be graph-free — the
+        // scheme's named graph is injected downstream (bundle/graphed) from
+        // conceptSchemeURI. TriG sources (KB, RCE TriplyDB dumps) carry their
+        // own graph term; keeping it produced 5-term lines after injection,
+        // which crash-looped the prod boot on 2026-08-22 (kb-brinkman).
+        if (!out.write(writer.quadToString(q.subject, q.predicate, q.object))) {
           await new Promise((r) => out.once('drain', r));
         }
         count++;
@@ -318,10 +323,20 @@ function streamParseToNQuads(src, format, outFile) {
     const writer = new N3.StreamWriter({ format: 'N-Quads' });
     const out = fs.createWriteStream(outFile);
     let count = 0;
-    parser.on('data', () => count++);
-    fs.createReadStream(src).pipe(parser).pipe(writer).pipe(out);
+    // Project to TRIPLES: canonical.nq.gz is graph-free — the scheme's named
+    // graph is injected downstream (bundle/graphed) from conceptSchemeURI.
+    // TriG sources (KB/RCE TriplyDB dumps) carry their own graph term; passing
+    // it through produced 5-term lines after injection, which crash-looped the
+    // prod boot on 2026-08-22 (kb-brinkman). Same projection as the line-based
+    // path above.
+    const strip = new Transform({
+      objectMode: true,
+      transform(q, _enc, cb) { count++; cb(null, DataFactory.quad(q.subject, q.predicate, q.object)); },
+    });
+    fs.createReadStream(src).pipe(parser).pipe(strip).pipe(writer).pipe(out);
     out.on('finish', () => resolve(count));
     parser.on('error', reject);
+    strip.on('error', reject);
     writer.on('error', reject);
     out.on('error', reject);
   });
