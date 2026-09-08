@@ -43,6 +43,8 @@ COPY dist/solr-parts/    /seed/solr-parts/
 # licensing declared and no semantic changes — N-Quads formatting only).
 COPY dist/manifest.json  /seed/manifest.json
 COPY deploy/fly/nginx.conf /etc/nginx/conf.d/skosdex.conf
+COPY deploy/fly/foafpub.nginx.conf /etc/nginx/foafpub-routes.conf
+COPY deploy/fly/start-foafpub.py /usr/local/bin/start-foafpub.py
 # www carries the UI + the SMALL embedding files (index.json, *.layout.json for
 # the galaxies, *.emb.json metas). The big *.emb.f16 vectors are excluded by
 # .dockerignore — start.sh syncs them onto the volume at boot (see below), so the
