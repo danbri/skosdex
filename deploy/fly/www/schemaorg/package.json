@@ -1,0 +1,20 @@
+{
+  "name": "schemaorg-contribution-audit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "audit": "node audit_vocabulary.mjs",
+    "timeline": "python3 build_timeline.py",
+    "growth": "node build_growth.mjs",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1",
+    "render": "node render_growth.mjs",
+    "history": "python3 prepare_history.py && node build_history.mjs",
+    "test:growth": "node test_growth.mjs"
+  },
+  "dependencies": {
+    "@factoidal/core": "0.7.1"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2"
+  }
+}

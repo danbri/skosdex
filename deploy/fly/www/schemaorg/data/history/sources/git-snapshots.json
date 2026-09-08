@@ -1,0 +1,52 @@
+[
+  {
+    "quarter": 12,
+    "date": "2014-03-31",
+    "revision": "4143f13ca253386bdefe98afb315dad2206bfb5e",
+    "paths": [
+      "data/schema.rdfa"
+    ],
+    "file": "2014-03-31.json",
+    "terms": 1524
+  },
+  {
+    "quarter": 13,
+    "date": "2014-06-30",
+    "revision": "e2b1433502ba85f01215da29d63a6b644da1c595",
+    "paths": [
+      "data/schema.rdfa"
+    ],
+    "file": "2014-06-30.json",
+    "terms": 1559
+  },
+  {
+    "quarter": 14,
+    "date": "2014-09-30",
+    "revision": "a2c1df9eb9b853e0f0d9f578863f2a8c1b0ac213",
+    "paths": [
+      "data/schema.rdfa"
+    ],
+    "file": "2014-09-30.json",
+    "terms": 1590
+  },
+  {
+    "quarter": 15,
+    "date": "2014-12-31",
+    "revision": "369046bc87bd89f5890fcb423c90b3181d6a0ed8",
+    "paths": [
+      "data/schema.rdfa"
+    ],
+    "file": "2014-12-31.json",
+    "terms": 1702
+  },
+  {
+    "quarter": 16,
+    "date": "2015-03-31",
+    "revision": "d370e33a97654746e696973c7966b84b501a59dc",
+    "paths": [
+      "data/schema.rdfa"
+    ],
+    "file": "2015-03-31.json",
+    "terms": 1717
+  }
+]
