@@ -43,6 +43,8 @@ COPY dist/solr-parts/    /seed/solr-parts/
 # licensing declared and no semantic changes — N-Quads formatting only).
 COPY dist/manifest.json  /seed/manifest.json
 COPY deploy/fly/nginx.conf /etc/nginx/conf.d/skosdex.conf
+COPY deploy/fly/foafpub.nginx.conf /etc/nginx/foafpub-routes.conf
+COPY deploy/fly/start-foafpub.py /usr/local/bin/start-foafpub.py
 # www carries the UI + the SMALL embedding files (index.json, *.layout.json for
 # the galaxies, *.emb.json metas). The big *.emb.f16 vectors are excluded by
 # .dockerignore — start.sh syncs them onto the volume at boot (see below), so the
@@ -64,7 +66,9 @@ COPY tools/embed_model.py /opt/skosdex/embed_model.py
 ENV SKOSDEX_MODEL_DIR=/data/models
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
-RUN chmod +x /usr/local/bin/skosdex-start
+RUN chmod +x /usr/local/bin/skosdex-start \
+ && python3 -m py_compile /usr/local/bin/start-foafpub.py \
+ && nginx -t
 
 # Persistent data lives here (Fly volume mounts at /data).
 ENV SKOSDEX_DATA=/data

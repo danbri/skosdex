@@ -66,6 +66,10 @@ jobs:
         with:
           lfs: false
           fetch-depth: 0
+      - name: Check service startup
+        run: |
+          bash -n deploy/fly/start.sh
+          python3 deploy/fly/test_start_foafpub.py
       - name: Classify change scope
         id: scope
         env:

@@ -379,6 +379,10 @@ if command -v node >/dev/null 2>&1 && [ -f /opt/skosdex/embed_api.mjs ]; then
     done ) &
 fi
 
+# Restore the separate discussion process after image replacement. Start in the
+# background so a missing/broken discussion installation cannot gate SKOSDEX.
+python3 /usr/local/bin/start-foafpub.py &
+
 # --- nginx front proxy -------------------------------------------------------
 # One public port (8080 -> Fly 443): / entrance page, /query + /sparql/ ->
 # Oxigraph, /solr/skos/select (GET+POST) -> Solr, /api/ -> embeddings KNN.
