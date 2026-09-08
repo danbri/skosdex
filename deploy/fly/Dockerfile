@@ -66,7 +66,9 @@ COPY tools/embed_model.py /opt/skosdex/embed_model.py
 ENV SKOSDEX_MODEL_DIR=/data/models
 RUN rm -f /etc/nginx/sites-enabled/default
 COPY deploy/fly/start.sh /usr/local/bin/skosdex-start
-RUN chmod +x /usr/local/bin/skosdex-start
+RUN chmod +x /usr/local/bin/skosdex-start \
+ && python3 -m py_compile /usr/local/bin/start-foafpub.py \
+ && nginx -t
 
 # Persistent data lives here (Fly volume mounts at /data).
 ENV SKOSDEX_DATA=/data
