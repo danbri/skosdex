@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schema.org contributions · 2011–2026</title><meta name="description" content="A quarterly timeline of Schema.org contributions, with project records and source evidence.">
+<style>
+:root { color-scheme: light; --ink:#20313b; --muted:#53636a; --line:#d7dfde; --green:#12674e; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:1rem; }
+body { margin:0; background:#f6f7f3; color:var(--ink); font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+a { color:#155e77; text-underline-offset:.18em; }
+a:hover { color:#073f50; }
+a,code { overflow-wrap:anywhere; }
+code { font-size:.88em; }
+header,main,footer,.tools,.years { max-width:1560px; margin:auto; padding-left:clamp(18px,3.5vw,56px); padding-right:clamp(18px,3.5vw,56px); }
+header { padding-top:44px; padding-bottom:22px; }
+.eyebrow { margin:0 0 8px; text-transform:uppercase; letter-spacing:.12em; font-size:12px; font-weight:700; color:var(--green); }
+h1 { font-size:clamp(30px,4vw,52px); letter-spacing:-.045em; line-height:1.12; margin:0 0 15px; font-weight:720; }
+.intro { max-width:940px; margin:0 0 12px; font-size:17px; }
+.scope { max-width:1100px; color:var(--muted); font-size:13px; margin:8px 0; }
+.legend { display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:18px; font-size:12px; }
+.badge { display:inline-block; font-size:10px; letter-spacing:.035em; font-weight:750; text-transform:uppercase; border:1px solid #d4dddf; padding:2px 6px; border-radius:4px; background:#eff3f4; color:#435861; }
+.badge.external { background:#e4f2e9; color:#115c43; border-color:#bad6c5; }
+.badge.alignment { background:#fff1d9; color:#795408; border-color:#e7d3a9; }
+.badge.named { background:#edf0fb; color:#465988; border-color:#ccd3e9; }
+.tools { padding-top:14px; padding-bottom:10px; display:flex; flex-wrap:wrap; gap:12px; align-items:end; border-top:1px solid var(--line); }
+.tools label { display:grid; gap:3px; font-size:12px; font-weight:650; }
+input,select,button { font:inherit; padding:9px 11px; border:1px solid #a9b9bc; border-radius:6px; color:var(--ink); background:white; }
+input { width:min(390px,80vw); }
+button { cursor:pointer; }
+button:hover { background:#edf3ee; }
+:focus-visible { outline:3px solid #ad6621; outline-offset:3px; }
+.result { color:var(--muted); font-size:12px; margin:0 0 10px; }
+.years { display:flex; flex-wrap:wrap; gap:6px; padding-top:10px; padding-bottom:16px; }
+.years a { padding:3px 8px; font-size:13px; background:white; border:1px solid var(--line); border-radius:4px; text-decoration:none; }
+.year { margin:12px 0 30px; }
+.year-heading { display:flex; align-items:baseline; gap:15px; margin-bottom:9px; }
+h2 { font-size:28px; letter-spacing:-.03em; margin:0; }
+.year-heading span { font-size:12px; color:var(--muted); }
+.quarters { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px; align-items:start; }
+.quarter { background:white; border:1px solid var(--line); border-radius:8px; overflow:hidden; min-width:0; }
+.quarter h3 { margin:0; padding:9px 13px; background:#eef1ec; font-size:13px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; }
+.quarter h3 span { color:var(--muted); font-size:11px; font-weight:400; }
+.events { margin:0; padding:0; list-style:none; }
+.event { padding:13px; border-bottom:1px solid #e8ece9; font-size:13px; }
+.event:last-child { border-bottom:0; }
+.event.external { border-left:3px solid #7dac95; padding-left:10px; }
+.event-meta { display:flex; gap:7px; align-items:center; flex-wrap:wrap; margin-bottom:7px; }
+time { color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
+h4 { margin:0 0 5px; font-size:14px; line-height:1.4; }
+.event p { margin:0 0 8px; }
+.status { display:block; font-size:11px; color:var(--muted); margin:8px 0; }
+details { font-size:12px; }
+summary { cursor:pointer; color:#155e77; }
+details .evidence { margin-top:10px; border-top:1px dashed var(--line); padding-top:10px; }
+.evidence ul { padding-left:17px; }
+.empty { color:var(--muted); margin:13px; font-size:12px; }
+[hidden] { display:none !important; }
+footer { padding-top:12px; padding-bottom:40px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+.skip { position:absolute; left:18px; top:-100px; background:white; padding:8px; }
+.skip:focus { top:8px; }
+@media(max-width:1100px) { .quarters { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:620px) { .quarters { grid-template-columns:1fr; } header { padding-top:30px; } .intro { font-size:15px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+@media print { body { background:white; font-size:10px; } .tools,.years,.skip { display:none !important; } header,main,footer { padding:12px; } h1 { font-size:30px; } .quarters { grid-template-columns:repeat(2,minmax(0,1fr)); } .quarter { break-inside:avoid; } .year { margin-bottom:15px; } .event { font-size:10px; } h4 { font-size:11px; } .badge,.status,time { font-size:9px; } details { display:none; } }
+</style></head><body>
+<a class="skip" href="#timeline">Skip to timeline</a>
+<header><p class="eyebrow">A shared vocabulary, a shared history</p><h1>Schema.org contributions</h1>
+<p class="intro">2011–2026 · A sourced selection of significant contributions, organized by year and quarter. Outside contributions include mixed collaborations and work incorporated by maintainers on others&#x27; behalf.</p>
+<p class="scope">Coverage: 2011–8 September 2026. Not an exhaustive contributor inventory. Empty quarters indicate gaps in this selection. Draft, release and external-publication dates are distinguished.</p>
+<p class="scope">116 milestones · 32 project records · <a href="schemaorg-growth.html">Animated growth</a> · <a href="schemaorg-timeline.md">Markdown timeline</a> · <a href="data/README.md">Project files</a> · <a href="README.md">Method &amp; caveats</a></p>
+<div class="legend"><span><span class="badge external">Non-Google</span> Documented outside contribution</span><span><span class="badge alignment">Alignment</span> External vocabulary reuse</span><span><span class="badge named">Named contributor</span> Affiliation unverified</span><span><span class="badge">Project</span> Other significant context</span></div>
+<p class="scope">Unclassified does not mean Google-only. Statuses describe the milestone at the time; successive stages may concern the same contribution.</p></header>
+<div class="tools" hidden><label>Find a project, person or term<input id="search" type="search" placeholder="e.g. MusicBrainz, BBC, danbri"></label>
+<label>Show<select id="category"><option value="all">All milestones</option><option value="external">Non-Google</option><option value="alignment">Alignment</option><option value="named">Named contributor</option><option value="project">Project</option></select></label>
+<button id="reset" type="button">Reset</button><button id="print" type="button">Print</button><p id="result" class="result" aria-live="polite"></p></div>
+<nav class="years" aria-label="Jump to year"><a href="#year-2011">2011</a> <a href="#year-2012">2012</a> <a href="#year-2013">2013</a> <a href="#year-2014">2014</a> <a href="#year-2015">2015</a> <a href="#year-2016">2016</a> <a href="#year-2017">2017</a> <a href="#year-2018">2018</a> <a href="#year-2019">2019</a> <a href="#year-2020">2020</a> <a href="#year-2021">2021</a> <a href="#year-2022">2022</a> <a href="#year-2023">2023</a> <a href="#year-2024">2024</a> <a href="#year-2025">2025</a> <a href="#year-2026">2026</a></nav><main id="timeline">
+<section class="year" id="year-2011" aria-labelledby="heading-2011"><div class="year-heading"><h2 id="heading-2011">2011</h2><span>7 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2011-1"><h3 id="q-2011-1">Q1<span>Jan–Mar</span></h3>
+<p class="empty">Before the public launch.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2011-2"><h3 id="q-2011-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-06-02">2011-06-02</time><span class="badge external">Non-Google</span></div>
+<h4>Schema.org launches</h4><p><strong>Microsoft/Bing and Yahoo</strong>, together with Google, launch a shared vocabulary for structured web data.</p><span class="status">Project milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Founding and community governance</strong> · <a href="data/founding-and-governance.md">Markdown record</a></p><p>The contemporary July announcement explicitly dates the launch to June 2. Yandex joined later in 2011; it should not be backdated to launch day.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/page/5/">Contemporary account, July 2011</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2011-3"><h3 id="q-2011-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-09-21">2011-09-21</time><span class="badge external">Non-Google</span></div>
+<h4>First community workshop</h4><p><strong>W3C, Creative Commons, RDFa, Microformats, publishers and toolmakers</strong> join the first Schema.org workshop.</p><span class="status">Project milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Founding and community governance</strong> · <a href="data/founding-and-governance.md">Markdown record</a></p><p>The September 28 report records a September 21 workshop with 75 attendees, including Ask, Yandex, Baidu, NYTimes, Disney, Foursquare, Shopping.com, OpenTable, Drupal and SharePoint. Participation is credited here as community input, not as authorship of particular terms.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2011/09/28/schema-org-workshop-wrap-up/">Workshop report</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-09-27">2011-09-27</time><span class="badge external">Non-Google</span></div>
+<h4>rNews incorporated</h4><p><strong>IPTC, NYTimes, Associated Press and Getty Images</strong> contribute rNews-based news and publishing properties.</p><span class="status">Released</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>IPTC: news, photo metadata and digital provenance</strong> · <a href="data/iptc-news-and-photo-metadata.md">Markdown record</a></p><p>The announcement names Evan Sandhaus (NYTimes), Stuart Myles (AP) and Andreas Gebhard (Getty Images). Additions include article datelines and relationships to print editions. This is vocabulary collaboration, not just publisher adoption.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2011/09/27/extended-schema-org-news-support/">Contemporary announcement and credits</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/rNews.md">Persistent rNews acknowledgement</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2011-4"><h3 id="q-2011-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-10-05">2011-10-05</time><span class="badge external">Non-Google</span></div>
+<h4>Public collaboration moves to W3C</h4><p><strong>W3C Web Schemas</strong> becomes the public discussion forum, using the public-vocabs mailing list and wiki.</p><span class="status">Project milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Founding and community governance</strong> · <a href="data/founding-and-governance.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2011/10/05/w3c-web-schemas-group-is-our-new-public-feedback-forum/">Forum announcement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-11-04">2011-11-04</time><span class="badge external">Non-Google</span></div>
+<h4>Yandex joins the collaboration</h4><p><strong>Yandex</strong> announces support and participation in Schema.org development.</p><span class="status">Project milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Founding and community governance</strong> · <a href="data/founding-and-governance.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2011/11/04/yandex-now-supports-schema-org-markup/">Yandex announcement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-11-07">2011-11-07</time><span class="badge external">Non-Google</span></div>
+<h4>JobPosting vocabulary</h4><p><strong>US Office of Science and Technology Policy</strong> collaborates on job postings; the Veterans Administration supplies an early application.</p><span class="status">Released</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Jobs and public services</strong> · <a href="data/jobs-and-public-services.md">Markdown record</a></p><p>The announcement credits OSTP for vocabulary collaboration and describes the VA&#x27;s veteran-focused search widget separately as deployment. It links to US CTO Aneesh Chopra&#x27;s account.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2011/11/07/schema-org-support-for-job-postings/">Job postings announcement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2011-11-11">2011-11-11</time><span class="badge external">Non-Google</span></div>
+<h4>RDFa Lite collaboration</h4><p><strong>W3C&#x27;s RDFa community</strong> works with Schema.org on using RDFa 1.1 Lite to publish the shared vocabulary.</p><span class="status">Standards announcement</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>This is advance notice of the RDFa work, not a claim that RDFa Lite was already a final Recommendation.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2011/11/11/using-rdfa-1-1-lite-with-schema-org/">RDFa Lite announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2012" aria-labelledby="heading-2012"><div class="year-heading"><h2 id="heading-2012">2012</h2><span>7 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2012-1"><h3 id="q-2012-1">Q1<span>Jan–Mar</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2012-2"><h3 id="q-2012-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2012-04-21">2012-04-21</time><span class="badge project">Project</span></div>
+<h4>Software applications and comments</h4><p>Software applications, mobile/web application subtypes and comments extend the early vocabulary.</p><span class="status">Released (v0.91)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v0.91">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2012-06-07">2012-06-07</time><span class="badge external">Non-Google</span></div>
+<h4>RDFa use endorsed</h4><p><strong>W3C RDFa work</strong> enables Schema.org use alongside Microdata, reinforcing that the vocabulary is independent of its encoding.</p><span class="status">Standards announcement</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2012/06/07/semtech-rdfa-microdata-and-more/">RDFa and Microdata update</a></li></ul></div></details></li>
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2012-06-11">2012-06-11</time><span class="badge named">Named contributor</span></div>
+<h4>Technical publishing schemas proposed</h4><p><strong>Charlie Jiang and Kenley Lamaute</strong> present a technology-company collaboration on technical articles, API references and source code.</p><span class="status">Proposal</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Technical publishing</strong> · <a href="data/technical-publishing.md">Markdown record</a></p><p>The blog names the authors and says the proposal came from several technology companies. It does not enumerate all participating companies, so they are not inferred from the example products.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2012/06/11/new-vocabularies-for-technical-publishing/">Proposal announcement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2012-06-26">2012-06-26</time><span class="badge external">Non-Google</span></div>
+<h4>Medical and health vocabulary</h4><p><strong>NCBI, physicians at Harvard and Duke, and W3C healthcare experts</strong> help review the major medical-vocabulary expansion.</p><span class="status">Released (v0.95)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Medical vocabulary, WikiDoc and the schemed community</strong> · <a href="data/health-and-medical.md">Markdown record</a></p><p>The announcement distinguishes expert review from the Schema.org partners&#x27; search expertise. Current health definitions also acknowledge WikiDoc. Its exact original contribution date was not established here: the earliest local git occurrence is already an imported snapshot, so it is not used as a creation date.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2012/06/26/health-and-medical-vocabulary-for-schema-org/">Contemporary announcement</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/WikiDoc.md">WikiDoc acknowledgement</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2012-3"><h3 id="q-2012-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2012-07-11">2012-07-11</time><span class="badge external">Non-Google</span></div>
+<h4>Dataset vocabulary proposed</h4><p><strong>W3C Web Schemas participants</strong> propose dataset descriptions drawing on DCAT, ADMS and VoID.</p><span class="status">Proposal</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Datasets, DCAT and scientific metadata</strong> · <a href="data/datasets-and-scientific-metadata.md">Markdown record</a></p><p>The July blog invites review; the terms were subsequently released in April 2013. The W3C wiki records the proposal and mappings.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2012/07/11/describing-datasets-with-schema-org/">Proposal announcement</a></li><li><a href="https://www.w3.org/wiki/WebSchemas/Datasets">W3C proposal and mappings</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2012-07-18">2012-07-18</time><span class="badge alignment">Alignment</span></div>
+<h4>External types become easier to combine</h4><p><code>additionalType</code> lets publishers combine Schema.org with more specific types from <strong>external vocabularies</strong> in Microdata.</p><span class="status">Released (v0.96)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://www.w3.org/wiki/WebSchemas/additionalTypeProposal">W3C proposal</a></li><li><a href="https://schema.org/docs/releases.html#v0.96">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2012-4"><h3 id="q-2012-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2012-11-08">2012-11-08</time><span class="badge external">Non-Google</span></div>
+<h4>GoodRelations integrated</h4><p><strong>Martin Hepp and the GoodRelations project</strong> contribute a substantial e-commerce model for products, offers, businesses and prices.</p><span class="status">Released (v0.99)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>GoodRelations</strong> · <a href="data/goodrelations.md">Markdown record</a></p><p>Schema.org also reorganized its publishing machinery to accept community RDFa/RDFS definitions. Persistent acknowledgement markup attributes the reused vocabulary to Hepp; a maintainer&#x27;s integration commit should not replace that design credit.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2012/11/08/good-relations-and-schema-org/">Integration announcement</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/GoodRelationsTerms.md">Persistent acknowledgement</a></li><li><a href="https://schema.org/docs/releases.html#v0.99">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2013" aria-labelledby="heading-2013"><div class="year-heading"><h2 id="heading-2013">2013</h2><span>10 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2013-1"><h3 id="q-2013-1">Q1<span>Jan–Mar</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2013-2"><h3 id="q-2013-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2013-04-05">2013-04-05</time><span class="badge external">Non-Google</span></div>
+<h4>Dataset vocabulary released</h4><p><strong>DCAT, ADMS and VoID collaborations</strong> inform Schema.org&#x27;s dataset, catalogue and distribution descriptions.</p><span class="status">Released (v1.0a)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Datasets, DCAT and scientific metadata</strong> · <a href="data/datasets-and-scientific-metadata.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/DatasetClass.md">Persistent acknowledgement</a></li><li><a href="https://www.w3.org/wiki/WebSchemas/Datasets">W3C proposal</a></li><li><a href="https://schema.org/docs/releases.html#v1.0a">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2013-04-05">2013-04-05</time><span class="badge external">Non-Google</span></div>
+<h4>LRMI educational metadata integrated</h4><p><strong>Creative Commons and the Association of Educational Publishers</strong>, co-leading LRMI, contribute learning-resource properties and <code>AlignmentObject</code>.</p><span class="status">Released (v1.0a)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>LRMI, courses and educational credentials</strong> · <a href="data/lrmi-and-education.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/LRMIClass.md">LRMI acknowledgement</a></li><li><a href="https://schema.org/docs/releases.html#v1.0a">Release record and co-lead credits</a></li></ul></div></details></li>
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2013-04-05">2013-04-05</time><span class="badge named">Named contributor</span></div>
+<h4>Technical publishing vocabulary released</h4><p><strong>The technical publishing collaboration</strong> contributes <code>TechArticle</code>, <code>APIReference</code> and <code>Code</code> (later <code>SoftwareSourceCode</code>).</p><span class="status">Released (v1.0a)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Technical publishing</strong> · <a href="data/technical-publishing.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2012/06/11/new-vocabularies-for-technical-publishing/">Original proposal and authors</a></li><li><a href="https://schema.org/docs/releases.html#v1.0a">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2013-06-03">2013-06-03</time><span class="badge external">Non-Google</span></div>
+<h4>JSON-LD recommended</h4><p><strong>W3C&#x27;s JSON-LD community</strong> contributes a third recommended encoding, alongside RDFa and Microdata.</p><span class="status">Standards announcement</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2013/06/03/schema-org-and-json-ld/">Schema.org and JSON-LD</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2013-3"><h3 id="q-2013-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2013-07-24">2013-07-24</time><span class="badge external">Non-Google</span></div>
+<h4>Citations generalized</h4><p><strong>Schema Bib Extend</strong> proposes making <code>citation</code> available across creative works, beyond medical scholarly articles.</p><span class="status">Released (v1.0b)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Libraries, Schema Bib Extend and bibliographic modelling</strong> · <a href="data/libraries-and-bibliography.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v1.0b">Release record and credit</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2013-08-05">2013-08-05</time><span class="badge alignment">Alignment</span></div>
+<h4>Civic services proposed</h4><p>Civic-service descriptions are proposed, with <strong>European Commission ISA Core Public Service vocabulary</strong> cited as a related design.</p><span class="status">Proposal</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Jobs and public services</strong> · <a href="data/jobs-and-public-services.md">Markdown record</a></p><p>The blog says the proposal is similar to the ISA vocabulary; that alone does not establish direct authorship by the European Commission.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2013/08/05/vocabulary-for-describing-civic-services/">Proposal announcement</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2013-08-07">2013-08-07</time><span class="badge project">Project</span></div>
+<h4>Actions vocabulary introduced</h4><p>Schema.org adds descriptions of actions already performed, laying the foundation for later invocable actions.</p><span class="status">Released (v1.0c)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Actions and the Hydra community</strong> · <a href="data/actions-and-hydra.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v1.0c">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2013-4"><h3 id="q-2013-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2013-11-21">2013-11-21</time><span class="badge project">Project</span></div>
+<h4>Civic services released</h4><p><code>GovernmentService</code>, service contact information and support for hearing-impaired users enter the vocabulary.</p><span class="status">Released (v1.0d)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Jobs and public services</strong> · <a href="data/jobs-and-public-services.md">Markdown record</a></p><p>Contributor affiliations are not fully established in the reviewed announcement. This event is not labelled a confirmed non-Google contribution.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2013/11/21/schema-org-v1-0d-published-tv-radio-civic-services-contactpoint-event-and-organization-improvements/">Release announcement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2013-11-21">2013-11-21</time><span class="badge external">Non-Google</span></div>
+<h4>TV and radio vocabulary integrated</h4><p><strong>Yves Raimond (BBC) and Jean-Pierre Evain (EBU)</strong> lead TV/radio improvements, working with Dan Brickley on integration.</p><span class="status">Released (v1.0d)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>BBC, EBU and sports vocabulary</strong> · <a href="data/bbc-ebu-tv-radio-and-sports.md">Markdown record</a></p><p>The design builds on TV-Anytime, EBUCore and the BBC Programmes Ontology, with explicit equivalence links. It covers series, seasons, episodes, clips, broadcasts and on-demand availability. Release: November 21; explanatory guest post: December 3.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2013/12/03/schema-org-for-tv-and-radio-markup/">BBC guest post and ontology lineage</a></li><li><a href="https://blog.schema.org/2013/11/21/schema-org-v1-0d-published-tv-radio-civic-services-contactpoint-event-and-organization-improvements/">Release announcement</a></li><li><a href="https://www.w3.org/wiki/WebSchemas/TVRadioSchema">W3C TV/radio proposal</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2013-12-04">2013-12-04</time><span class="badge external">Non-Google</span></div>
+<h4>Accessibility properties added</h4><p><strong>IMS Global&#x27;s Access for All, the Accessibility Metadata Project and Yandex</strong> contribute to accessible-content descriptions.</p><span class="status">Released (v1.0e)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Accessibility metadata and digital publishing</strong> · <a href="data/accessibility.md">Markdown record</a></p><p>The December 5 announcement, signed by TV Raman (Google) and Chaals (Yandex), credits both projects. The release index dates the vocabulary addition to December 4.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2013/12/05/content-accessibility/">Announcement and collaboration credits</a></li><li><a href="https://schema.org/docs/releases.html#v1.0e">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2014" aria-labelledby="heading-2014"><div class="year-heading"><h2 id="heading-2014">2014</h2><span>10 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2014-1"><h3 id="q-2014-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-02-05">2014-02-05</time><span class="badge external">Non-Google</span></div>
+<h4>Offers broadened for libraries</h4><p><strong>Dan Scott and Schema Bib Extend</strong> broaden offer descriptions to cover nonprofit use cases such as library lending.</p><span class="status">Released (v1.0f)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Libraries, Schema Bib Extend and bibliographic modelling</strong> · <a href="data/libraries-and-bibliography.md">Markdown record</a></p><p>This changes the scope of the model, rather than merely fixing spelling: an item can be offered without being sold.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v1.0f">Release record and credits</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-02-06">2014-02-06</time><span class="badge external">Non-Google</span></div>
+<h4>Sports extension proposed</h4><p><strong>BBC and IPTC/SportsML experts</strong> collaborate with the Schema.org partners on sports organizations, athletes and events.</p><span class="status">Proposal</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>BBC, EBU and sports vocabulary</strong> · <a href="data/bbc-ebu-tv-radio-and-sports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2014/02/06/schema-org-sports-vocabulary/">Proposal announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2014-2"><h3 id="q-2014-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-04-16">2014-04-16</time><span class="badge external">Non-Google</span></div>
+<h4>Potential Actions</h4><p><strong>Hydra and the W3C Web standards community</strong> inform a mechanism for describing actions a website enables and how to invoke them.</p><span class="status">Released (v1.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Actions and the Hydra community</strong> · <a href="data/actions-and-hydra.md">Markdown record</a></p><p>Schema.org&#x27;s acknowledgement explicitly credits extensive discussion with the Hydra community group. This is collaboration credit; it does not mean Schema.org adopted the Hydra vocabulary wholesale.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2014/04/16/announcing-schema-org-actions/">Actions announcement</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/ActionCollabClass.md">Persistent Hydra acknowledgement</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2014-05-04">2014-05-04</time><span class="badge alignment">Alignment</span></div>
+<h4>Question and answer vocabulary</h4><p><strong>The Stack Overflow API model</strong> informs <code>Question</code>, <code>Answer</code> and <code>QAPage</code> descriptions.</p><span class="status">Released (v1.1; date caveat)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Stack Overflow model and question/answer vocabulary</strong> · <a href="data/stack-overflow-questions-and-answers.md">Markdown record</a></p><p>The persistent acknowledgement states that these types were based on the Stack Overflow API. This establishes design lineage, not direct participation by Stack Exchange staff. The release index gives v1.1 as 2014-05-04, despite placing it before v1.2 dated April 16. The timeline follows the printed date; both dates fall in Q2. A day-level archival reconciliation remains open.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/QAStackExchange.md">Acknowledgement</a></li><li><a href="https://www.w3.org/wiki/WebSchemas/QASchemaResearch">W3C research notes</a></li><li><a href="https://schema.org/docs/releases.html#v1.1">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-06-12">2014-06-12</time><span class="badge external">Non-Google</span></div>
+<h4>Music collaboration recorded in source</h4><p><strong>MusicBrainz and Music Ontology</strong> acknowledgements enter the music draft integrated by Dan Brickley from Vicki Tardif Holland&#x27;s proposal.</p><span class="status">Draft integration</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>MusicBrainz and the Music Ontology</strong> · <a href="data/musicbrainz-and-music-ontology.md">Markdown record</a></p><p>The git sequence explicitly records transcription of the proposal on June 11 and addition of MusicBrainz/Music Ontology acknowledgements on June 12. This is evidence for collaborative provenance despite maintainer-authored commits; it does not document a particular verbal agreement.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/5dcb33e4">Transcription commit</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/985c2524">Acknowledgement commit</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2014-06-16">2014-06-16</time><span class="badge project">Project</span></div>
+<h4>Roles qualify relationships</h4><p><code>Role</code> allows relationships to carry qualifications such as dates, responsibilities or a person&#x27;s position in an organization.</p><span class="status">Released (v1.6)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2014/06/16/introducing-role/">Role announcement</a></li><li><a href="https://schema.org/docs/releases.html#v1.6">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2014-3"><h3 id="q-2014-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-08-18">2014-08-18</time><span class="badge external">Non-Google</span></div>
+<h4>Periodicals and bibliographic relationships</h4><p><strong>Richard Wallis (OCLC), Dan Scott (Laurentian) and Bib Extend</strong> contribute periodicals, issues, volumes and work/example relationships.</p><span class="status">Released (v1.9)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Libraries, Schema Bib Extend and bibliographic modelling</strong> · <a href="data/libraries-and-bibliography.md">Markdown record</a></p><p>The release credits Wallis as chair and Scott for implementation. The September 2 guest post explains the released work. Persistent acknowledgements also identify inspiration from the Bibliographic Ontology (BIBO).</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/">Guest post</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/bibex.md">Bibliographic acknowledgement</a></li><li><a href="https://schema.org/docs/releases.html#v1.9">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2014-4"><h3 id="q-2014-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-12-11">2014-12-11</time><span class="badge external">Non-Google</span></div>
+<h4>Expanded music vocabulary released</h4><p><strong>MusicBrainz and Music Ontology collaboration</strong> informs compositions, releases, recordings, album categories and identifiers.</p><span class="status">Released (v1.92)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>MusicBrainz and the Music Ontology</strong> · <a href="data/musicbrainz-and-music-ontology.md">Markdown record</a></p><p>Examples include MusicComposition, MusicRelease, recordingOf, iswcCode and albumReleaseType. Current term acknowledgements preserve the design credit; June&#x27;s draft and December&#x27;s release are distinct stages of the same work.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/MBZ.md">Persistent MusicBrainz acknowledgement</a></li><li><a href="https://blog.schema.org/2014/12/11/schema-org-v1-92-music-video-games-sports-itemlist-breadcrumbs-and-more/">Release announcement</a></li><li><a href="https://schema.org/docs/releases.html#v1.92">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2014-12-11">2014-12-11</time><span class="badge project">Project</span></div>
+<h4>Games and ordered lists</h4><p>Video games and game series gain descriptions; richer <code>ItemList</code> and <code>BreadcrumbList</code> support ordered navigation and collections.</p><span class="status">Released (v1.92)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2014/12/11/schema-org-v1-92-music-video-games-sports-itemlist-breadcrumbs-and-more/">Release announcement</a></li><li><a href="https://schema.org/docs/releases.html#v1.92">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2014-12-11">2014-12-11</time><span class="badge external">Non-Google</span></div>
+<h4>Sports additions released</h4><p><strong>BBC/IPTC sports collaboration</strong> leads to richer sports organizations, coaches, athletes and home/away-team descriptions.</p><span class="status">Released (v1.92)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>BBC, EBU and sports vocabulary</strong> · <a href="data/bbc-ebu-tv-radio-and-sports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2014/02/06/schema-org-sports-vocabulary/">Design collaboration</a></li><li><a href="https://schema.org/docs/releases.html#v1.92">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2015" aria-labelledby="heading-2015"><div class="year-heading"><h2 id="heading-2015">2015</h2><span>9 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2015-1"><h3 id="q-2015-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2015-02-04">2015-02-04</time><span class="badge named">Named contributor</span></div>
+<h4>VisualArtwork vocabulary</h4><p><strong>Paul Watson</strong> is credited for <code>VisualArtwork</code> and supporting properties describing art forms, editions, materials and surfaces.</p><span class="status">Released (v1.93)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Visual artwork</strong> · <a href="data/visual-art.md">Markdown record</a></p><p>The release notes identify Watson, but the reviewed evidence does not establish his organizational affiliation. The announcement appeared February 5, a day after the release date.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v1.93">Release record and credit</a></li><li><a href="https://blog.schema.org/2015/02/05/schema-org-v1-93-visualartwork-invoices-plus-lots-of-fixes-and-improvements/">Release announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2015-2"><h3 id="q-2015-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2015-05-12">2015-05-12</time><span class="badge external">Non-Google</span></div>
+<h4>Automotive vocabulary integrated</h4><p><strong>Martin Hepp, Mirek Sopek, Karol Szczepański and the Automotive Ontology community</strong> contribute detailed vehicle descriptions.</p><span class="status">Released (v2.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Automotive Ontology Working Group</strong> · <a href="data/automotive-ontology.md">Markdown record</a></p><p>The work adds such concepts as engine specifications, fuel consumption, efficiency and vehicle configuration. The release announcement explicitly names the community contributors.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2015/05/13/schema-org-2-0/">Announcement and credits</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/Automotive_Ontology_Working_Group.md">Persistent acknowledgement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2015-05-12">2015-05-12</time><span class="badge external">Non-Google</span></div>
+<h4>Broadcast channels and schedules expanded</h4><p><strong>Yves Raimond&#x27;s review</strong> supports expanded broadcast services, TV/radio channels and cable or satellite service descriptions.</p><span class="status">Released (v2.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>BBC, EBU and sports vocabulary</strong> · <a href="data/bbc-ebu-tv-radio-and-sports.md">Markdown record</a></p><p>The release notes explicitly thank Raimond for careful review of issue #329. This is a review credit, not a claim of sole authorship.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/329">Proposal #329</a></li><li><a href="https://schema.org/docs/releases.html#v2.0">Release record and review credit</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2015-05-13">2015-05-13</time><span class="badge external">Non-Google</span></div>
+<h4>Community Group and steering group</h4><p><strong>W3C and community contributors</strong> gain formal roles through the Schema.org Community Group and public steering-group process.</p><span class="status">Project milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Founding and community governance</strong> · <a href="data/founding-and-governance.md">Markdown record</a></p><p>The v2.0 announcement describes the governance change, public-schemaorg mailing list, GitHub issue tracking and versioned vocabulary snapshots. Vocabulary release date: May 12; governance announcement: May 13.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2015/05/13/schema-org-2-0/">Schema.org 2.0 announcement</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2015-05-18">2015-05-18</time><span class="badge external">Non-Google</span></div>
+<h4>Chinese translations preserved in the repository</h4><p><strong>Baidu</strong> supplies Chinese translations, added to a new localization directory by Dan Brickley.</p><span class="status">Repository contribution</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Baidu Chinese localization</strong> · <a href="data/baidu-localization.md">Markdown record</a></p><p>The commit notes that the translations were already over a year old and required attention to version drift and serving. This date records their addition to the repository, not their original creation or a completed live Chinese-language site.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/1e69acf8869e178ed2f6bbe24a75d795858d9f9c">Integration commit with provenance</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2015-3"><h3 id="q-2015-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2015-08-06">2015-08-06</time><span class="badge external">Non-Google</span></div>
+<h4>Automotive hosted extension</h4><p><strong>The Automotive Ontology community</strong> extends its contribution through the <code>auto.schema.org</code> hosted vocabulary.</p><span class="status">Hosted extension preview (v2.1)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Automotive Ontology Working Group</strong> · <a href="data/automotive-ontology.md">Markdown record</a></p><p>Offered for final review in v2.1; finalized in v3.0 on May 4, 2016.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v2.1">Preview release</a></li><li><a href="https://schema.org/docs/releases.html#v3.0">Finalization release</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2015-08-06">2015-08-06</time><span class="badge external">Non-Google</span></div>
+<h4>Bibliographic hosted extension</h4><p><strong>The bibliographic community</strong> gains <code>bib.schema.org</code> for more specialized vocabulary within the hosted-extension mechanism.</p><span class="status">Hosted extension preview (v2.1)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Libraries, Schema Bib Extend and bibliographic modelling</strong> · <a href="data/libraries-and-bibliography.md">Markdown record</a></p><p>The extension was offered for final review in v2.1 and finalized in v3.0 on May 4, 2016. Hosted extensions remained part of Schema.org&#x27;s release process.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v2.1">v2.1 release</a></li><li><a href="https://schema.org/docs/releases.html#v3.0">v3.0 finalization</a></li></ul></div></details></li>
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2015-08-06">2015-08-06</time><span class="badge named">Named contributor</span></div>
+<h4>Interaction counters and social publishing</h4><p><strong>elf Pavlik</strong> is credited for collaboration on <code>InteractionCounter</code>; the release also adds live blogs and discussion-forum postings.</p><span class="status">Released (v2.1)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>The credit applies specifically to interaction counters. The other vocabulary in the release is not attributed to Pavlik on that basis.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/137">Interaction proposal #137</a></li><li><a href="https://schema.org/docs/releases.html#v2.1">Release record and credit</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2015-4"><h3 id="q-2015-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2015-11-05">2015-11-05</time><span class="badge project">Project</span></div>
+<h4>Services, offer catalogues and data feeds</h4><p><code>OfferCatalog</code>, <code>DataFeed</code> and broader service descriptions extend Schema.org beyond individual product offers.</p><span class="status">Released (v2.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v2.2">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2016" aria-labelledby="heading-2016"><div class="year-heading"><h2 id="heading-2016">2016</h2><span>8 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2016-1"><h3 id="q-2016-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-02-22">2016-02-22</time><span class="badge external">Non-Google</span></div>
+<h4>First large external extension</h4><p><strong>GS1 SmartSearch</strong> publishes an independent Web vocabulary extending Schema.org&#x27;s product descriptions.</p><span class="status">External extension</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>GS1 product vocabulary and interoperability</strong> · <a href="data/gs1.md">Markdown record</a></p><p>The announcement distinguishes GS1&#x27;s independently managed extension from Schema.org&#x27;s own hosted extensions. It describes collaboration via W3C and GitHub and a shared JSON-LD foundation.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2016/02/22/gs1-web-vocabulary-welcoming-the-first-schema-org-external-extension/">GS1 extension announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2016-2"><h3 id="q-2016-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-05-04">2016-05-04</time><span class="badge external">Non-Google</span></div>
+<h4>ClaimReview enters Pending</h4><p><strong>The fact-checking community</strong>, including Duke Reporters&#x27; Lab and Full Fact, helps develop structured fact-check reviews.</p><span class="status">Released in Pending (v3.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Fact-checking: ClaimReview, Claim and MediaReview</strong> · <a href="data/fact-checking.md">Markdown record</a></p><p>The v3.0 record dates the draft introduction; the later v3.2 announcement explicitly names the collaborating organizations. This does not assign every draft term to a particular participant.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v3.0">Release record</a></li><li><a href="https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/">Collaboration credits</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-05-04">2016-05-04</time><span class="badge external">Non-Google</span></div>
+<h4>Course vocabulary enters Pending</h4><p><strong>The W3C Schema Course Extension group</strong>, initiated by LRMI, supplies an evolving course-description vocabulary for review.</p><span class="status">Released in Pending (v3.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>LRMI, courses and educational credentials</strong> · <a href="data/lrmi-and-education.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/195">Course proposal #195</a></li><li><a href="https://schema.org/docs/releases.html#v3.0">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-05-04">2016-05-04</time><span class="badge external">Non-Google</span></div>
+<h4>Financial vocabulary integrated</h4><p><strong>FIBO and its W3C community</strong> contribute financial-product terminology, including monetary amounts and compound prices.</p><span class="status">Released (v3.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>FIBO financial vocabulary and GLEIF</strong> · <a href="data/fibo-and-gleif.md">Markdown record</a></p><p>The persistent acknowledgement identifies the Financial Industry Business Ontology project as the source for numerous finance definitions. Richard Wallis applied the financial changes in the repository.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/FIBO.md">FIBO acknowledgement</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/27117ca8">Integration commit</a></li><li><a href="https://schema.org/docs/releases.html#v3.0">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-05-04">2016-05-04</time><span class="badge external">Non-Google</span></div>
+<h4>Health-lifesci extension established</h4><p><strong>Marc Twagirumukiza and the W3C schemed community</strong> lead the reorganization of medical terms into the health-lifesci extension.</p><span class="status">Released (v3.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Medical vocabulary, WikiDoc and the schemed community</strong> · <a href="data/health-and-medical.md">Markdown record</a></p><p>This reorganized an existing vocabulary rather than originating all its medical concepts. The August blog retrospectively credits the group for this work.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v3.0">Release record</a></li><li><a href="https://blog.schema.org/2016/08/09/schema-org-update-hotels-datasets-health-lifesci-and-pending-extensions/">Community credits</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2016-3"><h3 id="q-2016-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-08-09">2016-08-09</time><span class="badge external">Non-Google</span></div>
+<h4>Hotels and accommodation expanded</h4><p><strong>Martin Hepp</strong>, drawing on the <strong>STI Accommodation Ontology</strong>, leads detailed accommodation, amenities, rooms and hotel-offer modelling.</p><span class="status">Released (v3.1)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Hotels and the STI Accommodation Ontology</strong> · <a href="data/hotels-and-accommodation.md">Markdown record</a></p><p>The blog explicitly credits Hepp&#x27;s leadership. Term-level acknowledgements preserve the STI ontology lineage; examples include Accommodation, amenityFeature, floorSize and permittedUsage.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2016/08/09/schema-org-update-hotels-datasets-health-lifesci-and-pending-extensions/">Announcement and credits</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/STI_Accommodation_Ontology.md">STI acknowledgement</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2016-08-09">2016-08-09</time><span class="badge project">Project</span></div>
+<h4>Scientific dataset descriptions broadened</h4><p>Dataset work adds funding, spatial and temporal coverage improvements, niche file formats and a draft measured-variables property.</p><span class="status">Released (v3.1; includes draft terms)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Datasets, DCAT and scientific metadata</strong> · <a href="data/datasets-and-scientific-metadata.md">Markdown record</a></p><p>The plural draft <code>variablesMeasured</code> was subsequently replaced by <code>variableMeasured</code>. The reviewed release record does not establish all individual affiliations.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1083">Proposal #1083</a></li><li><a href="https://schema.org/docs/releases.html#v3.1">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2016-4"><h3 id="q-2016-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2016-10-26">2016-10-26</time><span class="badge external">Non-Google</span></div>
+<h4>GLEIF support explicitly acknowledged</h4><p><strong>GLEIF&#x27;s support for Legal Entity Identifiers</strong> is acknowledged on <code>leiCode</code> in a commit by Richard Wallis.</p><span class="status">Attribution recorded</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>FIBO financial vocabulary and GLEIF</strong> · <a href="data/fibo-and-gleif.md">Markdown record</a></p><p>This is a provenance milestone for an existing property, not its introduction date. It is included because acknowledgement markup is an explicit part of the requested contribution history.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/467be13e005cf07630047c91dd1512227a64f4f0">Acknowledgement commit</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2017" aria-labelledby="heading-2017"><div class="year-heading"><h2 id="heading-2017">2017</h2><span>11 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2017-1"><h3 id="q-2017-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-03-23">2017-03-23</time><span class="badge external">Non-Google</span></div>
+<h4>Broader banking and investment vocabulary</h4><p><strong>FIBO contributors</strong> add proposals for mortgages, brokerage accounts, investment funds, exchange rates and loan repayment details.</p><span class="status">Released in Pending (v3.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>FIBO financial vocabulary and GLEIF</strong> · <a href="data/fibo-and-gleif.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1253">Proposal #1253</a></li><li><a href="https://schema.org/docs/releases.html#v3.2">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-03-23">2017-03-23</time><span class="badge external">Non-Google</span></div>
+<h4>ClaimReview reaches core</h4><p><strong>Duke Reporters&#x27; Lab, Full Fact and the international fact-checking network</strong> help bring ClaimReview into the core vocabulary.</p><span class="status">Promoted to core (v3.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Fact-checking: ClaimReview, Claim and MediaReview</strong> · <a href="data/fact-checking.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/">Release announcement and credits</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-03-23">2017-03-23</time><span class="badge external">Non-Google</span></div>
+<h4>Courses graduate to core</h4><p><strong>Phil Barker and the Schema Course Extension group</strong> deliver core course, course-instance, instructor and prerequisite descriptions.</p><span class="status">Promoted to core (v3.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>LRMI, courses and educational credentials</strong> · <a href="data/lrmi-and-education.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/">Community credits</a></li><li><a href="https://schema.org/docs/releases.html#v3.2">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-03-23">2017-03-23</time><span class="badge external">Non-Google</span></div>
+<h4>EPUB accessibility properties reach core</h4><p><strong>IDPF&#x27;s EPUB accessibility community</strong> contributes access modes, sufficient access modes and accessibility summaries.</p><span class="status">Promoted to core (v3.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Accessibility metadata and digital publishing</strong> · <a href="data/accessibility.md">Markdown record</a></p><p>These properties first appeared in the v3.0 Pending work. The v3.2 announcement explicitly credits the EPUB Accessibility Working Group and records their graduation to core.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/">Announcement and credits</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/1100">Accessibility proposal #1100</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-03-23">2017-03-23</time><span class="badge external">Non-Google</span></div>
+<h4>Geospatial relationships</h4><p><strong>W3C Spatial Data on the Web collaborators</strong> inform geometry and spatial relationships such as containment, intersection and overlap.</p><span class="status">Released in Pending (v3.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Recurring events and spatial data</strong> · <a href="data/schedules-and-spatial-data.md">Markdown record</a></p><p>The release describes this as an informal collaboration. Later revisions shortened property names; this entry dates the initial draft vocabulary.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1375">Proposal #1375</a></li><li><a href="https://schema.org/docs/releases.html#v3.2">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2017-2"><h3 id="q-2017-2">Q2<span>Apr–Jun</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2017-3"><h3 id="q-2017-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2017-08-14">2017-08-14</time><span class="badge project">Project</span></div>
+<h4>HowTo vocabulary</h4><p>Structured instructions generalize the recipe model, covering steps, tools, supplies and estimated costs.</p><span class="status">Released (v3.3)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/647">Proposal #647</a></li><li><a href="https://schema.org/docs/releases.html#v3.3">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-08-14">2017-08-14</time><span class="badge external">Non-Google</span></div>
+<h4>Legislation vocabulary</h4><p><strong>The ELI taskforce and Thomas Francart</strong> contribute legislation descriptions based on the European Legislation Identifier ontology.</p><span class="status">Released in Pending (v3.3)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>European Legislation Identifier (ELI)</strong> · <a href="data/eli-legislation.md">Markdown record</a></p><p>The release explicitly credits ELI. Git records Francart&#x27;s proposal and Dan Brickley&#x27;s integration work. ELI represents a collaboration of national legislation publishers and European institutions.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1156">Proposal #1156</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/60a5b744">Francart&#x27;s contribution</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/ELI.md">ELI acknowledgement</a></li><li><a href="https://schema.org/docs/releases.html#v3.3">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-08-14">2017-08-14</time><span class="badge external">Non-Google</span></div>
+<h4>News trust and transparency vocabulary</h4><p><strong>The Trust Project</strong> informs news-article categories, <code>NewsMediaOrganization</code> and publisher policies for corrections, ethics and transparency.</p><span class="status">Released (v3.3; includes Pending additions)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>The Trust Project</strong> · <a href="data/trust-project.md">Markdown record</a></p><p>The release notes explicitly attribute much of this work to the Trust Project. It includes both changes to existing core definitions and new terms initially offered in Pending.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1525">Proposal #1525</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/TP.md">Persistent acknowledgement</a></li><li><a href="https://schema.org/docs/releases.html#v3.3">Release record</a></li></ul></div></details></li>
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2017-08-14">2017-08-14</time><span class="badge named">Named contributor</span></div>
+<h4>Recurring-event schedules</h4><p><strong>Leigh Dodds</strong> contributes schedule modelling compatible with an iCalendar subset, subsequently integrated by Dan Brickley.</p><span class="status">Released in Pending (v3.3)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Recurring events and spatial data</strong> · <a href="data/schedules-and-spatial-data.md">Markdown record</a></p><p>Git records Dodds&#x27; July 14 contribution and Brickley&#x27;s August 14 integration. The reviewed records establish identity but do not independently establish Dodds&#x27; employer at the time.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/7176ea82">Contribution commit</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/91bb2dbd">Integration commit</a></li><li><a href="https://schema.org/docs/releases.html#v3.3">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-08-14">2017-08-14</time><span class="badge external">Non-Google</span></div>
+<h4>Tourist attractions and public access</h4><p><strong>The Tourism Structured Web Data community and IIT-CNR, Pisa</strong> inform richer tourist-attraction, language and public-access descriptions.</p><span class="status">Released (v3.3)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Tourism community and IIT-CNR</strong> · <a href="data/tourism.md">Markdown record</a></p><p>TouristAttraction and touristType carry acknowledgements of the Future Internet Lab at IIT-CNR and the Tourism group. Richard Wallis integrated the proposal. Credit applies to these acknowledged elements, not automatically every place-related term.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1459">Proposal #1459</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/IIT-CNR.it.md">IIT-CNR acknowledgement</a></li><li><a href="https://github.com/schemaorg/schemaorg/blob/main/data/collab/Tourism.md">Tourism group acknowledgement</a></li><li><a href="https://schema.org/docs/releases.html#v3.3">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2017-4"><h3 id="q-2017-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2017-10-26">2017-10-26</time><span class="badge external">Non-Google</span></div>
+<h4>A relayed proposal enters the source</h4><p><strong>The Trust Project&#x27;s AskPublicNewsArticle proposal</strong>, relayed through Sally and Subbu, is added by Dan Brickley.</p><span class="status">Draft integration</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>The Trust Project</strong> · <a href="data/trust-project.md">Markdown record</a></p><p>The commit explicitly says the proposal came from the Trust Project and was relayed via Sally and Subbu, with supporting documentation to be linked later. This is direct evidence of a contribution incorporated on others&#x27; behalf. It does not establish that the exchange was verbal.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/dbcd10f4">Integration commit with explicit relay credit</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2018" aria-labelledby="heading-2018"><div class="year-heading"><h2 id="heading-2018">2018</h2><span>4 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2018-1"><h3 id="q-2018-1">Q1<span>Jan–Mar</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2018-2"><h3 id="q-2018-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2018-06-15">2018-06-15</time><span class="badge project">Project</span></div>
+<h4>Claims become explicit objects</h4><p><code>Claim</code> makes the statement being checked explicit, enabling richer links between claims and their appearances.</p><span class="status">Released in Pending (v3.4)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Fact-checking: ClaimReview, Claim and MediaReview</strong> · <a href="data/fact-checking.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1828">Proposal #1828</a></li><li><a href="https://schema.org/docs/releases.html#v3.4">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2018-06-15">2018-06-15</time><span class="badge external">Non-Google</span></div>
+<h4>Further transparency and correction terms</h4><p><strong>The Trust Project</strong> supplies further work on ownership/funding disclosures, staff-diversity reports, public engagement and corrections.</p><span class="status">Released in Pending (v3.4)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>The Trust Project</strong> · <a href="data/trust-project.md">Markdown record</a></p><p>This release includes AskPublicNewsArticle from the earlier draft, ownershipFundingInfo, diversityStaffingReport and CorrectionComment/correction. The draft and release entries describe stages of the same contribution.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1525">Trust Project proposal #1525</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/1950">Corrections proposal #1950</a></li><li><a href="https://schema.org/docs/releases.html#v3.4">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2018-06-15">2018-06-15</time><span class="badge project">Project</span></div>
+<h4>Occupations and salary distributions</h4><p><code>Occupation</code> and supporting properties distinguish professions, employment requirements and salary distributions from individual job advertisements.</p><span class="status">Released in Pending (v3.4)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Jobs and public services</strong> · <a href="data/jobs-and-public-services.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1698">Proposal #1698</a></li><li><a href="https://schema.org/docs/releases.html#v3.4">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2018-06-15">2018-06-15</time><span class="badge external">Non-Google</span></div>
+<h4>Trips and destinations</h4><p><strong>Tourism community work</strong>, integrated by Richard Wallis, adds <code>TouristDestination</code>, <code>TouristTrip</code> and <code>Trip</code> with examples.</p><span class="status">Released in Pending (v3.4)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Tourism community and IIT-CNR</strong> · <a href="data/tourism.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/d43d1848">Integration commit</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/1815">Proposal #1815</a></li><li><a href="https://schema.org/docs/releases.html#v3.4">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2018-3"><h3 id="q-2018-3">Q3<span>Jul–Sep</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2018-4"><h3 id="q-2018-4">Q4<span>Oct–Dec</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+</div></section>
+<section class="year" id="year-2019" aria-labelledby="heading-2019"><div class="year-heading"><h2 id="heading-2019">2019</h2><span>7 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2019-1"><h3 id="q-2019-1">Q1<span>Jan–Mar</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2019-2"><h3 id="q-2019-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2019-04-01">2019-04-01</time><span class="badge external">Non-Google</span></div>
+<h4>Archives and further creative-work types</h4><p><strong>Richard Wallis and bibliographic contributors</strong> extend coverage of archives, manuscripts, sheet music, plays and other creative works.</p><span class="status">Released (v3.5; new terms)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Libraries, Schema Bib Extend and bibliographic modelling</strong> · <a href="data/libraries-and-bibliography.md">Markdown record</a></p><p>Git directly credits Wallis for the creative-work type additions. Archive-related proposals are separately tracked as #1758 and #1759; this should not imply he originated all archive work.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/e04c67ee">Creative-work contribution</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/1758">Archive proposal #1758</a></li><li><a href="https://schema.org/docs/releases.html#v3.5">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2019-04-01">2019-04-01</time><span class="badge external">Non-Google</span></div>
+<h4>Educational and occupational credentials</h4><p><strong>The Educational and Occupational Credentials community group</strong> contributes credential types, categories, competencies and recognition relationships.</p><span class="status">Released in Pending (v3.5)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>LRMI, courses and educational credentials</strong> · <a href="data/lrmi-and-education.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1978">Proposal #1978</a></li><li><a href="https://schema.org/docs/releases.html#v3.5">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2019-04-01">2019-04-01</time><span class="badge project">Project</span></div>
+<h4>Extension model simplified</h4><p>Schema.org reduces emphasis on topical subdomains while continuing to distinguish new proposals from mature vocabulary.</p><span class="status">Project milestone (v3.5)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v3.5">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2019-04-01">2019-04-01</time><span class="badge external">Non-Google</span></div>
+<h4>Projects, grants and funding agencies</h4><p><strong>The Wikidata/Wikibase community</strong> collaborates on projects, research projects, grants, funding agencies and funding schemes.</p><span class="status">Released in Pending (v3.5)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Wikidata/Wikibase collaboration on projects and funding</strong> · <a href="data/wikidata-funding.md">Markdown record</a></p><p>The release explicitly links the work to a Wikidata/Wikibase workshop and notes DINGO as another outcome of that workshop. This is shared design context, not a claim that all of DINGO was incorporated.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/383">Funding discussion #383</a></li><li><a href="https://schema.org/docs/releases.html#v3.5">Release record and workshop provenance</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2019-3"><h3 id="q-2019-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2019-08-01">2019-08-01</time><span class="badge project">Project</span></div>
+<h4>Education and work-based programs</h4><p>Education work adds programs, prerequisites, completion times and links to credentials, including <code>WorkBasedProgram</code>.</p><span class="status">Released in Pending (v3.9)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>LRMI, courses and educational credentials</strong> · <a href="data/lrmi-and-education.md">Markdown record</a></p><p>The release index lists #2289 under both v3.9 and v4.0; this event uses the earlier recorded appearance. Full contributor attribution remains to be checked in the issue history.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2289">Proposal #2289</a></li><li><a href="https://schema.org/docs/releases.html#v3.9">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2019-4"><h3 id="q-2019-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2019-10-15">2019-10-15</time><span class="badge project">Project</span></div>
+<h4>Podcasts</h4><p>Podcast series, seasons and episodes receive dedicated types and supporting properties.</p><span class="status">Released in Pending (v4.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/373">Podcast proposal #373</a></li><li><a href="https://schema.org/docs/releases.html#v4.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2019-10-15">2019-10-15</time><span class="badge project">Project</span></div>
+<h4>Real estate listings</h4><p><code>RealEstateListing</code>, <code>OfferForPurchase</code> and <code>OfferForLease</code> add more explicit support for property listings.</p><span class="status">Released in Pending (v4.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2348">Proposal #2348</a></li><li><a href="https://schema.org/docs/releases.html#v4.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2020" aria-labelledby="heading-2020"><div class="year-heading"><h2 id="heading-2020">2020</h2><span>9 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2020-1"><h3 id="q-2020-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2020-03-17">2020-03-17</time><span class="badge project">Project</span></div>
+<h4>Emergency announcements and online events</h4><p>Schema.org fast-tracks <code>SpecialAnnouncement</code> and expands online-event descriptions during the COVID-19 response.</p><span class="status">Released (v7.0; includes Pending additions)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>COVID-19 response and CDC hospital reporting</strong> · <a href="data/covid-response.md">Markdown record</a></p><p>The blog is dated March 16 while the release index records March 17; this entry uses the release date. The change includes VirtualLocation, eventAttendanceMode and EventMovedOnline.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v7.0">Release record</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/2490">Emergency-vocabulary proposal #2490</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2020-03-17">2020-03-17</time><span class="badge project">Project</span></div>
+<h4>MediaReview draft</h4><p><code>MediaReview</code> begins modelling media authenticity and misleading context alongside textual fact checks.</p><span class="status">Released in Pending (v7.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Fact-checking: ClaimReview, Claim and MediaReview</strong> · <a href="data/fact-checking.md">Markdown record</a></p><p>The release calls this editorial work in progress, not a complete design. It should not be portrayed as a finalized standard at this point.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2450">Proposal #2450</a></li><li><a href="https://schema.org/docs/releases.html#v7.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2020-2"><h3 id="q-2020-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2020-04-02">2020-04-02</time><span class="badge alignment">Alignment</span></div>
+<h4>CDC hospital reporting model</h4><p><strong>The US CDC&#x27;s hospital-reporting data format</strong> is represented in Schema.org to support pandemic resource reporting.</p><span class="status">Released (v7.03)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>COVID-19 response and CDC hospital reporting</strong> · <a href="data/covid-response.md">Markdown record</a></p><p>The release describes a one-to-one representation of the CDC CSV fields. That establishes the source model, not necessarily direct CDC authorship of the Schema.org definitions. The explanatory announcement followed April 6.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2521">Proposal #2521</a></li><li><a href="https://blog.schema.org/2020/04/06/covid-19-schema-for-cdc-hospital-reporting/">CDC reporting announcement</a></li><li><a href="https://schema.org/docs/releases.html#v7.03">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2020-05-01">2020-05-01</time><span class="badge project">Project</span></div>
+<h4>Shipping policies</h4><p>Shipping details, destinations, rates and delivery times become explicit parts of online offers.</p><span class="status">Released in Pending (v8.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2506">Proposal #2506</a></li><li><a href="https://schema.org/docs/releases.html#v8.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2020-3"><h3 id="q-2020-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2020-07-21">2020-07-21</time><span class="badge external">Non-Google</span></div>
+<h4>LearningResource added</h4><p><strong>LRMI-related community work</strong>, integrated by Dan Brickley, adds <code>LearningResource</code> as a general type for educational content.</p><span class="status">Released in Pending (v9.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>LRMI, courses and educational credentials</strong> · <a href="data/lrmi-and-education.md">Markdown record</a></p><p>Brickley&#x27;s July 1 commit explicitly bases the addition on a 2016 design and recent discussion. This records the integration date separately from the longer design history.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1401">Proposal #1401</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/232c3aea">Integration commit</a></li><li><a href="https://schema.org/docs/releases.html#v9.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2020-07-21">2020-07-21</time><span class="badge project">Project</span></div>
+<h4>Product groups and variants</h4><p><code>ProductGroup</code> describes related variants and the dimensions they vary by; product collections represent bundles.</p><span class="status">Released in Pending (v9.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/1797">Variant proposal #1797</a></li><li><a href="https://schema.org/docs/releases.html#v9.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2020-4"><h3 id="q-2020-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2020-11-30">2020-11-30</time><span class="badge external">Non-Google</span></div>
+<h4>Photo credit and copyright interoperability</h4><p><strong>IPTC collaboration</strong> brings <code>creditText</code> and <code>copyrightNotice</code> to improve compatibility with embedded media metadata.</p><span class="status">Released in Pending (v11.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>IPTC: news, photo metadata and digital provenance</strong> · <a href="data/iptc-news-and-photo-metadata.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2659">Proposal #2659</a></li><li><a href="https://schema.org/docs/releases.html#v11.0">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2020-11-30">2020-11-30</time><span class="badge external">Non-Google</span></div>
+<h4>Site infrastructure modernized</h4><p><strong>Richard Wallis / Dataliberate</strong> contributes the foundation for a Python 3 site build and clearer separation of vocabulary and presentation.</p><span class="status">Released infrastructure (v11.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Site infrastructure, validation and usage data</strong> · <a href="data/site-tools-and-usage-data.md">Markdown record</a></p><p>This is a substantial infrastructure contribution, not a routine bug fix. The release also includes more usable hierarchy navigation and example tools; the entry does not attribute every related improvement exclusively to Wallis.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/53ac3933">Foundation contribution</a></li><li><a href="https://schema.org/docs/releases.html#v11.0">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2020-12-01">2020-12-01</time><span class="badge external">Non-Google</span></div>
+<h4>Healthcare provider directory collaboration</h4><p><strong>CareJourney, Aneesh Chopra and the Robert Wood Johnson Foundation</strong> launch a collaboration on structured healthcare-provider information.</p><span class="status">Collaboration announced</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Medical vocabulary, WikiDoc and the schemed community</strong> · <a href="data/health-and-medical.md">Markdown record</a></p><p>This announcement concerns standards development and deployment; it does not itself prove that new terms shipped that day.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2020/12/01/modernizing-us-health-provider-sites-to-improve-directory-accuracy/">Guest announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2021" aria-labelledby="heading-2021"><div class="year-heading"><h2 id="heading-2021">2021</h2><span>6 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2021-1"><h3 id="q-2021-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2021-03-08">2021-03-08</time><span class="badge project">Project</span></div>
+<h4>Experience can substitute for education</h4><p>Jobs gain explicit descriptions of experience requirements and cases where experience can substitute for degree qualifications.</p><span class="status">Released in Pending (v12.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Jobs and public services</strong> · <a href="data/jobs-and-public-services.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2681">Proposal #2681</a></li><li><a href="https://schema.org/docs/releases.html#v12.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2021-2"><h3 id="q-2021-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2021-05-21">2021-05-21</time><span class="badge project">Project</span></div>
+<h4>Schema Markup Validator beta</h4><p>Schema.org announces its general-purpose markup validator, based on the former Google Structured Data Testing Tool.</p><span class="status">Tool milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Site infrastructure, validation and usage data</strong> · <a href="data/site-tools-and-usage-data.md">Markdown record</a></p><p>This is an explicitly Google-origin tool contribution and is not highlighted as external authorship.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2021/05/21/announcing-schema-markup-validator-validator-schema-org-beta/">Validator announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2021-3"><h3 id="q-2021-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2021-07-07">2021-07-07</time><span class="badge external">Non-Google</span></div>
+<h4>Life-science types integrated</h4><p><strong>Bioschemas</strong> contributes biological and chemical entities, including genes, proteins, taxa, molecular entities and chemical substances.</p><span class="status">Released in Pending (v13.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Bioschemas</strong> · <a href="data/bioschemas.md">Markdown record</a></p><p>The release credits Bioschemas. Richard Wallis merged the terms into Pending in May; July 7 is the numbered release. The addition also includes BioChemEntity and supporting relationships. Bioschemas&#x27; own profiles remain independently maintained and should not be confused with Schema.org core status.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2862">Proposal #2862</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/13f9dcf4">Integration commit</a></li><li><a href="https://bioschemas.org/news/tags.html">Bioschemas&#x27; contemporary news listing</a></li><li><a href="https://schema.org/docs/releases.html#v13.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2021-07-07">2021-07-07</time><span class="badge project">Project</span></div>
+<h4>MediaReview detail expanded</h4><p>Media reviews gain snapshots, hashes, contextual descriptions and links to related claim reviews.</p><span class="status">Released in Pending (v13.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Fact-checking: ClaimReview, Claim and MediaReview</strong> · <a href="data/fact-checking.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2844">Proposal #2844</a></li><li><a href="https://schema.org/docs/releases.html#v13.0">Release record</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2021-07-07">2021-07-07</time><span class="badge alignment">Alignment</span></div>
+<h4>Product origin interoperability</h4><p><strong>GS1 compatibility</strong> motivates <code>countryOfAssembly</code> and <code>countryOfLastProcessing</code> for product descriptions.</p><span class="status">Released (v13.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>GS1 product vocabulary and interoperability</strong> · <a href="data/gs1.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/991">Proposal #991</a></li><li><a href="https://schema.org/docs/releases.html#v13.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2021-4"><h3 id="q-2021-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2021-12-09">2021-12-09</time><span class="badge external">Non-Google</span></div>
+<h4>Full Fact shares implementation research</h4><p><strong>Full Fact</strong> publishes experience and proposals on richer claims, Wikidata identifiers, evidence and correction workflows.</p><span class="status">Research and implementation feedback</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Fact-checking: ClaimReview, Claim and MediaReview</strong> · <a href="data/fact-checking.md">Markdown record</a></p><p>This is documented community feedback and experimental markup, not proof of new vocabulary being released that day.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2021/12/09/the-art-of-connection/">Guest post</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2022" aria-labelledby="heading-2022"><div class="year-heading"><h2 id="heading-2022">2022</h2><span>4 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2022-1"><h3 id="q-2022-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2022-02-25">2022-02-25</time><span class="badge external">Non-Google</span></div>
+<h4>Photo metadata mapping guidelines</h4><p><strong>IPTC and CIPA/Exif experts</strong>, consulting Schema.org, publish mappings between photo metadata standards and Schema.org.</p><span class="status">External mapping</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>IPTC: news, photo metadata and digital provenance</strong> · <a href="data/iptc-news-and-photo-metadata.md">Markdown record</a></p><p>The guidelines&#x27; version history dates the initial version to February 25; the public announcement followed March 4. These are external mapping guidelines, not a Schema.org vocabulary release.</p>
+<p>Sources:</p>
+<ul><li><a href="https://www.iptc.org/std/photometadata/documentation/mappingguidelines/">Guidelines and version history</a></li><li><a href="https://iptc.org/news/iptc-announces-rules-for-mapping-photo-metadata-between-iptc-exif-and-schema-org-standards/">IPTC announcement</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2022-03-17">2022-03-17</time><span class="badge project">Project</span></div>
+<h4>Funding relationship simplified</h4><p><code>funding</code> is added as the inverse of <code>fundedItem</code>, with further grant examples.</p><span class="status">Released (v14.0; new terms)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Wikidata/Wikibase collaboration on projects and funding</strong> · <a href="data/wikidata-funding.md">Markdown record</a></p><p>This continues the funding vocabulary, but the reviewed release note does not explicitly attribute this particular follow-up to the original workshop participants.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3056">Proposal #3056</a></li><li><a href="https://schema.org/docs/releases.html#v14.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2022-03-17">2022-03-17</time><span class="badge project">Project</span></div>
+<h4>Online stores and audience restrictions</h4><p>Online businesses and stores gain dedicated types; products and offers gain audience-restriction vocabulary.</p><span class="status">Released (v14.0; new terms)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3028">Online business proposal #3028</a></li><li><a href="https://schema.org/docs/releases.html#v14.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2022-2"><h3 id="q-2022-2">Q2<span>Apr–Jun</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2022-3"><h3 id="q-2022-3">Q3<span>Jul–Sep</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2022-4"><h3 id="q-2022-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2022-10-25">2022-10-25</time><span class="badge alignment">Alignment</span></div>
+<h4>Checkout and product identifiers</h4><p>Checkout URL templates and shipping-origin details are added, alongside support for <strong>Amazon Standard Identification Numbers</strong>.</p><span class="status">Released (v15.0; new terms)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>The <code>asin</code> property represents Amazon&#x27;s identifier system. The release note does not establish that Amazon itself proposed or implemented it.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3123">ASIN proposal #3123</a></li><li><a href="https://schema.org/docs/releases.html#v15.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2023" aria-labelledby="heading-2023"><div class="year-heading"><h2 id="heading-2023">2023</h2><span>6 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2023-1"><h3 id="q-2023-1">Q1<span>Jan–Mar</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2023-2"><h3 id="q-2023-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2023-05-16">2023-05-16</time><span class="badge external">Non-Google</span></div>
+<h4>Contributor acknowledgements become separate Markdown</h4><p><strong>Richard Wallis</strong> separates acknowledgement text into Markdown files, linking them from term definitions using <code>contributor</code>.</p><span class="status">Released infrastructure (v16.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Site infrastructure, validation and usage data</strong> · <a href="data/site-tools-and-usage-data.md">Markdown record</a></p><p>PR #3202 was merged in November 2022 and listed in the May 2023 release. These files are a major evidence source for this timeline: commit authorship alone does not capture vocabulary provenance.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/6e08e18f">Contribution commit</a></li><li><a href="https://schema.org/docs/releases.html#v16.0">Release record</a></li></ul></div></details></li>
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2023-05-16">2023-05-16</time><span class="badge external">Non-Google</span></div>
+<h4>Science-on-Schema examples incorporated</h4><p><strong>ESIP&#x27;s Science-on-Schema community</strong> contributes scientific dataset and research-project examples, integrated by Richard Wallis.</p><span class="status">Released examples (v16.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Datasets, DCAT and scientific metadata</strong> · <a href="data/datasets-and-scientific-metadata.md">Markdown record</a></p><p>The source branch includes commits by Melinda Minch; PR #3065 was merged on April 6, 2023, before the May release. Credit is for documentation and examples, not creation of the pre-existing Dataset type.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/pull/3065">Contribution PR #3065</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/a7e9c979">Integration commit</a></li><li><a href="https://schema.org/docs/releases.html#v16.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2023-05-16">2023-05-16</time><span class="badge project">Project</span></div>
+<h4>Statistical variables</h4><p><code>StatisticalVariable</code> and revised observation modelling describe measurable properties of a place or entity over time.</p><span class="status">Released (v16.0; new terms)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>The release revises an earlier statistics draft rather than introducing statistical observations from scratch.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2564">Proposal #2564</a></li><li><a href="https://schema.org/docs/releases.html#v16.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2023-05-18">2023-05-18</time><span class="badge project">Project</span></div>
+<h4>Text objects</h4><p><code>TextObject</code> gives text an explicit media-object representation, including use as a description value.</p><span class="status">Released (v18.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/pull/3091">Contribution PR #3091</a></li><li><a href="https://schema.org/docs/releases.html#v18.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2023-05-23">2023-05-23</time><span class="badge project">Project</span></div>
+<h4>Political parties</h4><p><code>PoliticalParty</code> adds a dedicated organization type.</p><span class="status">Released (v21.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/pull/3282">Contribution PR #3282</a></li><li><a href="https://schema.org/docs/releases.html#v21.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2023-3"><h3 id="q-2023-3">Q3<span>Jul–Sep</span></h3>
+<p class="empty">No milestone selected; not evidence of inactivity.</p>
+</section>
+<section class="quarter" aria-labelledby="q-2023-4"><h3 id="q-2023-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2023-10-30">2023-10-30</time><span class="badge external">Non-Google</span></div>
+<h4>Exif 3.0 mapping update</h4><p><strong>IPTC and CIPA</strong> update the mapping guidance for Exif 3.0, retaining links to Schema.org properties.</p><span class="status">External mapping</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>IPTC: news, photo metadata and digital provenance</strong> · <a href="data/iptc-news-and-photo-metadata.md">Markdown record</a></p><p>The document version is dated October 30; the announcement appeared November 28.</p>
+<p>Sources:</p>
+<ul><li><a href="https://www.iptc.org/std/photometadata/documentation/mappingguidelines/">Version history</a></li><li><a href="https://iptc.org/news/iptc-updates-photo-metadata-mapping-rules-for-exif-3-0/">IPTC announcement</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2024" aria-labelledby="heading-2024"><div class="year-heading"><h2 id="heading-2024">2024</h2><span>5 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2024-1"><h3 id="q-2024-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2024-01-09">2024-01-09</time><span class="badge external">Non-Google</span></div>
+<h4>Digital source types, including AI-generated media</h4><p><strong>IPTC&#x27;s Digital Source Type vocabulary</strong> supplies an enumeration for identifying how media was created, including generative AI.</p><span class="status">Released (v24.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>IPTC: news, photo metadata and digital provenance</strong> · <a href="data/iptc-news-and-photo-metadata.md">Markdown record</a></p><p>The release explicitly credits collaboration with IPTC. Dan Brickley drafted the Schema.org representation in October 2023; January 2024 is the numbered-release date.</p>
+<p>Sources:</p>
+<ul><li><a href="https://schema.org/docs/releases.html#v24.0">Release record</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/3392">Proposal #3392</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/555797b3">Integration commit</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2024-01-22">2024-01-22</time><span class="badge alignment">Alignment</span></div>
+<h4>Certifications</h4><p><code>Certification</code> describes certifications of products, places, organizations and people, with <strong>GS1 CertificationDetails compatibility</strong>.</p><span class="status">Released (v25.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>GS1 product vocabulary and interoperability</strong> · <a href="data/gs1.md">Markdown record</a></p><p>The release states compatibility; it does not establish direct organizational authorship by GS1.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3230">Proposal #3230</a></li><li><a href="https://schema.org/docs/releases.html#v25.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2024-2"><h3 id="q-2024-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2024-05-20">2024-05-20</time><span class="badge alignment">Alignment</span></div>
+<h4>GS1 Digital Link</h4><p><strong>GS1 Digital Link</strong> gains a dedicated <code>hasGS1DigitalLink</code> property following a proposal by Matthias Wiesmann.</p><span class="status">Released (v27.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>GS1 product vocabulary and interoperability</strong> · <a href="data/gs1.md">Markdown record</a></p><p>The issue describes product identifiers encoded as Web links, including identifiers for variants and lots. Author affiliation is not classified here.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3475">Proposal #3475</a></li><li><a href="https://schema.org/docs/releases.html#v27.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2024-3"><h3 id="q-2024-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2024-09-17">2024-09-17</time><span class="badge project">Project</span></div>
+<h4>Loyalty programs</h4><p>Membership programs, tiers and tier benefits support structured descriptions of loyalty schemes.</p><span class="status">Released (v28.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3563">Proposal #3563</a></li><li><a href="https://schema.org/docs/releases.html#v28.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2024-4"><h3 id="q-2024-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2024-11-22">2024-11-22</time><span class="badge external">Non-Google</span></div>
+<h4>Additional IPTC digital source codes</h4><p><strong>IPTC vocabulary updates</strong> extend the digital source enumeration with further media-origin distinctions.</p><span class="status">Released (v28.1)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>IPTC: news, photo metadata and digital provenance</strong> · <a href="data/iptc-news-and-photo-metadata.md">Markdown record</a></p><p>The release index repeats PR #3691 under v29.4. This timeline records the earlier listed release and does not count it again as a new contribution.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/pull/3691">Integration PR #3691</a></li><li><a href="https://schema.org/docs/releases.html#v28.1">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2025" aria-labelledby="heading-2025"><div class="year-heading"><h2 id="heading-2025">2025</h2><span>6 milestones</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2025-1"><h3 id="q-2025-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event external" data-category="external"><div class="event-meta"><time datetime="2025-03-24">2025-03-24</time><span class="badge external">Non-Google</span></div>
+<h4>ELI model updates incorporated</h4><p><strong>Thomas Francart&#x27;s ELI follow-up</strong> adds relationships for amendments, repeals, corrections, commencement and applicability.</p><span class="status">Released (v29.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>European Legislation Identifier (ELI)</strong> · <a href="data/eli-legislation.md">Markdown record</a></p><p>The proposal opened in March 2020 and Francart&#x27;s source changes date from September 2020. The PR was merged in February 2025 and appears in v29.0. This long interval is why proposal, merge and release dates must be distinguished.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/2698">Proposal #2698</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/1499f3ca">Original source contribution</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/b4a56d49">Merge record</a></li><li><a href="https://schema.org/docs/releases.html#v29.0">Release record</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2025-03-24">2025-03-24</time><span class="badge project">Project</span></div>
+<h4>Financial incentives and shipping services</h4><p>Financial incentives and a richer shipping-service model describe eligibility, fulfillment and delivery conditions.</p><span class="status">Released (v29.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/3572">Incentives proposal #3572</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/3617">Shipping proposal #3617</a></li><li><a href="https://schema.org/docs/releases.html#v29.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2025-2"><h3 id="q-2025-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2025-05-13">2025-05-13</time><span class="badge named">Named contributor</span></div>
+<h4>Legal information for organizations</h4><p><strong>Fab</strong> contributes company-registration, legal-address and legal-representative properties for organizations.</p><span class="status">Released (v29.2)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>The May 5 commit credits Fab; the release follows May 13. The contributor&#x27;s organizational affiliation was not established. This is separated from the patch release&#x27;s unrelated bug fixes.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/bb5820db">Contribution commit</a></li><li><a href="https://github.com/schemaorg/schemaorg/issues/4366">Proposal #4366</a></li><li><a href="https://schema.org/docs/releases.html#v29.2">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2025-3"><h3 id="q-2025-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2025-09-04">2025-09-04</time><span class="badge project">Project</span></div>
+<h4>Online marketplaces</h4><p><code>OnlineMarketplace</code> and store/marketplace relationships make multi-store commerce platforms explicit.</p><span class="status">Released (v29.3)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>The same issue is also listed in v29.4. This entry uses the earlier recorded release and avoids double-counting it.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/issues/4470">Proposal #4470</a></li><li><a href="https://schema.org/docs/releases.html#v29.3">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2025-4"><h3 id="q-2025-4">Q4<span>Oct–Dec</span></h3>
+<ul class="events">
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2025-12-08">2025-12-08</time><span class="badge named">Named contributor</span></div>
+<h4>Conferences and their offers</h4><p><strong>Roy Hyunjin Han</strong> contributes <code>ConferenceEvent</code> with participation and sponsorship offers.</p><span class="status">Released (v29.4)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Other substantial vocabulary milestones</strong> · <a href="data/other-vocabulary-milestones.md">Markdown record</a></p><p>Git credits Han for the September 22 contribution; December 8 is the release date. The reviewed record does not establish organizational affiliation.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/c267fcb7">Contribution commit</a></li><li><a href="https://schema.org/docs/releases.html#v29.4">Release record</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2025-12-08">2025-12-08</time><span class="badge alignment">Alignment</span></div>
+<h4>Cross-vocabulary equivalences</h4><p>Mappings connect Schema.org to <strong>UN/CEFACT, GS1 and OMG/FIBO-related vocabularies</strong>; git credits include Matthias Wiesmann.</p><span class="status">Released (v29.4)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>Mappings demonstrate reuse and interoperability. They do not establish that each standards organization directly participated in the PRs; the author&#x27;s affiliation is not classified here.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/73736057">Class-equivalence commit</a></li><li><a href="https://schema.org/docs/releases.html#v29.4">Release record and related PRs</a></li></ul></div></details></li>
+</ul>
+</section>
+</div></section>
+<section class="year" id="year-2026" aria-labelledby="heading-2026"><div class="year-heading"><h2 id="heading-2026">2026</h2><span>7 milestones · through 8 September</span></div><div class="quarters">
+<section class="quarter" aria-labelledby="q-2026-1"><h3 id="q-2026-1">Q1<span>Jan–Mar</span></h3>
+<ul class="events">
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2026-03-19">2026-03-19</time><span class="badge named">Named contributor</span></div>
+<h4>Digital Product Passport examples</h4><p><strong>Kévin Boutillier</strong> contributes product examples in the Digital Product Passport work, aligned with UN/CEFACT codes.</p><span class="status">Released examples (v30.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>The release lists PRs #4662 and #4663 for these examples. Git credits Boutillier on #4662; his affiliation was not established. These examples precede the distinct August draft vocabulary.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/41a28b57">Contribution commit</a></li><li><a href="https://schema.org/docs/releases.html#v30.0">Release record</a></li></ul></div></details></li>
+<li class="event alignment" data-category="alignment"><div class="event-meta"><time datetime="2026-03-19">2026-03-19</time><span class="badge alignment">Alignment</span></div>
+<h4>More equivalence annotations and exports</h4><p><strong>Dublin Core, GS1 and Open Graph</strong> mappings expand the vocabulary&#x27;s connections to other standards.</p><span class="status">Released (v30.0)</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>The release lists PRs #4689, #4639, #4620, #4642, #4648 and #4622. Git credits Matthias Wiesmann for the Dublin Core annotations. Alignment is not evidence of endorsement by the external standards bodies.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/2e0361b2">Dublin Core contribution</a></li><li><a href="https://schema.org/docs/releases.html#v30.0">Release record</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2026-2"><h3 id="q-2026-2">Q2<span>Apr–Jun</span></h3>
+<ul class="events">
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2026-06-04">2026-06-04</time><span class="badge project">Project</span></div>
+<h4>Public term-usage dataset</h4><p><strong>Google</strong> contributes monthly aggregate term-usage statistics, with open CSV/JSON data and badges on Schema.org term pages.</p><span class="status">Data publication</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Site infrastructure, validation and usage data</strong> · <a href="data/site-tools-and-usage-data.md">Markdown record</a></p><p>The announcement invites other crawlers to contribute but explicitly identifies Google as the initial data source. This entry therefore does not imply that multiple independent crawlers were already supplying data.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2026/06/04/announcing-the-schema-org-usage-statistics-dataset/">Dataset announcement</a></li></ul></div></details></li>
+<li class="event project" data-category="project"><div class="event-meta"><time datetime="2026-06-17">2026-06-17</time><span class="badge project">Project</span></div>
+<h4>RDF collections and ordering clarified</h4><p>Schema.org documents explicit support for RDF collections and containers as property values, including JSON-LD <code>@list</code>.</p><span class="status">Documentation milestone</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Web standards, encodings and vocabulary mappings</strong> · <a href="data/web-standards-and-encodings.md">Markdown record</a></p><p>The June 16 documentation commit is by Ryan Levering; the blog announcement is dated June 17. This is a data-model documentation change after v30.0, not a new numbered vocabulary release.</p>
+<p>Sources:</p>
+<ul><li><a href="https://blog.schema.org/2026/06/17/supporting-ordering-in-schema-org/">Announcement</a></li><li><a href="https://github.com/schemaorg/schemaorg/commit/f5b95894">Documentation commit</a></li></ul></div></details></li>
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2026-06-25">2026-06-25</time><span class="badge named">Named contributor</span></div>
+<h4>Audiology addition merged</h4><p><strong>raidengatedesign</strong> contributes Audiology to the medical-specialty vocabulary.</p><span class="status">Merged draft; release not established</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Medical vocabulary, WikiDoc and the schemed community</strong> · <a href="data/health-and-medical.md">Markdown record</a></p><p>The date is the repository commit date, after the latest numbered release. The contributor&#x27;s organizational affiliation was not established.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/b634e08a">Contribution commit</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2026-3"><h3 id="q-2026-3">Q3<span>Jul–Sep</span></h3>
+<ul class="events">
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2026-08-17">2026-08-17</time><span class="badge named">Named contributor</span></div>
+<h4>Digital Product Passport vocabulary merged</h4><p><strong>MichaelLinck</strong> contributes passport, environmental-declaration and conformity vocabulary, including a GS1 mapping.</p><span class="status">Merged draft; release not established</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>The merged files are in Pending and postdate v30.0, the latest numbered release found at the cutoff. The contribution includes DigitalProductPassport, hasDigitalProductPassport, EnvironmentalProductDeclaration, DeclarationOfConformity, importer, authorizedRepresentative and recycled-content information. Author affiliation was not established.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/8091003a3c693eec34d029f3bc67d605c1399dfa">Contribution commit</a></li><li><a href="https://github.com/schemaorg/schemaorg/pull/4871">PR #4871</a></li></ul></div></details></li>
+<li class="event named" data-category="named"><div class="event-meta"><time datetime="2026-08-25">2026-08-25</time><span class="badge named">Named contributor</span></div>
+<h4>Retail and marketplace properties merged</h4><p><strong>MichaelLinck</strong> adds draft support for grouped specifications, consumer notices, related purchases and marketplace pricing/shipping information.</p><span class="status">Merged draft; release not established</span>
+<details><summary>Sources &amp; project notes</summary><div class="evidence"><p><strong>Commerce, organizations and digital product passports</strong> · <a href="data/commerce-and-product-passports.md">Markdown record</a></p><p>The date is the merge commit date, not a numbered release. Organizational affiliation was not established.</p>
+<p>Sources:</p>
+<ul><li><a href="https://github.com/schemaorg/schemaorg/commit/13e92551b59f042e68066d9bce2d362760917ce8">Contribution commit</a></li></ul></div></details></li>
+</ul>
+</section>
+<section class="quarter" aria-labelledby="q-2026-4"><h3 id="q-2026-4">Q4<span>Oct–Dec</span></h3>
+<p class="empty">Future quarter at the 8 September cutoff.</p>
+</section>
+</div></section>
+</main><footer><p>Compiled 8 September 2026 from release records, contemporary announcements, project sources, W3C records and repository history. Every milestone has expandable evidence and a project Markdown record. Routine bug fixes are excluded. Undocumented verbal agreements are not inferred.</p><p>Latest numbered release found: 30.0 (19 March 2026). Later repository changes are labelled separately. <a href="README.md">Read the method and remaining gaps</a>.</p></footer><script>
+const search = document.querySelector('#search');
+const category = document.querySelector('#category');
+const events = [...document.querySelectorAll('.event')];
+function filter() {
+  const query = search.value.trim().toLocaleLowerCase();
+  let count = 0;
+  for (const event of events) {
+    event.hidden = !(event.textContent.toLocaleLowerCase().includes(query) &&
+      (category.value === 'all' || event.dataset.category === category.value));
+    if (!event.hidden) count++;
+  }
+  const active = Boolean(query || category.value !== 'all');
+  for (const quarter of document.querySelectorAll('.quarter')) {
+    quarter.hidden = active && !quarter.querySelector('.event:not([hidden])');
+  }
+  for (const year of document.querySelectorAll('.year')) {
+    year.hidden = active && !year.querySelector('.event:not([hidden])');
+    const jump = document.querySelector(`.years a[href="#${year.id}"]`);
+    jump.hidden = year.hidden;
+  }
+  document.querySelector('#result').textContent = `${count} of ${events.length} milestones shown`;
+}
+search.addEventListener('input', filter);
+category.addEventListener('change', filter);
+document.querySelector('#reset').addEventListener('click', () => {
+  search.value = ''; category.value = 'all'; filter();
+});
+document.querySelector('#print').addEventListener('click', () => window.print());
+document.querySelector('.tools').hidden = false;
+filter();
+</script></body></html>

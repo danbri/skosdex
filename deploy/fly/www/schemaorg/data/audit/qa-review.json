@@ -1,0 +1,86 @@
+{
+  "checked_at": "2026-09-08T13:05:38.240Z",
+  "developers_page": "https://schema.org/docs/developers.html",
+  "engine": "@factoidal/core@0.7.1",
+  "published_current_types_properties": 2454,
+  "published_all_types_properties": 2466,
+  "published_retired_types_properties": [
+    "StupidType",
+    "ProductReturnPolicy",
+    "ProductReturnEnumeration",
+    "DeliveryTimeSettings",
+    "variablesMeasured",
+    "transitTimeLabel",
+    "stupidProperty",
+    "shippingSettingsLink",
+    "shippingLabel",
+    "productReturnLink",
+    "productReturnDays",
+    "hasProductReturnPolicy"
+  ],
+  "checkout_only_types_properties": [
+    "authorizedRepresentative",
+    "consumerNotice",
+    "DeclarationOfConformity",
+    "DigitalProductPassport",
+    "EnvironmentalProductDeclaration",
+    "hasDigitalProductPassport",
+    "importer",
+    "isOftenBoughtWith",
+    "itemPopularity",
+    "minimumOrderValue",
+    "recycledContentPercentage",
+    "specification",
+    "substanceOfConcern",
+    "valueGroup"
+  ],
+  "missing_published_types_properties": [],
+  "sources": {
+    "all": {
+      "url": "https://schema.org/version/latest/schemaorg-all-https.nt",
+      "triples": 18061,
+      "sha256": "83aa315cdddd9a76fe0e35060e7432964e12a7b2622b389204e4b3e2b761f1da",
+      "matches_local_v30_bytes": false
+    },
+    "current": {
+      "url": "https://schema.org/version/latest/schemaorg-current-https.nt",
+      "triples": 17949,
+      "sha256": "9d5ba362691735525101b543f8bcf77f61250cec9f2a231567c63ad20b52ffe4",
+      "matches_local_v30_bytes": false
+    }
+  },
+  "tree_unique_names": 939,
+  "tree_duplicate_occurrences": 52,
+  "tree_supplemented_types": [
+    "Boolean",
+    "CssSelectorType",
+    "DataType",
+    "Date",
+    "DateTime",
+    "DeclarationOfConformity",
+    "DigitalProductPassport",
+    "Distance",
+    "Duration",
+    "Energy",
+    "EnvironmentalProductDeclaration",
+    "Float",
+    "Integer",
+    "Mass",
+    "Number",
+    "PronounceableText",
+    "Quantity",
+    "Text",
+    "Time",
+    "URL",
+    "XPathType"
+  ],
+  "missing_issue_cache_numbers": [
+    2543,
+    2358,
+    2348,
+    271,
+    2500
+  ],
+  "attribution_complete": false,
+  "attribution_note": "All terms have evidence records. Issue openers and commit authors are not automatically originators; issue comments and unresolved early origins still need interpretation."
+}

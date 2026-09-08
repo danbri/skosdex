@@ -1,0 +1,17 @@
+# Reconstructing a shared descriptive language, 2011–2026
+
+The explorer uses a separate D3-compatible tree for every quarter. [Snapshot index](index.json) · [Full vocabulary histories](history.json) · [Early estimates](early-date-estimates.json).
+
+The June 2011 starting point is a [contemporary community scrape](https://github.com/mhausenblas/schema-org-rdf/blob/78fd5887d10c5e1323bd2852af03d41b89840842/all.json) committed on 3 June, the day after launch. It contains 295 types and 180 properties, including historical spellings. These include 287 class nodes and eight datatype nodes. The corresponding RDF is cached in sources/2011-06-03.nt: Factoidal finds 287 rdfs:Class declarations and the same 180 properties; the eight datatype entries are represented separately in that RDF. It is evidence of the early vocabulary, not a guarantee that the scraper captured everything. Credit: the Schema.RDFS.org project of Michael Hausenblas, Richard Cyganiak and collaborators. The archived JSON is cached in sources/2011-06-03.json with its hash recorded in early-date-estimates.json.
+
+For 2012–2013, we work backwards from the January 2014 RDFa source: medical, GoodRelations, LRMI, datasets, actions, software, civic and accessibility terms are placed at documented expansion dates. Individual membership in an expansion is inferred from the baseline hierarchy, property domains and acknowledgements. 165 terms without a specific early assignment are conservatively placed at the end of 2013. These quarters are approximations, not recovered official releases. Earlier definitions and relations are retained for launch terms until the next recovered source snapshot; not every intervening wording change is reconstructed.
+
+For 2014–early 2015, quarter-end source files are structurally extracted from pinned git revisions (see sources/git-snapshots.json). Source code may contain proposals before release, so these are approximate published states. The extractor targets explicit term blocks in these files; it is not a general RDFa parser.
+
+From version 2.0 in 2015 onward, Factoidal parses the archived release RDF. The last release in a quarter supplies its vocabulary, parent relationships, property domains, ranges and definitions. Quarters without a release carry the previous release forward. Attic terms are omitted where marked in the archive; a term can disappear or change parent. Hosted Pending vocabulary is included as part of the published vocabulary and should not be taken as a guarantee of consumer support.
+
+NOW uses the cached published current vocabulary, version 30.0, checked 8 September 2026. Newer unreleased checkout drafts are excluded from this historical comparison. Source-observation and earliest-release audit modes remain available separately.
+
+The phrasebook compares dedicated vocabulary patterns, not what humans could say in prose. A generic description could always carry free text. Example descriptions are invented illustrations; they are not claims about real people, products or events. Plain-language triples are used throughout so a 2011 vocabulary example does not imply that JSON-LD was supported then.
+
+Rebuild: python3 prepare_history.py (uses the local git history and cached 2011 scrape), then node build_history.mjs, then npm run growth. Each tree carries its evidence source and approximation note. Today’s hierarchy is never silently substituted for an archived hierarchy in reconstructed-history mode.

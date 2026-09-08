@@ -1,0 +1,2306 @@
+[
+  {
+    "category": "Non-Google",
+    "status": "Project milestone",
+    "summary": "**Microsoft/Bing and Yahoo**, together with Google, launch a shared vocabulary for structured web data.",
+    "date": "2011-06-02",
+    "title": "Schema.org launches",
+    "evidence": "The contemporary July announcement explicitly dates the launch to June 2. Yandex joined later in 2011; it should not be backdated to launch day.\n\nSources:\n\n- [Contemporary account, July 2011](https://blog.schema.org/page/5/)",
+    "links": [
+      [
+        "Contemporary account, July 2011",
+        "https://blog.schema.org/page/5/"
+      ]
+    ],
+    "path": "data/founding-and-governance.md",
+    "project": "Founding and community governance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Project milestone",
+    "summary": "**W3C, Creative Commons, RDFa, Microformats, publishers and toolmakers** join the first Schema.org workshop.",
+    "date": "2011-09-21",
+    "title": "First community workshop",
+    "evidence": "The September 28 report records a September 21 workshop with 75 attendees, including Ask, Yandex, Baidu, NYTimes, Disney, Foursquare, Shopping.com, OpenTable, Drupal and SharePoint. Participation is credited here as community input, not as authorship of particular terms.\n\nSources:\n\n- [Workshop report](https://blog.schema.org/2011/09/28/schema-org-workshop-wrap-up/)",
+    "links": [
+      [
+        "Workshop report",
+        "https://blog.schema.org/2011/09/28/schema-org-workshop-wrap-up/"
+      ]
+    ],
+    "path": "data/founding-and-governance.md",
+    "project": "Founding and community governance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released",
+    "summary": "**IPTC, NYTimes, Associated Press and Getty Images** contribute rNews-based news and publishing properties.",
+    "date": "2011-09-27",
+    "title": "rNews incorporated",
+    "evidence": "The announcement names Evan Sandhaus (NYTimes), Stuart Myles (AP) and Andreas Gebhard (Getty Images). Additions include article datelines and relationships to print editions. This is vocabulary collaboration, not just publisher adoption.\n\nSources:\n\n- [Contemporary announcement and credits](https://blog.schema.org/2011/09/27/extended-schema-org-news-support/)\n- [Persistent rNews acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/rNews.md)",
+    "links": [
+      [
+        "Contemporary announcement and credits",
+        "https://blog.schema.org/2011/09/27/extended-schema-org-news-support/"
+      ],
+      [
+        "Persistent rNews acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/rNews.md"
+      ]
+    ],
+    "path": "data/iptc-news-and-photo-metadata.md",
+    "project": "IPTC: news, photo metadata and digital provenance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Project milestone",
+    "summary": "**W3C Web Schemas** becomes the public discussion forum, using the public-vocabs mailing list and wiki.",
+    "date": "2011-10-05",
+    "title": "Public collaboration moves to W3C",
+    "evidence": "Sources:\n\n- [Forum announcement](https://blog.schema.org/2011/10/05/w3c-web-schemas-group-is-our-new-public-feedback-forum/)",
+    "links": [
+      [
+        "Forum announcement",
+        "https://blog.schema.org/2011/10/05/w3c-web-schemas-group-is-our-new-public-feedback-forum/"
+      ]
+    ],
+    "path": "data/founding-and-governance.md",
+    "project": "Founding and community governance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Project milestone",
+    "summary": "**Yandex** announces support and participation in Schema.org development.",
+    "date": "2011-11-04",
+    "title": "Yandex joins the collaboration",
+    "evidence": "Sources:\n\n- [Yandex announcement](https://blog.schema.org/2011/11/04/yandex-now-supports-schema-org-markup/)",
+    "links": [
+      [
+        "Yandex announcement",
+        "https://blog.schema.org/2011/11/04/yandex-now-supports-schema-org-markup/"
+      ]
+    ],
+    "path": "data/founding-and-governance.md",
+    "project": "Founding and community governance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released",
+    "summary": "**US Office of Science and Technology Policy** collaborates on job postings; the Veterans Administration supplies an early application.",
+    "date": "2011-11-07",
+    "title": "JobPosting vocabulary",
+    "evidence": "The announcement credits OSTP for vocabulary collaboration and describes the VA's veteran-focused search widget separately as deployment. It links to US CTO Aneesh Chopra's account.\n\nSources:\n\n- [Job postings announcement](https://blog.schema.org/2011/11/07/schema-org-support-for-job-postings/)",
+    "links": [
+      [
+        "Job postings announcement",
+        "https://blog.schema.org/2011/11/07/schema-org-support-for-job-postings/"
+      ]
+    ],
+    "path": "data/jobs-and-public-services.md",
+    "project": "Jobs and public services"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Standards announcement",
+    "summary": "**W3C's RDFa community** works with Schema.org on using RDFa 1.1 Lite to publish the shared vocabulary.",
+    "date": "2011-11-11",
+    "title": "RDFa Lite collaboration",
+    "evidence": "This is advance notice of the RDFa work, not a claim that RDFa Lite was already a final Recommendation.\n\nSources:\n\n- [RDFa Lite announcement](https://blog.schema.org/2011/11/11/using-rdfa-1-1-lite-with-schema-org/)",
+    "links": [
+      [
+        "RDFa Lite announcement",
+        "https://blog.schema.org/2011/11/11/using-rdfa-1-1-lite-with-schema-org/"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v0.91)",
+    "summary": "Software applications, mobile/web application subtypes and comments extend the early vocabulary.",
+    "date": "2012-04-21",
+    "title": "Software applications and comments",
+    "evidence": "Sources:\n\n- [Release record](https://schema.org/docs/releases.html#v0.91)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v0.91"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Standards announcement",
+    "summary": "**W3C RDFa work** enables Schema.org use alongside Microdata, reinforcing that the vocabulary is independent of its encoding.",
+    "date": "2012-06-07",
+    "title": "RDFa use endorsed",
+    "evidence": "Sources:\n\n- [RDFa and Microdata update](https://blog.schema.org/2012/06/07/semtech-rdfa-microdata-and-more/)",
+    "links": [
+      [
+        "RDFa and Microdata update",
+        "https://blog.schema.org/2012/06/07/semtech-rdfa-microdata-and-more/"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Proposal",
+    "summary": "**Charlie Jiang and Kenley Lamaute** present a technology-company collaboration on technical articles, API references and source code.",
+    "date": "2012-06-11",
+    "title": "Technical publishing schemas proposed",
+    "evidence": "The blog names the authors and says the proposal came from several technology companies. It does not enumerate all participating companies, so they are not inferred from the example products.\n\nSources:\n\n- [Proposal announcement](https://blog.schema.org/2012/06/11/new-vocabularies-for-technical-publishing/)",
+    "links": [
+      [
+        "Proposal announcement",
+        "https://blog.schema.org/2012/06/11/new-vocabularies-for-technical-publishing/"
+      ]
+    ],
+    "path": "data/technical-publishing.md",
+    "project": "Technical publishing"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v0.95)",
+    "summary": "**NCBI, physicians at Harvard and Duke, and W3C healthcare experts** help review the major medical-vocabulary expansion.",
+    "date": "2012-06-26",
+    "title": "Medical and health vocabulary",
+    "evidence": "The announcement distinguishes expert review from the Schema.org partners' search expertise. Current health definitions also acknowledge WikiDoc. Its exact original contribution date was not established here: the earliest local git occurrence is already an imported snapshot, so it is not used as a creation date.\n\nSources:\n\n- [Contemporary announcement](https://blog.schema.org/2012/06/26/health-and-medical-vocabulary-for-schema-org/)\n- [WikiDoc acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/WikiDoc.md)",
+    "links": [
+      [
+        "Contemporary announcement",
+        "https://blog.schema.org/2012/06/26/health-and-medical-vocabulary-for-schema-org/"
+      ],
+      [
+        "WikiDoc acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/WikiDoc.md"
+      ]
+    ],
+    "path": "data/health-and-medical.md",
+    "project": "Medical vocabulary, WikiDoc and the schemed community"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Proposal",
+    "summary": "**W3C Web Schemas participants** propose dataset descriptions drawing on DCAT, ADMS and VoID.",
+    "date": "2012-07-11",
+    "title": "Dataset vocabulary proposed",
+    "evidence": "The July blog invites review; the terms were subsequently released in April 2013. The W3C wiki records the proposal and mappings.\n\nSources:\n\n- [Proposal announcement](https://blog.schema.org/2012/07/11/describing-datasets-with-schema-org/)\n- [W3C proposal and mappings](https://www.w3.org/wiki/WebSchemas/Datasets)",
+    "links": [
+      [
+        "Proposal announcement",
+        "https://blog.schema.org/2012/07/11/describing-datasets-with-schema-org/"
+      ],
+      [
+        "W3C proposal and mappings",
+        "https://www.w3.org/wiki/WebSchemas/Datasets"
+      ]
+    ],
+    "path": "data/datasets-and-scientific-metadata.md",
+    "project": "Datasets, DCAT and scientific metadata"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v0.96)",
+    "summary": "`additionalType` lets publishers combine Schema.org with more specific types from **external vocabularies** in Microdata.",
+    "date": "2012-07-18",
+    "title": "External types become easier to combine",
+    "evidence": "Sources:\n\n- [W3C proposal](https://www.w3.org/wiki/WebSchemas/additionalTypeProposal)\n- [Release record](https://schema.org/docs/releases.html#v0.96)",
+    "links": [
+      [
+        "W3C proposal",
+        "https://www.w3.org/wiki/WebSchemas/additionalTypeProposal"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v0.96"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v0.99)",
+    "summary": "**Martin Hepp and the GoodRelations project** contribute a substantial e-commerce model for products, offers, businesses and prices.",
+    "date": "2012-11-08",
+    "title": "GoodRelations integrated",
+    "evidence": "Schema.org also reorganized its publishing machinery to accept community RDFa/RDFS definitions. Persistent acknowledgement markup attributes the reused vocabulary to Hepp; a maintainer's integration commit should not replace that design credit.\n\nSources:\n\n- [Integration announcement](https://blog.schema.org/2012/11/08/good-relations-and-schema-org/)\n- [Persistent acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/GoodRelationsTerms.md)\n- [Release record](https://schema.org/docs/releases.html#v0.99)",
+    "links": [
+      [
+        "Integration announcement",
+        "https://blog.schema.org/2012/11/08/good-relations-and-schema-org/"
+      ],
+      [
+        "Persistent acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/GoodRelationsTerms.md"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v0.99"
+      ]
+    ],
+    "path": "data/goodrelations.md",
+    "project": "GoodRelations"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.0a)",
+    "summary": "**DCAT, ADMS and VoID collaborations** inform Schema.org's dataset, catalogue and distribution descriptions.",
+    "date": "2013-04-05",
+    "title": "Dataset vocabulary released",
+    "evidence": "Sources:\n\n- [Persistent acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/DatasetClass.md)\n- [W3C proposal](https://www.w3.org/wiki/WebSchemas/Datasets)\n- [Release record](https://schema.org/docs/releases.html#v1.0a)",
+    "links": [
+      [
+        "Persistent acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/DatasetClass.md"
+      ],
+      [
+        "W3C proposal",
+        "https://www.w3.org/wiki/WebSchemas/Datasets"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.0a"
+      ]
+    ],
+    "path": "data/datasets-and-scientific-metadata.md",
+    "project": "Datasets, DCAT and scientific metadata"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.0a)",
+    "summary": "**Creative Commons and the Association of Educational Publishers**, co-leading LRMI, contribute learning-resource properties and `AlignmentObject`.",
+    "date": "2013-04-05",
+    "title": "LRMI educational metadata integrated",
+    "evidence": "Sources:\n\n- [LRMI acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/LRMIClass.md)\n- [Release record and co-lead credits](https://schema.org/docs/releases.html#v1.0a)",
+    "links": [
+      [
+        "LRMI acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/LRMIClass.md"
+      ],
+      [
+        "Release record and co-lead credits",
+        "https://schema.org/docs/releases.html#v1.0a"
+      ]
+    ],
+    "path": "data/lrmi-and-education.md",
+    "project": "LRMI, courses and educational credentials"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released (v1.0a)",
+    "summary": "**The technical publishing collaboration** contributes `TechArticle`, `APIReference` and `Code` (later `SoftwareSourceCode`).",
+    "date": "2013-04-05",
+    "title": "Technical publishing vocabulary released",
+    "evidence": "Sources:\n\n- [Original proposal and authors](https://blog.schema.org/2012/06/11/new-vocabularies-for-technical-publishing/)\n- [Release record](https://schema.org/docs/releases.html#v1.0a)",
+    "links": [
+      [
+        "Original proposal and authors",
+        "https://blog.schema.org/2012/06/11/new-vocabularies-for-technical-publishing/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.0a"
+      ]
+    ],
+    "path": "data/technical-publishing.md",
+    "project": "Technical publishing"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Standards announcement",
+    "summary": "**W3C's JSON-LD community** contributes a third recommended encoding, alongside RDFa and Microdata.",
+    "date": "2013-06-03",
+    "title": "JSON-LD recommended",
+    "evidence": "Sources:\n\n- [Schema.org and JSON-LD](https://blog.schema.org/2013/06/03/schema-org-and-json-ld/)",
+    "links": [
+      [
+        "Schema.org and JSON-LD",
+        "https://blog.schema.org/2013/06/03/schema-org-and-json-ld/"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.0b)",
+    "summary": "**Schema Bib Extend** proposes making `citation` available across creative works, beyond medical scholarly articles.",
+    "date": "2013-07-24",
+    "title": "Citations generalized",
+    "evidence": "Sources:\n\n- [Release record and credit](https://schema.org/docs/releases.html#v1.0b)",
+    "links": [
+      [
+        "Release record and credit",
+        "https://schema.org/docs/releases.html#v1.0b"
+      ]
+    ],
+    "path": "data/libraries-and-bibliography.md",
+    "project": "Libraries, Schema Bib Extend and bibliographic modelling"
+  },
+  {
+    "category": "Alignment",
+    "status": "Proposal",
+    "summary": "Civic-service descriptions are proposed, with **European Commission ISA Core Public Service vocabulary** cited as a related design.",
+    "date": "2013-08-05",
+    "title": "Civic services proposed",
+    "evidence": "The blog says the proposal is similar to the ISA vocabulary; that alone does not establish direct authorship by the European Commission.\n\nSources:\n\n- [Proposal announcement](https://blog.schema.org/2013/08/05/vocabulary-for-describing-civic-services/)",
+    "links": [
+      [
+        "Proposal announcement",
+        "https://blog.schema.org/2013/08/05/vocabulary-for-describing-civic-services/"
+      ]
+    ],
+    "path": "data/jobs-and-public-services.md",
+    "project": "Jobs and public services"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v1.0c)",
+    "summary": "Schema.org adds descriptions of actions already performed, laying the foundation for later invocable actions.",
+    "date": "2013-08-07",
+    "title": "Actions vocabulary introduced",
+    "evidence": "Sources:\n\n- [Release record](https://schema.org/docs/releases.html#v1.0c)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.0c"
+      ]
+    ],
+    "path": "data/actions-and-hydra.md",
+    "project": "Actions and the Hydra community"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v1.0d)",
+    "summary": "`GovernmentService`, service contact information and support for hearing-impaired users enter the vocabulary.",
+    "date": "2013-11-21",
+    "title": "Civic services released",
+    "evidence": "Contributor affiliations are not fully established in the reviewed announcement. This event is not labelled a confirmed non-Google contribution.\n\nSources:\n\n- [Release announcement](https://blog.schema.org/2013/11/21/schema-org-v1-0d-published-tv-radio-civic-services-contactpoint-event-and-organization-improvements/)",
+    "links": [
+      [
+        "Release announcement",
+        "https://blog.schema.org/2013/11/21/schema-org-v1-0d-published-tv-radio-civic-services-contactpoint-event-and-organization-improvements/"
+      ]
+    ],
+    "path": "data/jobs-and-public-services.md",
+    "project": "Jobs and public services"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.0d)",
+    "summary": "**Yves Raimond (BBC) and Jean-Pierre Evain (EBU)** lead TV/radio improvements, working with Dan Brickley on integration.",
+    "date": "2013-11-21",
+    "title": "TV and radio vocabulary integrated",
+    "evidence": "The design builds on TV-Anytime, EBUCore and the BBC Programmes Ontology, with explicit equivalence links. It covers series, seasons, episodes, clips, broadcasts and on-demand availability. Release: November 21; explanatory guest post: December 3.\n\nSources:\n\n- [BBC guest post and ontology lineage](https://blog.schema.org/2013/12/03/schema-org-for-tv-and-radio-markup/)\n- [Release announcement](https://blog.schema.org/2013/11/21/schema-org-v1-0d-published-tv-radio-civic-services-contactpoint-event-and-organization-improvements/)\n- [W3C TV/radio proposal](https://www.w3.org/wiki/WebSchemas/TVRadioSchema)",
+    "links": [
+      [
+        "BBC guest post and ontology lineage",
+        "https://blog.schema.org/2013/12/03/schema-org-for-tv-and-radio-markup/"
+      ],
+      [
+        "Release announcement",
+        "https://blog.schema.org/2013/11/21/schema-org-v1-0d-published-tv-radio-civic-services-contactpoint-event-and-organization-improvements/"
+      ],
+      [
+        "W3C TV/radio proposal",
+        "https://www.w3.org/wiki/WebSchemas/TVRadioSchema"
+      ]
+    ],
+    "path": "data/bbc-ebu-tv-radio-and-sports.md",
+    "project": "BBC, EBU and sports vocabulary"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.0e)",
+    "summary": "**IMS Global's Access for All, the Accessibility Metadata Project and Yandex** contribute to accessible-content descriptions.",
+    "date": "2013-12-04",
+    "title": "Accessibility properties added",
+    "evidence": "The December 5 announcement, signed by TV Raman (Google) and Chaals (Yandex), credits both projects. The release index dates the vocabulary addition to December 4.\n\nSources:\n\n- [Announcement and collaboration credits](https://blog.schema.org/2013/12/05/content-accessibility/)\n- [Release record](https://schema.org/docs/releases.html#v1.0e)",
+    "links": [
+      [
+        "Announcement and collaboration credits",
+        "https://blog.schema.org/2013/12/05/content-accessibility/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.0e"
+      ]
+    ],
+    "path": "data/accessibility.md",
+    "project": "Accessibility metadata and digital publishing"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.0f)",
+    "summary": "**Dan Scott and Schema Bib Extend** broaden offer descriptions to cover nonprofit use cases such as library lending.",
+    "date": "2014-02-05",
+    "title": "Offers broadened for libraries",
+    "evidence": "This changes the scope of the model, rather than merely fixing spelling: an item can be offered without being sold.\n\nSources:\n\n- [Release record and credits](https://schema.org/docs/releases.html#v1.0f)",
+    "links": [
+      [
+        "Release record and credits",
+        "https://schema.org/docs/releases.html#v1.0f"
+      ]
+    ],
+    "path": "data/libraries-and-bibliography.md",
+    "project": "Libraries, Schema Bib Extend and bibliographic modelling"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Proposal",
+    "summary": "**BBC and IPTC/SportsML experts** collaborate with the Schema.org partners on sports organizations, athletes and events.",
+    "date": "2014-02-06",
+    "title": "Sports extension proposed",
+    "evidence": "Sources:\n\n- [Proposal announcement](https://blog.schema.org/2014/02/06/schema-org-sports-vocabulary/)",
+    "links": [
+      [
+        "Proposal announcement",
+        "https://blog.schema.org/2014/02/06/schema-org-sports-vocabulary/"
+      ]
+    ],
+    "path": "data/bbc-ebu-tv-radio-and-sports.md",
+    "project": "BBC, EBU and sports vocabulary"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.2)",
+    "summary": "**Hydra and the W3C Web standards community** inform a mechanism for describing actions a website enables and how to invoke them.",
+    "date": "2014-04-16",
+    "title": "Potential Actions",
+    "evidence": "Schema.org's acknowledgement explicitly credits extensive discussion with the Hydra community group. This is collaboration credit; it does not mean Schema.org adopted the Hydra vocabulary wholesale.\n\nSources:\n\n- [Actions announcement](https://blog.schema.org/2014/04/16/announcing-schema-org-actions/)\n- [Persistent Hydra acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/ActionCollabClass.md)",
+    "links": [
+      [
+        "Actions announcement",
+        "https://blog.schema.org/2014/04/16/announcing-schema-org-actions/"
+      ],
+      [
+        "Persistent Hydra acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/ActionCollabClass.md"
+      ]
+    ],
+    "path": "data/actions-and-hydra.md",
+    "project": "Actions and the Hydra community"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v1.1; date caveat)",
+    "summary": "**The Stack Overflow API model** informs `Question`, `Answer` and `QAPage` descriptions.",
+    "date": "2014-05-04",
+    "title": "Question and answer vocabulary",
+    "evidence": "The persistent acknowledgement states that these types were based on the Stack Overflow API. This establishes design lineage, not direct participation by Stack Exchange staff. The release index gives v1.1 as 2014-05-04, despite placing it before v1.2 dated April 16. The timeline follows the printed date; both dates fall in Q2. A day-level archival reconciliation remains open.\n\nSources:\n\n- [Acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/QAStackExchange.md)\n- [W3C research notes](https://www.w3.org/wiki/WebSchemas/QASchemaResearch)\n- [Release record](https://schema.org/docs/releases.html#v1.1)",
+    "links": [
+      [
+        "Acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/QAStackExchange.md"
+      ],
+      [
+        "W3C research notes",
+        "https://www.w3.org/wiki/WebSchemas/QASchemaResearch"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.1"
+      ]
+    ],
+    "path": "data/stack-overflow-questions-and-answers.md",
+    "project": "Stack Overflow model and question/answer vocabulary"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Draft integration",
+    "summary": "**MusicBrainz and Music Ontology** acknowledgements enter the music draft integrated by Dan Brickley from Vicki Tardif Holland's proposal.",
+    "date": "2014-06-12",
+    "title": "Music collaboration recorded in source",
+    "evidence": "The git sequence explicitly records transcription of the proposal on June 11 and addition of MusicBrainz/Music Ontology acknowledgements on June 12. This is evidence for collaborative provenance despite maintainer-authored commits; it does not document a particular verbal agreement.\n\nSources:\n\n- [Transcription commit](https://github.com/schemaorg/schemaorg/commit/5dcb33e4)\n- [Acknowledgement commit](https://github.com/schemaorg/schemaorg/commit/985c2524)",
+    "links": [
+      [
+        "Transcription commit",
+        "https://github.com/schemaorg/schemaorg/commit/5dcb33e4"
+      ],
+      [
+        "Acknowledgement commit",
+        "https://github.com/schemaorg/schemaorg/commit/985c2524"
+      ]
+    ],
+    "path": "data/musicbrainz-and-music-ontology.md",
+    "project": "MusicBrainz and the Music Ontology"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v1.6)",
+    "summary": "`Role` allows relationships to carry qualifications such as dates, responsibilities or a person's position in an organization.",
+    "date": "2014-06-16",
+    "title": "Roles qualify relationships",
+    "evidence": "Sources:\n\n- [Role announcement](https://blog.schema.org/2014/06/16/introducing-role/)\n- [Release record](https://schema.org/docs/releases.html#v1.6)",
+    "links": [
+      [
+        "Role announcement",
+        "https://blog.schema.org/2014/06/16/introducing-role/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.6"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.9)",
+    "summary": "**Richard Wallis (OCLC), Dan Scott (Laurentian) and Bib Extend** contribute periodicals, issues, volumes and work/example relationships.",
+    "date": "2014-08-18",
+    "title": "Periodicals and bibliographic relationships",
+    "evidence": "The release credits Wallis as chair and Scott for implementation. The September 2 guest post explains the released work. Persistent acknowledgements also identify inspiration from the Bibliographic Ontology (BIBO).\n\nSources:\n\n- [Guest post](https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/)\n- [Bibliographic acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/bibex.md)\n- [Release record](https://schema.org/docs/releases.html#v1.9)",
+    "links": [
+      [
+        "Guest post",
+        "https://blog.schema.org/2014/09/02/schema-org-support-for-bibliographic-relationships-and-periodicals/"
+      ],
+      [
+        "Bibliographic acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/bibex.md"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.9"
+      ]
+    ],
+    "path": "data/libraries-and-bibliography.md",
+    "project": "Libraries, Schema Bib Extend and bibliographic modelling"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.92)",
+    "summary": "**MusicBrainz and Music Ontology collaboration** informs compositions, releases, recordings, album categories and identifiers.",
+    "date": "2014-12-11",
+    "title": "Expanded music vocabulary released",
+    "evidence": "Examples include MusicComposition, MusicRelease, recordingOf, iswcCode and albumReleaseType. Current term acknowledgements preserve the design credit; June's draft and December's release are distinct stages of the same work.\n\nSources:\n\n- [Persistent MusicBrainz acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/MBZ.md)\n- [Release announcement](https://blog.schema.org/2014/12/11/schema-org-v1-92-music-video-games-sports-itemlist-breadcrumbs-and-more/)\n- [Release record](https://schema.org/docs/releases.html#v1.92)",
+    "links": [
+      [
+        "Persistent MusicBrainz acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/MBZ.md"
+      ],
+      [
+        "Release announcement",
+        "https://blog.schema.org/2014/12/11/schema-org-v1-92-music-video-games-sports-itemlist-breadcrumbs-and-more/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.92"
+      ]
+    ],
+    "path": "data/musicbrainz-and-music-ontology.md",
+    "project": "MusicBrainz and the Music Ontology"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v1.92)",
+    "summary": "Video games and game series gain descriptions; richer `ItemList` and `BreadcrumbList` support ordered navigation and collections.",
+    "date": "2014-12-11",
+    "title": "Games and ordered lists",
+    "evidence": "Sources:\n\n- [Release announcement](https://blog.schema.org/2014/12/11/schema-org-v1-92-music-video-games-sports-itemlist-breadcrumbs-and-more/)\n- [Release record](https://schema.org/docs/releases.html#v1.92)",
+    "links": [
+      [
+        "Release announcement",
+        "https://blog.schema.org/2014/12/11/schema-org-v1-92-music-video-games-sports-itemlist-breadcrumbs-and-more/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.92"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v1.92)",
+    "summary": "**BBC/IPTC sports collaboration** leads to richer sports organizations, coaches, athletes and home/away-team descriptions.",
+    "date": "2014-12-11",
+    "title": "Sports additions released",
+    "evidence": "Sources:\n\n- [Design collaboration](https://blog.schema.org/2014/02/06/schema-org-sports-vocabulary/)\n- [Release record](https://schema.org/docs/releases.html#v1.92)",
+    "links": [
+      [
+        "Design collaboration",
+        "https://blog.schema.org/2014/02/06/schema-org-sports-vocabulary/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v1.92"
+      ]
+    ],
+    "path": "data/bbc-ebu-tv-radio-and-sports.md",
+    "project": "BBC, EBU and sports vocabulary"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released (v1.93)",
+    "summary": "**Paul Watson** is credited for `VisualArtwork` and supporting properties describing art forms, editions, materials and surfaces.",
+    "date": "2015-02-04",
+    "title": "VisualArtwork vocabulary",
+    "evidence": "The release notes identify Watson, but the reviewed evidence does not establish his organizational affiliation. The announcement appeared February 5, a day after the release date.\n\nSources:\n\n- [Release record and credit](https://schema.org/docs/releases.html#v1.93)\n- [Release announcement](https://blog.schema.org/2015/02/05/schema-org-v1-93-visualartwork-invoices-plus-lots-of-fixes-and-improvements/)",
+    "links": [
+      [
+        "Release record and credit",
+        "https://schema.org/docs/releases.html#v1.93"
+      ],
+      [
+        "Release announcement",
+        "https://blog.schema.org/2015/02/05/schema-org-v1-93-visualartwork-invoices-plus-lots-of-fixes-and-improvements/"
+      ]
+    ],
+    "path": "data/visual-art.md",
+    "project": "Visual artwork"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v2.0)",
+    "summary": "**Martin Hepp, Mirek Sopek, Karol Szczepa\u0144ski and the Automotive Ontology community** contribute detailed vehicle descriptions.",
+    "date": "2015-05-12",
+    "title": "Automotive vocabulary integrated",
+    "evidence": "The work adds such concepts as engine specifications, fuel consumption, efficiency and vehicle configuration. The release announcement explicitly names the community contributors.\n\nSources:\n\n- [Announcement and credits](https://blog.schema.org/2015/05/13/schema-org-2-0/)\n- [Persistent acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/Automotive_Ontology_Working_Group.md)",
+    "links": [
+      [
+        "Announcement and credits",
+        "https://blog.schema.org/2015/05/13/schema-org-2-0/"
+      ],
+      [
+        "Persistent acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/Automotive_Ontology_Working_Group.md"
+      ]
+    ],
+    "path": "data/automotive-ontology.md",
+    "project": "Automotive Ontology Working Group"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v2.0)",
+    "summary": "**Yves Raimond's review** supports expanded broadcast services, TV/radio channels and cable or satellite service descriptions.",
+    "date": "2015-05-12",
+    "title": "Broadcast channels and schedules expanded",
+    "evidence": "The release notes explicitly thank Raimond for careful review of issue #329. This is a review credit, not a claim of sole authorship.\n\nSources:\n\n- [Proposal #329](https://github.com/schemaorg/schemaorg/issues/329)\n- [Release record and review credit](https://schema.org/docs/releases.html#v2.0)",
+    "links": [
+      [
+        "Proposal #329",
+        "https://github.com/schemaorg/schemaorg/issues/329"
+      ],
+      [
+        "Release record and review credit",
+        "https://schema.org/docs/releases.html#v2.0"
+      ]
+    ],
+    "path": "data/bbc-ebu-tv-radio-and-sports.md",
+    "project": "BBC, EBU and sports vocabulary"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Project milestone",
+    "summary": "**W3C and community contributors** gain formal roles through the Schema.org Community Group and public steering-group process.",
+    "date": "2015-05-13",
+    "title": "Community Group and steering group",
+    "evidence": "The v2.0 announcement describes the governance change, public-schemaorg mailing list, GitHub issue tracking and versioned vocabulary snapshots. Vocabulary release date: May 12; governance announcement: May 13.\n\nSources:\n\n- [Schema.org 2.0 announcement](https://blog.schema.org/2015/05/13/schema-org-2-0/)",
+    "links": [
+      [
+        "Schema.org 2.0 announcement",
+        "https://blog.schema.org/2015/05/13/schema-org-2-0/"
+      ]
+    ],
+    "path": "data/founding-and-governance.md",
+    "project": "Founding and community governance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Repository contribution",
+    "summary": "**Baidu** supplies Chinese translations, added to a new localization directory by Dan Brickley.",
+    "date": "2015-05-18",
+    "title": "Chinese translations preserved in the repository",
+    "evidence": "The commit notes that the translations were already over a year old and required attention to version drift and serving. This date records their addition to the repository, not their original creation or a completed live Chinese-language site.\n\nSources:\n\n- [Integration commit with provenance](https://github.com/schemaorg/schemaorg/commit/1e69acf8869e178ed2f6bbe24a75d795858d9f9c)",
+    "links": [
+      [
+        "Integration commit with provenance",
+        "https://github.com/schemaorg/schemaorg/commit/1e69acf8869e178ed2f6bbe24a75d795858d9f9c"
+      ]
+    ],
+    "path": "data/baidu-localization.md",
+    "project": "Baidu Chinese localization"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Hosted extension preview (v2.1)",
+    "summary": "**The Automotive Ontology community** extends its contribution through the `auto.schema.org` hosted vocabulary.",
+    "date": "2015-08-06",
+    "title": "Automotive hosted extension",
+    "evidence": "Offered for final review in v2.1; finalized in v3.0 on May 4, 2016.\n\nSources:\n\n- [Preview release](https://schema.org/docs/releases.html#v2.1)\n- [Finalization release](https://schema.org/docs/releases.html#v3.0)",
+    "links": [
+      [
+        "Preview release",
+        "https://schema.org/docs/releases.html#v2.1"
+      ],
+      [
+        "Finalization release",
+        "https://schema.org/docs/releases.html#v3.0"
+      ]
+    ],
+    "path": "data/automotive-ontology.md",
+    "project": "Automotive Ontology Working Group"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Hosted extension preview (v2.1)",
+    "summary": "**The bibliographic community** gains `bib.schema.org` for more specialized vocabulary within the hosted-extension mechanism.",
+    "date": "2015-08-06",
+    "title": "Bibliographic hosted extension",
+    "evidence": "The extension was offered for final review in v2.1 and finalized in v3.0 on May 4, 2016. Hosted extensions remained part of Schema.org's release process.\n\nSources:\n\n- [v2.1 release](https://schema.org/docs/releases.html#v2.1)\n- [v3.0 finalization](https://schema.org/docs/releases.html#v3.0)",
+    "links": [
+      [
+        "v2.1 release",
+        "https://schema.org/docs/releases.html#v2.1"
+      ],
+      [
+        "v3.0 finalization",
+        "https://schema.org/docs/releases.html#v3.0"
+      ]
+    ],
+    "path": "data/libraries-and-bibliography.md",
+    "project": "Libraries, Schema Bib Extend and bibliographic modelling"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released (v2.1)",
+    "summary": "**elf Pavlik** is credited for collaboration on `InteractionCounter`; the release also adds live blogs and discussion-forum postings.",
+    "date": "2015-08-06",
+    "title": "Interaction counters and social publishing",
+    "evidence": "The credit applies specifically to interaction counters. The other vocabulary in the release is not attributed to Pavlik on that basis.\n\nSources:\n\n- [Interaction proposal #137](https://github.com/schemaorg/schemaorg/issues/137)\n- [Release record and credit](https://schema.org/docs/releases.html#v2.1)",
+    "links": [
+      [
+        "Interaction proposal #137",
+        "https://github.com/schemaorg/schemaorg/issues/137"
+      ],
+      [
+        "Release record and credit",
+        "https://schema.org/docs/releases.html#v2.1"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v2.2)",
+    "summary": "`OfferCatalog`, `DataFeed` and broader service descriptions extend Schema.org beyond individual product offers.",
+    "date": "2015-11-05",
+    "title": "Services, offer catalogues and data feeds",
+    "evidence": "Sources:\n\n- [Release record](https://schema.org/docs/releases.html#v2.2)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v2.2"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Non-Google",
+    "status": "External extension",
+    "summary": "**GS1 SmartSearch** publishes an independent Web vocabulary extending Schema.org's product descriptions.",
+    "date": "2016-02-22",
+    "title": "First large external extension",
+    "evidence": "The announcement distinguishes GS1's independently managed extension from Schema.org's own hosted extensions. It describes collaboration via W3C and GitHub and a shared JSON-LD foundation.\n\nSources:\n\n- [GS1 extension announcement](https://blog.schema.org/2016/02/22/gs1-web-vocabulary-welcoming-the-first-schema-org-external-extension/)",
+    "links": [
+      [
+        "GS1 extension announcement",
+        "https://blog.schema.org/2016/02/22/gs1-web-vocabulary-welcoming-the-first-schema-org-external-extension/"
+      ]
+    ],
+    "path": "data/gs1.md",
+    "project": "GS1 product vocabulary and interoperability"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.0)",
+    "summary": "**The fact-checking community**, including Duke Reporters' Lab and Full Fact, helps develop structured fact-check reviews.",
+    "date": "2016-05-04",
+    "title": "ClaimReview enters Pending",
+    "evidence": "The v3.0 record dates the draft introduction; the later v3.2 announcement explicitly names the collaborating organizations. This does not assign every draft term to a particular participant.\n\nSources:\n\n- [Release record](https://schema.org/docs/releases.html#v3.0)\n- [Collaboration credits](https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.0"
+      ],
+      [
+        "Collaboration credits",
+        "https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/"
+      ]
+    ],
+    "path": "data/fact-checking.md",
+    "project": "Fact-checking: ClaimReview, Claim and MediaReview"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.0)",
+    "summary": "**The W3C Schema Course Extension group**, initiated by LRMI, supplies an evolving course-description vocabulary for review.",
+    "date": "2016-05-04",
+    "title": "Course vocabulary enters Pending",
+    "evidence": "Sources:\n\n- [Course proposal #195](https://github.com/schemaorg/schemaorg/issues/195)\n- [Release record](https://schema.org/docs/releases.html#v3.0)",
+    "links": [
+      [
+        "Course proposal #195",
+        "https://github.com/schemaorg/schemaorg/issues/195"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.0"
+      ]
+    ],
+    "path": "data/lrmi-and-education.md",
+    "project": "LRMI, courses and educational credentials"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v3.0)",
+    "summary": "**FIBO and its W3C community** contribute financial-product terminology, including monetary amounts and compound prices.",
+    "date": "2016-05-04",
+    "title": "Financial vocabulary integrated",
+    "evidence": "The persistent acknowledgement identifies the Financial Industry Business Ontology project as the source for numerous finance definitions. Richard Wallis applied the financial changes in the repository.\n\nSources:\n\n- [FIBO acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/FIBO.md)\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/27117ca8)\n- [Release record](https://schema.org/docs/releases.html#v3.0)",
+    "links": [
+      [
+        "FIBO acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/FIBO.md"
+      ],
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/27117ca8"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.0"
+      ]
+    ],
+    "path": "data/fibo-and-gleif.md",
+    "project": "FIBO financial vocabulary and GLEIF"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v3.0)",
+    "summary": "**Marc Twagirumukiza and the W3C schemed community** lead the reorganization of medical terms into the health-lifesci extension.",
+    "date": "2016-05-04",
+    "title": "Health-lifesci extension established",
+    "evidence": "This reorganized an existing vocabulary rather than originating all its medical concepts. The August blog retrospectively credits the group for this work.\n\nSources:\n\n- [Release record](https://schema.org/docs/releases.html#v3.0)\n- [Community credits](https://blog.schema.org/2016/08/09/schema-org-update-hotels-datasets-health-lifesci-and-pending-extensions/)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.0"
+      ],
+      [
+        "Community credits",
+        "https://blog.schema.org/2016/08/09/schema-org-update-hotels-datasets-health-lifesci-and-pending-extensions/"
+      ]
+    ],
+    "path": "data/health-and-medical.md",
+    "project": "Medical vocabulary, WikiDoc and the schemed community"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v3.1)",
+    "summary": "**Martin Hepp**, drawing on the **STI Accommodation Ontology**, leads detailed accommodation, amenities, rooms and hotel-offer modelling.",
+    "date": "2016-08-09",
+    "title": "Hotels and accommodation expanded",
+    "evidence": "The blog explicitly credits Hepp's leadership. Term-level acknowledgements preserve the STI ontology lineage; examples include Accommodation, amenityFeature, floorSize and permittedUsage.\n\nSources:\n\n- [Announcement and credits](https://blog.schema.org/2016/08/09/schema-org-update-hotels-datasets-health-lifesci-and-pending-extensions/)\n- [STI acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/STI_Accommodation_Ontology.md)",
+    "links": [
+      [
+        "Announcement and credits",
+        "https://blog.schema.org/2016/08/09/schema-org-update-hotels-datasets-health-lifesci-and-pending-extensions/"
+      ],
+      [
+        "STI acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/STI_Accommodation_Ontology.md"
+      ]
+    ],
+    "path": "data/hotels-and-accommodation.md",
+    "project": "Hotels and the STI Accommodation Ontology"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v3.1; includes draft terms)",
+    "summary": "Dataset work adds funding, spatial and temporal coverage improvements, niche file formats and a draft measured-variables property.",
+    "date": "2016-08-09",
+    "title": "Scientific dataset descriptions broadened",
+    "evidence": "The plural draft `variablesMeasured` was subsequently replaced by `variableMeasured`. The reviewed release record does not establish all individual affiliations.\n\nSources:\n\n- [Proposal #1083](https://github.com/schemaorg/schemaorg/issues/1083)\n- [Release record](https://schema.org/docs/releases.html#v3.1)",
+    "links": [
+      [
+        "Proposal #1083",
+        "https://github.com/schemaorg/schemaorg/issues/1083"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.1"
+      ]
+    ],
+    "path": "data/datasets-and-scientific-metadata.md",
+    "project": "Datasets, DCAT and scientific metadata"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Attribution recorded",
+    "summary": "**GLEIF's support for Legal Entity Identifiers** is acknowledged on `leiCode` in a commit by Richard Wallis.",
+    "date": "2016-10-26",
+    "title": "GLEIF support explicitly acknowledged",
+    "evidence": "This is a provenance milestone for an existing property, not its introduction date. It is included because acknowledgement markup is an explicit part of the requested contribution history.\n\nSources:\n\n- [Acknowledgement commit](https://github.com/schemaorg/schemaorg/commit/467be13e005cf07630047c91dd1512227a64f4f0)",
+    "links": [
+      [
+        "Acknowledgement commit",
+        "https://github.com/schemaorg/schemaorg/commit/467be13e005cf07630047c91dd1512227a64f4f0"
+      ]
+    ],
+    "path": "data/fibo-and-gleif.md",
+    "project": "FIBO financial vocabulary and GLEIF"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.2)",
+    "summary": "**FIBO contributors** add proposals for mortgages, brokerage accounts, investment funds, exchange rates and loan repayment details.",
+    "date": "2017-03-23",
+    "title": "Broader banking and investment vocabulary",
+    "evidence": "Sources:\n\n- [Proposal #1253](https://github.com/schemaorg/schemaorg/issues/1253)\n- [Release record](https://schema.org/docs/releases.html#v3.2)",
+    "links": [
+      [
+        "Proposal #1253",
+        "https://github.com/schemaorg/schemaorg/issues/1253"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.2"
+      ]
+    ],
+    "path": "data/fibo-and-gleif.md",
+    "project": "FIBO financial vocabulary and GLEIF"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Promoted to core (v3.2)",
+    "summary": "**Duke Reporters' Lab, Full Fact and the international fact-checking network** help bring ClaimReview into the core vocabulary.",
+    "date": "2017-03-23",
+    "title": "ClaimReview reaches core",
+    "evidence": "Sources:\n\n- [Release announcement and credits](https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/)",
+    "links": [
+      [
+        "Release announcement and credits",
+        "https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/"
+      ]
+    ],
+    "path": "data/fact-checking.md",
+    "project": "Fact-checking: ClaimReview, Claim and MediaReview"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Promoted to core (v3.2)",
+    "summary": "**Phil Barker and the Schema Course Extension group** deliver core course, course-instance, instructor and prerequisite descriptions.",
+    "date": "2017-03-23",
+    "title": "Courses graduate to core",
+    "evidence": "Sources:\n\n- [Community credits](https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/)\n- [Release record](https://schema.org/docs/releases.html#v3.2)",
+    "links": [
+      [
+        "Community credits",
+        "https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.2"
+      ]
+    ],
+    "path": "data/lrmi-and-education.md",
+    "project": "LRMI, courses and educational credentials"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Promoted to core (v3.2)",
+    "summary": "**IDPF's EPUB accessibility community** contributes access modes, sufficient access modes and accessibility summaries.",
+    "date": "2017-03-23",
+    "title": "EPUB accessibility properties reach core",
+    "evidence": "These properties first appeared in the v3.0 Pending work. The v3.2 announcement explicitly credits the EPUB Accessibility Working Group and records their graduation to core.\n\nSources:\n\n- [Announcement and credits](https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/)\n- [Accessibility proposal #1100](https://github.com/schemaorg/schemaorg/issues/1100)",
+    "links": [
+      [
+        "Announcement and credits",
+        "https://blog.schema.org/2017/03/23/schema-org-3-2-courses-fact-checking-digital-publishing-accessibility-menus-and-more/"
+      ],
+      [
+        "Accessibility proposal #1100",
+        "https://github.com/schemaorg/schemaorg/issues/1100"
+      ]
+    ],
+    "path": "data/accessibility.md",
+    "project": "Accessibility metadata and digital publishing"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.2)",
+    "summary": "**W3C Spatial Data on the Web collaborators** inform geometry and spatial relationships such as containment, intersection and overlap.",
+    "date": "2017-03-23",
+    "title": "Geospatial relationships",
+    "evidence": "The release describes this as an informal collaboration. Later revisions shortened property names; this entry dates the initial draft vocabulary.\n\nSources:\n\n- [Proposal #1375](https://github.com/schemaorg/schemaorg/issues/1375)\n- [Release record](https://schema.org/docs/releases.html#v3.2)",
+    "links": [
+      [
+        "Proposal #1375",
+        "https://github.com/schemaorg/schemaorg/issues/1375"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.2"
+      ]
+    ],
+    "path": "data/schedules-and-spatial-data.md",
+    "project": "Recurring events and spatial data"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v3.3)",
+    "summary": "Structured instructions generalize the recipe model, covering steps, tools, supplies and estimated costs.",
+    "date": "2017-08-14",
+    "title": "HowTo vocabulary",
+    "evidence": "Sources:\n\n- [Proposal #647](https://github.com/schemaorg/schemaorg/issues/647)\n- [Release record](https://schema.org/docs/releases.html#v3.3)",
+    "links": [
+      [
+        "Proposal #647",
+        "https://github.com/schemaorg/schemaorg/issues/647"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.3"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.3)",
+    "summary": "**The ELI taskforce and Thomas Francart** contribute legislation descriptions based on the European Legislation Identifier ontology.",
+    "date": "2017-08-14",
+    "title": "Legislation vocabulary",
+    "evidence": "The release explicitly credits ELI. Git records Francart's proposal and Dan Brickley's integration work. ELI represents a collaboration of national legislation publishers and European institutions.\n\nSources:\n\n- [Proposal #1156](https://github.com/schemaorg/schemaorg/issues/1156)\n- [Francart's contribution](https://github.com/schemaorg/schemaorg/commit/60a5b744)\n- [ELI acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/ELI.md)\n- [Release record](https://schema.org/docs/releases.html#v3.3)",
+    "links": [
+      [
+        "Proposal #1156",
+        "https://github.com/schemaorg/schemaorg/issues/1156"
+      ],
+      [
+        "Francart's contribution",
+        "https://github.com/schemaorg/schemaorg/commit/60a5b744"
+      ],
+      [
+        "ELI acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/ELI.md"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.3"
+      ]
+    ],
+    "path": "data/eli-legislation.md",
+    "project": "European Legislation Identifier (ELI)"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v3.3; includes Pending additions)",
+    "summary": "**The Trust Project** informs news-article categories, `NewsMediaOrganization` and publisher policies for corrections, ethics and transparency.",
+    "date": "2017-08-14",
+    "title": "News trust and transparency vocabulary",
+    "evidence": "The release notes explicitly attribute much of this work to the Trust Project. It includes both changes to existing core definitions and new terms initially offered in Pending.\n\nSources:\n\n- [Proposal #1525](https://github.com/schemaorg/schemaorg/issues/1525)\n- [Persistent acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/TP.md)\n- [Release record](https://schema.org/docs/releases.html#v3.3)",
+    "links": [
+      [
+        "Proposal #1525",
+        "https://github.com/schemaorg/schemaorg/issues/1525"
+      ],
+      [
+        "Persistent acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/TP.md"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.3"
+      ]
+    ],
+    "path": "data/trust-project.md",
+    "project": "The Trust Project"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released in Pending (v3.3)",
+    "summary": "**Leigh Dodds** contributes schedule modelling compatible with an iCalendar subset, subsequently integrated by Dan Brickley.",
+    "date": "2017-08-14",
+    "title": "Recurring-event schedules",
+    "evidence": "Git records Dodds' July 14 contribution and Brickley's August 14 integration. The reviewed records establish identity but do not independently establish Dodds' employer at the time.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/7176ea82)\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/91bb2dbd)\n- [Release record](https://schema.org/docs/releases.html#v3.3)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/7176ea82"
+      ],
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/91bb2dbd"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.3"
+      ]
+    ],
+    "path": "data/schedules-and-spatial-data.md",
+    "project": "Recurring events and spatial data"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v3.3)",
+    "summary": "**The Tourism Structured Web Data community and IIT-CNR, Pisa** inform richer tourist-attraction, language and public-access descriptions.",
+    "date": "2017-08-14",
+    "title": "Tourist attractions and public access",
+    "evidence": "TouristAttraction and touristType carry acknowledgements of the Future Internet Lab at IIT-CNR and the Tourism group. Richard Wallis integrated the proposal. Credit applies to these acknowledged elements, not automatically every place-related term.\n\nSources:\n\n- [Proposal #1459](https://github.com/schemaorg/schemaorg/issues/1459)\n- [IIT-CNR acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/IIT-CNR.it.md)\n- [Tourism group acknowledgement](https://github.com/schemaorg/schemaorg/blob/main/data/collab/Tourism.md)\n- [Release record](https://schema.org/docs/releases.html#v3.3)",
+    "links": [
+      [
+        "Proposal #1459",
+        "https://github.com/schemaorg/schemaorg/issues/1459"
+      ],
+      [
+        "IIT-CNR acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/IIT-CNR.it.md"
+      ],
+      [
+        "Tourism group acknowledgement",
+        "https://github.com/schemaorg/schemaorg/blob/main/data/collab/Tourism.md"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.3"
+      ]
+    ],
+    "path": "data/tourism.md",
+    "project": "Tourism community and IIT-CNR"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Draft integration",
+    "summary": "**The Trust Project's AskPublicNewsArticle proposal**, relayed through Sally and Subbu, is added by Dan Brickley.",
+    "date": "2017-10-26",
+    "title": "A relayed proposal enters the source",
+    "evidence": "The commit explicitly says the proposal came from the Trust Project and was relayed via Sally and Subbu, with supporting documentation to be linked later. This is direct evidence of a contribution incorporated on others' behalf. It does not establish that the exchange was verbal.\n\nSources:\n\n- [Integration commit with explicit relay credit](https://github.com/schemaorg/schemaorg/commit/dbcd10f4)",
+    "links": [
+      [
+        "Integration commit with explicit relay credit",
+        "https://github.com/schemaorg/schemaorg/commit/dbcd10f4"
+      ]
+    ],
+    "path": "data/trust-project.md",
+    "project": "The Trust Project"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v3.4)",
+    "summary": "`Claim` makes the statement being checked explicit, enabling richer links between claims and their appearances.",
+    "date": "2018-06-15",
+    "title": "Claims become explicit objects",
+    "evidence": "Sources:\n\n- [Proposal #1828](https://github.com/schemaorg/schemaorg/issues/1828)\n- [Release record](https://schema.org/docs/releases.html#v3.4)",
+    "links": [
+      [
+        "Proposal #1828",
+        "https://github.com/schemaorg/schemaorg/issues/1828"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.4"
+      ]
+    ],
+    "path": "data/fact-checking.md",
+    "project": "Fact-checking: ClaimReview, Claim and MediaReview"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.4)",
+    "summary": "**The Trust Project** supplies further work on ownership/funding disclosures, staff-diversity reports, public engagement and corrections.",
+    "date": "2018-06-15",
+    "title": "Further transparency and correction terms",
+    "evidence": "This release includes AskPublicNewsArticle from the earlier draft, ownershipFundingInfo, diversityStaffingReport and CorrectionComment/correction. The draft and release entries describe stages of the same contribution.\n\nSources:\n\n- [Trust Project proposal #1525](https://github.com/schemaorg/schemaorg/issues/1525)\n- [Corrections proposal #1950](https://github.com/schemaorg/schemaorg/issues/1950)\n- [Release record](https://schema.org/docs/releases.html#v3.4)",
+    "links": [
+      [
+        "Trust Project proposal #1525",
+        "https://github.com/schemaorg/schemaorg/issues/1525"
+      ],
+      [
+        "Corrections proposal #1950",
+        "https://github.com/schemaorg/schemaorg/issues/1950"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.4"
+      ]
+    ],
+    "path": "data/trust-project.md",
+    "project": "The Trust Project"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v3.4)",
+    "summary": "`Occupation` and supporting properties distinguish professions, employment requirements and salary distributions from individual job advertisements.",
+    "date": "2018-06-15",
+    "title": "Occupations and salary distributions",
+    "evidence": "Sources:\n\n- [Proposal #1698](https://github.com/schemaorg/schemaorg/issues/1698)\n- [Release record](https://schema.org/docs/releases.html#v3.4)",
+    "links": [
+      [
+        "Proposal #1698",
+        "https://github.com/schemaorg/schemaorg/issues/1698"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.4"
+      ]
+    ],
+    "path": "data/jobs-and-public-services.md",
+    "project": "Jobs and public services"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.4)",
+    "summary": "**Tourism community work**, integrated by Richard Wallis, adds `TouristDestination`, `TouristTrip` and `Trip` with examples.",
+    "date": "2018-06-15",
+    "title": "Trips and destinations",
+    "evidence": "Sources:\n\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/d43d1848)\n- [Proposal #1815](https://github.com/schemaorg/schemaorg/issues/1815)\n- [Release record](https://schema.org/docs/releases.html#v3.4)",
+    "links": [
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/d43d1848"
+      ],
+      [
+        "Proposal #1815",
+        "https://github.com/schemaorg/schemaorg/issues/1815"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.4"
+      ]
+    ],
+    "path": "data/tourism.md",
+    "project": "Tourism community and IIT-CNR"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v3.5; new terms)",
+    "summary": "**Richard Wallis and bibliographic contributors** extend coverage of archives, manuscripts, sheet music, plays and other creative works.",
+    "date": "2019-04-01",
+    "title": "Archives and further creative-work types",
+    "evidence": "Git directly credits Wallis for the creative-work type additions. Archive-related proposals are separately tracked as #1758 and #1759; this should not imply he originated all archive work.\n\nSources:\n\n- [Creative-work contribution](https://github.com/schemaorg/schemaorg/commit/e04c67ee)\n- [Archive proposal #1758](https://github.com/schemaorg/schemaorg/issues/1758)\n- [Release record](https://schema.org/docs/releases.html#v3.5)",
+    "links": [
+      [
+        "Creative-work contribution",
+        "https://github.com/schemaorg/schemaorg/commit/e04c67ee"
+      ],
+      [
+        "Archive proposal #1758",
+        "https://github.com/schemaorg/schemaorg/issues/1758"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.5"
+      ]
+    ],
+    "path": "data/libraries-and-bibliography.md",
+    "project": "Libraries, Schema Bib Extend and bibliographic modelling"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.5)",
+    "summary": "**The Educational and Occupational Credentials community group** contributes credential types, categories, competencies and recognition relationships.",
+    "date": "2019-04-01",
+    "title": "Educational and occupational credentials",
+    "evidence": "Sources:\n\n- [Proposal #1978](https://github.com/schemaorg/schemaorg/issues/1978)\n- [Release record](https://schema.org/docs/releases.html#v3.5)",
+    "links": [
+      [
+        "Proposal #1978",
+        "https://github.com/schemaorg/schemaorg/issues/1978"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.5"
+      ]
+    ],
+    "path": "data/lrmi-and-education.md",
+    "project": "LRMI, courses and educational credentials"
+  },
+  {
+    "category": "Project",
+    "status": "Project milestone (v3.5)",
+    "summary": "Schema.org reduces emphasis on topical subdomains while continuing to distinguish new proposals from mature vocabulary.",
+    "date": "2019-04-01",
+    "title": "Extension model simplified",
+    "evidence": "Sources:\n\n- [Release record](https://schema.org/docs/releases.html#v3.5)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.5"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v3.5)",
+    "summary": "**The Wikidata/Wikibase community** collaborates on projects, research projects, grants, funding agencies and funding schemes.",
+    "date": "2019-04-01",
+    "title": "Projects, grants and funding agencies",
+    "evidence": "The release explicitly links the work to a Wikidata/Wikibase workshop and notes DINGO as another outcome of that workshop. This is shared design context, not a claim that all of DINGO was incorporated.\n\nSources:\n\n- [Funding discussion #383](https://github.com/schemaorg/schemaorg/issues/383)\n- [Release record and workshop provenance](https://schema.org/docs/releases.html#v3.5)",
+    "links": [
+      [
+        "Funding discussion #383",
+        "https://github.com/schemaorg/schemaorg/issues/383"
+      ],
+      [
+        "Release record and workshop provenance",
+        "https://schema.org/docs/releases.html#v3.5"
+      ]
+    ],
+    "path": "data/wikidata-funding.md",
+    "project": "Wikidata/Wikibase collaboration on projects and funding"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v3.9)",
+    "summary": "Education work adds programs, prerequisites, completion times and links to credentials, including `WorkBasedProgram`.",
+    "date": "2019-08-01",
+    "title": "Education and work-based programs",
+    "evidence": "The release index lists #2289 under both v3.9 and v4.0; this event uses the earlier recorded appearance. Full contributor attribution remains to be checked in the issue history.\n\nSources:\n\n- [Proposal #2289](https://github.com/schemaorg/schemaorg/issues/2289)\n- [Release record](https://schema.org/docs/releases.html#v3.9)",
+    "links": [
+      [
+        "Proposal #2289",
+        "https://github.com/schemaorg/schemaorg/issues/2289"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v3.9"
+      ]
+    ],
+    "path": "data/lrmi-and-education.md",
+    "project": "LRMI, courses and educational credentials"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v4.0)",
+    "summary": "Podcast series, seasons and episodes receive dedicated types and supporting properties.",
+    "date": "2019-10-15",
+    "title": "Podcasts",
+    "evidence": "Sources:\n\n- [Podcast proposal #373](https://github.com/schemaorg/schemaorg/issues/373)\n- [Release record](https://schema.org/docs/releases.html#v4.0)",
+    "links": [
+      [
+        "Podcast proposal #373",
+        "https://github.com/schemaorg/schemaorg/issues/373"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v4.0"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v4.0)",
+    "summary": "`RealEstateListing`, `OfferForPurchase` and `OfferForLease` add more explicit support for property listings.",
+    "date": "2019-10-15",
+    "title": "Real estate listings",
+    "evidence": "Sources:\n\n- [Proposal #2348](https://github.com/schemaorg/schemaorg/issues/2348)\n- [Release record](https://schema.org/docs/releases.html#v4.0)",
+    "links": [
+      [
+        "Proposal #2348",
+        "https://github.com/schemaorg/schemaorg/issues/2348"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v4.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v7.0; includes Pending additions)",
+    "summary": "Schema.org fast-tracks `SpecialAnnouncement` and expands online-event descriptions during the COVID-19 response.",
+    "date": "2020-03-17",
+    "title": "Emergency announcements and online events",
+    "evidence": "The blog is dated March 16 while the release index records March 17; this entry uses the release date. The change includes VirtualLocation, eventAttendanceMode and EventMovedOnline.\n\nSources:\n\n- [Release record](https://schema.org/docs/releases.html#v7.0)\n- [Emergency-vocabulary proposal #2490](https://github.com/schemaorg/schemaorg/issues/2490)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v7.0"
+      ],
+      [
+        "Emergency-vocabulary proposal #2490",
+        "https://github.com/schemaorg/schemaorg/issues/2490"
+      ]
+    ],
+    "path": "data/covid-response.md",
+    "project": "COVID-19 response and CDC hospital reporting"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v7.0)",
+    "summary": "`MediaReview` begins modelling media authenticity and misleading context alongside textual fact checks.",
+    "date": "2020-03-17",
+    "title": "MediaReview draft",
+    "evidence": "The release calls this editorial work in progress, not a complete design. It should not be portrayed as a finalized standard at this point.\n\nSources:\n\n- [Proposal #2450](https://github.com/schemaorg/schemaorg/issues/2450)\n- [Release record](https://schema.org/docs/releases.html#v7.0)",
+    "links": [
+      [
+        "Proposal #2450",
+        "https://github.com/schemaorg/schemaorg/issues/2450"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v7.0"
+      ]
+    ],
+    "path": "data/fact-checking.md",
+    "project": "Fact-checking: ClaimReview, Claim and MediaReview"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v7.03)",
+    "summary": "**The US CDC's hospital-reporting data format** is represented in Schema.org to support pandemic resource reporting.",
+    "date": "2020-04-02",
+    "title": "CDC hospital reporting model",
+    "evidence": "The release describes a one-to-one representation of the CDC CSV fields. That establishes the source model, not necessarily direct CDC authorship of the Schema.org definitions. The explanatory announcement followed April 6.\n\nSources:\n\n- [Proposal #2521](https://github.com/schemaorg/schemaorg/issues/2521)\n- [CDC reporting announcement](https://blog.schema.org/2020/04/06/covid-19-schema-for-cdc-hospital-reporting/)\n- [Release record](https://schema.org/docs/releases.html#v7.03)",
+    "links": [
+      [
+        "Proposal #2521",
+        "https://github.com/schemaorg/schemaorg/issues/2521"
+      ],
+      [
+        "CDC reporting announcement",
+        "https://blog.schema.org/2020/04/06/covid-19-schema-for-cdc-hospital-reporting/"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v7.03"
+      ]
+    ],
+    "path": "data/covid-response.md",
+    "project": "COVID-19 response and CDC hospital reporting"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v8.0)",
+    "summary": "Shipping details, destinations, rates and delivery times become explicit parts of online offers.",
+    "date": "2020-05-01",
+    "title": "Shipping policies",
+    "evidence": "Sources:\n\n- [Proposal #2506](https://github.com/schemaorg/schemaorg/issues/2506)\n- [Release record](https://schema.org/docs/releases.html#v8.0)",
+    "links": [
+      [
+        "Proposal #2506",
+        "https://github.com/schemaorg/schemaorg/issues/2506"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v8.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v9.0)",
+    "summary": "**LRMI-related community work**, integrated by Dan Brickley, adds `LearningResource` as a general type for educational content.",
+    "date": "2020-07-21",
+    "title": "LearningResource added",
+    "evidence": "Brickley's July 1 commit explicitly bases the addition on a 2016 design and recent discussion. This records the integration date separately from the longer design history.\n\nSources:\n\n- [Proposal #1401](https://github.com/schemaorg/schemaorg/issues/1401)\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/232c3aea)\n- [Release record](https://schema.org/docs/releases.html#v9.0)",
+    "links": [
+      [
+        "Proposal #1401",
+        "https://github.com/schemaorg/schemaorg/issues/1401"
+      ],
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/232c3aea"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v9.0"
+      ]
+    ],
+    "path": "data/lrmi-and-education.md",
+    "project": "LRMI, courses and educational credentials"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v9.0)",
+    "summary": "`ProductGroup` describes related variants and the dimensions they vary by; product collections represent bundles.",
+    "date": "2020-07-21",
+    "title": "Product groups and variants",
+    "evidence": "Sources:\n\n- [Variant proposal #1797](https://github.com/schemaorg/schemaorg/issues/1797)\n- [Release record](https://schema.org/docs/releases.html#v9.0)",
+    "links": [
+      [
+        "Variant proposal #1797",
+        "https://github.com/schemaorg/schemaorg/issues/1797"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v9.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v11.0)",
+    "summary": "**IPTC collaboration** brings `creditText` and `copyrightNotice` to improve compatibility with embedded media metadata.",
+    "date": "2020-11-30",
+    "title": "Photo credit and copyright interoperability",
+    "evidence": "Sources:\n\n- [Proposal #2659](https://github.com/schemaorg/schemaorg/issues/2659)\n- [Release record](https://schema.org/docs/releases.html#v11.0)",
+    "links": [
+      [
+        "Proposal #2659",
+        "https://github.com/schemaorg/schemaorg/issues/2659"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v11.0"
+      ]
+    ],
+    "path": "data/iptc-news-and-photo-metadata.md",
+    "project": "IPTC: news, photo metadata and digital provenance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released infrastructure (v11.0)",
+    "summary": "**Richard Wallis / Dataliberate** contributes the foundation for a Python 3 site build and clearer separation of vocabulary and presentation.",
+    "date": "2020-11-30",
+    "title": "Site infrastructure modernized",
+    "evidence": "This is a substantial infrastructure contribution, not a routine bug fix. The release also includes more usable hierarchy navigation and example tools; the entry does not attribute every related improvement exclusively to Wallis.\n\nSources:\n\n- [Foundation contribution](https://github.com/schemaorg/schemaorg/commit/53ac3933)\n- [Release record](https://schema.org/docs/releases.html#v11.0)",
+    "links": [
+      [
+        "Foundation contribution",
+        "https://github.com/schemaorg/schemaorg/commit/53ac3933"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v11.0"
+      ]
+    ],
+    "path": "data/site-tools-and-usage-data.md",
+    "project": "Site infrastructure, validation and usage data"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Collaboration announced",
+    "summary": "**CareJourney, Aneesh Chopra and the Robert Wood Johnson Foundation** launch a collaboration on structured healthcare-provider information.",
+    "date": "2020-12-01",
+    "title": "Healthcare provider directory collaboration",
+    "evidence": "This announcement concerns standards development and deployment; it does not itself prove that new terms shipped that day.\n\nSources:\n\n- [Guest announcement](https://blog.schema.org/2020/12/01/modernizing-us-health-provider-sites-to-improve-directory-accuracy/)",
+    "links": [
+      [
+        "Guest announcement",
+        "https://blog.schema.org/2020/12/01/modernizing-us-health-provider-sites-to-improve-directory-accuracy/"
+      ]
+    ],
+    "path": "data/health-and-medical.md",
+    "project": "Medical vocabulary, WikiDoc and the schemed community"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v12.0)",
+    "summary": "Jobs gain explicit descriptions of experience requirements and cases where experience can substitute for degree qualifications.",
+    "date": "2021-03-08",
+    "title": "Experience can substitute for education",
+    "evidence": "Sources:\n\n- [Proposal #2681](https://github.com/schemaorg/schemaorg/issues/2681)\n- [Release record](https://schema.org/docs/releases.html#v12.0)",
+    "links": [
+      [
+        "Proposal #2681",
+        "https://github.com/schemaorg/schemaorg/issues/2681"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v12.0"
+      ]
+    ],
+    "path": "data/jobs-and-public-services.md",
+    "project": "Jobs and public services"
+  },
+  {
+    "category": "Project",
+    "status": "Tool milestone",
+    "summary": "Schema.org announces its general-purpose markup validator, based on the former Google Structured Data Testing Tool.",
+    "date": "2021-05-21",
+    "title": "Schema Markup Validator beta",
+    "evidence": "This is an explicitly Google-origin tool contribution and is not highlighted as external authorship.\n\nSources:\n\n- [Validator announcement](https://blog.schema.org/2021/05/21/announcing-schema-markup-validator-validator-schema-org-beta/)",
+    "links": [
+      [
+        "Validator announcement",
+        "https://blog.schema.org/2021/05/21/announcing-schema-markup-validator-validator-schema-org-beta/"
+      ]
+    ],
+    "path": "data/site-tools-and-usage-data.md",
+    "project": "Site infrastructure, validation and usage data"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released in Pending (v13.0)",
+    "summary": "**Bioschemas** contributes biological and chemical entities, including genes, proteins, taxa, molecular entities and chemical substances.",
+    "date": "2021-07-07",
+    "title": "Life-science types integrated",
+    "evidence": "The release credits Bioschemas. Richard Wallis merged the terms into Pending in May; July 7 is the numbered release. The addition also includes BioChemEntity and supporting relationships. Bioschemas' own profiles remain independently maintained and should not be confused with Schema.org core status.\n\nSources:\n\n- [Proposal #2862](https://github.com/schemaorg/schemaorg/issues/2862)\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/13f9dcf4)\n- [Bioschemas' contemporary news listing](https://bioschemas.org/news/tags.html)\n- [Release record](https://schema.org/docs/releases.html#v13.0)",
+    "links": [
+      [
+        "Proposal #2862",
+        "https://github.com/schemaorg/schemaorg/issues/2862"
+      ],
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/13f9dcf4"
+      ],
+      [
+        "Bioschemas' contemporary news listing",
+        "https://bioschemas.org/news/tags.html"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v13.0"
+      ]
+    ],
+    "path": "data/bioschemas.md",
+    "project": "Bioschemas"
+  },
+  {
+    "category": "Project",
+    "status": "Released in Pending (v13.0)",
+    "summary": "Media reviews gain snapshots, hashes, contextual descriptions and links to related claim reviews.",
+    "date": "2021-07-07",
+    "title": "MediaReview detail expanded",
+    "evidence": "Sources:\n\n- [Proposal #2844](https://github.com/schemaorg/schemaorg/issues/2844)\n- [Release record](https://schema.org/docs/releases.html#v13.0)",
+    "links": [
+      [
+        "Proposal #2844",
+        "https://github.com/schemaorg/schemaorg/issues/2844"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v13.0"
+      ]
+    ],
+    "path": "data/fact-checking.md",
+    "project": "Fact-checking: ClaimReview, Claim and MediaReview"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v13.0)",
+    "summary": "**GS1 compatibility** motivates `countryOfAssembly` and `countryOfLastProcessing` for product descriptions.",
+    "date": "2021-07-07",
+    "title": "Product origin interoperability",
+    "evidence": "Sources:\n\n- [Proposal #991](https://github.com/schemaorg/schemaorg/issues/991)\n- [Release record](https://schema.org/docs/releases.html#v13.0)",
+    "links": [
+      [
+        "Proposal #991",
+        "https://github.com/schemaorg/schemaorg/issues/991"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v13.0"
+      ]
+    ],
+    "path": "data/gs1.md",
+    "project": "GS1 product vocabulary and interoperability"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Research and implementation feedback",
+    "summary": "**Full Fact** publishes experience and proposals on richer claims, Wikidata identifiers, evidence and correction workflows.",
+    "date": "2021-12-09",
+    "title": "Full Fact shares implementation research",
+    "evidence": "This is documented community feedback and experimental markup, not proof of new vocabulary being released that day.\n\nSources:\n\n- [Guest post](https://blog.schema.org/2021/12/09/the-art-of-connection/)",
+    "links": [
+      [
+        "Guest post",
+        "https://blog.schema.org/2021/12/09/the-art-of-connection/"
+      ]
+    ],
+    "path": "data/fact-checking.md",
+    "project": "Fact-checking: ClaimReview, Claim and MediaReview"
+  },
+  {
+    "category": "Non-Google",
+    "status": "External mapping",
+    "summary": "**IPTC and CIPA/Exif experts**, consulting Schema.org, publish mappings between photo metadata standards and Schema.org.",
+    "date": "2022-02-25",
+    "title": "Photo metadata mapping guidelines",
+    "evidence": "The guidelines' version history dates the initial version to February 25; the public announcement followed March 4. These are external mapping guidelines, not a Schema.org vocabulary release.\n\nSources:\n\n- [Guidelines and version history](https://www.iptc.org/std/photometadata/documentation/mappingguidelines/)\n- [IPTC announcement](https://iptc.org/news/iptc-announces-rules-for-mapping-photo-metadata-between-iptc-exif-and-schema-org-standards/)",
+    "links": [
+      [
+        "Guidelines and version history",
+        "https://www.iptc.org/std/photometadata/documentation/mappingguidelines/"
+      ],
+      [
+        "IPTC announcement",
+        "https://iptc.org/news/iptc-announces-rules-for-mapping-photo-metadata-between-iptc-exif-and-schema-org-standards/"
+      ]
+    ],
+    "path": "data/iptc-news-and-photo-metadata.md",
+    "project": "IPTC: news, photo metadata and digital provenance"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v14.0; new terms)",
+    "summary": "`funding` is added as the inverse of `fundedItem`, with further grant examples.",
+    "date": "2022-03-17",
+    "title": "Funding relationship simplified",
+    "evidence": "This continues the funding vocabulary, but the reviewed release note does not explicitly attribute this particular follow-up to the original workshop participants.\n\nSources:\n\n- [Proposal #3056](https://github.com/schemaorg/schemaorg/issues/3056)\n- [Release record](https://schema.org/docs/releases.html#v14.0)",
+    "links": [
+      [
+        "Proposal #3056",
+        "https://github.com/schemaorg/schemaorg/issues/3056"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v14.0"
+      ]
+    ],
+    "path": "data/wikidata-funding.md",
+    "project": "Wikidata/Wikibase collaboration on projects and funding"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v14.0; new terms)",
+    "summary": "Online businesses and stores gain dedicated types; products and offers gain audience-restriction vocabulary.",
+    "date": "2022-03-17",
+    "title": "Online stores and audience restrictions",
+    "evidence": "Sources:\n\n- [Online business proposal #3028](https://github.com/schemaorg/schemaorg/issues/3028)\n- [Release record](https://schema.org/docs/releases.html#v14.0)",
+    "links": [
+      [
+        "Online business proposal #3028",
+        "https://github.com/schemaorg/schemaorg/issues/3028"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v14.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v15.0; new terms)",
+    "summary": "Checkout URL templates and shipping-origin details are added, alongside support for **Amazon Standard Identification Numbers**.",
+    "date": "2022-10-25",
+    "title": "Checkout and product identifiers",
+    "evidence": "The `asin` property represents Amazon's identifier system. The release note does not establish that Amazon itself proposed or implemented it.\n\nSources:\n\n- [ASIN proposal #3123](https://github.com/schemaorg/schemaorg/issues/3123)\n- [Release record](https://schema.org/docs/releases.html#v15.0)",
+    "links": [
+      [
+        "ASIN proposal #3123",
+        "https://github.com/schemaorg/schemaorg/issues/3123"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v15.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released infrastructure (v16.0)",
+    "summary": "**Richard Wallis** separates acknowledgement text into Markdown files, linking them from term definitions using `contributor`.",
+    "date": "2023-05-16",
+    "title": "Contributor acknowledgements become separate Markdown",
+    "evidence": "PR #3202 was merged in November 2022 and listed in the May 2023 release. These files are a major evidence source for this timeline: commit authorship alone does not capture vocabulary provenance.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/6e08e18f)\n- [Release record](https://schema.org/docs/releases.html#v16.0)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/6e08e18f"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v16.0"
+      ]
+    ],
+    "path": "data/site-tools-and-usage-data.md",
+    "project": "Site infrastructure, validation and usage data"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released examples (v16.0)",
+    "summary": "**ESIP's Science-on-Schema community** contributes scientific dataset and research-project examples, integrated by Richard Wallis.",
+    "date": "2023-05-16",
+    "title": "Science-on-Schema examples incorporated",
+    "evidence": "The source branch includes commits by Melinda Minch; PR #3065 was merged on April 6, 2023, before the May release. Credit is for documentation and examples, not creation of the pre-existing Dataset type.\n\nSources:\n\n- [Contribution PR #3065](https://github.com/schemaorg/schemaorg/pull/3065)\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/a7e9c979)\n- [Release record](https://schema.org/docs/releases.html#v16.0)",
+    "links": [
+      [
+        "Contribution PR #3065",
+        "https://github.com/schemaorg/schemaorg/pull/3065"
+      ],
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/a7e9c979"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v16.0"
+      ]
+    ],
+    "path": "data/datasets-and-scientific-metadata.md",
+    "project": "Datasets, DCAT and scientific metadata"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v16.0; new terms)",
+    "summary": "`StatisticalVariable` and revised observation modelling describe measurable properties of a place or entity over time.",
+    "date": "2023-05-16",
+    "title": "Statistical variables",
+    "evidence": "The release revises an earlier statistics draft rather than introducing statistical observations from scratch.\n\nSources:\n\n- [Proposal #2564](https://github.com/schemaorg/schemaorg/issues/2564)\n- [Release record](https://schema.org/docs/releases.html#v16.0)",
+    "links": [
+      [
+        "Proposal #2564",
+        "https://github.com/schemaorg/schemaorg/issues/2564"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v16.0"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v18.0)",
+    "summary": "`TextObject` gives text an explicit media-object representation, including use as a description value.",
+    "date": "2023-05-18",
+    "title": "Text objects",
+    "evidence": "Sources:\n\n- [Contribution PR #3091](https://github.com/schemaorg/schemaorg/pull/3091)\n- [Release record](https://schema.org/docs/releases.html#v18.0)",
+    "links": [
+      [
+        "Contribution PR #3091",
+        "https://github.com/schemaorg/schemaorg/pull/3091"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v18.0"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v21.0)",
+    "summary": "`PoliticalParty` adds a dedicated organization type.",
+    "date": "2023-05-23",
+    "title": "Political parties",
+    "evidence": "Sources:\n\n- [Contribution PR #3282](https://github.com/schemaorg/schemaorg/pull/3282)\n- [Release record](https://schema.org/docs/releases.html#v21.0)",
+    "links": [
+      [
+        "Contribution PR #3282",
+        "https://github.com/schemaorg/schemaorg/pull/3282"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v21.0"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Non-Google",
+    "status": "External mapping",
+    "summary": "**IPTC and CIPA** update the mapping guidance for Exif 3.0, retaining links to Schema.org properties.",
+    "date": "2023-10-30",
+    "title": "Exif 3.0 mapping update",
+    "evidence": "The document version is dated October 30; the announcement appeared November 28.\n\nSources:\n\n- [Version history](https://www.iptc.org/std/photometadata/documentation/mappingguidelines/)\n- [IPTC announcement](https://iptc.org/news/iptc-updates-photo-metadata-mapping-rules-for-exif-3-0/)",
+    "links": [
+      [
+        "Version history",
+        "https://www.iptc.org/std/photometadata/documentation/mappingguidelines/"
+      ],
+      [
+        "IPTC announcement",
+        "https://iptc.org/news/iptc-updates-photo-metadata-mapping-rules-for-exif-3-0/"
+      ]
+    ],
+    "path": "data/iptc-news-and-photo-metadata.md",
+    "project": "IPTC: news, photo metadata and digital provenance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v24.0)",
+    "summary": "**IPTC's Digital Source Type vocabulary** supplies an enumeration for identifying how media was created, including generative AI.",
+    "date": "2024-01-09",
+    "title": "Digital source types, including AI-generated media",
+    "evidence": "The release explicitly credits collaboration with IPTC. Dan Brickley drafted the Schema.org representation in October 2023; January 2024 is the numbered-release date.\n\nSources:\n\n- [Release record](https://schema.org/docs/releases.html#v24.0)\n- [Proposal #3392](https://github.com/schemaorg/schemaorg/issues/3392)\n- [Integration commit](https://github.com/schemaorg/schemaorg/commit/555797b3)",
+    "links": [
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v24.0"
+      ],
+      [
+        "Proposal #3392",
+        "https://github.com/schemaorg/schemaorg/issues/3392"
+      ],
+      [
+        "Integration commit",
+        "https://github.com/schemaorg/schemaorg/commit/555797b3"
+      ]
+    ],
+    "path": "data/iptc-news-and-photo-metadata.md",
+    "project": "IPTC: news, photo metadata and digital provenance"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v25.0)",
+    "summary": "`Certification` describes certifications of products, places, organizations and people, with **GS1 CertificationDetails compatibility**.",
+    "date": "2024-01-22",
+    "title": "Certifications",
+    "evidence": "The release states compatibility; it does not establish direct organizational authorship by GS1.\n\nSources:\n\n- [Proposal #3230](https://github.com/schemaorg/schemaorg/issues/3230)\n- [Release record](https://schema.org/docs/releases.html#v25.0)",
+    "links": [
+      [
+        "Proposal #3230",
+        "https://github.com/schemaorg/schemaorg/issues/3230"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v25.0"
+      ]
+    ],
+    "path": "data/gs1.md",
+    "project": "GS1 product vocabulary and interoperability"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v27.0)",
+    "summary": "**GS1 Digital Link** gains a dedicated `hasGS1DigitalLink` property following a proposal by Matthias Wiesmann.",
+    "date": "2024-05-20",
+    "title": "GS1 Digital Link",
+    "evidence": "The issue describes product identifiers encoded as Web links, including identifiers for variants and lots. Author affiliation is not classified here.\n\nSources:\n\n- [Proposal #3475](https://github.com/schemaorg/schemaorg/issues/3475)\n- [Release record](https://schema.org/docs/releases.html#v27.0)",
+    "links": [
+      [
+        "Proposal #3475",
+        "https://github.com/schemaorg/schemaorg/issues/3475"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v27.0"
+      ]
+    ],
+    "path": "data/gs1.md",
+    "project": "GS1 product vocabulary and interoperability"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v28.0)",
+    "summary": "Membership programs, tiers and tier benefits support structured descriptions of loyalty schemes.",
+    "date": "2024-09-17",
+    "title": "Loyalty programs",
+    "evidence": "Sources:\n\n- [Proposal #3563](https://github.com/schemaorg/schemaorg/issues/3563)\n- [Release record](https://schema.org/docs/releases.html#v28.0)",
+    "links": [
+      [
+        "Proposal #3563",
+        "https://github.com/schemaorg/schemaorg/issues/3563"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v28.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v28.1)",
+    "summary": "**IPTC vocabulary updates** extend the digital source enumeration with further media-origin distinctions.",
+    "date": "2024-11-22",
+    "title": "Additional IPTC digital source codes",
+    "evidence": "The release index repeats PR #3691 under v29.4. This timeline records the earlier listed release and does not count it again as a new contribution.\n\nSources:\n\n- [Integration PR #3691](https://github.com/schemaorg/schemaorg/pull/3691)\n- [Release record](https://schema.org/docs/releases.html#v28.1)",
+    "links": [
+      [
+        "Integration PR #3691",
+        "https://github.com/schemaorg/schemaorg/pull/3691"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v28.1"
+      ]
+    ],
+    "path": "data/iptc-news-and-photo-metadata.md",
+    "project": "IPTC: news, photo metadata and digital provenance"
+  },
+  {
+    "category": "Non-Google",
+    "status": "Released (v29.0)",
+    "summary": "**Thomas Francart's ELI follow-up** adds relationships for amendments, repeals, corrections, commencement and applicability.",
+    "date": "2025-03-24",
+    "title": "ELI model updates incorporated",
+    "evidence": "The proposal opened in March 2020 and Francart's source changes date from September 2020. The PR was merged in February 2025 and appears in v29.0. This long interval is why proposal, merge and release dates must be distinguished.\n\nSources:\n\n- [Proposal #2698](https://github.com/schemaorg/schemaorg/issues/2698)\n- [Original source contribution](https://github.com/schemaorg/schemaorg/commit/1499f3ca)\n- [Merge record](https://github.com/schemaorg/schemaorg/commit/b4a56d49)\n- [Release record](https://schema.org/docs/releases.html#v29.0)",
+    "links": [
+      [
+        "Proposal #2698",
+        "https://github.com/schemaorg/schemaorg/issues/2698"
+      ],
+      [
+        "Original source contribution",
+        "https://github.com/schemaorg/schemaorg/commit/1499f3ca"
+      ],
+      [
+        "Merge record",
+        "https://github.com/schemaorg/schemaorg/commit/b4a56d49"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v29.0"
+      ]
+    ],
+    "path": "data/eli-legislation.md",
+    "project": "European Legislation Identifier (ELI)"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v29.0)",
+    "summary": "Financial incentives and a richer shipping-service model describe eligibility, fulfillment and delivery conditions.",
+    "date": "2025-03-24",
+    "title": "Financial incentives and shipping services",
+    "evidence": "Sources:\n\n- [Incentives proposal #3572](https://github.com/schemaorg/schemaorg/issues/3572)\n- [Shipping proposal #3617](https://github.com/schemaorg/schemaorg/issues/3617)\n- [Release record](https://schema.org/docs/releases.html#v29.0)",
+    "links": [
+      [
+        "Incentives proposal #3572",
+        "https://github.com/schemaorg/schemaorg/issues/3572"
+      ],
+      [
+        "Shipping proposal #3617",
+        "https://github.com/schemaorg/schemaorg/issues/3617"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v29.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released (v29.2)",
+    "summary": "**Fab** contributes company-registration, legal-address and legal-representative properties for organizations.",
+    "date": "2025-05-13",
+    "title": "Legal information for organizations",
+    "evidence": "The May 5 commit credits Fab; the release follows May 13. The contributor's organizational affiliation was not established. This is separated from the patch release's unrelated bug fixes.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/bb5820db)\n- [Proposal #4366](https://github.com/schemaorg/schemaorg/issues/4366)\n- [Release record](https://schema.org/docs/releases.html#v29.2)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/bb5820db"
+      ],
+      [
+        "Proposal #4366",
+        "https://github.com/schemaorg/schemaorg/issues/4366"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v29.2"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Project",
+    "status": "Released (v29.3)",
+    "summary": "`OnlineMarketplace` and store/marketplace relationships make multi-store commerce platforms explicit.",
+    "date": "2025-09-04",
+    "title": "Online marketplaces",
+    "evidence": "The same issue is also listed in v29.4. This entry uses the earlier recorded release and avoids double-counting it.\n\nSources:\n\n- [Proposal #4470](https://github.com/schemaorg/schemaorg/issues/4470)\n- [Release record](https://schema.org/docs/releases.html#v29.3)",
+    "links": [
+      [
+        "Proposal #4470",
+        "https://github.com/schemaorg/schemaorg/issues/4470"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v29.3"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released (v29.4)",
+    "summary": "**Roy Hyunjin Han** contributes `ConferenceEvent` with participation and sponsorship offers.",
+    "date": "2025-12-08",
+    "title": "Conferences and their offers",
+    "evidence": "Git credits Han for the September 22 contribution; December 8 is the release date. The reviewed record does not establish organizational affiliation.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/c267fcb7)\n- [Release record](https://schema.org/docs/releases.html#v29.4)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/c267fcb7"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v29.4"
+      ]
+    ],
+    "path": "data/other-vocabulary-milestones.md",
+    "project": "Other substantial vocabulary milestones"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v29.4)",
+    "summary": "Mappings connect Schema.org to **UN/CEFACT, GS1 and OMG/FIBO-related vocabularies**; git credits include Matthias Wiesmann.",
+    "date": "2025-12-08",
+    "title": "Cross-vocabulary equivalences",
+    "evidence": "Mappings demonstrate reuse and interoperability. They do not establish that each standards organization directly participated in the PRs; the author's affiliation is not classified here.\n\nSources:\n\n- [Class-equivalence commit](https://github.com/schemaorg/schemaorg/commit/73736057)\n- [Release record and related PRs](https://schema.org/docs/releases.html#v29.4)",
+    "links": [
+      [
+        "Class-equivalence commit",
+        "https://github.com/schemaorg/schemaorg/commit/73736057"
+      ],
+      [
+        "Release record and related PRs",
+        "https://schema.org/docs/releases.html#v29.4"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Released examples (v30.0)",
+    "summary": "**K\u00e9vin Boutillier** contributes product examples in the Digital Product Passport work, aligned with UN/CEFACT codes.",
+    "date": "2026-03-19",
+    "title": "Digital Product Passport examples",
+    "evidence": "The release lists PRs #4662 and #4663 for these examples. Git credits Boutillier on #4662; his affiliation was not established. These examples precede the distinct August draft vocabulary.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/41a28b57)\n- [Release record](https://schema.org/docs/releases.html#v30.0)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/41a28b57"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v30.0"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Alignment",
+    "status": "Released (v30.0)",
+    "summary": "**Dublin Core, GS1 and Open Graph** mappings expand the vocabulary's connections to other standards.",
+    "date": "2026-03-19",
+    "title": "More equivalence annotations and exports",
+    "evidence": "The release lists PRs #4689, #4639, #4620, #4642, #4648 and #4622. Git credits Matthias Wiesmann for the Dublin Core annotations. Alignment is not evidence of endorsement by the external standards bodies.\n\nSources:\n\n- [Dublin Core contribution](https://github.com/schemaorg/schemaorg/commit/2e0361b2)\n- [Release record](https://schema.org/docs/releases.html#v30.0)",
+    "links": [
+      [
+        "Dublin Core contribution",
+        "https://github.com/schemaorg/schemaorg/commit/2e0361b2"
+      ],
+      [
+        "Release record",
+        "https://schema.org/docs/releases.html#v30.0"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Project",
+    "status": "Data publication",
+    "summary": "**Google** contributes monthly aggregate term-usage statistics, with open CSV/JSON data and badges on Schema.org term pages.",
+    "date": "2026-06-04",
+    "title": "Public term-usage dataset",
+    "evidence": "The announcement invites other crawlers to contribute but explicitly identifies Google as the initial data source. This entry therefore does not imply that multiple independent crawlers were already supplying data.\n\nSources:\n\n- [Dataset announcement](https://blog.schema.org/2026/06/04/announcing-the-schema-org-usage-statistics-dataset/)",
+    "links": [
+      [
+        "Dataset announcement",
+        "https://blog.schema.org/2026/06/04/announcing-the-schema-org-usage-statistics-dataset/"
+      ]
+    ],
+    "path": "data/site-tools-and-usage-data.md",
+    "project": "Site infrastructure, validation and usage data"
+  },
+  {
+    "category": "Project",
+    "status": "Documentation milestone",
+    "summary": "Schema.org documents explicit support for RDF collections and containers as property values, including JSON-LD `@list`.",
+    "date": "2026-06-17",
+    "title": "RDF collections and ordering clarified",
+    "evidence": "The June 16 documentation commit is by Ryan Levering; the blog announcement is dated June 17. This is a data-model documentation change after v30.0, not a new numbered vocabulary release.\n\nSources:\n\n- [Announcement](https://blog.schema.org/2026/06/17/supporting-ordering-in-schema-org/)\n- [Documentation commit](https://github.com/schemaorg/schemaorg/commit/f5b95894)",
+    "links": [
+      [
+        "Announcement",
+        "https://blog.schema.org/2026/06/17/supporting-ordering-in-schema-org/"
+      ],
+      [
+        "Documentation commit",
+        "https://github.com/schemaorg/schemaorg/commit/f5b95894"
+      ]
+    ],
+    "path": "data/web-standards-and-encodings.md",
+    "project": "Web standards, encodings and vocabulary mappings"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Merged draft; release not established",
+    "summary": "**raidengatedesign** contributes Audiology to the medical-specialty vocabulary.",
+    "date": "2026-06-25",
+    "title": "Audiology addition merged",
+    "evidence": "The date is the repository commit date, after the latest numbered release. The contributor's organizational affiliation was not established.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/b634e08a)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/b634e08a"
+      ]
+    ],
+    "path": "data/health-and-medical.md",
+    "project": "Medical vocabulary, WikiDoc and the schemed community"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Merged draft; release not established",
+    "summary": "**MichaelLinck** contributes passport, environmental-declaration and conformity vocabulary, including a GS1 mapping.",
+    "date": "2026-08-17",
+    "title": "Digital Product Passport vocabulary merged",
+    "evidence": "The merged files are in Pending and postdate v30.0, the latest numbered release found at the cutoff. The contribution includes DigitalProductPassport, hasDigitalProductPassport, EnvironmentalProductDeclaration, DeclarationOfConformity, importer, authorizedRepresentative and recycled-content information. Author affiliation was not established.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/8091003a3c693eec34d029f3bc67d605c1399dfa)\n- [PR #4871](https://github.com/schemaorg/schemaorg/pull/4871)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/8091003a3c693eec34d029f3bc67d605c1399dfa"
+      ],
+      [
+        "PR #4871",
+        "https://github.com/schemaorg/schemaorg/pull/4871"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  },
+  {
+    "category": "Named contributor",
+    "status": "Merged draft; release not established",
+    "summary": "**MichaelLinck** adds draft support for grouped specifications, consumer notices, related purchases and marketplace pricing/shipping information.",
+    "date": "2026-08-25",
+    "title": "Retail and marketplace properties merged",
+    "evidence": "The date is the merge commit date, not a numbered release. Organizational affiliation was not established.\n\nSources:\n\n- [Contribution commit](https://github.com/schemaorg/schemaorg/commit/13e92551b59f042e68066d9bce2d362760917ce8)",
+    "links": [
+      [
+        "Contribution commit",
+        "https://github.com/schemaorg/schemaorg/commit/13e92551b59f042e68066d9bce2d362760917ce8"
+      ]
+    ],
+    "path": "data/commerce-and-product-passports.md",
+    "project": "Commerce, organizations and digital product passports"
+  }
+]
