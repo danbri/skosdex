@@ -246,10 +246,17 @@ function conceptSchemeURI(metaFile) {
 async function checkData() {
   head('DATA — committed canonical.nq.gz integrity');
   const base = join(ROOT, 'third_party/skos');
-  const slugs = readdirSync(base).filter((d) => {
-    const p = join(base, d);
-    return statSync(p).isDirectory() && existsSync(join(p, 'canonical.nq.gz'));
-  });
+  // scheme folders may sit inside group folders (e.g. dpp/ec/<scheme>)
+  const slugs = [];
+  const walk = (rel, depth) => {
+    for (const d of readdirSync(rel ? join(base, rel) : base)) {
+      const sub = rel ? `${rel}/${d}` : d, p = join(base, sub);
+      if (!statSync(p).isDirectory()) continue;
+      if (existsSync(join(p, 'canonical.nq.gz'))) slugs.push(sub);
+      else if (depth < 3) walk(sub, depth + 1);
+    }
+  };
+  walk('', 0);
   console.log(`  ${slugs.length} schemes with canonical.nq.gz`);
 
   let pointers = 0, badgz = 0, parseErrs = 0, empty = 0;

@@ -69,23 +69,37 @@ const EXT_BY_FORMAT = {
 // Metadata
 // ---------------------------------------------------------------------------
 
+// A scheme is any folder under third_party/skos/ holding a meta.ttl. Folders
+// without one are groups (e.g. dpp/ec/) and are searched recursively, so
+// related vocabularies can share a parent folder. Returns paths relative to
+// SCHEMES_DIR ('agrovoc', 'dpp/ec/battery-category').
 function listSlugs() {
   if (!fs.existsSync(SCHEMES_DIR)) return [];
-  return fs
-    .readdirSync(SCHEMES_DIR, { withFileTypes: true })
-    .filter((d) => d.isDirectory())
-    .map((d) => d.name)
-    .filter((name) => fs.existsSync(path.join(SCHEMES_DIR, name, 'meta.ttl')))
-    .sort();
+  const found = [];
+  const walk = (rel, depth) => {
+    for (const d of fs.readdirSync(path.join(SCHEMES_DIR, rel), { withFileTypes: true })) {
+      if (!d.isDirectory()) continue;
+      const sub = rel ? `${rel}/${d.name}` : d.name;
+      if (fs.existsSync(path.join(SCHEMES_DIR, sub, 'meta.ttl'))) found.push(sub);
+      else if (depth < 3) walk(sub, depth + 1);
+    }
+  };
+  walk('', 0);
+  return found.sort();
 }
 
-function readMeta(slug) {
-  const dir = path.join(SCHEMES_DIR, slug);
+// The flat slug used in file names and blank-node prefixes: a nested path's
+// folders joined by '-' ('dpp/ec/battery-category' -> 'dpp-ec-battery-category').
+const slugOfPath = (rel) => rel.split('/').join('-');
+
+function readMeta(rel) {
+  const dir = path.join(SCHEMES_DIR, rel);
+  const slug = slugOfPath(rel);
   const text = fs.readFileSync(path.join(dir, 'meta.ttl'), 'utf8');
   const store = new Store(new Parser().parse(text));
 
   const subjects = store.getSubjects(namedNode(NS.rdf + 'type'), namedNode(NS.skosdex + 'Scheme'));
-  if (subjects.length === 0) throw new Error(`${slug}/meta.ttl: no skosdex:Scheme found`);
+  if (subjects.length === 0) throw new Error(`${rel}/meta.ttl: no skosdex:Scheme found`);
   const s = subjects[0];
 
   const one = (term, pfx, local) => {
@@ -95,6 +109,7 @@ function readMeta(slug) {
 
   const meta = {
     slug,
+    path: rel,
     dir,
     title: one(s, 'dcterms', 'title') || slug,
     conceptSchemeURI: one(s, 'skosdex', 'conceptSchemeURI'),
@@ -524,6 +539,8 @@ async function graphedAll(only) {
       title: meta.title,
       license: meta.license,
       licenseClass: meta.licenseClass,
+      // group folder for nested schemes ('dpp/ec'), null for top-level ones; lets the UI cluster related vocabularies
+      group: meta.path.includes('/') ? path.dirname(meta.path) : null,
       containerOnly: !meta.openData,
       modifications: 'N-Quads syntax normalization only; no semantic changes',
       graph: meta.conceptSchemeURI || null,
@@ -566,6 +583,8 @@ async function bundleAll() {
       title: meta.title,
       license: meta.license,
       licenseClass: meta.licenseClass,
+      // group folder for nested schemes ('dpp/ec'), null for top-level ones; lets the UI cluster related vocabularies
+      group: meta.path.includes('/') ? path.dirname(meta.path) : null,
       containerOnly: !meta.openData,   // BY-SA / NC-ND: container only, never static artifacts
       modifications: 'N-Quads syntax normalization only; no semantic changes',
       graph: meta.conceptSchemeURI || null,
@@ -885,9 +904,16 @@ search('');
 // CLI
 // ---------------------------------------------------------------------------
 
+// [slug] may be the flat slug or the folder path ('dpp-ec-battery-category' or
+// 'dpp/ec/battery-category'); a group path ('dpp' or 'dpp/ec') selects every
+// scheme under it.
 function selectMetas(slug) {
-  const slugs = slug ? [slug] : listSlugs();
-  return slugs.map(readMeta);
+  const metas = listSlugs().map(readMeta);
+  if (!slug) return metas;
+  const want = slug.replace(/\/+$/, '');
+  const sel = metas.filter((m) => m.slug === want || m.path === want || m.path.startsWith(want + '/'));
+  if (!sel.length) throw new Error(`no scheme or group "${slug}" under third_party/skos/`);
+  return sel;
 }
 
 async function main() {

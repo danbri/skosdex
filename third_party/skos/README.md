@@ -13,6 +13,17 @@ One folder per SKOS concept scheme. Each folder has a `meta.ttl` (described by
   canonical.nq      # RDFC-1.0 canonicalized N-Quads   (generated)
 ```
 
+### Group folders
+
+Related schemes may share a parent folder, which has no `meta.ttl` of its own:
+for example `dpp/` (Digital Product Passport vocabularies), with one subfolder
+per publisher, as in `dpp/ec/<scheme>/`. The CLI searches group folders, up to
+three levels deep. Each scheme gets a flat slug made from its path
+(`dpp/ec/battery-category` -> `dpp-ec-battery-category`), used in file names
+and blank-node prefixes. `skosdex build dpp/ec` builds a whole group, and the
+manifest records each scheme's `group` so the UI can cluster related
+vocabularies. Put a `README.md` in each group folder saying what it holds.
+
 ## Data license policy (v2, 2026-06-10)
 
 **Explicit licensing gates everything.** A scheme's `skosdex:licenseClass`

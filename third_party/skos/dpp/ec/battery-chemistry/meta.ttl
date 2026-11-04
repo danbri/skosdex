@@ -1,0 +1,25 @@
+@prefix skosdex: <https://danbri.org/ns/skosdex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# EU Digital Product Passport (DPP) — European Commission semantic data
+# artifacts, release 1.0.0 (30 Oct 2026), batteries layer: product/batteries/1.0.0/vocabs/battery-chemistry.ttl
+# (10 concepts). Published by DG GROW as part of the DPP Registry
+# "Semantic Data Artifacts" zip on the EC DPP resources page:
+# https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/resources-documentation_en
+# The file's own dct:license is EUPL-1.2 (copyleft) -> container-only, content
+# unchanged. The scheme IRIs under repository.product-passport.ec.europa.eu do
+# not resolve (NXDOMAIN, checked 2026-11-03), so the zip is the only source.
+# sourceEntry pins release 1.0.0: a new EC release changes the member path, so
+# a re-fetch fails loudly instead of silently picking up different content.
+<#scheme> a skosdex:Scheme ;
+    dcterms:title "EU DPP (EC): Battery Chemistry Vocabulary" ;
+    dcterms:publisher <https://commission.europa.eu/about/departments-and-executive-agencies/internal-market-industry-entrepreneurship-and-smes_en> ;
+    skosdex:conceptSchemeURI <https://repository.product-passport.ec.europa.eu/product/batteries/vocabs/battery-chemistry> ;
+    skosdex:sourceURL <https://single-market-economy.ec.europa.eu/document/download/5fad8a3a-9c18-486d-be02-01eb540e91e8_en?filename=DPP%20Registry%20%E2%80%93%20Semantic%20Data%20Artifacts.zip> ;
+    skosdex:compression "zip" ;
+    skosdex:sourceEntry "product/batteries/1.0.0/vocabs/battery-chemistry.ttl" ;
+    skosdex:sourceFormat "text/turtle" ;
+    dcterms:license <https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12> ;
+    skosdex:licenseClass "copyleft" ;
+    skosdex:bundle true .

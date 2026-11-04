@@ -5,7 +5,7 @@ _site/
 # Cached upstream scheme data. Never commit third-party data with a viral
 # (copyleft / share-alike) or anti-commercial (NC) license. See
 # third_party/skos/README.md for the policy.
-third_party/skos/*/cache/
+third_party/skos/**/cache/
 # Top-level scratch for raw upstream downloads (e.g. before a per-scheme
 # preparer writes the committed sourceFile). Re-fetchable; never committed.
 /cache/
@@ -13,7 +13,7 @@ third_party/skos/*/cache/
 # N-Quads artifacts are stored gzipped (*.nq.gz) via Git LFS — see
 # .gitattributes. Canonical files are committed (LFS); intermediate
 # normalized.nq.gz is a build artifact, not committed.
-third_party/skos/*/normalized.nq.gz
+third_party/skos/**/normalized.nq.gz
 
 # Never commit uncompressed .nq — everything is gzipped (CLAUDE.md policy).
 *.nq

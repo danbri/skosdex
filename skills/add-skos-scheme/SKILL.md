@@ -13,6 +13,10 @@ per-scheme code for the normal case.
 ## Steps
 
 1. Pick a short kebab-case `<slug>` and create `third_party/skos/<slug>/`.
+   If it belongs with related schemes (for example several codelists from one
+   publisher, or one programme such as DPP), put it in a group folder instead:
+   `third_party/skos/<group>/<subgroup>/<name>/`, e.g. `dpp/ec/battery-category`.
+   Its slug is then the path joined with `-` (see `third_party/skos/README.md`).
 2. Copy `templates/meta.ttl` (next to this skill) into that folder and fill it
    in. See the `skosdex:` vocabulary in `ns/skosdex.ttl` for term definitions.
 3. Determine the **license class** — this gates whether data may be bundled:
